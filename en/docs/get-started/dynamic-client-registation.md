@@ -14,7 +14,7 @@ openbanking.org.uk/DynamicClientRegistration/3.3.0/dynamic-client-registration-s
 
 5. Click **Next**.
 
-6. Click Create to create the API. ![create-dcr-api](../assets/img/get-started/quick-start-guide/create-dcr.png)
+6. Click **Create** to create the API. ![create-dcr-api](../assets/img/get-started/quick-start-guide/create-dcr.png)
 
 7. After the API is successfully created, go to **Portal Configurations** using the left menu panel. ![portal-configurations](../assets/img/get-started/quick-start-guide/portal-configurations.png)
 
@@ -54,7 +54,7 @@ openbanking.org.uk/DynamicClientRegistration/3.3.0/dynamic-client-registration-s
 
 22. Click **Publish**. ![publish_api](../assets/img/get-started/quick-start-guide/publish-api.png)
 
-23. The deployed APIs are now available in the Developer Portal at <https://localhost:9443/devportal>.
+23. The deployed API is now available in the Developer Portal at <https://localhost:9443/devportal>.
 
 24. Upload the root and issuer certificates found [here](https://openbanking.atlassian.net/wiki/spaces/DZ/pages/252018873/OB+Root+and+Issuing+Certificates+for+Sandbox) 
     to the client trust stores in `<APIM_HOME>/repository/resources/security/client-truststore.jks` and 
