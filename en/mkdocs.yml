@@ -147,7 +147,7 @@ extra:
       link: https://twitter.com/wso2
     - type: linkedin
       link: https://www.linkedin.com/company/wso2
-  site_version: account-and-transaction-flow.md.0.0
+  site_version: 1.0.0
   nav_list:
     - Home
     - Get Started
