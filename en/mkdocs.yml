@@ -67,6 +67,11 @@ nav:
     - 'Configuring API Manager': install-and-setup/configuring-api-manager-for-ob.md
     - 'Configuring Users and Roles': install-and-setup/configuring-users-and-roles.md
     - 'Troubleshooting': install-and-setup/troubleshooting.md
+  - 'Try out':
+    - 'TPP Onboarding': try-out/dynamic-client-regsitration-flow.md
+    - 'Account and transaction flow': try-out/account-and-transaction-flow.md
+    - 'Payment Initiation flow': try-out/payment-initiation-flow.md
+    - 'Confirmation of Funds flow': try-out/confirmation-of-funds-flow.md
   - 'Learn':
     - 'Consent Management':
       - 'Introduction': learn/consent-management.md
@@ -142,10 +147,11 @@ extra:
       link: https://twitter.com/wso2
     - type: linkedin
       link: https://www.linkedin.com/company/wso2
-  site_version: 1.0.0
+  site_version: account-and-transaction-flow.md.0.0
   nav_list:
     - Home
     - Get Started
     - Install and Setup
+    - Try out
     - Learn
     - References
