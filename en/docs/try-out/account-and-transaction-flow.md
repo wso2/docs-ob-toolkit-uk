@@ -5,7 +5,9 @@ This document provides step by step instructions to deploy, subscribe, and invok
 
 ## Deploying Account and Transaction API
 
-1. Sign in to the [API Publisher Portal](https://localhost:9443/publisher) with the credentials for `mark@gold.com`. ![sign_in](../assets/img/get-started/quick-start-guide/sign-in.png)
+1. Sign in to the API Publisher Portal at `https://<APIM_HOST>:9443/publisher` with the creator/publisher privileges.
+ 
+    ![sign_in](../assets/img/get-started/quick-start-guide/sign-in.png)
 
 2. In the homepage, go to **REST API** and select **Import Open API**. ![let's_get_started](../assets/img/get-started/quick-start-guide/lets-get-started.png)
 
@@ -55,7 +57,7 @@ This document provides step by step instructions to deploy, subscribe, and invok
 
 ## Subscribing to Account and Transaction API
 
-1. The deployed API is now available in the Developer Portal at <https://localhost:9443/devportal>.
+1. The deployed API is now available in the Developer Portal at `https://<APIM_HOST>:9443/devportal`.
 
 2. Select the **AccountAndTransactionAPI V3.1** API.
  
@@ -106,7 +108,7 @@ eyJraWQiOiIyTUk5WFNLaTZkZHhDYldnMnJoRE50VWx4SmMiLCJhbGciOiJQUzI1NiJ9.eyJzdWIiOiJ
 2. Run the following cURL command in a command prompt to generate the access token. Update the placeholders with relevant values.
 ``` curl
 curl -X POST \
-https://localhost:9446/oauth2/token \
+https://<IS_HOST>:9446/oauth2/token \
 --cert <TRANSPORT_PUBLIC_KEY_FILE_PATH> --key <TRANSPORT_PRIVATE_KEY_FILE_PATH> \
 -d 'grant_type=client_credentials&scope=accounts%20openid&client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer&client_assertion=<CLIENT_ASSERTION_JWT>&redirect_uri=<REDIRECT_URI>&client_id=<CLIENT_ID>'
 ```
@@ -128,7 +130,7 @@ In this step, the AISP generates a request to get the consent of the PSU to acce
 1. Create an account consent using the following request format:
 ```
 curl -X POST \
-https://localhost:8243/open-banking/v3.1/aisp/account-access-consents \
+https://<APIM_HOST>:8243/open-banking/v3.1/aisp/account-access-consents \
 -H 'Authorization: Bearer <APPLICATION_ACCESS_TOKEN>' \
 -H 'Content-Type: application/json' \
 -H 'Accept: application/json' \
@@ -332,7 +334,7 @@ In this section, you will be generating an access token using the authorization 
     
     ```
     curl -X POST \
-    https://localhost:9446/oauth2/token \
+    https://<IS_HOST>:9446/oauth2/token \
     -H 'Cache-Control: no-cache' \
     -H 'Content-Type: application/x-www-form-urlencoded' \
     --cert <PUBLIC_KEY_FILE_PATH> --key <PRIVATE_KEY_FILE_PATH> \
@@ -364,7 +366,7 @@ other resources for a specific AccountId.
     
     ```
     curl -X GET \
-    https://localhost:8243/open-banking/v3.1/aisp/accounts' \
+    https://<APIM_HOST>:8243/open-banking/v3.1/aisp/accounts' \
     -H 'x-fapi-financial-id: open-bank' \
     -H 'Authorization: Bearer <USER_ACCESS_TOKEN>' \
     -H 'Accept: application/json' \

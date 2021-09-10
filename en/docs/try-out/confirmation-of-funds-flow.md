@@ -1,11 +1,13 @@
-This document provides step by step instructions to deploy, subscribe, and invoke the Account and Transaction API. 
+This document provides step by step instructions to deploy, subscribe, and invoke the Confirmation of Funds API. 
 
 !!! tip
-    When the TPP provides an Account Information Service as an online service, the TPP is known as an Account Information Services Provider (AISP).
+    When the TPP provides an online service to confirm that funds are available, the TPP is known as a Card Based Payment Instrument Issuer (CBPII).
 
-## Deploying Account and Transaction API
+## Deploying Confirmation of Funds API
 
-1. Sign in to the [API Publisher Portal](https://localhost:9443/publisher) with the credentials for `mark@gold.com`. ![sign_in](../assets/img/get-started/quick-start-guide/sign-in.png)
+1. Sign in to the API Publisher Portal at `https://<APIM_HOST>:9443/publisher` with creator/publisher privileges. 
+
+    ![sign_in](../assets/img/get-started/quick-start-guide/sign-in.png)
 
 2. In the homepage, go to **REST API** and select **Import Open API**. ![let's_get_started](../assets/img/get-started/quick-start-guide/lets-get-started.png)
 
@@ -53,9 +55,9 @@ This document provides step by step instructions to deploy, subscribe, and invok
 
 22. Click **Publish**. ![publish_api](../assets/img/get-started/quick-start-guide/publish-api.png)
 
-## Subscribing to Account and Transaction API
+## Subscribing to Confirmation of Funds API
 
-1. The deployed API is now available in the Developer Portal at <https://localhost:9443/devportal>.
+1. The deployed API is now available in the Developer Portal at `https://<APIM_HOST>:9443/devportal`.
 
 2. Select the **AccountAndTransactionAPI V3.1** API.
  
@@ -63,11 +65,11 @@ This document provides step by step instructions to deploy, subscribe, and invok
 
     ![select_subscriptions](../assets/img/get-started/quick-start-guide/select-subscriptions.png)
     
-4. From the **Application** dropdown, select the application that you want to be subscribed to the Account and Transaction API V3.1. ![select_application](../assets/img/get-started/quick-start-guide/select-application.png)
+4. From the **Application** dropdown, select the application that you want to be subscribed to the Payment Initiation API V3.1. ![select_application](../assets/img/get-started/quick-start-guide/select-application.png)
 
 5. Click **Subscribe**.
 
-## Invoking Account and Transaction API
+## Invoking Confirmation of Funds API
 
 ### Generating application access token
 
@@ -106,7 +108,7 @@ eyJraWQiOiIyTUk5WFNLaTZkZHhDYldnMnJoRE50VWx4SmMiLCJhbGciOiJQUzI1NiJ9.eyJzdWIiOiJ
 2. Run the following cURL command in a command prompt to generate the access token. Update the placeholders with relevant values.
 ``` curl
 curl -X POST \
-https://localhost:9446/oauth2/token \
+https://<IS_HOST>:9446/oauth2/token \
 --cert <TRANSPORT_PUBLIC_KEY_FILE_PATH> --key <TRANSPORT_PRIVATE_KEY_FILE_PATH> \
 -d 'grant_type=client_credentials&scope=accounts%20openid&client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer&client_assertion=<CLIENT_ASSERTION_JWT>&redirect_uri=<REDIRECT_URI>&client_id=<CLIENT_ID>'
 ```
@@ -121,104 +123,22 @@ https://localhost:9446/oauth2/token \
 }
 ```
 
-### Initiating an account consent
+### Initiating a funds-confirmation consent
 
-In this step, the AISP generates a request to get the consent of the PSU to access the accounts and banking information. 
+In this step, the CBPII generates a request to get the consent of the PSU to confirm the funds available in the bank account. 
 
-1. Create an account consent using the following request format:
+1. Create a funds-confirmation consent using the following request format:
 ```
-curl -X POST \
-https://localhost:8243/open-banking/v3.1/aisp/account-access-consents \
--H 'Authorization: Bearer <APPLICATION_ACCESS_TOKEN>' \
--H 'Content-Type: application/json' \
--H 'Accept: application/json' \
---cert <TRANSPORT_PUBLIC_KEY_FILE_PATH> --key <TRANSPORT_PRIVATE_KEY_FILE_PATH> \
--d '{
-    "Data": {
-        "Permissions": [
-            "ReadAccountsBasic",
-            "ReadAccountsDetail",
-            "ReadBalances",
-            "ReadBeneficiariesBasic",
-            "ReadBeneficiariesDetail",
-            "ReadDirectDebits",
-            "ReadProducts",
-            "ReadStandingOrdersBasic",
-            "ReadStandingOrdersDetail",
-            "ReadTransactionsBasic",
-            "ReadTransactionsCredits",
-            "ReadTransactionsDebits",
-            "ReadTransactionsDetail",
-            "ReadStatementsBasic",
-            "ReadStatementsDetail",
-            "ReadOffers",
-            "ReadParty",
-            "ReadPartyPSU",
-            "ReadScheduledPaymentsBasic",
-            "ReadScheduledPaymentsDetail",
-            "ReadPAN"
-        ],
-        "ExpirationDateTime": "2021-08-17T10:37:34.607+05:30",
-        "TransactionFromDateTime": "2021-08-12T10:37:34.649+05:30",
-        "TransactionToDateTime": "2021-08-15T10:37:34.649+05:30"
-    },
-    "Risk": {
-        
-    }
-}'
 ```
 
 2. The response contains a Consent Id. A sample response is as follows:
 
     ```
-    {
-        "Data": {
-            "ConsentId": "dc64e27c-7139-440e-8b4f-cd70c649e096",
-            "Status": "AwaitingAuthorisation",
-            "StatusUpdateDateTime": "2021-08-12T10:37:38+05:30",
-            "CreationDateTime": "2021-08-12T10:37:38+05:30",
-            "TransactionFromDateTime": "2021-08-12T10:37:34.649+05:30",
-            "TransactionToDateTime": "2021-08-15T10:37:34.649+05:30",
-            "ExpirationDateTime": "2021-08-17T10:37:34.607+05:30",
-            "Permissions": [
-                "ReadAccountsBasic",
-                "ReadAccountsDetail",
-                "ReadBalances",
-                "ReadBeneficiariesBasic",
-                "ReadBeneficiariesDetail",
-                "ReadDirectDebits",
-                "ReadProducts",
-                "ReadStandingOrdersBasic",
-                "ReadStandingOrdersDetail",
-                "ReadTransactionsBasic",
-                "ReadTransactionsCredits",
-                "ReadTransactionsDebits",
-                "ReadTransactionsDetail",
-                "ReadStatementsBasic",
-                "ReadStatementsDetail",
-                "ReadOffers",
-                "ReadParty",
-                "ReadPartyPSU",
-                "ReadScheduledPaymentsBasic",
-                "ReadScheduledPaymentsDetail",
-                "ReadPAN"
-            ]
-        },
-       "Meta": {
-            
-        },
-        "Risk": {
-            
-        },
-        "Links": {
-            "Self": "https://localhost:8243/open-banking/3.1/aisp/account-access-consents/dc64e27c-7139-440e-8b4f-cd70c649e096"
-        }
-    }
     ```
    
 ### Authorizing a consent
 
-The AISP application redirects the bank customer to authenticate and approve/deny application-provided consents.
+The CBPII application redirects the bank customer to authenticate and approve/deny application-provided consents.
 
 1. Generate the request object by signing the following JSON payload using supported algorithms.
 
@@ -282,7 +202,7 @@ user that has a `subscriber` role.
 
 4. The page displays the data requested by the consent such as permissions, transaction period, and expiration date. ![select accounts](../assets/img/get-started/quick-start-guide/consent-page-select-accounts.png)  
 
-5. At the bottom of the page, a list of bank accounts that the AISP wishes to access is displayed.
+5. At the bottom of the page, a list of bank accounts that the CBPII wishes to access is displayed.
 
 6. Select one or more accounts from the list and click **Confirm**. ![confirm_consent](../assets/img/get-started/quick-start-guide/consent-page-confirm.png)
 
@@ -332,7 +252,7 @@ In this section, you will be generating an access token using the authorization 
     
     ```
     curl -X POST \
-    https://localhost:9446/oauth2/token \
+    https://<IS_HOST>:9446/oauth2/token \
     -H 'Cache-Control: no-cache' \
     -H 'Content-Type: application/x-www-form-urlencoded' \
     --cert <PUBLIC_KEY_FILE_PATH> --key <PRIVATE_KEY_FILE_PATH> \
@@ -352,78 +272,13 @@ In this section, you will be generating an access token using the authorization 
     }
     ```
    
-### Invoking Accounts and Transaction API
+### Invoking Confirmation of Funds API
 
-Once the PSU approves the account consent, the AISP is eligible to access the account details of the PSU.
+Once the PSU approves the funds-confirmation consent, the CBPII should create a new funds-confirmation resource. The 
+CBPII needs to check the `FundsAvailable` flag in the response.
 
-The AISP can now invoke the **GET/ accounts** endpoint available in the Account and Transaction API. This retrieves a 
-full list of accounts that the PSU has authorised the AISP to access. The Account Ids returned are used to retrieve 
-other resources for a specific AccountId.
+``` tab="Request"
+```
 
-1. A sample request looks as follows:
-    
-    ```
-    curl -X GET \
-    https://localhost:8243/open-banking/v3.1/aisp/accounts' \
-    -H 'x-fapi-financial-id: open-bank' \
-    -H 'Authorization: Bearer <USER_ACCESS_TOKEN>' \
-    -H 'Accept: application/json' \
-    -H 'charset: UTF-8' \
-    -H 'Content-Type: application/json; charset=UTF-8'
-    --cert <PUBLIC_KEY_FILE_PATH> --key <PRIVATE_KEY_FILE_PATH> \
-    ```
-
-2. The request retrieves the account information for all the accounts related to the PSU. Given below is a sample response:
-    
-    ```
-    {
-        "Data": {
-            "Account": [
-                {
-                    "AccountId": "30080012343456",
-                    "Status": "Enabled",
-                    "StatusUpdateDateTime": "2020-04-16T06:06:06+00:00",
-                    "Currency": "GBP",
-                    "AccountType": "Personal",
-                    "AccountSubType": "CurrentAccount",
-                    "Nickname": "Bills",
-                    "OpeningDate": "2020-01-16T06:06:06+00:00",
-                    "MaturityDate": "2025-04-16T06:06:06+00:00",
-                    "Account": [
-                        {
-                            "SchemeName": "SortCodeAccountNumber",
-                            "Identification": "30080012343456",
-                            "Name": "Mr Kevin",
-                            "SecondaryIdentification": "00021"
-                        }
-                    ]
-                },
-                {
-                    "AccountId": "30080012343789",
-                    "Status": "Enabled",
-                    "StatusUpdateDateTime": "2020-04-16T06:06:06+00:00",
-                    "Currency": "GBP",
-                    "AccountType": "Personal",
-                    "AccountSubType": "CurrentAccount",
-                    "Nickname": "Bills",
-                    "OpeningDate": "2020-01-16T06:06:06+00:00",
-                    "MaturityDate": "2025-04-16T06:06:06+00:00",
-                    "Account": [
-                        {
-                            "SchemeName": "SortCodeAccountNumber",
-                            "Identification": "30080012343789",
-                            "Name": "Mr Kevin",
-                            "SecondaryIdentification": "00021"
-                        }
-                    ]
-                }
-            ]
-        },
-        "Links": {
-            "Self": "https://api.alphabank.com/open-banking/v3.1/accounts"
-        },
-        "Meta": {
-            "TotalPages": 1
-        }
-    }
-    ```
+``` tab="Response"
+```

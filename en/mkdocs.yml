@@ -67,6 +67,11 @@ nav:
     - 'Configuring API Manager': install-and-setup/configuring-api-manager-for-ob.md
     - 'Configuring Users and Roles': install-and-setup/configuring-users-and-roles.md
     - 'Troubleshooting': install-and-setup/troubleshooting.md
+  - 'Try out':
+    - 'TPP Onboarding': try-out/dynamic-client-regsitration-flow.md
+    - 'Account and transaction flow': try-out/account-and-transaction-flow.md
+    - 'Payment Initiation flow': try-out/payment-initiation-flow.md
+    - 'Confirmation of Funds flow': try-out/confirmation-of-funds-flow.md
   - 'Learn':
     - 'Consent Management':
       - 'Introduction': learn/consent-management.md
@@ -147,5 +152,6 @@ extra:
     - Home
     - Get Started
     - Install and Setup
+    - Try out
     - Learn
     - References
