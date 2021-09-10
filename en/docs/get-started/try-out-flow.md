@@ -53,6 +53,17 @@ This document provides step by step instructions to deploy, subscribe, and invok
 
 22. Click **Publish**. ![publish_api](../assets/img/get-started/quick-start-guide/publish-api.png)
 
+### Summarized information for configuring APIs
+
+Given below is a summary of configurations to follow when deploying the APIs in the toolkit.
+
+| API | Swagger definition (yaml file) | Endpoint type| Message mediation (sequence file) |
+|-----|--------------------------------|--------------|---------------------------------- |
+| Account and Transaction API v3.1.6 | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/Accounts/3.1.6/account-info-swagger-3.1.6.yaml` | Dynamic Endpoint | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/Accounts/3.1.6/accounts-dynamic-endpoint-insequence-3.1.6.xml` |
+| Payment Initiation API v3.1.6 |`<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/Payments/3.1.6/payment-swagger-3.1.6.yaml` | Dynamic Endpoint | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/Payments/3.1.6/payments-dynamic-endpoint-insequence-3.1.6.xml` |
+| Confirmation of Funds API v3.1.6 | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/FundsConfirmation/3.1.6/funds-confirmation-swagger-3.1.6.yaml` | Dynamic Endpoint | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/FundsConfirmation/3.1.6/funds-confirmation-dynamic-endpoint-insequence-3.1.6.xml` |
+| Dynamic Client Registration API v3.3.0 | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/DynamicClientRegistration/3.3.0/dynamic-client-registration-swagger.yaml` | Dynamic Endpoint | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/DynamicClientRegistration/3.3.0/dcr-dynamic-endpoint-insequence-3.3.0.xml` |
+
 ## Subscribing to Account and Transaction API
 
 1. The deployed API is now available in the Developer Portal at <https://localhost:9443/devportal>.

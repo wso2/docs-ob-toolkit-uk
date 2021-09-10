@@ -3,7 +3,9 @@ This page explains how to onboard TPP applications using the Dynamic Client Regi
 ### Step 1: Deploy the Dynamic Client Registration(DCR) API
 
 1. Sign in to the API Publisher Portal at `https://<APIM_HOME>:9443/publisher` with `creator/publisher` 
-privileges. ![sign_in](../assets/img/get-started/quick-start-guide/sign-in.png)
+privileges.
+    
+    ![sign_in](../assets/img/get-started/quick-start-guide/sign-in.png)
 
 2. In the homepage, go to **REST API** and select **Import Open API**. ![let's_get_started](../assets/img/get-started/quick-start-guide/lets-get-started.png)
 
