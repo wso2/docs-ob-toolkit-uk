@@ -26,7 +26,7 @@ repo_url: https://github.com/wso2/docs-ob-toolkit-uk
 edit_uri: https://github.com/wso2/docs-ob-toolkit-uk/edit/main/en/docs/
 
 # Copyright
-copyright: WSO2 Open Banking - Documentation
+copyright: WSO2 Open Banking UK Toolkit - Documentation
 
 # Configuration
 theme: material
@@ -55,7 +55,7 @@ nav:
     - 'Quick Start Guide':
       - 'Get Started': get-started/quick-start-guide.md
       - 'Set up Toolkits': get-started/set-up-toolkits.md
-      - 'Configure Users and Roles': get-started/configure-users-and-roles.md
+      - 'Configure Users and Roles': get-started/configuring-users-and-roles.md
       - 'Dynamic Client Registration': get-started/dynamic-client-registation.md
       - 'Tryout Flow': get-started/try-out-flow.md
       - 'Data Publishing': get-started/data-publishing-try-out.md
@@ -66,7 +66,6 @@ nav:
     - 'Configuring Identity Server': install-and-setup/configuring-identity-server-for-ob.md
     - 'Configuring API Manager': install-and-setup/configuring-api-manager-for-ob.md
     - 'Configuring Users and Roles': install-and-setup/configuring-users-and-roles.md
-    - 'Troubleshooting': install-and-setup/troubleshooting.md
   - 'Try out':
     - 'TPP Onboarding': try-out/dynamic-client-regsitration-flow.md
     - 'Account and transaction flow': try-out/account-and-transaction-flow.md
