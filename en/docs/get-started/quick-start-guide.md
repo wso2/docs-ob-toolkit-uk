@@ -62,9 +62,9 @@ accelerators:
 2. Extract the downloaded WSO2 Open Banking UK Toolkit zip files. WSO2 Open Banking UK Toolkit contains the following 
 accelerators:
    
-    - wso2ob-is-toolkit-uk-1.0.0
-    - wso2ob-apim-toolkit-uk-1.0.0
-    - wso2ob-bi-toolkit-uk-1.0.0
+    - wso2-obiam-toolkit-uk-1.0.0
+    - wso2-obam-toolkit-uk-1.0.0
+    - wso2-obbi-toolkit-uk-1.0.0
 
 3. This document uses the following placeholders to refer to the following products:
         
