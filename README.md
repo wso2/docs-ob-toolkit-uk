@@ -1,10 +1,10 @@
-# WSO2 Open Banking Documentation
+# WSO2 Open Banking UK Toolkit Documentation
 
-End-user apps in WSO2 Open Banking
+This repository contains the source code for WSO2 Open Banking Toolkit - UK documentation
 
 |  Branch | Build Status |
 | :------------ |:------------- 
-| master      | [![Build Status](https://wso2.org/jenkins/view/Dashboard/job/docs/job/docs-ob/badge/icon)](https://wso2.org/jenkins/view/Dashboard/job/docs/job/docs-open-banking/) |
+| master      | [![Build Status](https://wso2.org/jenkins/view/Dashboard/job/docs/job/docs-ob-toolkit-uk/badge/icon)](https://wso2.org/jenkins/view/Dashboard/job/docs/job/docs-ob-toolkit-uk/) |
 
 ## Prerequisites
 
@@ -53,13 +53,13 @@ $ python get-pip.py
 **Clone the repo**
 
 ```bash
-$ git clone https://github.com/wso2/docs-open-banking.git
+$ git clone https://github.com/wso2/docs-ob-toolkit-uk.git
 ```
 
 **Install the dependencies**
 
 ```bash
-$ cd docs-open-banking && pip install -r requirements.txt
+$ cd docs-ob-toolkit-uk && pip install -r requirements.txt
 ```
 
 **Run mkdocs**
