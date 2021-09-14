@@ -37,107 +37,25 @@ theme:
     accent: deep-orange
   custom_dir: theme/material
   logo: images/logo.svg
-  favicon: images/favicon.png
   highlightjs: true
   feature:
     tabs: true
   language: 'en'
 
-# Navigation
-nav:
-  - 'Home': index.md
-  - 'Get Started':
-    - 'Open Banking': get-started/quick-start-guide.md
-    - 'Open Banking Requirements': get-started/open-banking-requirements.md
-    - 'Regulations and Standards': get-started/regulations-and-standards.md
-    - 'WSO2 Open Banking Accelerator': get-started/wso2-open-banking-accelerator.md
-    - 'About this Release': get-started/about-this-release.md
-    - 'Quick Start Guide':
-      - 'Get Started': get-started/quick-start-guide.md
-      - 'Set up Toolkits': get-started/set-up-toolkits.md
-      - 'Configure Users and Roles': get-started/configuring-users-and-roles.md
-      - 'Dynamic Client Registration': get-started/dynamic-client-registation.md
-      - 'Tryout Flow': get-started/try-out-flow.md
-      - 'Data Publishing': get-started/data-publishing-try-out.md
-  - 'Install and Setup':
-    - 'Prerequisites': install-and-setup/prerequisites.md
-    - 'Setting up servers': install-and-setup/setting-up-servers.md
-    - 'Setting up databases': install-and-setup/setting-up-databases.md
-    - 'Configuring Identity Server': install-and-setup/configuring-identity-server-for-ob.md
-    - 'Configuring API Manager': install-and-setup/configuring-api-manager-for-ob.md
-    - 'Configuring Users and Roles': install-and-setup/configuring-users-and-roles.md
-  - 'Try out':
-    - 'TPP Onboarding': try-out/dynamic-client-regsitration-flow.md
-    - 'Account and transaction flow': try-out/account-and-transaction-flow.md
-    - 'Payment Initiation flow': try-out/payment-initiation-flow.md
-    - 'Confirmation of Funds flow': try-out/confirmation-of-funds-flow.md
-  - 'Learn':
-    - 'Consent Management':
-      - 'Introduction': learn/consent-management.md
-      - 'Tryout': learn/consent-management-try-out.md
-      - 'Consent Manager': learn/consent-manager.md
-    - 'Consent Authorization': learn/consent-authorization-intro.md
-    - 'Token Authentication': learn/token-authentication.md
-    - 'Dynamic Client Registration':
-      - 'Introduction': learn/dynamic-client-registration.md
-      - 'Configuration': learn/dynamic-client-registration-configuration.md
-      - 'Tryout': learn/dynamic-client-registration-try-out.md
-    - 'Consumer Authentication':
-      - 'Introduction': learn/consumer-authentication.md
-      - 'App-to-App Redirection': learn/app-to-app-redirection.md
-      - 'Identifier-first Authentication': learn/identifier-first.md
-    - 'API Security':
-      - 'Introduction': learn/api-security.md
-      - 'Configuration': learn/api-security-configuration.md
-    - 'Data Publishing':
-      - 'Introduction': learn/data-publishing.md
-      - 'Tryout': learn/data-publishing-tryout.md
-    - 'Integration': learn/integration.md
-  - 'References':
-    - 'Identity Server Configuration Catalog': references/config-catalog-is.md
-    - 'API Manager Configuration Catalog': references/config-catalog-apim.md
-    - 'Consent REST API': references/consent-rest-api.md
-    - 'DCR REST API': references/dcr-rest-api.md
-    - 'Application Info API': references/application-info-api.md
-  - '': page-not-found.md
-
 # Extensions
 markdown_extensions:
-  - markdown.extensions.admonition
-  - markdown.extensions.codehilite:
-      linenums: true
-      use_pygments: false
-  - markdown.extensions.def_list
-  - markdown.extensions.footnotes
-  - markdown.extensions.meta
-  - markdown.extensions.toc:
-      permalink: true
-  - pymdownx.arithmatex
-  - pymdownx.betterem:
-      smart_enable: all
-  - pymdownx.caret
-  - pymdownx.critic
-  - pymdownx.details
-  - pymdownx.emoji:
-      emoji_generator: !!python/name:pymdownx.emoji.to_svg
-  - pymdownx.inlinehilite
-  - pymdownx.keys
-  - pymdownx.mark
-  - pymdownx.smartsymbols
-  - pymdownx.superfences
-  - pymdownx.tasklist:
-      custom_checkbox: true
-  - pymdownx.tilde
+  - fenced_code
+  - codehilite
 
-# Extra
+# Customization
 extra_css:
   - assets/lib/highlightjs/default.min.css
   - assets/css/theme.css
+  - assets/css/versions.css
 extra_javascript:
   - assets/lib/highlightjs/highlight.min.js
   - assets/js/theme.js
-  - assets/lib/backtotop/js/util.js
-  - assets/lib/backtotop/js/main.js
+
 extra:
   social:
     - type: github
@@ -146,11 +64,4 @@ extra:
       link: https://twitter.com/wso2
     - type: linkedin
       link: https://www.linkedin.com/company/wso2
-  site_version: 1.0.0
-  nav_list:
-    - Home
-    - Get Started
-    - Install and Setup
-    - Try out
-    - Learn
-    - References
+  site_version: versions

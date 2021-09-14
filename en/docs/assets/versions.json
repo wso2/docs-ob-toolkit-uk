@@ -1,0 +1,15 @@
+{
+  "staging": "main",
+  "1.0.0": "main",
+  "latest": "main",
+  "current": "1.0.0",
+  "list": [
+    "1.0.0"
+  ],
+  "all": {
+    "1.0.0": {
+      "doc": "1.0.0",
+      "notes": "latest/get-started/about-this-release"
+    }
+  }
+}
