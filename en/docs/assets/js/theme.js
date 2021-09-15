@@ -138,8 +138,8 @@ request.onload = function() {
           });
 
           // Past releases update
-          document.getElementById('previous-versions').innerHTML = 
-                  previousVersions.join(' ');
+//          document.getElementById('previous-versions').innerHTML =
+//                  previousVersions.join(' ');
 
           // Current released version update
           document.getElementById('current-version-number').innerHTML = 
@@ -149,9 +149,9 @@ request.onload = function() {
           document.getElementById('current-version-release-notes-link')
                   .setAttribute('href', docSetUrl + data.all[data.current].notes);
         
-          // Pre-release version update
-          document.getElementById('pre-release-version-documentation-link')
-              .setAttribute('href', docSetUrl + 'next/');
+//          // Pre-release version update
+//          document.getElementById('pre-release-version-documentation-link')
+//              .setAttribute('href', docSetUrl + 'next/');
       }
       
   } else {
