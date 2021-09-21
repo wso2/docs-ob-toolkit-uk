@@ -37,7 +37,9 @@ This document provides step by step instructions to deploy, subscribe, and invok
 
 15. Scroll down and click **SAVE**.
 
-16. Use the left menu panel and go to **API Configurations > Endpoints**. ![select_endpoints](../assets/img/get-started/quick-start-guide/select-endpoints.png)
+16. Use the left menu panel and go to **API Configurations > Endpoints**. 
+
+    ![select_endpoints](../assets/img/get-started/quick-start-guide/select-endpoints.png)
 
 17. Add a **Dynamic Endpoint**. ![add_dynamic_endpoint](../assets/img/get-started/quick-start-guide/add_dynamic_endpoint.png)
 
