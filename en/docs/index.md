@@ -19,7 +19,7 @@ template: templates/single-column.html
         </p>
      </div>
     <div class="md-main .md-content " style="float:right; width: 55%; align:right;  flex-shrink: 0;min-width: 40%; max-height: 100%; max-width:50%; margin-left:10px; margin-top:20px">
-        <iframe width="800" height="250" src="https://www.youtube.com/embed/k9mGnuwQdao" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="800" height="250" src="https://www.youtube.com/embed/xSxuYxfGs3I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
     <div>
     	<div class="content">
