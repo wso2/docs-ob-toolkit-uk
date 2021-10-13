@@ -55,7 +55,7 @@ nav:
     - 'Quick Start Guide':
       - 'Get Started': get-started/quick-start-guide.md
       - 'Set up Toolkits': get-started/set-up-toolkits.md
-      - 'Configure Users and Roles': get-started/configuring-users-and-roles.md
+      - 'Configure Users and Roles': get-started/configure-users-and-roles.md
       - 'Dynamic Client Registration': get-started/dynamic-client-registation.md
       - 'Tryout Flow': get-started/try-out-flow.md
       - 'Data Publishing': get-started/data-publishing-try-out.md
