@@ -297,7 +297,31 @@ user that has a `subscriber` role.
     ```
 
    The authorization code from the below URL is in the code parameter (code=`5591c5a0-14d0-3ca9-bec2-c1efe86e32ce`).
-   
+
+#### Consent Re-authentication for Account Consents
+
+ Account consents are long-lived consents and PSUs can re-authenticate account consents. Consent re-authentication is 
+ the process that enables an ASPSP to authenticate a PSU more than once for the same consent. To re-authenticate a consent:
+ 
+ - The consent must be in the authorized state.
+ - The `ExpirationDateTime` of the consent should not have elapsed.
+ 
+ Once re-authentication is successful, an AISP must not use or refresh access tokens that were issued for the same consent. 
+ The ASPSP can decide to invalidate the previously issued tokens for the same consent. 
+ 
+??? tip "Changing authorized accounts during re-authentication"
+
+     In the Account and transaction flow, the PSU can change the account IDs related to a consent during consent re-authentication. 
+     The ASPSP can allow the PSU to change the account IDs using the following configurations:
+     
+     1. Open the `<IS_HOME>/repository/conf/deployment.toml` file.
+     2. Set the following configuration to `true`:
+        ``` toml
+        [open_banking_uk.consent]
+        acc_update_by_psu_enabled = false
+        ```
+    3. Restart the Identity Server.
+     
 ### Generating user access token   
 
 In this section, you will be generating an access token using the authorization code generated in the section [above](authorizing-a-consent).
