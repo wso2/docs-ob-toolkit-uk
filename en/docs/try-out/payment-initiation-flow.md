@@ -223,6 +223,17 @@ user that has a `subscriber` role.
     ```
 
    The authorization code from the below URL is in the code parameter (code=`5591c5a0-14d0-3ca9-bec2-c1efe86e32ce`).
+
+#### Multi-Authorisation for payment consents
+
+The Multiple Authorisation Management API in WSO2 Open Banking allows ASPSPs to facilitate a payment initiation request 
+that requires the authorisation of multiple bank customers, for example, a payment initiation request from a joint-bank 
+account. When a PSU initiates a payment through a PISP, the ASPSP checks if the payment consent has to be authorized by 
+a single user or multiple users. Only the first user/PSU will be able to authorize or stage the payment-order consent 
+through the open banking solution and other PSUs have to authorize through the bank’s online portal.
+
+For an ASPSP to check the authorisation type, the payment initiation request should define the Authorisation object, 
+which is optional as per the [Open Data API specification of OBIE](https://openbanking.atlassian.net/wiki/spaces/DZ/pages/999426309/Payment+Initiation+API+Specification+-+v3.1.1#PaymentInitiationAPISpecification-v3.1.1-MultipleAuthorisation).
    
 ### Generating user access token   
 
