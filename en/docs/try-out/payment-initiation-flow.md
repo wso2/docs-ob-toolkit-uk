@@ -232,7 +232,7 @@ account. When a PSU initiates a payment through a PISP, the ASPSP checks if the 
 a single user or multiple users. Only the first user/PSU will be able to authorize or stage the payment-order consent 
 through the open banking solution and other PSUs have to authorize through the bank’s online portal.
 
-For an ASPSP to check the authorisation type, the payment initiation request should define the MultiAuthorisation object, 
+For an ASPSP to check the authorisation type, the payment initiation request should define the Authorisation object, 
 which is optional as per the [Open Data API specification of OBIE](https://openbanking.atlassian.net/wiki/spaces/DZ/pages/999426309/Payment+Initiation+API+Specification+-+v3.1.1#PaymentInitiationAPISpecification-v3.1.1-MultipleAuthorisation).
    
 ### Generating user access token   
