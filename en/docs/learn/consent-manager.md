@@ -69,7 +69,7 @@ Follow [Configuring users and roles](../install-and-setup/configuring-users-and-
     
 9. Click the edit button under **Request > Message Mediation**.
 
-    ![message_mediation](../assets/img/get-started/quick-start-guide/message_mediation.png)
+    ![message_mediation](../assets/img/get-started/quick-start-guide/edit-message-mediation.png)
    
 10. Now, select the **Custom Policy** option. 
 

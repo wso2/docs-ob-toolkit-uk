@@ -8,7 +8,7 @@ In an open banking ecosystem, once a bank customer requests a service via a TPP 
 time to access the customer's data, the customer needs to authorize and grant consent. These consents go through a 
 phased lifecycle as follows:
 
-![lifecycle of a consent](../assets/img/get-started/open-banking-requirements/consent-lifecycle.png)
+![lifecycle of a consent](../assets/img/learn/consent-manager/consent-lifecycle.png)
 
 For more information on consent management lifecycle, see the [Consent Management](../get-started/open-banking-requirements.md#how-wso2-open-banking-accelerator-delivers-open-banking-requirements)
 section in Open Banking Requirements.
@@ -52,5 +52,3 @@ WSO2 Open Banking uses the following API endpoints to manage consents as previou
   
 - **Consent Authorize - `/authorize` endpoint**  
   This endpoint can retrieve and persist consents. You can add your own steps to retrieve or persist.
-
-For more information on this, refer to [Consent Management Extensions](../develop/consent-management-manage.md).

@@ -7,7 +7,7 @@ their banking information. The process is as follows:
 to the customer.
 4. The bank authenticates the customer. See below for the default login page of the consent page:
  
-    ![login-consent-page](../assets/img/develop/customizing-consent-page/login-of-consent-page.png)
+    ![login-consent-page](../assets/img/learn/consent-manager/login-of-consent-page.png)
     
 5. A list of bank accounts and the information that the TPP wishes to access are displayed.
     ![select accounts](../assets/img/learn/consent-manager/consent-page-select-accounts.png)  
@@ -59,9 +59,6 @@ Given below is a successful response:
 ```
 
 This same `request_uri` value is used in the subsequent authorization request as well.
-
-WSO2 Open Banking allows you to perform custom validations for the pushed authorization request. 
-For more information, see [writing a Custom Pushed Auth Request Validator](../develop/custom-pushed-auth-request-validator.md).
 
 ??? tip "Click here to see configurations related to the Pushed Authorization web application..."
     1. Open the `<IS_HOME>/repository/conf/deployment.toml` file. 

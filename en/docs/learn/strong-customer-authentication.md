@@ -9,7 +9,7 @@ one at a time:
 - Possession: Things only the user has, such as ATM cards.
 - Inherence: Things only the user is, such as a fingerprint.
 
-![authentication factors](../assets/img/get-started/open-banking-requirements/authentication-factors.png)
+![authentication factors](../assets/img/learn/app-to-app-redirection/authentication-factors.png)
 
 !!!note
     In SCA, it is mandatory to use at least two of the authentication factors mentioned above.
