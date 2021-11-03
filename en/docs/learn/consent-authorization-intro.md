@@ -39,7 +39,7 @@ known as **Pushed Authorization**. The reference is notated by the claim; `reque
 - Intruders from intercepting the authorization information sent in the request_object
 - Authorization request calls becoming bulky with the authorization details signed in the JWT
 
-and protects the confidentiality and integrity of the authorization details when passing through an TPP application.
+and protects the confidentiality and integrity of the authorization details when passing through a TPP application.
 
 ###Pushed Authorization web application
 The TPPs obtain `request_uri` which is a reference to the authentication and authorization details sent in the 
