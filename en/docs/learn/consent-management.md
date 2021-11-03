@@ -1,3 +1,5 @@
+#Consent Management
+
 Open banking is a concept that lets third-party financial service providers access customer’s financial data and 
 services with their consent. Consent management is the process of prompting, collecting, and managing bank customer’s 
 consent before a third-party provider collects or shares the customer's financial information. 
