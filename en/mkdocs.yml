@@ -66,6 +66,23 @@ nav:
     - 'Configuring Identity Server': install-and-setup/configuring-identity-server-for-ob.md
     - 'Configuring API Manager': install-and-setup/configuring-api-manager-for-ob.md
     - 'Configuring Users and Roles': install-and-setup/configuring-users-and-roles.md
+  - 'Learn':
+    - 'Consent Management':
+       - 'Introduction': learn/consent-management.md
+       - 'Consent Manager': learn/consent-manager.md
+    - 'Consent Authorization': learn/consent-authorization-intro.md
+    - 'Token Authentication': learn/token-authentication.md
+    - 'Dynamic Client Registration':
+       - 'Introduction': learn/dynamic-client-registration.md
+       - 'Configuration': learn/dynamic-client-registration-configuration.md
+    - 'Strong Customer Authentication':
+       - 'Introduction': learn/strong-customer-authentication.md
+       - 'App-to-App Redirection': learn/app-to-app-redirection.md
+    - 'API Security':
+       - 'Introduction': learn/api-security.md
+       - 'Configuration': learn/api-security-configuration.md
+    - 'Data Publishing':
+       - 'Introduction': learn/data-publishing.md
   - 'Try out':
     - 'TPP Onboarding': try-out/dynamic-client-regsitration-flow.md
     - 'Account and transaction flow': try-out/account-and-transaction-flow.md
@@ -130,5 +147,6 @@ extra:
     - Home
     - Get Started
     - Install and Setup
+    - Learn
     - Try out
     - References
