@@ -14,7 +14,7 @@ one at a time:
 !!!note
     In SCA, it is mandatory to use at least two of the authentication factors mentioned above.
     
-You can enforce Consumer Authentication for the WSO2 Open Banking solution with the use of authentication mechanisms supported in
+You can enforce SCA for the WSO2 Open Banking solution with the use of authentication mechanisms supported in
 WSO2 Identity Server. For more information:
 
 - By default, WSO2 Identity Server supports basic authentication and SMS OTP authentication. See [The Default Authenticator](https://is.docs.wso2.com/en/latest/learn/writing-a-new-oauth-client-authenticator/#the-default-authenticator).
