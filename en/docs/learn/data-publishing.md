@@ -1,4 +1,5 @@
-###Introduction
+#Data Publishing
+
 The Data Publishing feature gathers and monitors data in regard to the APIs invoked through WSO2 Open Banking. 
 WSO2 Open Banking Business Intelligence Toolkit captures the data through Identity Server and API Manager servers and
 process them. You can summarize data in a way that banks can generate reports and summaries according to your open banking 
