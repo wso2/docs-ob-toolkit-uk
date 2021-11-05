@@ -47,7 +47,7 @@ theme:
 nav:
   - 'Home': index.md
   - 'Get Started':
-    - 'Open Banking': get-started/quick-start-guide.md
+    - 'Open Banking': get-started/open-banking.md
     - 'Open Banking Requirements': get-started/open-banking-requirements.md
     - 'Regulations and Standards': get-started/regulations-and-standards.md
     - 'WSO2 Open Banking Accelerator': get-started/wso2-open-banking-accelerator.md
