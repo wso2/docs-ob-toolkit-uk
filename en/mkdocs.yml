@@ -83,6 +83,8 @@ nav:
        - 'Configuration': learn/api-security-configuration.md
     - 'Data Publishing':
        - 'Introduction': learn/data-publishing.md
+       - 'Generate Reports': learn/data-publishing-reports.md
+       - 'Configuration': learn/data-publishing-configuration.md
   - 'Try out':
     - 'TPP Onboarding': try-out/dynamic-client-regsitration-flow.md
     - 'Account and transaction flow': try-out/account-and-transaction-flow.md
