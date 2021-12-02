@@ -10,8 +10,8 @@ integration points and APIs that your banking system needs to provide.
 
 ### Account-Request-Information header
 
-WSO2 Open Banking manages the initiation and authorisation of a consent. When an API consumer application makes a 
-request to retrieve any account information, the solution validates the consent against the request. Upon successful 
+WSO2 Open Banking manages the initiation and authorisation of a consent. When a TPP application makes a 
+request to retrieve any account information, the toolkit validates the consent against the request. Upon successful 
 validation, consent-related information is directed to the core banking system in the form of a header. This header is 
 known as **Account-Request-Information**.
 
@@ -20,7 +20,7 @@ The Account-Request-Information header is a signed JWT, which needs to be decode
 ??? tip "Click here to see the fields in the header..."
     | Field | Description |
     |-------|-------------|
-    | clientId | The unique ID of the API consumer application |
+    | clientId | The unique ID of the TPP application |
     | currentStatus | The current status of the consent |
     | createdTimestamp| The date and time when the consent was created |
     | recurringIndicator | Specifies if this is a recurring transaction |
@@ -35,7 +35,7 @@ The Account-Request-Information header is a signed JWT, which needs to be decode
     | consentFrequency | The maximum number of times per day that access can be granted without the involvement of a consumer |
 
 The core banking system will perform all required validations and build a response. This response needs to adhere to the 
-requirements in your open banking standard.
+requirements in the Open Banking Standard.
 
 ## Accounts API
 
@@ -49,18 +49,18 @@ In WSO2 Open Banking, integration of accounts flow with the core banking system 
 retrieval requests. 
 
 - The URL of the API endpoints of the core banking system, which corresponds to the account's information retrieval 
-requests, should be configured in the In sequences of the Accounts API.
+requests, should be configured in the In sequences of the Accounts API. For more information, see [Configuring Sequence files](#configuring-sequence-files).
 
 In the Open Banking Accounts flow, WSO2 Open Banking manages the consent initiation and authorisation. When the TPP 
-makes account information retrieval requests, the WSO2 Open Banking solution validates the consent request, and upon 
-successful validation, the consent-related information is directed to the core banking system in the form of a header, 
-**Account-Request-Information**.
+makes account information retrieval requests, the WSO2 Open Banking toolkit validates the consent request, and upon 
+successful validation, the consent-related information is directed to the core banking system in the form of a header.
+This header is known as **Account-Request-Information**.
 
 This header is a signed JWT, which needs to be decoded by the core banking system. A sample decoded JSON is given below:
 
 ```<decoded JSON for Accounts>```
 
-In the core banking system, the required validations should be performed and then the response is built, according to the 
+In the core banking system, the required validations should be performed and then the response will be built according to the 
 requirements of the Open Banking Accounts specification.
 
 ## Payments API
@@ -70,7 +70,7 @@ A Swagger definition for the back end is available in the following location:
 ```<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/Payments/3.1.6/paymnet-info-swagger-backend-3.1.6.yaml```
 
 - The URL of the API endpoints of the core banking system, which corresponds to the payment submission requests, should be 
-configured in the In sequences of the Payments API. For more information, see the note above on configuring sequence files.
+configured in the In sequences of the Payments API. For more information, see [Configuring Sequence files](#configuring-sequence-files).
 
 ### Payments Submission
 
@@ -78,9 +78,9 @@ In WSO2 Open Banking, integration of payments flow with the core banking system 
 
 #### Single Authorisation
 
-In the Open Banking payments flow, the WSO2 Open Banking solution manages the consent initiation and authorisation. 
+In the Open Banking payments flow, the WSO2 Open Banking toolkit manages the consent initiation and authorisation. 
 When the TPP makes a payment submission request, it is validated, and upon successful validation, the request is directed 
-to the core banking system in the form of a header known as **Account-Request-Information**.
+to the core banking system in the form of a header. This header is known as **Account-Request-Information**.
 
 This header is a signed JWT, which needs to be decoded by the core banking system. A sample decoded JSON is given below:
 
@@ -108,11 +108,11 @@ below:
 In WSO2 Open Banking, integration of payments flow with the core banking system is used during funds confirmation 
 requests.
 
-In the Open Banking payments flow, the WSO2 Open Banking solution manages the consent initiation and authorisation. 
+In the Open Banking payments flow, the WSO2 Open Banking toolkit manages the consent initiation and authorisation. 
 When the TPP makes a funds confirmation request for domestic payments, international payments, and international-scheduled 
 payments; it is validated. Upon successful validation, the request is directed to the core banking system. The 
 funds-confirmation-related information is directed to the core banking system in the form of a 
-header, **Account-Request-Information**.
+header known as **Account-Request-Information**.
 
 This header is a signed JWT, which needs to be decoded by the core banking system. A sample decoded JSON is given below:
 
@@ -125,7 +125,7 @@ The Idempotency key is used as an identifier to verify a replication of an actio
 - Payment initiation request
 - Payment submission request
 
-In the core banking system, the required validations should be performed and then the response is built according to 
+In the core banking system, the required validations should be performed and then the response will be built according to 
 the Open Banking Payments specification.
 
 ## Confirmation of Funds API
@@ -138,23 +138,24 @@ In WSO2 Open Banking, integration of the Confirmation of Funds (CoF) consent flo
 the confirmation of funds request.
 
 - The URL of the API endpoints of the core banking system, which corresponds to the funds confirmation requests, should 
-be configured in the sequences of the Funds Confirmation API. For more information, see the note above on configuring sequence files.
+be configured in the In sequences of the Funds Confirmation API. For more information, see [Configuring Sequence files](#configuring-sequence-files).
 
-In the Open Banking funds confirmation consent flow, the WSO2 Open Banking solution manages the funds confirmation 
+In the Open Banking funds confirmation consent flow, the WSO2 Open Banking toolkit manages the funds confirmation 
 consent requests and authorisation. When the TPP makes a funds confirmation request (`POST /funds-confirmations`), it is 
-validated against consent details and directed to the core banking system in the form of a header **Account-Request-Information**.
+validated against consent details and directed to the core banking system in the form of a header. This header is known as **Account-Request-Information**.
 
 This header is a signed JWT, which needs to be decoded by the core banking system. A sample decoded JSON is given below:
 
 ```<Decoded json for Confirmation of Funds>```
 
-In the core banking system, the required validations should be performed and then the response is built, according to the 
+In the core banking system, the required validations should be performed and then the response will be built according to the 
 requirements of the Open Banking Confirmation of Funds specification.
 
-## Configuring the sequence files
+## Configuring sequence files
 
-By default, WSO2 Open Banking API Manager contains a mock bank backend, which is configured by default in the in sequences.
-Sequence files for Accounts, Payment, and CoF must be updated separately. 
+WSO2 Open Banking API Manager contains a mock bank back end, which is configured in the In sequences by default.
+Therefore, in order to integrate the toolkit with the banking system the In sequence files for Accounts, Payment, and 
+CoF must be updated individually. 
 
 - They are available in the `<APIM_HOME>/repository/resources/finance/apis/openbanking.org.uk/<API_NAME>` directory. 
 - Replace the `<WSO2_OB_KM_HOST>` placeholder with the hostname of the Identity Server.
@@ -178,10 +179,10 @@ The back-end endpoint for the Payable Accounts API is used to retrieve the payab
 authentication flow. If a TPP has not provided any debtor account in the payment initiation request, the PSU is able to 
 select one of the payable accounts when providing the consent to the payment. If the TPP has sent the debtor account in 
 the initiation request, this API is used to validate the provided account against actual payable accounts. When invoking this
-API the `consentId` and `userId` (PSU ID) must be sent in the URL as query parameters.
+API, the `consentId` and `userId` (PSU ID) must be sent in the URL as query parameters.
 
 The back-end endpoint for payable accounts retrieval can be configured in the ` <APIM_HOME>/repository/conf/deployment.toml` file as follows.
-By default, the mock backend that is deployed in the API Manager is configured in this file.
+By default, the mock back end that is deployed in the API Manager is configured in this file.
 
 ``` xml
 <PayableAccountsRetriveEndpoint>http://<APIM_HOST>:9763/open-banking/services/bankaccounts/bankaccountservice/payable-accounts</PayableAccountsRetriveEndpoint>
@@ -236,13 +237,14 @@ The response from the API should be formatted as follows:
 ### Shareable Accounts API
 
 The Shareable Accounts API is used for the following two purposes:
+
  1. To validate the debtor account if the PISP sends it in the initiation request
  2. To populate the payment accounts on the consent page if the initiation request does not contain a debtor account.
 
-When invoking this API the `consentId` and `userId` (PSU ID) parameters are required to be sent in the URL as query 
+When invoking this API, the `consentId` and `userId` (PSU ID) parameters are required to be sent in the URL as query 
 parameters.
 
-The backend endpoint for shareable accounts retrieval can be configured in 
+The back-end endpoint for shareable accounts retrieval can be configured in 
 the ` <APIM_HOME>/repository/conf/deployment.toml` file as follows.
 By default, this is connected to the mock back end in the API Manager server.
 
