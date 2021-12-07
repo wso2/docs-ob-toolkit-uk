@@ -167,7 +167,7 @@ be replaced with the core banking system's API endpoints for production and sand
 ## Accounts Retrieval Endpoints
 
 In some banks, some PSUs may have a certain number of accounts, but not all accounts have the ability to be shared 
-externally or to make a payment online. Therefore in a bank, the shareable account list and the payable account list can 
+externally or to make a payment online. Therefore, in a bank the shareable account list and the payable account list can 
 either be the same or different.
 
 In the default WSO2 Open Banking UK Toolkit, at least two APIs are expected to return shareable and payable accounts. 
@@ -181,18 +181,20 @@ select one of the payable accounts when providing the consent to the payment. If
 the initiation request, this API is used to validate the provided account against actual payable accounts. When invoking this
 API, the `consentId` and `userId` (PSU ID) must be sent in the URL as query parameters.
 
-The back-end endpoint for payable accounts retrieval can be configured in the ` <APIM_HOME>/repository/conf/deployment.toml` file as follows.
+The back end endpoints for payable and sharable accounts retrieval can be configured in the ` <APIM_HOME>/repository/conf/deployment.toml` file as follows.
 By default, the mock back end that is deployed in the API Manager is configured in this file.
 
 ``` xml
-<PayableAccountsRetriveEndpoint>http://<APIM_HOST>:9763/open-banking/services/bankaccounts/bankaccountservice/payable-accounts</PayableAccountsRetriveEndpoint>
+[open_banking_uk.consent]
+payable_account_retrieval_endpoint = "http://<APIM_HOST>:9763/api/openbanking/uk/backend/services/bankaccounts/bankaccountservice/payable-accounts”
 ```
 
 Required parameters can be passed as query parameters to those endpoints. Given below is an example of configuring the 
 endpoint to retrieve payable accounts:
 
 ``` xml
-<PayableAccountsRetriveEndpoint>http://<APIM_HOST>:9443/as400/payable-accounts/{userId}</PayableAccountsRetriveEndpoint>
+[open_banking_uk.consent]
+sharable_account_retrieval_endpoint = "http://<APIM_HOST>:9763/api/openbanking/uk/backend/services/bankaccounts/bankaccountservice/payable-accounts/{userId}"
 ```
 
 The response from the API should be formatted as follows:
@@ -249,14 +251,16 @@ the ` <APIM_HOME>/repository/conf/deployment.toml` file as follows.
 By default, this is connected to the mock back end in the API Manager server.
 
 ``` xml
-<SharableAccountsRetriveEndpoint>http://<APIM_HOST>:9763/open-banking/services/bankaccounts/bankaccountservice/sharable-accounts</SharableAccountsRetriveEndpoint>
+[open_banking_uk.consent]
+sharable_account_retrieval_endpoint = "http://<APIM_HOST>:9763/api/openbanking/uk/backend/services/bankaccounts/bankaccountservice/sharable-accounts"
 ```
 
 Required parameters can be passed as query parameters to those endpoints. Given below is an example of configuring the 
 endpoint to retrieve sharable accounts: 
 
 ``` xml
-<SharableAccountsRetriveEndpoint>http://<APIM_HOST>:9443/as400/sharable-accounts/{userId}</SharableAccountsRetriveEndpoint>
+[open_banking_uk.consent]
+sharable_account_retrieval_endpoint = "http://<APIM_HOST>:9763/api/openbanking/uk/backend/services/bankaccounts/bankaccountservice/sharable-accounts/{userId}"
 ```
 
 The response from the API should be formatted as follows:
