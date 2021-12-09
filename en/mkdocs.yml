@@ -85,6 +85,7 @@ nav:
        - 'Introduction': learn/data-publishing.md
        - 'Generate Reports': learn/data-publishing-reports.md
        - 'Configuration': learn/data-publishing-configuration.md
+    - 'Integration with Bank': learn/integration-with-bank.md
   - 'Try out':
     - 'TPP Onboarding': try-out/dynamic-client-regsitration-flow.md
     - 'Account and transaction flow': try-out/account-and-transaction-flow.md
