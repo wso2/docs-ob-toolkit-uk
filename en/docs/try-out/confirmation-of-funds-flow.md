@@ -61,7 +61,7 @@ This document provides step by step instructions to deploy, subscribe, and invok
 
 1. The deployed API is now available in the Developer Portal at `https://<APIM_HOST>:9443/devportal`.
 
-2. Select the **AccountAndTransactionAPI V3.1** API.
+2. Select the Confirmation of Funds API.
  
 3. Locate **Subscriptions** from the left menu pane. 
 
