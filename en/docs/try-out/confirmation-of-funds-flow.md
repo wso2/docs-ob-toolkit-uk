@@ -112,14 +112,14 @@ eyJraWQiOiIyTUk5WFNLaTZkZHhDYldnMnJoRE50VWx4SmMiLCJhbGciOiJQUzI1NiJ9.eyJzdWIiOiJ
 curl -X POST \
 https://<IS_HOST>:9446/oauth2/token \
 --cert <TRANSPORT_PUBLIC_KEY_FILE_PATH> --key <TRANSPORT_PRIVATE_KEY_FILE_PATH> \
--d 'grant_type=client_credentials&scope=accounts%20openid&client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer&client_assertion=<CLIENT_ASSERTION_JWT>&redirect_uri=<REDIRECT_URI>&client_id=<CLIENT_ID>'
+-d 'grant_type=client_credentials&scope=fundsconfirmation%20openid&client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer&client_assertion=<CLIENT_ASSERTION_JWT>&redirect_uri=<REDIRECT_URI>&client_id=<CLIENT_ID>'
 ```
 
 3. Upon successful token generation, you can obtain a token as follows:
 ``` json
 {
    "access_token":"eyJ4NXQiOiJOVGRtWmpNNFpEazNOalkwWXpjNU1tWm1PRGd3TVRFM01XWXdOREU1TVdSbFpEZzROemM0WkEiLCJraWQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZ19SUzI1NiIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhZG1pbkB3c28yLmNvbUBjYXJib24uc3VwZXIiLCJhdXQiOiJBUFBMSUNBVElPTiIsImF1ZCI6IllEY0c0ZjQ5RzEza1dmVnNucWRoejhnYmEyd2EiLCJuYmYiOjE2Mjg3NDQ4NTYsImF6cCI6IllEY0c0ZjQ5RzEza1dmVnNucWRoejhnYmEyd2EiLCJzY29wZSI6ImFjY291bnRzIiwiaXNzIjoiaHR0cHM6XC9cL2xvY2FsaG9zdDo5NDQ2XC9vYXV0aDJcL3Rva2VuIiwiY25mIjp7Ing1dCNTMjU2IjoidllvVVlSU1E3Q2dvWXhOTVdXT3pDOHVOZlFyaXM0cFhRWDBabWl0Unh6cyJ9LCJleHAiOjE2Mjg3NDg0NTYsImlhdCI6MTYyODc0NDg1NiwianRpIjoiNzBjZDIzYzItMzYxZS00YTEwLWI4YTQtNzg2MTljZmQ2MWJmIn0.WT9d2ov9kfSe75Q6ia_VNvJ12lNkrkMZNWdHu_Ata_nEpM8AWj4Mtc0e8Yb0oZFif_ypNgBtE2ck29nQLFgQ1IicL_OMIFUuwykro2oOCcFAbz7o_rhGsh39aW-ORlxm11_csmNeaWZNfC7lPp-9hBmNt9Sons_pCm2beTMFreZQyywPrJoQ9vwt1QCmkAlTP33YnPrf0u0RQePQvUq81RiJiokhZvwVufHARZv8KLtS8VLrpfbEoSglON_XkumydVjvRWs17I3Ot9zUj6kndHBsqMPZdq_aNQHntftdSI7TVNj5f66Q_4Uafz_hMXADS46pw87rTgzENHHf-5SRhw",
-   "scope":"accounts",
+   "scope":"fundsconfirmation",
    "token_type":"Bearer",
    "expires_in":3600
 }
@@ -130,12 +130,51 @@ https://<IS_HOST>:9446/oauth2/token \
 In this step, the CBPII generates a request to get the consent of the PSU to confirm the funds available in the bank account. 
 
 1. Create a funds-confirmation consent using the following request format:
-```
-```
+    ```
+    curl -X POST \
+    https://<APIM_HOST>:8243/open-banking/v3.1/cbpii/funds-confirmation-consents \
+    -H 'Authorization: Bearer <APPLICATION_ACCESS_TOKEN>' \
+    -H 'Content-Type: application/json' \
+    -H 'Accept: application/json' \
+    --cert <TRANSPORT_PUBLIC_KEY_FILE_PATH> --key <TRANSPORT_PRIVATE_KEY_FILE_PATH> \
+    -d '
+    {
+       "Data":{
+          "ExpirationDateTime":"2022-01-30T10:41:28.479+05:30",
+          "DebtorAccount":{
+             "SchemeName":"UK.OBIE.SortCodeAccountNumber",
+             "Identification":"1234",
+             "Name":"Account1",
+             "SecondaryIdentification":"Account1"
+          }
+       }
+    }'
+    ```
 
 2. The response contains a Consent Id. A sample response is as follows:
 
     ```
+    {
+       "Data":{
+          "Status":"AwaitingAuthorisation",
+          "StatusUpdateDateTime":"2022-01-25T10:41:34+05:30",
+          "DebtorAccount":{
+             "SecondaryIdentification":"Account1",
+             "SchemeName":"UK.OBIE.SortCodeAccountNumber",
+             "Identification":"1234",
+             "Name":"Account1"
+          },
+          "CreationDateTime":"2022-01-25T10:41:34+05:30",
+          "ExpirationDateTime":"2022-01-30T10:41:28.479+05:30",
+          "ConsentId":"85b475f2-897c-4982-bab0-902a40f1880f"
+       },
+       "Links":{
+          "Self":"https://localhost:8243/open-banking/3.1/cbpii/funds-confirmation-consents/85b475f2-897c-4982-bab0-902a40f1880f"
+       },
+       "Meta":{
+          
+       }
+    }
     ```
    
 ### Authorizing a consent
@@ -153,7 +192,7 @@ The CBPII application redirects the bank customer to authenticate and approve/de
     {
       "max_age": 86400,
       "aud": "<This is the audience that the ID token is intended for. e.g., https://<IS_HOST>:9446/oauth2/token>",
-      "scope": "accounts openid",
+      "scope": "fundsconfirmation openid",
       "iss": "<APPLICATION_ID>",
       "claims": {
         "id_token": {
@@ -195,7 +234,7 @@ This request is in the format of a URL as follows.
     Update the placeholders with relevant values and run the following in a browser to prompt the invocation of the authorize API. 
     
     ```
-    https://<IS_HOST>:9446/oauth2/authorize?response_type=code%20id_token&client_id=<CLIENT_ID>&scope=accounts%20op
+    https://<IS_HOST>:9446/oauth2/authorize?response_type=code%20id_token&client_id=<CLIENT_ID>&scope=fundsconfirmation%20op
     enid&redirect_uri=<APPLICATION_REDIRECT_URI>&state=YWlzcDozMTQ2&request=<REQUEST_OBJECT>&prompt=login&nonce=<REQUEST_OBJECT_NONCE>
     ```
 
@@ -258,7 +297,7 @@ In this section, you will be generating an access token using the authorization 
     -H 'Cache-Control: no-cache' \
     -H 'Content-Type: application/x-www-form-urlencoded' \
     --cert <PUBLIC_KEY_FILE_PATH> --key <PRIVATE_KEY_FILE_PATH> \
-    -d 'grant_type=authorization_code&client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&client_assertion=<CLIENT_ASSERTION>&code=<CODE_FROM_ABOVE_STEP>&scope=openid%20accounts&redirect_uri=<REDIRECT_URI>'
+    -d 'grant_type=authorization_code&client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&client_assertion=<CLIENT_ASSERTION>&code=<CODE_FROM_ABOVE_STEP>&scope=openid%20fundsconfirmation&redirect_uri=<REDIRECT_URI>'
     ```
 
 3. Upon successful token generation, you can obtain a token as follows:
@@ -267,7 +306,7 @@ In this section, you will be generating an access token using the authorization 
     {
         "access_token": "eyJ4NXQiOiJOVGRtWmpNNFpEazNOalkwWXpjNU1tWm1PRGd3TVRFM01XWXdOREU1TVdSbFpEZzROemM0WkEiLCJraWQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZ19SUzI1NiIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhZG1pbkB3c28yLmNvbUBjYXJib24uc3VwZXIiLCJhdXQiOiJBUFBMSUNBVElPTl9VU0VSIiwiYXVkIjoiWURjRzRmNDlHMTNrV2ZWc25xZGh6OGdiYTJ3YSIsIm5iZiI6MTYyODc0NjU5MiwiYXpwIjoiWURjRzRmNDlHMTNrV2ZWc25xZGh6OGdiYTJ3YSIsInNjb3BlIjoiYWNjb3VudHMgY29uc2VudF9pZGRjNjRlMjdjLTcxMzktNDQwZS04YjRmLWNkNzBjNjQ5ZTA5NiBvcGVuaWQiLCJpc3MiOiJodHRwczpcL1wvbG9jYWxob3N0Ojk0NDZcL29hdXRoMlwvdG9rZW4iLCJjbmYiOnsieDV0I1MyNTYiOiJ2WW9VWVJTUTdDZ29ZeE5NV1dPekM4dU5mUXJpczRwWFFYMFptaXRSeHpzIn0sImV4cCI6MTYyODc1MDE5MiwiaWF0IjoxNjI4NzQ2NTkyLCJqdGkiOiI3NTA4MmEzYS1iNDllLTRjZjEtYjI4Ni1lMWJiYTYwZTViNTYiLCJjb25zZW50X2lkIjoiZGM2NGUyN2MtNzEzOS00NDBlLThiNGYtY2Q3MGM2NDllMDk2In0.MhNpi0C2vASqrigTE1qGjK_7PY722H4PjzOSwMKcmFo7YgIFIBQdtj2BRJN0y7WAOFYGqh5lUFKMJWrXXtOyo0-6pWheluQfmOMiTyqOzA7WcTZAwYUzeoRmgWtR_LCYNwzm1O7CcNeavLGucLkCmpTW9Xvn3dKkk0XFonzrrCH9QqMrA0iQP6vYgH5wH4rDxcK_6Vk1r0X33sHVM-k4ifbcIzZekUdJIgNQfK1Qosslmvm1LZfEZ1vi63cfkc0IexNW6jJYvvZxdYJVz42EKKIqR_Z_HBs8umamqhUqKAkcv7Q76bNNPpM1iBJK-eDVf8yfIr9243fyictuqhP-2Q",
         "refresh_token": "98dfa00b-a2a4-3ba0-9af2-4fac26f317b3",
-        "scope": "accounts openid",
+        "scope": "fundsconfirmation openid",
         "id_token": "eyJ4NXQiOiJOVGRtWmpNNFpEazNOalkwWXpjNU1tWm1PRGd3TVRFM01XWXdOREU1TVdSbFpEZzROemM0WkEiLCJraWQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZ19SUzI1NiIsImFsZyI6IlJTMjU2In0.eyJhdF9oYXNoIjoiUEFGdl9WZFdqREp0bFYyN1U1NEJYdyIsImF1ZCI6IllEY0c0ZjQ5RzEza1dmVnNucWRoejhnYmEyd2EiLCJjX2hhc2giOiJac2l4aVM4c2RBZFJhVHVHZjlYbmxBIiwic3ViIjoiYWRtaW5Ad3NvMi5jb21AY2FyYm9uLnN1cGVyIiwibmJmIjoxNjI4NzQ2NTkyLCJhenAiOiJZRGNHNGY0OUcxM2tXZlZzbnFkaHo4Z2JhMndhIiwiYW1yIjpbIkJhc2ljQXV0aGVudGljYXRvciJdLCJpc3MiOiJodHRwczpcL1wvbG9jYWxob3N0Ojk0NDZcL29hdXRoMlwvdG9rZW4iLCJleHAiOjE2Mjg3NTAxOTIsImlhdCI6MTYyODc0NjU5Miwibm9uY2UiOiJuLTBTNl9XekEyTSJ9.VRMfZouZTRm0QotoN0g95QjH7qKG_KwLExJyyb6AGbFewulyjwyPTJsHIj7D19ZZuNL14KqdCw51X3QjDXjLuvE6oas12EpKwHBuAAJjRtLf7NbbRPFok8Qlq011U_qNfYgcFubOQ5bXTr1QpwIU8imExvRxYS5UzsGyvluQ9hzjmRZM5cfwJ7hck71joX45Ue3E2tIvWxqyU13EJOyD3gd2QuhM6GSq3oWk8S0N_y7ACWLEHM8nzBUXiRo03D4DIacnmiZeicjIiim-SzF70tDJe70qy_nqbgf6VGqdAAIXyMXAvKxF5QWwYd5seMvt5o-_hCsI6DV69FawGJcbVQ",
         "token_type": "Bearer",
         "expires_in": 3600
@@ -280,7 +319,45 @@ Once the PSU approves the funds-confirmation consent, the CBPII should create a 
 CBPII needs to check the `FundsAvailable` flag in the response.
 
 ``` tab="Request"
+curl -X POST \
+https://<APIM_HOST>:8243/open-banking/v3.1/cbpii/funds-confirmations \
+-H 'x-fapi-financial-id: open-bank' \
+-H 'Authorization: Bearer <USER_ACCESS_TOKEN>' \
+-H 'Accept: application/json' \
+-H 'charset: UTF-8' \
+-H 'Content-Type: application/json; charset=UTF-8' \
+--cert <PUBLIC_KEY_FILE_PATH> --key <PRIVATE_KEY_FILE_PATH> \
+-d `
+{
+   "Data":{
+      "ConsentId":"85b475f2-897c-4982-bab0-902a40f1880f",
+      "Reference":"Purchase01",
+      "InstructedAmount":{
+         "Amount":"10.00",
+         "Currency":"USD"
+      }
+   }
+}`
 ```
 
 ``` tab="Response"
+{
+   "Data":{
+      "FundsConfirmationId":"836403",
+      "ConsentId":"85b475f2-897c-4982-bab0-902a40f1880f",
+      "CreationDateTime":"2017-06-02T00:00:00+00:00",
+      "FundsAvailable":true,
+      "Reference":"Purchase02",
+      "InstructedAmount":{
+         "Amount":"20.00",
+         "Currency":"USD"
+      }
+   },
+   "Links":{
+      "Self":"https://api.alphabank.com/open-banking/v3.0/funds-confirmations/836403"
+   },
+   "Meta":{
+      
+   }
+}
 ```
