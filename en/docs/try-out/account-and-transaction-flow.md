@@ -61,7 +61,7 @@ This document provides step by step instructions to deploy, subscribe, and invok
 
 1. The deployed API is now available in the Developer Portal at `https://<APIM_HOST>:9443/devportal`.
 
-2. Select the **AccountAndTransactionAPI V3.1** API.
+2. Select the Account and Transaction API.
  
 3. Locate **Subscriptions** from the left menu pane. 
 
@@ -402,56 +402,37 @@ other resources for a specific AccountId.
     ```
 
 2. The request retrieves the account information for all the accounts related to the PSU. Given below is a sample response:
-    
+
     ```
     {
-        "Data": {
-            "Account": [
-                {
-                    "AccountId": "30080012343456",
-                    "Status": "Enabled",
-                    "StatusUpdateDateTime": "2020-04-16T06:06:06+00:00",
-                    "Currency": "GBP",
-                    "AccountType": "Personal",
-                    "AccountSubType": "CurrentAccount",
-                    "Nickname": "Bills",
-                    "OpeningDate": "2020-01-16T06:06:06+00:00",
-                    "MaturityDate": "2025-04-16T06:06:06+00:00",
-                    "Account": [
-                        {
-                            "SchemeName": "SortCodeAccountNumber",
-                            "Identification": "30080012343456",
-                            "Name": "Mr Kevin",
-                            "SecondaryIdentification": "00021"
-                        }
-                    ]
-                },
-                {
-                    "AccountId": "30080012343789",
-                    "Status": "Enabled",
-                    "StatusUpdateDateTime": "2020-04-16T06:06:06+00:00",
-                    "Currency": "GBP",
-                    "AccountType": "Personal",
-                    "AccountSubType": "CurrentAccount",
-                    "Nickname": "Bills",
-                    "OpeningDate": "2020-01-16T06:06:06+00:00",
-                    "MaturityDate": "2025-04-16T06:06:06+00:00",
-                    "Account": [
-                        {
-                            "SchemeName": "SortCodeAccountNumber",
-                            "Identification": "30080012343789",
-                            "Name": "Mr Kevin",
-                            "SecondaryIdentification": "00021"
-                        }
-                    ]
-                }
-            ]
-        },
-        "Links": {
-            "Self": "https://api.alphabank.com/open-banking/v3.1/accounts"
-        },
-        "Meta": {
-            "TotalPages": 1
-        }
+       "Data":{
+          "Account":[
+             {
+                "AccountId":"30080012343456",
+                "Status":"Enabled",
+                "StatusUpdateDateTime":"2020-04-16T06:06:06+00:00",
+                "Currency":"GBP",
+                "AccountType":"Personal",
+                "AccountSubType":"CurrentAccount",
+                "Nickname":"Bills",
+                "OpeningDate":"2020-01-16T06:06:06+00:00",
+                "MaturityDate":"2025-04-16T06:06:06+00:00",
+                "Account":[
+                   {
+                      "SchemeName":"SortCodeAccountNumber",
+                      "Identification":"30080012343456",
+                      "Name":"Alex Karter",
+                      "SecondaryIdentification":"00021"
+                   }
+                ]
+             }
+          ]
+       },
+       "Links":{
+          "Self":"https://api.alphabank.com/open-banking/v3.0/accounts"
+       },
+       "Meta":{
+          "TotalPages":1
+       }
     }
     ```

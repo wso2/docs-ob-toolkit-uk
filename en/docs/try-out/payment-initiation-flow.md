@@ -61,7 +61,7 @@ This document provides step by step instructions to deploy, subscribe, and invok
 
 1. The deployed API is now available in the Developer Portal at `https://<APIM_HOST>:9443/devportal`.
 
-2. Select the **AccountAndTransactionAPI V3.1** API.
+2. Select the Payment Initiation API.
  
 3. Locate **Subscriptions** from the left menu pane. 
 
@@ -112,14 +112,14 @@ eyJraWQiOiIyTUk5WFNLaTZkZHhDYldnMnJoRE50VWx4SmMiLCJhbGciOiJQUzI1NiJ9.eyJzdWIiOiJ
 curl -X POST \
 https://<IS_HOST>:9446/oauth2/token \
 --cert <TRANSPORT_PUBLIC_KEY_FILE_PATH> --key <TRANSPORT_PRIVATE_KEY_FILE_PATH> \
--d 'grant_type=client_credentials&scope=accounts%20openid&client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer&client_assertion=<CLIENT_ASSERTION_JWT>&redirect_uri=<REDIRECT_URI>&client_id=<CLIENT_ID>'
+-d 'grant_type=client_credentials&scope=payments%20openid&client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer&client_assertion=<CLIENT_ASSERTION_JWT>&redirect_uri=<REDIRECT_URI>&client_id=<CLIENT_ID>'
 ```
 
 3. Upon successful token generation, you can obtain a token as follows:
 ``` json
 {
    "access_token":"eyJ4NXQiOiJOVGRtWmpNNFpEazNOalkwWXpjNU1tWm1PRGd3TVRFM01XWXdOREU1TVdSbFpEZzROemM0WkEiLCJraWQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZ19SUzI1NiIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhZG1pbkB3c28yLmNvbUBjYXJib24uc3VwZXIiLCJhdXQiOiJBUFBMSUNBVElPTiIsImF1ZCI6IllEY0c0ZjQ5RzEza1dmVnNucWRoejhnYmEyd2EiLCJuYmYiOjE2Mjg3NDQ4NTYsImF6cCI6IllEY0c0ZjQ5RzEza1dmVnNucWRoejhnYmEyd2EiLCJzY29wZSI6ImFjY291bnRzIiwiaXNzIjoiaHR0cHM6XC9cL2xvY2FsaG9zdDo5NDQ2XC9vYXV0aDJcL3Rva2VuIiwiY25mIjp7Ing1dCNTMjU2IjoidllvVVlSU1E3Q2dvWXhOTVdXT3pDOHVOZlFyaXM0cFhRWDBabWl0Unh6cyJ9LCJleHAiOjE2Mjg3NDg0NTYsImlhdCI6MTYyODc0NDg1NiwianRpIjoiNzBjZDIzYzItMzYxZS00YTEwLWI4YTQtNzg2MTljZmQ2MWJmIn0.WT9d2ov9kfSe75Q6ia_VNvJ12lNkrkMZNWdHu_Ata_nEpM8AWj4Mtc0e8Yb0oZFif_ypNgBtE2ck29nQLFgQ1IicL_OMIFUuwykro2oOCcFAbz7o_rhGsh39aW-ORlxm11_csmNeaWZNfC7lPp-9hBmNt9Sons_pCm2beTMFreZQyywPrJoQ9vwt1QCmkAlTP33YnPrf0u0RQePQvUq81RiJiokhZvwVufHARZv8KLtS8VLrpfbEoSglON_XkumydVjvRWs17I3Ot9zUj6kndHBsqMPZdq_aNQHntftdSI7TVNj5f66Q_4Uafz_hMXADS46pw87rTgzENHHf-5SRhw",
-   "scope":"accounts",
+   "scope":"payments",
    "token_type":"Bearer",
    "expires_in":3600
 }
@@ -131,8 +131,96 @@ In this step, the PISP generates a request to get the consent of the PSU to acce
 payment-order. This informs the ASPSP that one of its PSUs intends to make a payment-order.
 
 1. Create a payment consent using the following request format:
-```
-```
+
+    ```
+    curl -X POST \
+    https://<APIM_HOST>:8243/open-banking/v3.1/pisp/international-standing-order-consents
+    -H 'x-fapi-financial-id: open-bank' \
+    -H 'x-idempotency-key: 952692' \
+    -H 'Authorization: Bearer <USER_ACCESS_TOKEN>' \
+    -H 'Accept: application/json' \
+    -H 'charset: UTF-8' \
+    -H 'Content-Type: application/json; charset=UTF-8' \
+    -H 'x-jws-signature:eyJhbGciOiJQUzI1NiIsImtpZCI6IjJNSTlYU0tpNmRkeENiV2cycmhETnRVbHhKYyIsImNyaXQiOlsiaHR0cDovL29wZW5iYW5raW5nLm9yZy51ay9pYXQiLCJodHRwOi8vb3BlbmJhbmtpbmcub3JnLnVrL3RhbiIsImh0dHA6Ly9vcGVuYmFua2luZy5vcmcudWsvaXNzIl0sImh0dHA6Ly9vcGVuYmFua2luZy5vcmcudWsvaWF0IjoxNjQzMDg5ODQ4LCJodHRwOi8vb3BlbmJhbmtpbmcub3JnLnVrL3RhbiI6Im9wZW5iYW5raW5nLm9yZy51ayIsImh0dHA6Ly9vcGVuYmFua2luZy5vcmcudWsvaXNzIjoiQ049c2dzTXVjOEFDQmdCemlucHI4b0o4QiwgT1U9MDAxNTgwMDAwMUhRUXJaQUFYLCBPPU9wZW5CYW5raW5nLCBDPUdCIn0..qf-2xX-CsLmMbACcAg2gZiiBlQvtHLY_ESUQjTTZGYJ8e_6A6i2BnnveP814OVpzyKxD5hqg_yTOoF56N5CTA_y5YEOc9zUeXeuP3HSEhar_G-9rRMxxMu-UV_Yhm98aKIVdjPVPsDBQI2_WMqDYfHpduhKwVddcyzx7QSZXZ1gG4urbURlKuaDPW3qLs73AQMl0e-PfNB6L8Ml7h893L1rQ0CvOnT5PoIhKFm631u_DIG9hG0a5tPhkkAAdlZQp_GBOFx4NpA-rCWrGDcJbsOIEvtio0rtWLTx7QUyjf2jgc_TIK2X9VMtH_AEh-t9bHJNm1qQkhF9yn_A6MMtAZw' \ 
+    --cert <PUBLIC_KEY_FILE_PATH> --key <PRIVATE_KEY_FILE_PATH> \
+    -d `
+    {
+       "Data":{
+          "ReadRefundAccount":"Yes",
+          "Permission":"Create",
+          "Initiation":{
+             "Frequency":"EvryDay",
+             "Reference":"Pocket money for Damien",
+             "NumberOfPayments":"10",
+             "Purpose":"1234",
+             "ChargeBearer":"BorneByCreditor",
+             "FirstPaymentDateTime":"2022-01-26T05:50:34.532Z",
+             "FinalPaymentDateTime":"2022-01-30T05:50:34.532Z",
+             "DebtorAccount":{
+                "SchemeName":"UK.OBIE.SortCodeAccountNumber",
+                "Identification":"30080012343456",
+                "Name":"Andrea Smith",
+                "SecondaryIdentification":"30080012343456"
+             },
+             "CreditorAccount":{
+                "SchemeName":"UK.OBIE.SortCodeAccountNumber",
+                "Identification":"08080021325698",
+                "Name":"ACME Inc",
+                "SecondaryIdentification":"0002"
+             },
+             "InstructedAmount":{
+                "Amount":"30.80",
+                "Currency":"GBP"
+             },
+             "CurrencyOfTransfer":"USD",
+             "Creditor":{
+                "Name":"ACME Inc",
+                "PostalAddress":{
+                   "AddressType":"Correspondence",
+                   "Department":"department1",
+                   "SubDepartment":"sub dept",
+                   "StreetName":"Acacia Avenue",
+                   "BuildingNumber":"27",
+                   "PostCode":"GU31 2ZZ",
+                   "TownName":"Sparsholt",
+                   "CountrySubDivision":"Wessex",
+                   "Country":"UK",
+                   "AddressLine":[
+                      "Flat 7",
+                      "Acacia Lodge"
+                   ]
+                }
+             }
+          },
+          "Authorisation":{
+             "AuthorisationType":"Any",
+             "CompletionDateTime":"2022-01-30T05:50:34.652Z"
+          },
+          "SCASupportData":{
+             "RequestedSCAExemptionType":"BillPayment",
+             "AppliedAuthenticationApproach":"CA",
+             "ReferencePaymentOrderId":"string"
+          }
+       },
+       "Risk":{
+          "PaymentContextCode":"EcommerceGoods",
+          "MerchantCategoryCode":"5967",
+          "MerchantCustomerIdentification":"053598653254",
+          "DeliveryAddress":{
+             "AddressLine":[
+                "Flat 7",
+                "Acacia Lodge"
+             ],
+             "StreetName":"Acacia Avenue",
+             "BuildingNumber":"27",
+             "PostCode":"GU31 2ZZ",
+             "TownName":"Sparsholt",
+             "CountrySubDivision":"Wessex",
+             "Country":"UK"
+          }
+       }
+    }`
+    ```
 
     Add all mandatory headers:
     
@@ -144,6 +232,92 @@ payment-order. This informs the ASPSP that one of its PSUs intends to make a pay
 2. The response contains a Consent Id. A sample response is as follows:
 
     ```
+    {
+       "Data":{
+          "SCASupportData":{
+             "RequestedSCAExemptionType":"BillPayment",
+             "AppliedAuthenticationApproach":"CA",
+             "ReferencePaymentOrderId":"string"
+          },
+          "Status":"AwaitingAuthorisation",
+          "StatusUpdateDateTime":"2022-01-25T11:20:48+05:30",
+          "CreationDateTime":"2022-01-25T11:20:48+05:30",
+          "Authorisation":{
+             "CompletionDateTime":"2022-01-30T05:50:34.652Z",
+             "AuthorisationType":"Any"
+          },
+          "Permission":"Create",
+          "ReadRefundAccount":"Yes",
+          "ConsentId":"f6780a27-f3a4-4a58-82e6-2179eba67d06",
+          "Initiation":{
+             "DebtorAccount":{
+                "SecondaryIdentification":"30080012343456",
+                "SchemeName":"UK.OBIE.SortCodeAccountNumber",
+                "Identification":"30080012343456",
+                "Name":"Andrea Smith"
+             },
+             "Reference":"Pocket money for Damien",
+             "CurrencyOfTransfer":"USD",
+             "CreditorAccount":{
+                "SecondaryIdentification":"0002",
+                "SchemeName":"UK.OBIE.SortCodeAccountNumber",
+                "Identification":"08080021325698",
+                "Name":"ACME Inc"
+             },
+             "Frequency":"EvryDay",
+             "Purpose":"1234",
+             "ChargeBearer":"BorneByCreditor",
+             "FirstPaymentDateTime":"2022-01-26T05:50:34.532Z",
+             "NumberOfPayments":"10",
+             "Creditor":{
+                "PostalAddress":{
+                   "StreetName":"Acacia Avenue",
+                   "CountrySubDivision":"Wessex",
+                   "Department":"department1",
+                   "AddressLine":[
+                      "Flat 7",
+                      "Acacia Lodge"
+                   ],
+                   "BuildingNumber":"27",
+                   "TownName":"Sparsholt",
+                   "Country":"UK",
+                   "SubDepartment":"sub dept",
+                   "AddressType":"Correspondence",
+                   "PostCode":"GU31 2ZZ"
+                },
+                "Name":"ACME Inc"
+             },
+             "FinalPaymentDateTime":"2022-01-30T05:50:34.532Z",
+             "InstructedAmount":{
+                "Amount":"30.80",
+                "Currency":"GBP"
+             }
+          }
+       },
+       "Risk":{
+          "PaymentContextCode":"EcommerceGoods",
+          "DeliveryAddress":{
+             "StreetName":"Acacia Avenue",
+             "CountrySubDivision":"Wessex",
+             "AddressLine":[
+                "Flat 7",
+                "Acacia Lodge"
+             ],
+             "BuildingNumber":"27",
+             "TownName":"Sparsholt",
+             "Country":"UK",
+             "PostCode":"GU31 2ZZ"
+          },
+          "MerchantCategoryCode":"5967",
+          "MerchantCustomerIdentification":"053598653254"
+       },
+       "Links":{
+          "Self":"https://localhost:8243/open-banking/3.1/pisp/international-standing-order-consents/f6780a27-f3a4-4a58-82e6-2179eba67d06"
+       },
+       "Meta":{
+          
+       }
+    }
     ```
    
 ### Authorizing a consent
@@ -161,7 +335,7 @@ The PISP application redirects the bank customer to authenticate and approve/den
     {
       "max_age": 86400,
       "aud": "<This is the audience that the ID token is intended for. e.g., https://<IS_HOST>:9446/oauth2/token>",
-      "scope": "accounts openid",
+      "scope": "payments openid",
       "iss": "<APPLICATION_ID>",
       "claims": {
         "id_token": {
@@ -203,7 +377,7 @@ This request is in the format of a URL as follows.
     Update the placeholders with relevant values and run the following in a browser to prompt the invocation of the authorize API. 
     
     ```
-    https://<IS_HOST>:9446/oauth2/authorize?response_type=code%20id_token&client_id=<CLIENT_ID>&scope=accounts%20op
+    https://<IS_HOST>:9446/oauth2/authorize?response_type=code%20id_token&client_id=<CLIENT_ID>&scope=payments%20op
     enid&redirect_uri=<APPLICATION_REDIRECT_URI>&state=YWlzcDozMTQ2&request=<REQUEST_OBJECT>&prompt=login&nonce=<REQUEST_OBJECT_NONCE>
     ```
 
@@ -277,7 +451,7 @@ In this section, you will be generating an access token using the authorization 
     -H 'Cache-Control: no-cache' \
     -H 'Content-Type: application/x-www-form-urlencoded' \
     --cert <PUBLIC_KEY_FILE_PATH> --key <PRIVATE_KEY_FILE_PATH> \
-    -d 'grant_type=authorization_code&client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&client_assertion=<CLIENT_ASSERTION>&code=<CODE_FROM_ABOVE_STEP>&scope=openid%20accounts&redirect_uri=<REDIRECT_URI>'
+    -d 'grant_type=authorization_code&client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&client_assertion=<CLIENT_ASSERTION>&code=<CODE_FROM_ABOVE_STEP>&scope=openid%20payments&redirect_uri=<REDIRECT_URI>'
     ```
 
 3. Upon successful token generation, you can obtain a token as follows:
@@ -286,7 +460,7 @@ In this section, you will be generating an access token using the authorization 
     {
         "access_token": "eyJ4NXQiOiJOVGRtWmpNNFpEazNOalkwWXpjNU1tWm1PRGd3TVRFM01XWXdOREU1TVdSbFpEZzROemM0WkEiLCJraWQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZ19SUzI1NiIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhZG1pbkB3c28yLmNvbUBjYXJib24uc3VwZXIiLCJhdXQiOiJBUFBMSUNBVElPTl9VU0VSIiwiYXVkIjoiWURjRzRmNDlHMTNrV2ZWc25xZGh6OGdiYTJ3YSIsIm5iZiI6MTYyODc0NjU5MiwiYXpwIjoiWURjRzRmNDlHMTNrV2ZWc25xZGh6OGdiYTJ3YSIsInNjb3BlIjoiYWNjb3VudHMgY29uc2VudF9pZGRjNjRlMjdjLTcxMzktNDQwZS04YjRmLWNkNzBjNjQ5ZTA5NiBvcGVuaWQiLCJpc3MiOiJodHRwczpcL1wvbG9jYWxob3N0Ojk0NDZcL29hdXRoMlwvdG9rZW4iLCJjbmYiOnsieDV0I1MyNTYiOiJ2WW9VWVJTUTdDZ29ZeE5NV1dPekM4dU5mUXJpczRwWFFYMFptaXRSeHpzIn0sImV4cCI6MTYyODc1MDE5MiwiaWF0IjoxNjI4NzQ2NTkyLCJqdGkiOiI3NTA4MmEzYS1iNDllLTRjZjEtYjI4Ni1lMWJiYTYwZTViNTYiLCJjb25zZW50X2lkIjoiZGM2NGUyN2MtNzEzOS00NDBlLThiNGYtY2Q3MGM2NDllMDk2In0.MhNpi0C2vASqrigTE1qGjK_7PY722H4PjzOSwMKcmFo7YgIFIBQdtj2BRJN0y7WAOFYGqh5lUFKMJWrXXtOyo0-6pWheluQfmOMiTyqOzA7WcTZAwYUzeoRmgWtR_LCYNwzm1O7CcNeavLGucLkCmpTW9Xvn3dKkk0XFonzrrCH9QqMrA0iQP6vYgH5wH4rDxcK_6Vk1r0X33sHVM-k4ifbcIzZekUdJIgNQfK1Qosslmvm1LZfEZ1vi63cfkc0IexNW6jJYvvZxdYJVz42EKKIqR_Z_HBs8umamqhUqKAkcv7Q76bNNPpM1iBJK-eDVf8yfIr9243fyictuqhP-2Q",
         "refresh_token": "98dfa00b-a2a4-3ba0-9af2-4fac26f317b3",
-        "scope": "accounts openid",
+        "scope": "payments openid",
         "id_token": "eyJ4NXQiOiJOVGRtWmpNNFpEazNOalkwWXpjNU1tWm1PRGd3TVRFM01XWXdOREU1TVdSbFpEZzROemM0WkEiLCJraWQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZ19SUzI1NiIsImFsZyI6IlJTMjU2In0.eyJhdF9oYXNoIjoiUEFGdl9WZFdqREp0bFYyN1U1NEJYdyIsImF1ZCI6IllEY0c0ZjQ5RzEza1dmVnNucWRoejhnYmEyd2EiLCJjX2hhc2giOiJac2l4aVM4c2RBZFJhVHVHZjlYbmxBIiwic3ViIjoiYWRtaW5Ad3NvMi5jb21AY2FyYm9uLnN1cGVyIiwibmJmIjoxNjI4NzQ2NTkyLCJhenAiOiJZRGNHNGY0OUcxM2tXZlZzbnFkaHo4Z2JhMndhIiwiYW1yIjpbIkJhc2ljQXV0aGVudGljYXRvciJdLCJpc3MiOiJodHRwczpcL1wvbG9jYWxob3N0Ojk0NDZcL29hdXRoMlwvdG9rZW4iLCJleHAiOjE2Mjg3NTAxOTIsImlhdCI6MTYyODc0NjU5Miwibm9uY2UiOiJuLTBTNl9XekEyTSJ9.VRMfZouZTRm0QotoN0g95QjH7qKG_KwLExJyyb6AGbFewulyjwyPTJsHIj7D19ZZuNL14KqdCw51X3QjDXjLuvE6oas12EpKwHBuAAJjRtLf7NbbRPFok8Qlq011U_qNfYgcFubOQ5bXTr1QpwIU8imExvRxYS5UzsGyvluQ9hzjmRZM5cfwJ7hck71joX45Ue3E2tIvWxqyU13EJOyD3gd2QuhM6GSq3oWk8S0N_y7ACWLEHM8nzBUXiRo03D4DIacnmiZeicjIiim-SzF70tDJe70qy_nqbgf6VGqdAAIXyMXAvKxF5QWwYd5seMvt5o-_hCsI6DV69FawGJcbVQ",
         "token_type": "Bearer",
         "expires_in": 3600
@@ -295,27 +469,152 @@ In this section, you will be generating an access token using the authorization 
    
 ### Invoking Payment Initiation API
 
-Once the PSU approves the payment consent, the PISP can proceed to submit the payment order for processing. 
+Once the PSU approves the payment consent, the PISP can proceed to submit the payment order for processing. The 
+following request is an instruction to the ASPSP to begin the process of creating a payment resource.
 
-1. The following request is an instruction to the ASPSP to begin the process of creating a payment resource.
+The PISP must ensure that the **Initiation and Risk** sections of payment match the corresponding Initiation and Risk 
+sections of the payment-consent resource. If the two do not match, the ASPSP must not process.
 
-    The PISP must ensure that the **Initiation and Risk** sections of payment match the corresponding Initiation and Risk 
-    sections of the payment-consent resource. If the two do not match, the ASPSP must not process.
-    
-    ```
-    
-    ```
-    
-    The response contains `PaymentId` along with the payment submission details. 
-    
-    ```
-    
-    ```
-
-2. A PISP can retrieve the payment to check its status.
-
-    ``` tab="Request"
-    ```
+```
+curl POST \
+https://<APIM_HOST>:8243/open-banking/v3.1/pisp/international-standing-orders \
+-H 'x-fapi-financial-id: open-bank' \
+-H 'x-idempotency-key: 952692' \
+-H 'Authorization: Bearer <USER_ACCESS_TOKEN>' \
+-H 'x-jws-signature: eyJhbGciOiJQUzI1NiIsImtpZCI6IjJNSTlYU0tpNmRkeENiV2cycmhETnRVbHhKYyIsImNyaXQiOlsiaHR0cDovL29wZW5iYW5raW5nLm9yZy51ay9pYXQiLCJodHRwOi8vb3BlbmJhbmtpbmcub3JnLnVrL3RhbiIsImh0dHA6Ly9vcGVuYmFua2luZy5vcmcudWsvaXNzIl0sImh0dHA6Ly9vcGVuYmFua2luZy5vcmcudWsvaWF0IjoxNjQzMDkwMDc5LCJodHRwOi8vb3BlbmJhbmtpbmcub3JnLnVrL3RhbiI6Im9wZW5iYW5raW5nLm9yZy51ayIsImh0dHA6Ly9vcGVuYmFua2luZy5vcmcudWsvaXNzIjoiQ049c2dzTXVjOEFDQmdCemlucHI4b0o4QiwgT1U9MDAxNTgwMDAwMUhRUXJaQUFYLCBPPU9wZW5CYW5raW5nLCBDPUdCIn0..mWSJi5h7csmQ_U_UoW1zlEwjNn4-zNZG0xjAD3RbVW8NDX4E9ZaNTp-V10QevL9B5-K31JA6Zf9NagfjxQTndU4rEwwUpJn5ckLv1BVwC_gntOQf0awCgg51EukYT88FMIcfceKjmpVisxY91BgrfPvzqrDNAZO5VUPhKvKGLm0Rx8DjFaLvap-m2Ll3AffMdxF9Lo0XiutYUq5ctO0X5equmyPGLTeOq5Ua9DjOEYzufewPhAadIogqlVnQH9xok_VBnZEqXTMAva_2tSoNhA8N1d25BRt1RN13HTOwodUfnnhrn7OkhCaMfxHDM9_zAOxiFPbEWmsQxFlU3SEXjQ' \
+-H 'Accept=application/json' \
+-H 'charset=UTF-8' \
+-H 'Content-Type=application/json; charset=UTF-8' \
+--cert <PUBLIC_KEY_FILE_PATH> --key <PRIVATE_KEY_FILE_PATH> \
+-d `
+{
+   "Data":{
+      "ConsentId":"f6780a27-f3a4-4a58-82e6-2179eba67d06",
+      "Initiation":{
+         "Frequency":"EvryDay",
+         "Reference":"Pocket money for Damien",
+         "NumberOfPayments":"10",
+         "Purpose":"1234",
+         "ChargeBearer":"BorneByCreditor",
+         "FirstPaymentDateTime":"2022-01-26T05:50:34.532Z",
+         "FinalPaymentDateTime":"2022-01-30T05:50:34.532Z",
+         "DebtorAccount":{
+            "SchemeName":"UK.OBIE.SortCodeAccountNumber",
+            "Identification":"30080012343456",
+            "Name":"Andrea Smith",
+            "SecondaryIdentification":"30080012343456"
+         },
+         "CreditorAccount":{
+            "SchemeName":"UK.OBIE.SortCodeAccountNumber",
+            "Identification":"08080021325698",
+            "Name":"ACME Inc",
+            "SecondaryIdentification":"0002"
+         },
+         "InstructedAmount":{
+            "Amount":"30.80",
+            "Currency":"GBP"
+         },
+         "CurrencyOfTransfer":"USD",
+         "Creditor":{
+            "Name":"ACME Inc",
+            "PostalAddress":{
+               "AddressType":"Correspondence",
+               "Department":"department1",
+               "SubDepartment":"sub dept",
+               "StreetName":"Acacia Avenue",
+               "BuildingNumber":"27",
+               "PostCode":"GU31 2ZZ",
+               "TownName":"Sparsholt",
+               "CountrySubDivision":"Wessex",
+               "Country":"UK",
+               "AddressLine":[
+                  "Flat 7",
+                  "Acacia Lodge"
+               ]
+            }
+         }
+      }
+   },
+   "Risk":{
+      "PaymentContextCode":"EcommerceGoods",
+      "MerchantCategoryCode":"5967",
+      "MerchantCustomerIdentification":"053598653254",
+      "DeliveryAddress":{
+         "AddressLine":[
+            "Flat 7",
+            "Acacia Lodge"
+         ],
+         "StreetName":"Acacia Avenue",
+         "BuildingNumber":"27",
+         "PostCode":"GU31 2ZZ",
+         "TownName":"Sparsholt",
+         "CountrySubDivision":"Wessex",
+         "Country":"UK"
+      }
+   }
+}`
+```
    
-    ``` tab="Response"
-    ```
+The response contains `PaymentId` along with the payment submission details. 
+    
+```
+{
+   "Data":{
+      "Status":"InitiationCompleted",
+      "StatusUpdateDateTime":"2022-01-25T11:24:40+05:30",
+      "CreationDateTime":"2022-01-25T11:24:40+05:30",
+      "InternationalStandingOrderId":"f6780a27-f3a4-4a58-82e6-2179eba67d06-55",
+      "ConsentId":"f6780a27-f3a4-4a58-82e6-2179eba67d06",
+      "Initiation":{
+         "DebtorAccount":{
+            "SecondaryIdentification":"30080012343456",
+            "SchemeName":"UK.OBIE.SortCodeAccountNumber",
+            "Identification":"30080012343456",
+            "Name":"Andrea Smith"
+         },
+         "Reference":"Pocket money for Damien",
+         "CurrencyOfTransfer":"USD",
+         "CreditorAccount":{
+            "SecondaryIdentification":"0002",
+            "SchemeName":"UK.OBIE.SortCodeAccountNumber",
+            "Identification":"08080021325698",
+            "Name":"ACME Inc"
+         },
+         "Frequency":"EvryDay",
+         "Purpose":"1234",
+         "ChargeBearer":"BorneByCreditor",
+         "FirstPaymentDateTime":"2022-01-26T05:50:34.532Z",
+         "NumberOfPayments":"10",
+         "Creditor":{
+            "PostalAddress":{
+               "StreetName":"Acacia Avenue",
+               "CountrySubDivision":"Wessex",
+               "Department":"department1",
+               "AddressLine":[
+                  "Flat 7",
+                  "Acacia Lodge"
+               ],
+               "BuildingNumber":"27",
+               "TownName":"Sparsholt",
+               "Country":"UK",
+               "SubDepartment":"sub dept",
+               "AddressType":"Correspondence",
+               "PostCode":"GU31 2ZZ"
+            },
+            "Name":"ACME Inc"
+         },
+         "FinalPaymentDateTime":"2022-01-30T05:50:34.532Z",
+         "InstructedAmount":{
+            "Amount":"30.80",
+            "Currency":"GBP"
+         }
+      }
+   },
+   "Meta":{
+      
+   },
+   "Links":{
+      "Self":"/international-standing-orders/f6780a27-f3a4-4a58-82e6-2179eba67d06-55"
+   }
+}
+```
