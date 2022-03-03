@@ -5,61 +5,47 @@
 
 1. Download and install the WSO2 API Manager 4.0.0 distribution from [here](https://wso2.com/api-manager/). 
 2. Extract the downloaded archive file. This document refers to the root folder of the extracted file as `<APIM_HOME>`.
-3. Download the `wso2-obam-accelerator-3.0.0.zip` file and extract it to the `<APIM_HOME>` directory. 
-4. Download the latest updates for `wso2-obam-accelerator-3.0.0`. For more information, see [Getting WSO2 Updates](../setting-up-servers.md#getting-wso2-updates).
-5. Open the `<APIM_HOME>/<APIM_ACCELERATOR_HOME>/repository/conf/configure.properties` file and update the hostnames 
-   and database details. These database configurations should point to the databases of Open Banking 2.0.
-6. Go to the `<APIM_HOME>/<APIM_ACCELERATOR_HOME>/bin` directory and issue the following commands:
-       1. Run the merge.sh script.
+3. Set up WSO2 Open Banking Accelerator and UK Toolkit for API Manager:
+    1. Download the `wso2-obam-accelerator-3.0.0.zip` file and extract it to the `<APIM_HOME>` directory. 
+    2. Download the latest updates for `wso2-obam-accelerator-3.0.0`. For more information, see [Getting WSO2 Updates](../setting-up-servers.md#getting-wso2-updates).
+    3. Open the `<APIM_HOME>/<APIM_ACCELERATOR_HOME>/repository/conf/configure.properties` file and update the hostnames 
+      and database details. These database configurations should point to the databases of Open Banking 2.0.
+    4. Go to the `<APIM_HOME>/<APIM_ACCELERATOR_HOME>/bin` directory and run the merge.sh script.
 
-         ```
-         ./merge.sh
-         ```
+       ```
+       ./merge.sh
+       ```
 
-       2. Run the configure.sh script
+    5. Download the `wso2ob-apim-toolkit-uk-1.0.0.zip` file and extract it to the `<APIM_HOME>` directory. 
+    6. Download the latest updates for `wso2ob-apim-toolkit-uk-1.0.0`. For more information, see [Getting WSO2 Updates](../setting-up-servers.md#getting-wso2-updates).
+    7. Open the `<APIM_HOME>/<APIM_TOOLKIT_HOME>/repository/conf/configure.properties` file and update the hostnames and 
+      database details. These database configurations should point to the databases of Open Banking 2.0.
+    8. Go to the `<APIM_HOME>/<APIM_TOOLKIT_HOME>/bin` directory and run the merge.sh script.
 
-         ```
-         ./configure.sh
-         ```
-
-7. Download the `wso2ob-apim-toolkit-uk-1.0.0.zip` file and extract it to the `<APIM_HOME>` directory. 
-8. Download the latest updates for `wso2ob-apim-toolkit-uk-1.0.0`. For more information, see [Getting WSO2 Updates](../setting-up-servers.md#getting-wso2-updates).
-9. Open the `<APIM_HOME>/<APIM_TOOLKIT_HOME>/repository/conf/configure.properties` file and update the hostnames and 
-   database details. These database configurations should point to the databases of Open Banking 2.0.
-10. Go to the `<APIM_HOME>/<APIM_TOOLKIT_HOME>/bin` directory and issue the following commands:
-
-     1. Run the merge.sh script.
-
-        ```
-        ./merge.sh
-        ```
-
-     2. Run the configure.sh script
-
-        ```
-        ./configure.sh
-        ```
+       ```
+       ./merge.sh
+       ```
     
-11. Before starting the API Manager 4.0.0 server for the first time, create a custom key manager by following the 
+4. Before starting the API Manager 4.0.0 server for the first time, create a custom key manager by following the 
 [Configuring IS as Key Manager](../../get-started/dynamic-client-registation.md#step-2-configure-is-as-key-manager) documentation.
-12. Once the Identity Server 5.11.0 is configured as the Resident Key Manager, start the Identity Server 5.11.0 before 
+5. Once the Identity Server 5.11.0 is configured as the Resident Key Manager, start the Identity Server 5.11.0 before 
 starting the API Manager migration.
-13. Do not copy any other Key Manager specific configurations from the previous API Manager version to the latest 
+6. Do not copy any other Key Manager specific configurations from the previous API Manager version to the latest 
 one that points to the Identity Server.
-14. Upgrade your API Manager from 3.2.0 to 4.0.0 by following the [API Manager documentation](https://apim.docs.wso2.com/en/latest/install-and-setup/upgrading-wso2-api-manager/upgrading-from-320-to-400/).
+7. Upgrade your API Manager from 3.2.0 to 4.0.0 by following the [API Manager documentation](https://apim.docs.wso2.com/en/latest/install-and-setup/upgrading-wso2-api-manager/upgrading-from-320-to-400/).
 When following this documentation:
-    1. You can skip the steps 1,2, and 3 under [Step 1 - Migrate the API Manager configurations](https://apim.docs.wso2.com/en/latest/install-and-setup/upgrading-wso2-api-manager/upgrading-from-320-to-400/#step-1-migrate-the-api-manager-configurations).
-    2. Modify the following configurations in the `<APIM_HOME>/repository/conf/deployment.toml` file before starting the migration.
+   1. You can skip the steps 1,2, and 3 under [Step 1 - Migrate the API Manager configurations](https://apim.docs.wso2.com/en/latest/install-and-setup/upgrading-wso2-api-manager/upgrading-from-320-to-400/#step-1-migrate-the-api-manager-configurations).
+   2. Modify the following configurations in the `<APIM_HOME>/repository/conf/deployment.toml` file before starting the migration.
 
-        ``` toml
-        [[apim.gateway.environment]]
-        name = "Production and Sandbox"
-        [apim.sync_runtime_artifacts.gateway]
-        gateway_labels =["Production and Sandbox", "Default"]
-        ```
+       ``` toml
+       [[apim.gateway.environment]]
+       name = "Production and Sandbox"
+       [apim.sync_runtime_artifacts.gateway]
+       gateway_labels =["Production and Sandbox", "Default"]
+       ```
        
-    3. Skip step 5 under [Step 2 - Upgrade API Manager to 4.0.0](https://apim.docs.wso2.com/en/latest/install-and-setup/upgrading-wso2-api-manager/upgrading-from-320-to-400/#step-2-upgrade-api-manager-to-400)
-    4. Start the API Manager server.
+   3. Skip step 5 under [Step 2 - Upgrade API Manager to 4.0.0](https://apim.docs.wso2.com/en/latest/install-and-setup/upgrading-wso2-api-manager/upgrading-from-320-to-400/#step-2-upgrade-api-manager-to-400)
+   4. Start the API Manager server.
 
 ### Replace Custom Mediation Policies
 

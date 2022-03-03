@@ -1,7 +1,8 @@
 !!! tip "Before you begin:"
     Back up all the databases before performing the migration.
 
-1. Create the `openbankingdb` table by following [Creating Databases](../setting-up-databases.md#creating-database-tables). 
+1. Create the `openbank_openbankingdb` database and run the relevant SQL script in the `<IS_HOME>/dbscripts/open-banking/consent`
+directory.
 2. Download the WSO2 Open Banking Migration Client Tool v1.0.0 from <a href="../../../assets/attachments/wso2-openbanking-migration-1.0.0.zip" download> here</a>.
 3. Copy the `openbanking-migration-resources` directory to `<IS_HOME>`.
 4. Copy the `wso2-openbanking-migration-1.0.0/dropins/com.wso2.openbanking.migration-1.0.0.jar` file to `<IS_HOME>/repository/components/dropins`.
