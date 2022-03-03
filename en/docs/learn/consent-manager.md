@@ -2,6 +2,9 @@ After a certain period, bank customers may need to view, update, or revoke conse
 applications to access account data. **Consent Manager** is an application in WSO2 Open Banking that supports all these
 requirements and manages consents.
 
+You can use the [/admin endpoint in Consent REST API](https://ob.docs.wso2.com/en/latest/references/consent-rest-api/#/Admin) 
+to retrieve consent details and customize Consent Manager. 
+
 !!! note
     - Bank officers with the `CustomerCareOfficerRole` role and bank customers can access the Consent Manager.  
     - Customer Care Officers have privileges such as Advanced Search options and the ability to view the consents of all bank customers. 
