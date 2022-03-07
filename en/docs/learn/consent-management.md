@@ -37,7 +37,11 @@ following methods to revoke these consents granted to TPP applications.
  - A customer can revoke a consent using the Consent Manager portal 
  - A Customer Care Representative from the bank can revoke a consent on behalf of a user
  
-WSO2 Open Banking uses the following API endpoints to manage consents as previously described. 
+!!! tip
+    You can customize and build your own Consent Manager using the [Consent API](https://ob.docs.wso2.com/en/latest/references/consent-rest-api/).
+ 
+WSO2 Open Banking uses the following API endpoints to manage consents as previously described. For more information,
+see [Consent REST API documentation](https://ob.docs.wso2.com/en/latest/references/consent-rest-api/).
 
 - **Consent Validation - `/validate` endpoint**  
   The solution gathers all consent details and invokes validators via this API. Once the validations are performed, 
