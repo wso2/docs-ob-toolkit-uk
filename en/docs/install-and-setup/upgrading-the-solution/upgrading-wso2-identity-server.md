@@ -4,35 +4,37 @@
 
    1. Download and install the WSO2 Identity Server 5.11.0 distribution from [here](https://wso2.com/identity-server/).
    2. Extract the downloaded archive file. This document refers to the root folder of the extracted file as `<IS_HOME>`.
-   3. Set up WSO2 Open Banking Accelerator and UK Toolkit for Identity Sever:
-      1. Download the `wso2-obiam-accelerator-3.0.0.zip` file and extract it to the `<IS_HOME>` directory.
-      2. Download the latest updates for `wso2-obiam-accelerator-3.0.0`. For more information, see [Getting WSO2 Updates](../setting-up-servers.md#getting-wso2-updates).
-      3. Open the `<IS_HOME>/<IS_ACCELERATOR_HOME>/repository/conf/configure.properties` file and update the hostnames
-         and database details. These database configurations should point to the databases of Open Banking 2.0.
-      4. Go to the `<IS_HOME>/<IS_ACCELERATOR_HOME>/bin` directory and run the merge.sh script.
 
-          ```
-          ./merge.sh
-          ```
+### Set up WSO2 Open Banking Accelerator and UK Toolkit for Identity Sever
 
-      5. Download the `wso2-obiam-toolkit-uk-1.0.0.zip` file and extract it to the `<IS_HOME>` directory.
-      6. Download the latest updates for `wso2-obiam-toolkit-uk-1.0.0`. For more information, see [Getting WSO2 Updates](../setting-up-servers.md#getting-wso2-updates).
-      7. Open the `<IS_HOME>/<IS_TOOLKIT_HOME>/repository/conf/configure.properties` file and update the hostnames and
-         database details. These database configurations should point to the databases of Open Banking 2.0.
-      8. Go to the `<IS_HOME>/<IS_TOOLKIT_HOME>/bin` directory and run the merge.sh script.
+1. Download the `wso2-obiam-accelerator-3.0.0.zip` file and extract it to the `<IS_HOME>` directory.
+2. Download the latest updates for `wso2-obiam-accelerator-3.0.0`. For more information, see [Getting WSO2 Updates](../setting-up-servers.md#getting-wso2-updates).
+3. Open the `<IS_HOME>/<IS_ACCELERATOR_HOME>/repository/conf/configure.properties` file and update the hostnames
+   and database details. These database configurations should point to the databases of Open Banking 2.0.
+4. Go to the `<IS_HOME>/<IS_ACCELERATOR_HOME>/bin` directory and run the merge.sh script.
 
-         ```
-         ./merge.sh
-         ```
+     ```
+     ./merge.sh
+     ```
 
-   4. To configure the Identity Server with the API Manager, download [WSO2 IS Connector](https://apim.docs.wso2.com/en/4.0.0/assets/attachments/administer/wso2is-extensions-1.2.10.zip).
-   5. Copy the following files to the given directory paths:
+5. Download the `wso2-obiam-toolkit-uk-1.0.0.zip` file and extract it to the `<IS_HOME>` directory.
+6. Download the latest updates for `wso2-obiam-toolkit-uk-1.0.0`. For more information, see [Getting WSO2 Updates](../setting-up-servers.md#getting-wso2-updates).
+7. Open the `<IS_HOME>/<IS_TOOLKIT_HOME>/repository/conf/configure.properties` file and update the hostnames and
+   database details. These database configurations should point to the databases of Open Banking 2.0.
+8. Go to the `<IS_HOME>/<IS_TOOLKIT_HOME>/bin` directory and run the merge.sh script.
 
-      | File to copy | Location to  |
-      |---------|-------------------|
-      |`wso2is-extensions-1.2.10/dropins/wso2is.key.manager.core-1.2.10.jar`|`<IS_HOME>/repository/components/dropins`|
-      |`wso2is-extensions-1.2.10/dropins/wso2is.notification.event.handlers-1.2.10.jar`|`<IS_HOME>/repository/components/dropins`|
-      |`wso2is-extensions-1.2.10/webapps/keymanager-operations.war`|`<IS_HOME>/repository/deployment/server/webapps`|
+     ```
+     ./merge.sh
+     ```
+
+9. To configure the Identity Server with the API Manager, download [WSO2 IS Connector](https://apim.docs.wso2.com/en/4.0.0/assets/attachments/administer/wso2is-extensions-1.2.10.zip).
+10. Copy the following files to the given directory paths:
+
+    | File to copy | Location to  |
+    |---------|-------------------|
+    |`wso2is-extensions-1.2.10/dropins/wso2is.key.manager.core-1.2.10.jar`|`<IS_HOME>/repository/components/dropins`|
+    |`wso2is-extensions-1.2.10/dropins/wso2is.notification.event.handlers-1.2.10.jar`|`<IS_HOME>/repository/components/dropins`|
+    |`wso2is-extensions-1.2.10/webapps/keymanager-operations.war`|`<IS_HOME>/repository/deployment/server/webapps`|
 
 ## Migrate to WSO2 Identity Sever 5.11.0
 
