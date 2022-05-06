@@ -1,5 +1,20 @@
 This page explains the modifications that need to be performed after the upgrade/migration process.
 
+## Open Banking Internal Scopes
+
+Configure open banking internal scopes as follows:
+
+1. Open the `<IS_HOME>/repository/conf/deployment.toml` file.
+
+2. Update the allowed scopes according the sample below: 
+
+      ``` toml
+      [oauth]
+      allowed_scopes = ["consent.*", "OB_.*"]
+      ```
+
+## Two-Factor Authentication
+
 If the migrated Service Provider is configured to use two-factor authentication:
 
 1. Update the `<IS_HOME>/repository/conf/common.auth.script.js` file with the following steps:

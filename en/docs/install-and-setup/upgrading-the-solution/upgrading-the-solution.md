@@ -7,7 +7,7 @@ This section guides on how to upgrade your WSO2 Open Banking 2.0 setup to WSO2 O
 
 The diagram below explains the flow of upgrading the WSO2 Open Banking solution:
 
-  ![migration_flow](../../assets/img/install-and-setup/upgrading-the-solution/migration-flow.png)
+  [![](../../assets/img/install-and-setup/upgrading-the-solution/migration-flow.png)](../../assets/img/install-and-setup/upgrading-the-solution/migration-flow.png)
 
 Follow the topics below in the given order:
 
