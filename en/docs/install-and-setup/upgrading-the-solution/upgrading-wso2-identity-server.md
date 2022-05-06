@@ -5,7 +5,7 @@
    1. Download and install the WSO2 Identity Server 5.11.0 distribution from [here](https://wso2.com/identity-server/).
    2. Extract the downloaded archive file. This document refers to the root folder of the extracted file as `<IS_HOME>`.
 
-### Set up WSO2 Open Banking Accelerator and UK Toolkit for Identity Sever
+### Set up Open Banking Accelerator and UK Toolkit for Identity Sever
 
 1. Download the `wso2-obiam-accelerator-3.0.0.zip` file and extract it to the `<IS_HOME>` directory.
 2. Download the latest updates for `wso2-obiam-accelerator-3.0.0`. For more information, see [Getting WSO2 Updates](../setting-up-servers.md#getting-wso2-updates).
@@ -35,6 +35,11 @@
     |`wso2is-extensions-1.2.10/dropins/wso2is.key.manager.core-1.2.10.jar`|`<IS_HOME>/repository/components/dropins`|
     |`wso2is-extensions-1.2.10/dropins/wso2is.notification.event.handlers-1.2.10.jar`|`<IS_HOME>/repository/components/dropins`|
     |`wso2is-extensions-1.2.10/webapps/keymanager-operations.war`|`<IS_HOME>/repository/deployment/server/webapps`|
+
+11. Replace the existing `deployment.toml` file in the Identity Server as follows:
+    - Go to the `<IS_HOME>/<OB_IS_TOOLKIT_HOME>/repository/resources` directory.
+    - Rename `wso2is-5.11.0-deployment-uk.toml` to `deployment.toml`.
+    - Copy the `deployment.toml` file to the `<IS_HOME>/repository/conf` directory to replace the existing file.
 
 ## Migrate to WSO2 Identity Sever 5.11.0
 
