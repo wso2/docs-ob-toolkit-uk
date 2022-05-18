@@ -36,11 +36,14 @@ as follows:
     ```
    
 5. Replace the existing `deployment.yaml` file in the Streaming Integrator as follows:
-   - Go to the `<SI_HOME>/<OB_BI_ACCELERATOR_HOME>/repository/resources` directory.
-   - Rename `wso2si-4.0.0-deployment.yaml` to `deployment.yaml`.
-   - Copy the `deployment.yaml` file to the `<SI_HOME>/conf/server` directory to replace the existing file.
+    - Go to the `<SI_HOME>/<OB_BI_ACCELERATOR_HOME>/repository/resources` directory.
+    - Rename `wso2si-4.0.0-deployment.yaml` to `deployment.yaml`.
+    - Copy the `deployment.yaml` file to the `<SI_HOME>/conf/server` directory to replace the existing file.
+
+6. Open the `<SI_HOME>/conf/server/deployment.toml` file, and configure the hostnames and databases related
+   properties accordingly.
    
-6. Exchange the public certificates between servers. 
+7. Exchange the public certificates between servers. 
         
     ??? "Click here to see how it is done..."
     

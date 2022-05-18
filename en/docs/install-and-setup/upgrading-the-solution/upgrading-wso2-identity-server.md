@@ -41,6 +41,9 @@
     - Rename `wso2is-5.11.0-deployment-uk.toml` to `deployment.toml`.
     - Copy the `deployment.toml` file to the `<IS_HOME>/repository/conf` directory to replace the existing file.
 
+12. Open the `<IS_HOME>/repository/conf/deployment.toml` file, and configure the hostnames and databases related
+    properties accordingly.
+
 ## Migrate to WSO2 Identity Sever 5.11.0
 
 1. Follow [Step B - Migrate IS from 5.10.0 to 5.11.0](https://apim.docs.wso2.com/en/latest/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-5100-to-is-5110/#step-b-migrate-is-from-5100-to-5110) 

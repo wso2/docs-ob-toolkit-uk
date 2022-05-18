@@ -32,19 +32,22 @@
     - Go to the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources` directory.
     - Rename `wso2am-4.0.0-deployment-uk.toml` to `deployment.toml`.
     - Copy the `deployment.toml` file to the `<APIM_HOME>/repository/conf` directory and replace the existing file.
+    
+ 10. Open the `<APIM_HOME>/repository/conf/deployment.toml` file, and configure the hostnames and databases related 
+     properties accordingly. 
 
 ## Upgrading to WSO2 API Manager 4.0.0
 
-1. Before upgrading, start the WSO2 API Manager 4.0.0 server and create a Custom Key Manager by following the 
-[Configuring IS as Key Manager](../../try-out/dynamic-client-regsitration-flow.md#configuring-is-as-key-manager) documentation.
+!!! tip "Before you begin:"
+      Once the Identity Server 5.11.0 is configured as the Resident Key Manager, start the Identity Server 5.11.0.
 
-2. Once the Identity Server 5.11.0 is configured as the Resident Key Manager, start the Identity Server 5.11.0 before 
-starting the API Manager migration.
+1. Start the WSO2 API Manager 4.0.0 server and create a Custom Key Manager by following the
+   [Configuring IS as Key Manager](../../try-out/dynamic-client-regsitration-flow.md#configuring-is-as-key-manager) documentation.
 
-3. Do not copy any other Key Manager specific configurations from the previous API Manager version to the latest 
+2. Do not copy any other Key Manager specific configurations from the previous API Manager version to the latest 
 one that points to the Identity Server.
 
-4. Upgrade your API Manager from 3.2.0 to 4.0.0 by following the [API Manager documentation](https://apim.docs.wso2.com/en/latest/install-and-setup/upgrading-wso2-api-manager/upgrading-from-320-to-400/).
+3. Upgrade your API Manager from 3.2.0 to 4.0.0 by following the [API Manager documentation](https://apim.docs.wso2.com/en/latest/install-and-setup/upgrading-wso2-api-manager/upgrading-from-320-to-400/).
 
     !!! note
         When following the [API Manager documentation](https://apim.docs.wso2.com/en/latest/install-and-setup/upgrading-wso2-api-manager/upgrading-from-320-to-400/):
@@ -63,7 +66,7 @@ one that points to the Identity Server.
          3. In [Step 2 - Upgrade API Manager to 4.0.0](https://apim.docs.wso2.com/en/latest/install-and-setup/upgrading-wso2-api-manager/upgrading-from-320-to-400/#step-2-upgrade-api-manager-to-400),
             skip the steps 3 and 5.
 
-6. Start the API Manager server.
+4. Start the API Manager server.
 
 ### Replace Custom Mediation Policies
 
