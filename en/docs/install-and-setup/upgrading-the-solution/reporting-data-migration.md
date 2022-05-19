@@ -41,7 +41,8 @@ as follows:
     - Copy the `deployment.yaml` file to the `<SI_HOME>/conf/server` directory to replace the existing file.
 
 6. Open the `<SI_HOME>/conf/server/deployment.toml` file, and configure the hostnames and databases related
-   properties accordingly.
+   properties accordingly.     
+    - When configuring database related properties, point to your existing Open Banking 2.0 databases.
    
 7. Exchange the public certificates between servers. 
         

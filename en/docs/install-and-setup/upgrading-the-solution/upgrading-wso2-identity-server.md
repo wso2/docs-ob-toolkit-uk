@@ -9,26 +9,24 @@
 
 1. Download the `wso2-obiam-accelerator-3.0.0.zip` file and extract it to the `<IS_HOME>` directory.
 2. Download the latest updates for `wso2-obiam-accelerator-3.0.0`. For more information, see [Getting WSO2 Updates](../setting-up-servers.md#getting-wso2-updates).
-3. Open the `<IS_HOME>/<IS_ACCELERATOR_HOME>/repository/conf/configure.properties` file and update the hostnames
-   and database details. These database configurations should point to the databases of Open Banking 2.0.
-4. Go to the `<IS_HOME>/<IS_ACCELERATOR_HOME>/bin` directory and run the merge.sh script.
+3. Go to the `<IS_HOME>/<IS_ACCELERATOR_HOME>/bin` directory and run the merge.sh script.
 
      ```
      ./merge.sh
      ```
 
-5. Download the `wso2-obiam-toolkit-uk-1.0.0.zip` file and extract it to the `<IS_HOME>` directory.
-6. Download the latest updates for `wso2-obiam-toolkit-uk-1.0.0`. For more information, see [Getting WSO2 Updates](../setting-up-servers.md#getting-wso2-updates).
-7. Open the `<IS_HOME>/<IS_TOOLKIT_HOME>/repository/conf/configure.properties` file and update the hostnames and
+4. Download the `wso2-obiam-toolkit-uk-1.0.0.zip` file and extract it to the `<IS_HOME>` directory.
+5. Download the latest updates for `wso2-obiam-toolkit-uk-1.0.0`. For more information, see [Getting WSO2 Updates](../setting-up-servers.md#getting-wso2-updates).
+6. Open the `<IS_HOME>/<IS_TOOLKIT_HOME>/repository/conf/configure.properties` file and update the hostnames and
    database details. These database configurations should point to the databases of Open Banking 2.0.
-8. Go to the `<IS_HOME>/<IS_TOOLKIT_HOME>/bin` directory and run the merge.sh script.
+7. Go to the `<IS_HOME>/<IS_TOOLKIT_HOME>/bin` directory and run the merge.sh script.
 
      ```
      ./merge.sh
      ```
 
-9. To configure the Identity Server with the API Manager, download [WSO2 IS Connector](https://apim.docs.wso2.com/en/4.0.0/assets/attachments/administer/wso2is-extensions-1.2.10.zip).
-10. Copy the following files to the given directory paths:
+8. To configure the Identity Server with the API Manager, download [WSO2 IS Connector](https://apim.docs.wso2.com/en/4.0.0/assets/attachments/administer/wso2is-extensions-1.2.10.zip).
+9. Copy the following files to the given directory paths:
 
     | File to copy | Location to  |
     |---------|-------------------|
@@ -36,14 +34,15 @@
     |`wso2is-extensions-1.2.10/dropins/wso2is.notification.event.handlers-1.2.10.jar`|`<IS_HOME>/repository/components/dropins`|
     |`wso2is-extensions-1.2.10/webapps/keymanager-operations.war`|`<IS_HOME>/repository/deployment/server/webapps`|
 
-11. Replace the existing `deployment.toml` file in the Identity Server as follows:
+10. Replace the existing `deployment.toml` file in the Identity Server as follows:
     - Go to the `<IS_HOME>/<OB_IS_TOOLKIT_HOME>/repository/resources` directory.
     - Rename `wso2is-5.11.0-deployment-uk.toml` to `deployment.toml`.
     - Copy the `deployment.toml` file to the `<IS_HOME>/repository/conf` directory to replace the existing file.
 
-12. Open the `<IS_HOME>/repository/conf/deployment.toml` file, and configure the hostnames and databases related
+11. Open the `<IS_HOME>/repository/conf/deployment.toml` file, and configure the hostnames and databases related
     properties accordingly.
-
+    - When configuring database related properties, point to your existing Open Banking 2.0 databases.
+    
 ## Migrate to WSO2 Identity Sever 5.11.0
 
 1. Follow [Step B - Migrate IS from 5.10.0 to 5.11.0](https://apim.docs.wso2.com/en/latest/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-5100-to-is-5110/#step-b-migrate-is-from-5100-to-5110) 

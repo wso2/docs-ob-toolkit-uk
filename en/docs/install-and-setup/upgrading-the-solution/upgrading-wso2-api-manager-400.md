@@ -10,31 +10,28 @@
 
  1. Download the `wso2-obam-accelerator-3.0.0.zip` file and extract it to the `<APIM_HOME>` directory. 
  2. Download the latest updates for `wso2-obam-accelerator-3.0.0`. For more information, see [Getting WSO2 Updates](../setting-up-servers.md#getting-wso2-updates).
- 3. Open the `<APIM_HOME>/<APIM_ACCELERATOR_HOME>/repository/conf/configure.properties` file and update the hostnames 
-   and database details. These database configurations should point to the databases of Open Banking 2.0.
- 4. Go to the `<APIM_HOME>/<APIM_ACCELERATOR_HOME>/bin` directory and run the merge.sh script.
+ 3. Go to the `<APIM_HOME>/<APIM_ACCELERATOR_HOME>/bin` directory and run the merge.sh script.
 
     ```
     ./merge.sh
        ```
 
- 5. Download the `wso2ob-apim-toolkit-uk-1.0.0.zip` file and extract it to the `<APIM_HOME>` directory. 
- 6. Download the latest updates for `wso2ob-apim-toolkit-uk-1.0.0`. For more information, see [Getting WSO2 Updates](../setting-up-servers.md#getting-wso2-updates).
- 7. Open the `<APIM_HOME>/<APIM_TOOLKIT_HOME>/repository/conf/configure.properties` file and update the hostnames and 
-   database details. These database configurations should point to the databases of Open Banking 2.0.
- 8. Go to the `<APIM_HOME>/<APIM_TOOLKIT_HOME>/bin` directory and run the merge.sh script.
+ 4. Download the `wso2ob-apim-toolkit-uk-1.0.0.zip` file and extract it to the `<APIM_HOME>` directory. 
+ 5. Download the latest updates for `wso2ob-apim-toolkit-uk-1.0.0`. For more information, see [Getting WSO2 Updates](../setting-up-servers.md#getting-wso2-updates).
+ 6. Go to the `<APIM_HOME>/<APIM_TOOLKIT_HOME>/bin` directory and run the merge.sh script.
 
     ```
     ./merge.sh
     ```
     
- 9. Replace the existing `deployment.toml` file in the API Manager as follows:
+ 7. Replace the existing `deployment.toml` file in the API Manager as follows:
     - Go to the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources` directory.
     - Rename `wso2am-4.0.0-deployment-uk.toml` to `deployment.toml`.
     - Copy the `deployment.toml` file to the `<APIM_HOME>/repository/conf` directory and replace the existing file.
     
- 10. Open the `<APIM_HOME>/repository/conf/deployment.toml` file, and configure the hostnames and databases related 
+ 8. Open the `<APIM_HOME>/repository/conf/deployment.toml` file, and configure the hostnames and databases related 
      properties accordingly. 
+     - When configuring database related properties, point to your existing Open Banking 2.0 databases.
 
 ## Upgrading to WSO2 API Manager 4.0.0
 
