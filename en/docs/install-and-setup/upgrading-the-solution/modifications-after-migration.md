@@ -59,7 +59,7 @@ If the migrated Service Provider is configured to use two-factor authentication:
        ```
 
 2. Update the common auth script of the existing service provider.
-     1. Go to the Identity Server Management Console `https://<IS_HOST>:9443/carbon` and log in as the admin user. ![service_providers](../../assets/img/install-and-setup/upgrading-the-solution/serivice-providers.png)
+     1. Go to the Identity Server Management Console `https://<IS_HOST>:9446/carbon` and log in as the admin user. ![service_providers](../../assets/img/install-and-setup/upgrading-the-solution/serivice-providers.png)
      2. Go to **Service Providers > List**.
      3. Edit the relevant Service Provider. ![edit_service_providers](../../assets/img/install-and-setup/upgrading-the-solution/edit-service-provider.png)
      4. Go to **Local & Outbound Authentication Configuration > Advanced Configuration**. ![advanced_configs_of_service_provider](../../assets/img/install-and-setup/upgrading-the-solution/advanced-configurations.png)
