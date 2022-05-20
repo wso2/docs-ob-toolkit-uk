@@ -15,7 +15,7 @@
     ```
     ./merge.sh
     ```
-    3. Run the `configure.sh` file in `<SI_HOME>/<OB_BI_ACCELERATOR_HOME>/bin`:
+    3. Run the `configure.sh` script in `<SI_HOME>/<OB_BI_ACCELERATOR_HOME>/bin`:
     ```
     ./configure.sh
     ```
@@ -26,7 +26,13 @@
     ```
     ./merge.sh
     ```
-    6. Exchange the public certificates between servers. 
+    
+    6. Run the `configure.sh` script in `<SI_HOME>/<OB_BI_TOOLKIT_HOME>/bin`:
+    ```
+    ./configure.sh
+    ```
+
+    7. Exchange the public certificates between servers. 
         
         ??? "Click here to see how it is done..."
     
