@@ -11,6 +11,7 @@ application. The application can then use the client ID in the registration info
 
 The bank needs to provide the DCR API from its open banking solution and WSO2  Open Banking provides the 
 DCR capabilities with an endpoint that performs the following:
+
  - Validates if the TPP application is authorized by a competent authority
  - Validates information such as the role of the TPP, signature algorithm, authorization scopes, 
  OAuth2.0 grant types, application type, and the request issuance time
