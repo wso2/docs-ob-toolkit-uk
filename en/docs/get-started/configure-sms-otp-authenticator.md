@@ -11,36 +11,46 @@ This document provides step by step instructions to set up SMS OTP configuration
 
 2. Open `<IS_HOME>/repository/conf/common.auth.script.js` file and update the configurations as follows.
 
-    ``` 
+    ```
     var psuChannel = 'Online Banking';
-
+   
     var onLoginRequest = function(context) {
-    publishAuthData(context, "AuthenticationAttempted", {'psuChannel': psuChannel});
-    executeStep(1, {
-    onSuccess: function (context) {
-    Log.info("Authentication Successful");
-    publishAuthData(context, "AuthenticationSuccessful", {'psuChannel': psuChannel});
-    OTPFlow(context);
-    },
-    onFail: function (context) {
-    Log.info("Authentication Failed");
-    publishAuthData(context, "AuthenticationFailed", {'psuChannel': psuChannel});
-    }
-    });
+        publishAuthData(context, "AuthenticationAttempted", {
+            'psuChannel': psuChannel
+        });
+        executeStep(1, {
+            onSuccess: function(context) {
+                Log.info("Authentication Successful");
+                publishAuthData(context, "AuthenticationSuccessful", {
+                    'psuChannel': psuChannel
+                });
+                OTPFlow(context);
+            },
+            onFail: function(context) {
+                Log.info("Authentication Failed");
+                publishAuthData(context, "AuthenticationFailed", {
+                    'psuChannel': psuChannel
+                });
+            }
+        });
     };
-    
+   
     var OTPFlow = function(context) {
-    executeStep(2, {
-    //OTP-authentication
-    onSuccess: function (context) {
-    context.selectedAcr = "urn:openbanking:psd2:sca";
-    publishAuthData(context, "AuthenticationSuccessful", {'psuChannel': psuChannel});
-    },
-    onFail: function (context) {
-    publishAuthData(context, "AuthenticationFailed", {'psuChannel': psuChannel});
-    OTPFlow(context);
-    }
-    });
+        executeStep(2, {
+            //OTP-authentication
+            onSuccess: function(context) {
+                context.selectedAcr = "urn:openbanking:psd2:sca";
+                publishAuthData(context, "AuthenticationSuccessful", {
+                    'psuChannel': psuChannel
+                });
+            },
+            onFail: function(context) {
+                publishAuthData(context, "AuthenticationFailed", {
+                    'psuChannel': psuChannel
+                });
+                OTPFlow(context);
+            }
+        });
     };
     ```
 
@@ -129,11 +139,15 @@ This document provides step by step instructions to set up SMS OTP configuration
 
     ![edit_mobile_claim](../assets/img/get-started/quick-start-guide/edit-mobile-claim.png)
 
-2. Select the **Required** checkbox.
+2. Select `http://wso2.org/claims` from the list.
+
+    ![claim_list](../assets/img/get-started/quick-start-guide/update-claims.png)
+
+3. Select the **Required** checkbox.
 
     ![update_claim_details](../assets/img/get-started/quick-start-guide/update-local-claim-details.png)
 
-3. Scroll down and click **Update**.
+4. Scroll down and click **Update**.
 
     !!! tip "More on Login Information..."
         In the authentication flow, if you log in as an admin user, it will prompt for the mobile number in the first
