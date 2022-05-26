@@ -56,6 +56,7 @@ nav:
       - 'Get Started': get-started/quick-start-guide.md
       - 'Set up Toolkits': get-started/set-up-toolkits.md
       - 'Configure Users and Roles': get-started/configure-users-and-roles.md
+      - 'Configure SMS OTP Authenticator': get-started/configure-sms-otp-authenticator.md
       - 'Dynamic Client Registration': get-started/dynamic-client-registration.md
       - 'Tryout Flow': get-started/try-out-flow.md
       - 'Data Publishing': get-started/data-publishing-try-out.md
@@ -66,6 +67,7 @@ nav:
     - 'Configuring Identity Server': install-and-setup/configuring-identity-server-for-ob.md
     - 'Configuring API Manager': install-and-setup/configuring-api-manager-for-ob.md
     - 'Configuring Users and Roles': install-and-setup/configuring-users-and-roles.md
+    - 'Configuring SMS OTP Authenticator': install-and-setup/configuring-sms-otp-authenticator.md
     - 'Upgrade':
        - 'Upgrading the solution':  install-and-setup/upgrading-the-solution/upgrading-the-solution.md
        - 'Upgrading to API Manager 3.2.0': install-and-setup/upgrading-the-solution/upgrading-wso2-api-manager-320.md
