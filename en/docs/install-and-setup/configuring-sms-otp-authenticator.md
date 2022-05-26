@@ -121,28 +121,28 @@ This document provides step by step instructions to set up SMS OTP configuration
 
 4. Scroll down and click **Update**.
 
-### Step 3: Making Mobile Phone a Mandatory Claim
+### Step 3: Configure mobile as a mandatory claim
 
-1. Go to the **Main menu** > **Identity** > **Claims** > **List** > **http://wso2.org/claims** > **Mobile** > **Edit**.
+1. On the **Main menu > Identity > Claims > List**.
 
     ![select_claims_lists](../assets/img/get-started/quick-start-guide/go-to-claims-lists.png)
-
-    ![edit_mobile_claim](../assets/img/get-started/quick-start-guide/edit-mobile-claim.png)
 
 2. Select `http://wso2.org/claims` from the list.
 
     ![claim_list](../assets/img/get-started/quick-start-guide/update-claims.png)
 
-3. Select the **Required** checkbox.
+3. Locate **Mobile** from the list and select **Edit**.
+
+    ![locate_mobile](../assets/img/get-started/quick-start-guide/locate-mobile.png)
+
+4. Select **Required** and click **Update**.
 
     ![update_claim_details](../assets/img/get-started/quick-start-guide/update-local-claim-details.png)
 
-4. Scroll down and click **Update**.
-
     !!! tip "More on Login Information..."
-        In the authentication flow, if you log in as an admin user, it will prompt for the mobile number in the first
-        attempt to log in. The Mobile number should be given in the format of the following example - 94714564567.
+          In the authentication flow, if you log in as an admin user, it will prompt for the mobile number in the first
+          attempt to log in. The Mobile number should be given in the format of the following example - 94714564567.
 
     !!!note
-        Test scenarios can include attempting to log in using invalid usernames more than the allowed number of times, attempting
-        invalid OTPs more than the allowed number of times, etc.
+         Test scenarios can include attempting to log in using invalid usernames more than the allowed number of times, attempting
+         invalid OTPs more than the allowed number of times, etc.
