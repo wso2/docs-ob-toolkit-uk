@@ -135,7 +135,9 @@ This SSA contains client metadata. It is a signed JWT issued by the Open Banking
 
 This section explains the client registration process. A sample request is as follows:
 
-- For this sample flow, you can use the transport certificates available [here](../../assets/attachments/Certificates.zip).
+- For the Transport Layer Security purposes in this sample flow, you can use the attached 
+  [private key](../../assets/attachments/transport-certs/obtransport.key) and 
+  [public certificate](../../assets/attachments/transport-certs/obtransport.pem).
 
     ```  
     curl -X POST https://<APIM_HOST>:8243/open-banking/v3.3.0/register \
@@ -225,7 +227,14 @@ algorithms.
 
 !!! note
     If you have configured the [OB certificates](https://openbanking.atlassian.net/wiki/spaces/DZ/pages/252018873/OB+Root+and+Issuing+Certificates+for+Sandbox),
-    download the certificate and keys attached [here](../../assets/attachments/Certificates.zip), and use them for signing and transports layer security testing purposes.
+
+      - To sign the request payload, use the attached 
+        [signing certificate](../../assets/attachments/signing-certs/obsigning.pem)
+        and [private keys](../../assets/attachments/signing-certs/obsigning.key)
+
+      - For Transport Layer Security purposes, use the attached 
+        [private key](../../assets/attachments/transport-certs/obtransport.key) and 
+        [public certificate](../../assets/attachments/transport-certs/obtransport.pem).
 
 
 ``` tab='Format'
