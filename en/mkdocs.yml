@@ -88,6 +88,9 @@ nav:
     - 'Strong Customer Authentication':
        - 'Introduction': learn/strong-customer-authentication.md
        - 'App-to-App Redirection': learn/app-to-app-redirection.md
+    - 'Variable Recurring Payments':
+        - 'Introduction': page-not-found.md
+        - 'Configuration':  learn/variable-recurring-payments-configuration.md
     - 'API Security':
        - 'Introduction': learn/api-security.md
        - 'Configuration': learn/api-security-configuration.md
