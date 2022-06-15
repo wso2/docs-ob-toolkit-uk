@@ -3,6 +3,21 @@ This document provides step by step instructions to deploy, subscribe, and invok
 !!! tip
     When the TPP provides a Payment Initiation Service as an online service, the TPP is known as a Payment Initiation Services Provider (PISP).
 
+## Creating a Shared Scope
+
+Follow the steps and create a new shared scope for the Payment Initiation API.
+
+1. Sign in to API Publisher Portal at `https://<APIM_HOST>:9443/publisher`. ![create_shared_scope](../assets/img/try-out/payment-initiation-flow/create-shared-scope.png)
+
+2. Navigate to **Scopes** from the top menu and click the **Scopes** button.
+
+3. In the Create New Scope wizard, create a new scope named `payments`.  ![payments_shared_scope](../assets/img/try-out/payment-initiation-flow/create-shared-scope-wizard.png)
+
+4. Click the **Save** button.
+
+5. Now deploy the API. The scope will be automatically added to the resources. For more information, see 
+[WSO2 API Manager - Shared Scopes](https://apim.docs.wso2.com/en/latest/design/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/#creating-a-shared-scope).
+
 ## Deploying Payment Initiation API
 
 1. Sign in to the API Publisher Portal at `https://<APIM_HOST>:9443/publisher` with creator/publisher privileges. 
