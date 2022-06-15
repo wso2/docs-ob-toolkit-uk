@@ -35,7 +35,7 @@ Follow the steps and create a new shared scope for the Variable Recurring Paymen
     /open-banking/{version}/vrp
     ```
    
-7. Set the version value to `v3.1`.
+7. Set the version value to `v3.1`. ![create-an-api](../assets/img/try-out/payment-initiation-flow/create-api.png)
 
 8. Leave the **Endpoint** field empty as it is and click **Create**.
 
@@ -52,6 +52,8 @@ Follow the steps and create a new shared scope for the Variable Recurring Paymen
 14. Now, select the **Custom Policy** option.
 
 15. Upload the `<APIM_HOME>/<OB_APIM_ACCELERATOR_HOME>/repository/resources/apis/VRP/vrp-dynamic-endpoint-insequence.xml` insequence file. 
+
+    ![select_endpoints](../assets/img/try-out/payment-initiation-flow/adding-insequence.png)
 
 16. Click **Select**.
 
@@ -87,7 +89,7 @@ Follow the steps and create a new shared scope for the Variable Recurring Paymen
 
     ![select_subscriptions](../assets/img/get-started/quick-start-guide/select-subscriptions.png)
 
-4. From the **Application** dropdown, select the application that you want to be subscribed to the VRP API V3.1. ![select_application](../assets/img/get-started/quick-start-guide/select-application.png)
+4. From the **Application** dropdown, select the application that you want to be subscribed to the VRP API V3.1. ![select_subscriptions](../assets/img/try-out/payment-initiation-flow/select-subscriptions.png)
 
 5. Click **Subscribe**.
 
