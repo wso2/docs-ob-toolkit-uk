@@ -88,6 +88,9 @@ nav:
     - 'Strong Customer Authentication':
        - 'Introduction': learn/strong-customer-authentication.md
        - 'App-to-App Redirection': learn/app-to-app-redirection.md
+    - 'Variable Recurring Payments':
+        - 'Introduction': page-not-found.md
+        - 'Configuration':  learn/variable-recurring-payments-configuration.md
     - 'API Security':
        - 'Introduction': learn/api-security.md
        - 'Configuration': learn/api-security-configuration.md
@@ -101,6 +104,7 @@ nav:
     - 'Account and transaction flow': try-out/account-and-transaction-flow.md
     - 'Payment Initiation flow': try-out/payment-initiation-flow.md
     - 'Confirmation of Funds flow': try-out/confirmation-of-funds-flow.md
+    - 'Variable Recurring Payments flow': try-out/variable-recurring-payments-flow.md
     - 'Consent Manager': try-out/consent-manager.md
   - 'References':
     - 'Identity Server Configuration Catalog': references/config-catalog-is.md
