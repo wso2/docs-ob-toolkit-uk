@@ -51,7 +51,7 @@ Follow the steps and create a new shared scope for the Variable Recurring Paymen
 
 14. Now, select the **Custom Policy** option.
 
-15. Upload the `<APIM_HOME>/<OB_APIM_ACCELERATOR_HOME>/repository/resources/apis/VRP/vrp-dynamic-endpoint-insequence.xml` insequence file. 
+15. Upload the `<APIM_HOME>/<OB_APIM_ACCELERATOR_HOME>/repository/resources/apis/VRP/vrp-dynamic-endpoint-insequence-3.1.9.xml` insequence file. 
 
     ![select_endpoints](../assets/img/try-out/payment-initiation-flow/adding-insequence.png)
 
@@ -103,7 +103,7 @@ Once you register the application, generate an application access token.
 
     !!! note
         If you have configured the [OB certificates](https://openbanking.atlassian.net/wiki/spaces/DZ/pages/252018873/OB+Root+and+Issuing+Certificates+for+Sandbox),
-        download the certificate and keys attached [here](../../assets/attachments/Certificates.zip), and use them for signing and transports layer security testing purposes.
+        download the certificate and keys attached [here](../../assets/attachments/Certificates.zip), and use them for signing and transport layer security testing purposes.
 
     ``` tab='Format'
     
@@ -363,7 +363,7 @@ In this section, you will be generating an access token using the authorization 
 
    !!! note
    If you have configured the [OB certificates](https://openbanking.atlassian.net/wiki/spaces/DZ/pages/252018873/OB+Root+and+Issuing+Certificates+for+Sandbox),
-   download the certificate and keys attached [here](../../assets/attachments/Certificates.zip), and use them for signing and transports layer security testing purposes.
+   download the certificate and keys attached [here](../../assets/attachments/Certificates.zip), and use them for signing and transport layer security testing purposes.
 
     ``` tab="Format"
     Format:
