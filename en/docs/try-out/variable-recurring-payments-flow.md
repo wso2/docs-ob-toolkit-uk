@@ -218,9 +218,64 @@ payment-order. This informs the ASPSP that one of its PSUs intends to make a rec
 
 3. The response contains a Consent Id. A sample response is as follows:
 
-    ```
-    Todo: Add response
-    ```
+   ```
+   {
+      "Meta":{
+         
+      },
+      "Risk":{
+         "PaymentContextCode":"PartyToParty"
+      },
+      "Links":{
+         "Self":"https://localhost:8243/open-banking/3.1/vrp/domestic-vrp-consents/480edc52-dacf-4d3d-a272-e8636b0add6b"
+      },
+      "Data":{
+         "Status":"AwaitingAuthorisation",
+         "StatusUpdateDateTime":"2022-06-15T00:24:33+05:30",
+         "CreationDateTime":"2022-06-15T00:24:33+05:30",
+         "ControlParameters":{
+            "PSUAuthenticationMethods":[
+               "UK.OBIE.SCA"
+            ],
+            "ValidToDateTime":"2023-05-12T12:43:07.956Z",
+            "ValidFromDateTime":"2022-05-12T12:43:07.956Z",
+            "VRPType":[
+               "UK.OBIE.VRPType.Sweeping"
+            ],
+            "MaximumIndividualAmount":{
+               "Amount":"180.00",
+               "Currency":"GBP"
+            },
+            "PeriodicLimits":[
+               {
+                  "PeriodAlignment":"Consent",
+                  "PeriodType":"Half-year",
+                  "Amount":"2000.00",
+                  "Currency":"GBP"
+               }
+            ]
+         },
+         "ReadRefundAccount":"true",
+         "ConsentId":"480edc52-dacf-4d3d-a272-e8636b0add6b",
+         "Initiation":{
+            "DebtorAccount":{
+               "SchemeName":"UK.OBIE.IBAN",
+               "Identification":"30080012343456",
+               "Name":"Marcus Sweepimus"
+            },
+            "RemittanceInformation":{
+               "Reference":"Sweepco"
+            },
+            "CreditorAccount":{
+               "SecondaryIdentification":"Roll 90210",
+               "SchemeName":"UK.OBIE.IBAN",
+               "Identification":"30949330000010",
+               "Name":"Marcus Sweepimus"
+            }
+         }
+      }
+   }
+   ```
 
 ### Authorizing a consent
 
@@ -374,7 +429,7 @@ curl --location --request POST 'https://localhost:8243/open-banking/v3.1/vrp/dom
 --cert <PUBLIC_KEY_FILE_PATH> --key <PRIVATE_KEY_FILE_PATH> \
 --data-raw '{
   "Data":{
-     "ConsentId":"b97ce3f3-d1bb-4e98-9cc9-48869fe233a3",
+     "ConsentId":"480edc52-dacf-4d3d-a272-e8636b0add6b",
      "PSUAuthenticationMethod":"UK.OBIE.SCA",
      "Initiation":{
         "DebtorAccount":{
@@ -416,8 +471,64 @@ curl --location --request POST 'https://localhost:8243/open-banking/v3.1/vrp/dom
 }'
 ```
 
-The response contains `PaymentId` along with the payment submission details.
+The response contains `DomesticVRPId` along with the payment submission details.
 
 ```
-Todo: Add response
+{
+   "Meta":{
+      
+   },
+   "Risk":{
+      "PaymentContextCode":"PartyToParty"
+   },
+   "Links":{
+      "Self":"/domestic-vrps/480edc52-dacf-4d3d-a272-e8636b0add6b-94"
+   },
+   "Data":{
+      "Status":"AcceptedSettlementCompleted",
+      "StatusUpdateDateTime":"2022-06-15T00:29:49+05:30",
+      "DebtorAccount":{
+         "SecondaryIdentification":"Roll 2901",
+         "SchemeName":"SortCodeAccountNumber",
+         "Identification":"30080012343456",
+         "Name":"Deb Mal"
+      },
+      "CreationDateTime":"2022-06-15T00:29:49+05:30",
+      "DomesticVRPId":"480edc52-dacf-4d3d-a272-e8636b0add6b-94",
+      "ConsentId":"480edc52-dacf-4d3d-a272-e8636b0add6b",
+      "Instruction":{
+         "RemittanceInformation":{
+            "Reference":"Sweepco"
+         },
+         "EndToEndIdentification":"FRESCO.21302.GFX.20",
+         "InstructionIdentification":"ACME412",
+         "CreditorAccount":{
+            "SecondaryIdentification":"Roll 90210",
+            "SchemeName":"UK.OBIE.IBAN",
+            "Identification":"30949330000010",
+            "Name":"Marcus Sweepimus"
+         },
+         "InstructedAmount":{
+            "Amount":"10.00",
+            "Currency":"GBP"
+         }
+      },
+      "Initiation":{
+         "DebtorAccount":{
+            "SchemeName":"UK.OBIE.IBAN",
+            "Identification":"30080012343456",
+            "Name":"Marcus Sweepimus"
+         },
+         "RemittanceInformation":{
+            "Reference":"Sweepco"
+         },
+         "CreditorAccount":{
+            "SecondaryIdentification":"Roll 90210",
+            "SchemeName":"UK.OBIE.IBAN",
+            "Identification":"30949330000010",
+            "Name":"Marcus Sweepimus"
+         }
+      }
+   }
+}
 ```
