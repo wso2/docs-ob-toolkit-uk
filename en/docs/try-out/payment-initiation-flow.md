@@ -94,33 +94,38 @@ Once you register the application, generate an application access token.
 
 1. Generate the client assertion by signing the following JSON payload using supported algorithms. 
 
-!!! note
-    If you have configured the [OB certificates](https://openbanking.atlassian.net/wiki/spaces/DZ/pages/252018873/OB+Root+and+Issuing+Certificates+for+Sandbox), 
-    download the certificate and keys attached [here](../../assets/attachments/Certificates.zip), and use them for signing and transports layer security testing purposes.
+    !!! note
+        If you have configured the [OB certificates](https://openbanking.atlassian.net/wiki/spaces/DZ/pages/252018873/OB+Root+and+Issuing+Certificates+for+Sandbox), 
+    
+        - Use the [transport private key](../../assets/attachments/transport-certs/obtransport.key) and
+        [transport public certificate](../../assets/attachments/transport-certs/obtransport.pem) for Transport layer security testing purposes.
+    
+        - Use the [signing certificate](../../assets/attachments/signing-certs/obsigning.pem) and 
+        [signing private keys](../../assets/attachments/signing-certs/obsigning.key) for signing purposes. 
 
-``` tab='Format'
-
-{
-"alg": "<The algorithm used for signing.>",
-"kid": "<The thumbprint of the certificate.>",
-"typ": "JWT"
-}
- 
-{
-"iss": "<This is the issuer of the token. For example, client ID of your application>",
-"sub": "<This is the subject identifier of the issuer. For example, client ID of your application>",
-"exp": <This is the epoch time of the token expiration date/time>,
-"iat": <This is the epoch time of the token issuance date/time>,
-"jti": "<This is an incremental unique value>",
-"aud": "<This is the audience that the ID token is intended for. For example, https://<IS_HOST>:9446/oauth2/token>"
-}
- 
-<signature: For DCR, the client assertion is signed by the private key of the signing certificate. For other scenarios, use the private signature of the application certificate.>
-```
-
-``` tab='Sample'
-eyJraWQiOiIyTUk5WFNLaTZkZHhDYldnMnJoRE50VWx4SmMiLCJhbGciOiJQUzI1NiJ9.eyJzdWIiOiJZRGNHNGY0OUcxM2tXZlZzbnFkaHo4Z2JhMndhIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6OTQ0Ni9vYXV0aDIvdG9rZW4iLCJpc3MiOiJZRGNHNGY0OUcxM2tXZlZzbnFkaHo4Z2JhMndhIiwiZXhwIjoxNjI4Nzc0ODU1LCJpYXQiOjE2Mjg3NDQ4NTUsImp0aSI6IjE2Mjg3NDQ4NTUxOTQifQ.PkKRSDtkCyXabzLgGwAoy5C3jSORVU8X8sGDVrKpetPnjbCNx2wPlH-PzWUU1n05gdC7lDmoU21nsKLF_nE3iC-9hKEy4YsvJ7PFjNBPMOMUYDhRh9PCkPnec6f042zonb_ZifBq8r1aScUDoZ1L0hq7yjfZubwReFCWbESQ8PauuBuHRl7__kWvglthfgruQ7TTiIWiM60LWYct5TQWSF1IDcYGy03l-9OV5l260JBHPT4heLXzUQTarsh0PoWpv09xYLu8uGCexEt-HtRH8qwJGiFi5PiCA09_KyWVqbrcdjBloCmD5Kiqa1X0AnEbf9kKs0fqvcl7NN5-yVQUjg
-```
+    ``` tab='Format'
+    
+    {
+    "alg": "<The algorithm used for signing.>",
+    "kid": "<The thumbprint of the certificate.>",
+    "typ": "JWT"
+    }
+     
+    {
+    "iss": "<This is the issuer of the token. For example, client ID of your application>",
+    "sub": "<This is the subject identifier of the issuer. For example, client ID of your application>",
+    "exp": <This is the epoch time of the token expiration date/time>,
+    "iat": <This is the epoch time of the token issuance date/time>,
+    "jti": "<This is an incremental unique value>",
+    "aud": "<This is the audience that the ID token is intended for. For example, https://<IS_HOST>:9446/oauth2/token>"
+    }
+     
+    <signature: For DCR, the client assertion is signed by the private key of the signing certificate. For other scenarios, use the private signature of the application certificate.>
+    ```
+    
+    ``` tab='Sample'
+    eyJraWQiOiIyTUk5WFNLaTZkZHhDYldnMnJoRE50VWx4SmMiLCJhbGciOiJQUzI1NiJ9.eyJzdWIiOiJZRGNHNGY0OUcxM2tXZlZzbnFkaHo4Z2JhMndhIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6OTQ0Ni9vYXV0aDIvdG9rZW4iLCJpc3MiOiJZRGNHNGY0OUcxM2tXZlZzbnFkaHo4Z2JhMndhIiwiZXhwIjoxNjI4Nzc0ODU1LCJpYXQiOjE2Mjg3NDQ4NTUsImp0aSI6IjE2Mjg3NDQ4NTUxOTQifQ.PkKRSDtkCyXabzLgGwAoy5C3jSORVU8X8sGDVrKpetPnjbCNx2wPlH-PzWUU1n05gdC7lDmoU21nsKLF_nE3iC-9hKEy4YsvJ7PFjNBPMOMUYDhRh9PCkPnec6f042zonb_ZifBq8r1aScUDoZ1L0hq7yjfZubwReFCWbESQ8PauuBuHRl7__kWvglthfgruQ7TTiIWiM60LWYct5TQWSF1IDcYGy03l-9OV5l260JBHPT4heLXzUQTarsh0PoWpv09xYLu8uGCexEt-HtRH8qwJGiFi5PiCA09_KyWVqbrcdjBloCmD5Kiqa1X0AnEbf9kKs0fqvcl7NN5-yVQUjg
+    ```
 
 2. Run the following cURL command in a command prompt to generate the access token. Update the placeholders with relevant values.
 ``` curl
@@ -432,7 +437,12 @@ In this section, you will be generating an access token using the authorization 
 
     !!! note
         If you have configured the [OB certificates](https://openbanking.atlassian.net/wiki/spaces/DZ/pages/252018873/OB+Root+and+Issuing+Certificates+for+Sandbox), 
-        download the certificate and keys attached [here](../../assets/attachments/Certificates.zip), and use them for signing and transports layer security testing purposes.
+
+        - Use the [transport private key](../../assets/attachments/transport-certs/obtransport.key) and
+        [transport public certificate](../../assets/attachments/transport-certs/obtransport.pem) for Transport layer security testing purposes.
+
+        - Use the [signing certificate](../../assets/attachments/signing-certs/obsigning.pem) and
+        [signing private keys](../../assets/attachments/signing-certs/obsigning.key) for signing purposes.
 
     ``` tab="Format"
     Format:
