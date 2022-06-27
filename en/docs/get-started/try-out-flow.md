@@ -88,7 +88,12 @@ Once you register the application, generate an application access token.
 
 !!! note
     If you have configured the [OB certificates](https://openbanking.atlassian.net/wiki/spaces/DZ/pages/252018873/OB+Root+and+Issuing+Certificates+for+Sandbox), 
-    download the certificate and keys attached [here](../../assets/attachments/Certificates.zip), and use them for signing and transports layer security testing purposes.
+
+    - Use the [transport private key](../../assets/attachments/transport-certs/obtransport.key) and
+    [transport public certificate](../../assets/attachments/transport-certs/obtransport.pem) for Transport layer security testing purposes.
+
+    - Use the [signing certificate](../../assets/attachments/signing-certs/obsigning.pem) and 
+    [signing private keys](../../assets/attachments/signing-certs/obsigning.key) for signing purposes. 
 
 ``` tab='Format'
 
@@ -312,8 +317,13 @@ In this section, you will be generating an access token using the authorization 
 1. Generate the client assertion by signing the following JSON payload using supported algorithms. 
 
     !!! note
-        If you have configured the [OB certificates](https://openbanking.atlassian.net/wiki/spaces/DZ/pages/252018873/OB+Root+and+Issuing+Certificates+for+Sandbox), 
-        download the certificate and keys attached [here](../../assets/attachments/Certificates.zip), and use them for signing and transports layer security testing purposes.
+        If you have configured the [OB certificates](https://openbanking.atlassian.net/wiki/spaces/DZ/pages/252018873/OB+Root+and+Issuing+Certificates+for+Sandbox),
+     
+        - Use the [transport private key](../../assets/attachments/transport-certs/obtransport.key) and
+          [transport public certificate](../../assets/attachments/transport-certs/obtransport.pem) for Transport layer security testing purposes.
+
+        - Use the [signing certificate](../../assets/attachments/signing-certs/obsigning.pem) and
+          [signing private keys](../../assets/attachments/signing-certs/obsigning.key) for signing purposes.
 
     ``` tab="Format"
     Format:
