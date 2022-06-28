@@ -16,7 +16,7 @@ Follow the steps and create a new shared scope for the Payment Initiation API.
 4. Click the **Save** button.
 
 5. Now deploy the API. The scope will be automatically added to the resources. For more information, see 
-[WSO2 API Manager - Shared Scopes](https://apim.docs.wso2.com/en/latest/design/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/#creating-a-shared-scope).
+[WSO2 API Manager - Shared Scopes](https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/#creating-a-shared-scope).
 
 ## Deploying Payment Initiation API
 
