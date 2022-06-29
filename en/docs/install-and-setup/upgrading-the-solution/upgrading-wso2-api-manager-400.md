@@ -44,12 +44,12 @@
 2. Do not copy any other Key Manager specific configurations from the previous API Manager version to the latest 
 one that points to the Identity Server.
 
-3. Upgrade your API Manager from 3.2.0 to 4.0.0 by following the [API Manager documentation](https://apim.docs.wso2.com/en/latest/install-and-setup/upgrading-wso2-api-manager/upgrading-from-320-to-400/).
+3. Upgrade your API Manager from 3.2.0 to 4.0.0 by following the [API Manager documentation](https://apim.docs.wso2.com/en/4.0.0/install-and-setup/upgrading-wso2-api-manager/upgrading-from-320-to-400/).
 
     !!! note
-        When following the [API Manager documentation](https://apim.docs.wso2.com/en/latest/install-and-setup/upgrading-wso2-api-manager/upgrading-from-320-to-400/):
+        When following the [API Manager documentation](https://apim.docs.wso2.com/en/4.0.0/install-and-setup/upgrading-wso2-api-manager/upgrading-from-320-to-400/):
     
-         1. You can skip the steps 1,2, and 3 under [Step 1 - Migrate the API Manager configurations](https://apim.docs.wso2.com/en/latest/install-and-setup/upgrading-wso2-api-manager/upgrading-from-320-to-400/#step-1-migrate-the-api-manager-configurations).
+         1. You can skip the steps 1,2, and 3 under [Step 1 - Migrate the API Manager configurations](https://apim.docs.wso2.com/en/4.0.0/install-and-setup/upgrading-wso2-api-manager/upgrading-from-320-to-400/#step-1-migrate-the-api-manager-configurations).
        
          2. Modify the following configurations in the `<APIM_HOME>/repository/conf/deployment.toml` file before starting the migration.
     
@@ -60,7 +60,7 @@ one that points to the Identity Server.
            gateway_labels =["Production and Sandbox", "Default"]
            ```
        
-         3. In [Step 2 - Upgrade API Manager to 4.0.0](https://apim.docs.wso2.com/en/latest/install-and-setup/upgrading-wso2-api-manager/upgrading-from-320-to-400/#step-2-upgrade-api-manager-to-400),
+         3. In [Step 2 - Upgrade API Manager to 4.0.0](https://apim.docs.wso2.com/en/4.0.0/install-and-setup/upgrading-wso2-api-manager/upgrading-from-320-to-400/#step-2-upgrade-api-manager-to-400),
             skip the steps 3 and 5.
 
 4. Start the API Manager server.

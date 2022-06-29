@@ -43,7 +43,7 @@
     
 ## Migrate to WSO2 Identity Sever 5.11.0
 
-1. Follow [Step B - Migrate IS from 5.10.0 to 5.11.0](https://apim.docs.wso2.com/en/latest/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-5100-to-is-5110/#step-b-migrate-is-from-5100-to-5110) 
+1. Follow [Step B - Migrate IS from 5.10.0 to 5.11.0](https://apim.docs.wso2.com/en/4.0.0/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-5100-to-is-5110/#step-b-migrate-is-from-5100-to-5110) 
 and upgrade your WSO2 Identity Server.
 
 2. Follow [WSO2 Identity Server Migrating to 5.11.0](https://is.docs.wso2.com/en/5.11.0/setup/migrating-to-5110/) 

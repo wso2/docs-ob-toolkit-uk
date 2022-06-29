@@ -16,7 +16,7 @@ Follow the steps and create a new shared scope for the Payment Initiation API.
 4. Click the **Save** button.
 
 5. Now deploy the API. The scope will be automatically added to the resources. For more information, see 
-[WSO2 API Manager - Shared Scopes](https://apim.docs.wso2.com/en/latest/design/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/#creating-a-shared-scope).
+[WSO2 API Manager - Shared Scopes](https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/#creating-a-shared-scope).
 
 ## Deploying Payment Initiation API
 
@@ -431,7 +431,7 @@ which is optional as per the [Open Data API specification of OBIE](https://openb
    
 ### Generating user access token   
 
-In this section, you will be generating an access token using the authorization code generated in the section [above](authorizing-a-consent).
+In this section, you will be generating an access token using the authorization code generated in the section [above](#authorizing-a-consent).
 
 1. Generate the client assertion by signing the following JSON payload using supported algorithms. 
 

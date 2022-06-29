@@ -4,9 +4,9 @@ This section guides you to set up and prepare the servers to run WSO2 Open Banki
 WSO2 Open Banking UK Toolkit runs on top of WSO2 Identity Server, API Manager, and Streaming Integrator, which are 
 referred to as base products. Before setting up the toolkit, download and install the base products:
 
-- Install [WSO2 Identity Server 5.11.0](https://wso2.com/identity-and-access-management/#)
-- Install [WSO2 API Manager 4.0.0](https://wso2.com/api-manager/#)
-- Install [WSO2 Streaming Integrator 4.0.0](https://wso2.com/integration/streaming-integrator/#)
+- Install [WSO2 Identity Server 5.11.0](https://wso2.com/identity-server/#)
+- Install [WSO2 API Manager 4.0.0](https://wso2.com/api-management/previous-releases/)
+- Install [WSO2 Streaming Integrator 4.0.0](https://wso2.com/streaming-integrator/previous-releases/)
 - To configure the Identity Server with the API Manager, install 
 [WSO2 IS Connector](https://apim.docs.wso2.com/en/4.0.0/assets/attachments/administer/wso2is-extensions-1.2.10.zip)
 
@@ -307,4 +307,4 @@ can be applied using a single configuration file, which is the `deployment.toml`
 
     !!! note
         For instructions on configuring Streaming Integrator for open banking, see 
-        [Try out publishing data](../learn/data-publishing-tryout.md).
+        [Try out publishing data](../get-started/data-publishing-try-out.md).
