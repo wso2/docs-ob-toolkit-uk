@@ -100,7 +100,7 @@ nav:
        - 'Configuration': learn/data-publishing-configuration.md
     - 'Integration with Bank': learn/integration-with-bank.md
   - 'Try out':
-    - 'TPP Onboarding': try-out/dynamic-client-regsitration-flow.md
+    - 'TPP Onboarding': try-out/dynamic-client-registration-flow.md
     - 'Account and transaction flow': try-out/account-and-transaction-flow.md
     - 'Payment Initiation flow': try-out/payment-initiation-flow.md
     - 'Confirmation of Funds flow': try-out/confirmation-of-funds-flow.md

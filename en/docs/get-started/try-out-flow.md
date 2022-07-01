@@ -312,7 +312,7 @@ user that has a `subscriber` role.
    
 ### Generating user access token   
 
-In this section, you will be generating an access token using the authorization code generated in the section [above](authorizing-a-consent).
+In this section, you will be generating an access token using the authorization code generated in the section [above](#authorizing-a-consent).
 
 1. Generate the client assertion by signing the following JSON payload using supported algorithms. 
 

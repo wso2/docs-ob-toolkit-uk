@@ -116,7 +116,7 @@ Follow [Configuring users and roles](../install-and-setup/configuring-users-and-
         
         5. Scroll down and click **Update**.
         
-        For more information see, [Configure Identity Server as the Key Manager](../dynamic-client-registration-try-out/#step-2-configure-is-as-key-manager).
+        For more information see, [Configure Identity Server as the Key Manager](dynamic-client-registration-flow.md#step-2-configure-is-as-key-manager).
     
 6. Set the **Callback URL** to `https://<IS_HOST>:9446/consentmgr/scp_oauth2_callback`.
 

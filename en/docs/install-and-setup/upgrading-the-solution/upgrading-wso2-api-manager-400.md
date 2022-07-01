@@ -39,7 +39,7 @@
       Once the Identity Server 5.11.0 is configured as the Resident Key Manager, start the Identity Server 5.11.0.
 
 1. Start the WSO2 API Manager 4.0.0 server and create a Custom Key Manager by following the
-   [Configuring IS as Key Manager](../../try-out/dynamic-client-regsitration-flow.md#configuring-is-as-key-manager) documentation.
+   [Configuring IS as Key Manager](../../try-out/dynamic-client-registration-flow.md#configuring-is-as-key-manager) documentation.
 
 2. Do not copy any other Key Manager specific configurations from the previous API Manager version to the latest 
 one that points to the Identity Server.
