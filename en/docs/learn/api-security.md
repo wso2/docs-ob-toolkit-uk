@@ -103,5 +103,50 @@ QSealC seals application data and sensitive information to ensure that the origi
 Banking allows using QSealC as the signing certificates in application layer security to ensure protecting the 
 data or messages from potential attackers during or after the communication.
 
+<hr>
 
+Generally, open banking flows always consist of 3 different types of API requests by the client applications.
+The following section lists the different security measures taken at each of the request types.
+
+### Authorization Request
+
+WSO2 Open Banking Accelerator supports the following security features and fulfil FAPI requirements 
+during Authorization flows:
+
+  - OIDC Hybrid Flow
+    - Request object verification
+    - Pushed Authorization Request validation
+    - Pairwise Identifier support for ID tokens
+  - Authorization Code Flow
+    - When a request object is not available, support authentication mechanisms such as PKCE
+
+### Token Request
+
+API consumer applications use the Token Endpoint to obtain access tokens, id tokens, and optionally, a refresh token.
+Following security features are available in WSO2 Open Banking during Token flows.
+
+- The API consumer application can authenticate the authorization server when accessing the token endpoint using any of 
+the following methods:
+    - Private key JWT authentication (Auth code grant)
+    - MTLS authentication (Auth code grant)
+    - Client Assertion (Client Credentials Grant)
+- Bind consent Id and MTLS certificate to the token
+- Provide verification mechanisms such as PKCE, if initiated in the authorization flow
+
+### Resource Request
+
+After an API consumer application obtains an access token, it is used to invoke a resource endpoint. In this request, 
+the following validations will be performed:
+
+- Token validity verification
+- Token type verification (User Access Token/Application Access Token)
+- Scopes/roles validation
+- Token-bound certificate validation
+- Consent validation
+
+The resource requests go through token-bound certificate validations according to
+[rfc8705](https://datatracker.ietf.org/doc/html/rfc8705)
+The MTLS token binding happens once a token is issued to a particular client. This ensures that at the resource endpoint,
+the provided MTLS certificate can be validated against the certificate bound to the token. Self-contained tokens are
+used for this purpose and are bound to the tokens via a claim named `cnf`. 
 
