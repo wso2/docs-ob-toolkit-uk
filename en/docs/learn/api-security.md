@@ -122,10 +122,10 @@ during Authorization flows:
 
 ### Token Request
 
-API consumer applications use the Token Endpoint to obtain access tokens, id tokens, and optionally, a refresh token.
+TPP applications use the Token Endpoint to obtain access tokens, id tokens, and optionally, a refresh token.
 Following security features are available in WSO2 Open Banking during Token flows.
 
-- The API consumer application can authenticate the authorization server when accessing the token endpoint using any of 
+- The TPP application can authenticate the authorization server when accessing the token endpoint using any of 
 the following methods:
     - Private key JWT authentication (Auth code grant)
     - MTLS authentication (Auth code grant)
@@ -135,7 +135,7 @@ the following methods:
 
 ### Resource Request
 
-After an API consumer application obtains an access token, it is used to invoke a resource endpoint. In this request, 
+After a TPP application obtains an access token, it is used to invoke a resource endpoint. In this request, 
 the following validations will be performed:
 
 - Token validity verification
