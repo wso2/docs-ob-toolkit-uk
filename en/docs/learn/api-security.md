@@ -78,7 +78,7 @@ Following are the roles that a TPP can have:
  |Card-Based Payment Instrument Issuer|Issues card-based payment instruments that can be used to initiate a payment transaction from a payment account held with another payment service provider.|
 
 !!!tip
-    An TPP can have one or more roles. For an example, if a TPP provides an application to view account 
+    An TPP can have one or more roles. For example, if a TPP provides an application to view account 
     information as well as to initiate payments, the roles of the TPP are **Account Information Service Provider** 
     and **Payment Initiation Services Provider**.
      
@@ -110,7 +110,7 @@ The following section lists the different security measures taken at each of the
 
 ### Authorization Request
 
-WSO2 Open Banking Accelerator supports the following security features and fulfil FAPI requirements 
+WSO2 Open Banking supports the following security features and fulfil FAPI requirements 
 during Authorization flows:
 
   - OIDC Hybrid Flow
