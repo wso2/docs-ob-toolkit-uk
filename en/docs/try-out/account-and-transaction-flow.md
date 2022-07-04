@@ -17,45 +17,51 @@ This document provides step by step instructions to deploy, subscribe, and invok
 
 5. Click **Next**.
 
-6. Click **Create** to create the API. ![create-accounts](../assets/img/get-started/quick-start-guide/create-accounts.png)
+6. Set the **Context** value as follows:
 
-7. After the API is successfully created, go to **Portal Configurations** using the left menu panel. ![portal-configurations](../assets/img/get-started/quick-start-guide/portal-configurations.png)
+    ```
+    /open-banking/{version}/aisp
+    ```
 
-8. Select **Subscriptions** from the left menu pane and set the business plan to **Unlimited: Allows unlimited requests**. ![business-plan](../assets/img/get-started/quick-start-guide/business-plan.png)
+7. Click **Create** to create the API. ![create-accounts](../assets/img/get-started/quick-start-guide/create-accounts.png)
 
-9. Click **Save**.
+8. After the API is successfully created, go to **Portal Configurations** using the left menu panel. ![portal-configurations](../assets/img/get-started/quick-start-guide/portal-configurations.png)
 
-10. Toggle the **Schema Validation** button to enable Schema Validation for all APIs except for the Dynamic Client Registration API. ![schema-validation](../assets/img/get-started/quick-start-guide/schema-validation.png)
+9. Select **Subscriptions** from the left menu pane and set the business plan to **Unlimited: Allows unlimited requests**. ![business-plan](../assets/img/get-started/quick-start-guide/business-plan.png)
 
-11. Click the **Edit** button under **Request > Message Mediation**. ![edit_message_mediation](../assets/img/get-started/quick-start-guide/edit-message-mediation.png)
+10. Click **Save**.
 
-12. Now, select the **Custom Policy** option.
+11. Toggle the **Schema Validation** button to enable Schema Validation for all APIs except for the Dynamic Client Registration API. ![schema-validation](../assets/img/get-started/quick-start-guide/schema-validation.png)
 
-13. Upload the relevant insequence file from the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis` directory. ![accounts_insequence](../assets/img/get-started/quick-start-guide/accounts-insequence.png)
+12. Click the **Edit** button under **Request > Message Mediation**. ![edit_message_mediation](../assets/img/get-started/quick-start-guide/edit-message-mediation.png)
+
+13. Now, select the **Custom Policy** option.
+
+14. Upload the relevant insequence file from the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis` directory. ![accounts_insequence](../assets/img/get-started/quick-start-guide/accounts-insequence.png)
  
-14. Click **Select**. 
+15. Click **Select**. 
 
-15. Scroll down and click **SAVE**.
+16. Scroll down and click **SAVE**.
 
-16. Use the left menu panel and go to **API Configurations > Endpoints**. 
+17. Use the left menu panel and go to **API Configurations > Endpoints**. 
 
     ![select_endpoints](../assets/img/get-started/quick-start-guide/select-endpoints.png)
 
-17. Add a **Dynamic Endpoint**. ![add_dynamic_endpoint](../assets/img/get-started/quick-start-guide/add_dynamic_endpoint.png)
+18. Add a **Dynamic Endpoint**. ![add_dynamic_endpoint](../assets/img/get-started/quick-start-guide/add_dynamic_endpoint.png)
 
-18. Go to **Deployments** using the left menu pane. 
+19. Go to **Deployments** using the left menu pane. 
 
     ![select_deployments](../assets/img/get-started/quick-start-guide/select-deployments.png)
     
-19. Select the API Gateway type, in this scenario, it is **Default**. ![api_gateway](../assets/img/get-started/quick-start-guide/dcr-api-gateway.png)
+20. Select the API Gateway type, in this scenario, it is **Default**. ![api_gateway](../assets/img/get-started/quick-start-guide/dcr-api-gateway.png)
 
-20. Click **Deploy**.
+21. Click **Deploy**.
 
-21. Go to **Overview** using the left menu pane. 
+22. Go to **Overview** using the left menu pane. 
 
     ![select_overview](../assets/img/get-started/quick-start-guide/select-overview.png)
 
-22. Click **Publish**. ![publish_api](../assets/img/get-started/quick-start-guide/publish-api.png)
+23. Click **Publish**. ![publish_api](../assets/img/get-started/quick-start-guide/publish-api.png)
 
 ## Subscribing to Account and Transaction API
 
