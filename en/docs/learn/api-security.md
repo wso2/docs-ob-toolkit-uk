@@ -3,8 +3,9 @@
 Open Banking allows TPPs to access financial data through open APIs, which requires greater API security. Therefore, 
 open banking standards provide guidelines for security implementations.
 
-WSO2 Open Banking provides an extra level of security to the Open Banking APIs adhering to the security guidelines 
-provided in the Financial API (FAPI) group, which is based on OAuth 2.0 and OpenID Connect (OIDC). 
+The Open Banking Standard - UK has mandated the Financial API (FAPI) security standards for ASPSPs. WSO2 Open
+Banking UK Toolkit provides an extra level of security to the Open Banking APIs adhering to the security 
+guidelines provided in FAPI, which is based on OAuth 2.0 and OpenID Connect (OIDC). 
 
 ###MTLS enforcement
 
