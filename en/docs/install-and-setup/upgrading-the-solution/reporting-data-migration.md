@@ -26,7 +26,7 @@ as follows:
     ./merge.sh
     ```
    
-3. Copy and extract the `wso2ob-bi-toolkit-uk-1.0.0.zip` accelerator file in the root directory of WSO2 Streaming 
+3. Copy and extract the `wso2-obbi-toolkit-uk-1.0.0.zip` accelerator file in the root directory of WSO2 Streaming 
    Integrator.
 
 4. Run the `merge.sh` script in `<SI_HOME>/<OB_BI_TOOLKIT_HOME>/bin`. 
