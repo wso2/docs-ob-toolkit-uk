@@ -16,8 +16,8 @@
     ./merge.sh
        ```
 
- 4. Download the `wso2ob-apim-toolkit-uk-1.0.0.zip` file and extract it to the `<APIM_HOME>` directory. 
- 5. Download the latest updates for `wso2ob-apim-toolkit-uk-1.0.0`. For more information, see [Getting WSO2 Updates](../setting-up-servers.md#getting-wso2-updates).
+ 4. Download the `wso2-obam-toolkit-uk-1.0.0.zip` file and extract it to the `<APIM_HOME>` directory. 
+ 5. Download the latest updates for `wso2-obam-toolkit-uk-1.0.0`. For more information, see [Getting WSO2 Updates](../setting-up-servers.md#getting-wso2-updates).
  6. Go to the `<APIM_HOME>/<APIM_TOOLKIT_HOME>/bin` directory and run the merge.sh script.
 
     ```

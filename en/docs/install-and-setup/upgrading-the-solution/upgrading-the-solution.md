@@ -5,6 +5,12 @@ This section guides on how to upgrade your WSO2 Open Banking 2.0 setup to WSO2 O
 !!! note
     WSO2 Open Banking 2.0 is based on the WSO2 API Manager 3.1.0 and WSO2 Identity Server 5.10.0 products.
 
+!!! tip
+    - The DCR applications created in Open Banking 2.0.0 should not contain a SoftwareId/IssuerName that includes an
+      underscore **"_"**.
+    - If you have such DCR applications, before the migration process, rename the **Service Provider Name**
+      of each DCR application's Service Provider application by logging into `https://<IS_HOST>:9446/carbon`.
+
 The diagram below explains the flow of upgrading the WSO2 Open Banking solution:
 
   [![](../../assets/img/install-and-setup/upgrading-the-solution/migration-flow.png)](../../assets/img/install-and-setup/upgrading-the-solution/migration-flow.png)
