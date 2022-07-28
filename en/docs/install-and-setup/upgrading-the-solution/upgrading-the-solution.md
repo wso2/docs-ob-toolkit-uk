@@ -10,6 +10,17 @@ This section guides on how to upgrade your WSO2 Open Banking 2.0 setup to WSO2 O
       underscore **"_"**.
     - If you have such DCR applications, before the migration process, rename the **Service Provider Name**
       of each DCR application's Service Provider application by logging into `https://<IS_HOST>:9446/carbon`.
+    - In your Open Banking 2.0.0 database, check the column size of the following:
+
+        |Database|Table|Column|Data type|Size|
+        |--------|-----|------|---------|----|
+        |`openbank_apimgtdb`|`SP_METADATA`|`VALUE`| `VARCHAR` | 4096 |
+
+        - If the column size is less than 4096, execute the following command against the `SP_METADATA` table:
+
+             ``` 
+             ALTER TABLE SP_METADATA MODIFY VALUE VARCHAR(4096); 
+             ```
 
 The diagram below explains the flow of upgrading the WSO2 Open Banking solution:
 
