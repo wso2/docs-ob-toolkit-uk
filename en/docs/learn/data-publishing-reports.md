@@ -117,7 +117,7 @@ following reports according to the OBIE templates:
 | 10 | Long-lived consents - Renewed consents | LONG_LIVED_CONSENT_ADOPTION | |
 | 11 | Long-lived consents - New consents | LONG_LIVED_CONSENT_ADOPTION | |
 | 12 | Long-lived consents - Outstanding consents EoP | LONG_LIVED_CONSENT_ADOPTION | |
-| 13 | Long-lived consents - Total Refreshed consents | REFRSHED_CONSENT | This is the total number of unique Long-lived consents which have been refreshed (Re-authenticated). <br/> Join ACCOUNTS_RAW_DATA and API_INVOCATION_RAW_DATA tables. <br/> Get the CONSENT_ID count AS TOTAL_CONSENT_REQ_REAUTH where (CONSENT_TYPE = 'long-lived' and AUTHORISATION_STATUS = 'Authorised' and RE_AUTHORISATION == true) having (EXPIRATION_DATE_TIME > REPORTING_DATE_TIME and REAUTHORIZED_DATE_TIME > AUTHORIZED_TIME_DATE + 90 days) |
+| 13 | Long-lived consents - Total Refreshed consents | REFRSHED_CONSENT | This is the total number of unique Long-lived consents that have been refreshed (Re-authenticated). <br/> Join ACCOUNTS_RAW_DATA and API_INVOCATION_RAW_DATA tables. <br/> Get the CONSENT_ID count AS TOTAL_CONSENT_REQ_REAUTH where (CONSENT_TYPE = 'long-lived' and AUTHORISATION_STATUS = 'Authorised' and RE_AUTHORISATION == true) having (EXPIRATION_DATE_TIME > REPORTING_DATE_TIME and REAUTHORIZED_DATE_TIME > AUTHORIZED_TIME_DATE + 90 days) |
 | 14 | Version | LONG_LIVED_CONSENT_ADOPTION | |
 
 ## Template 8 - Payments Adoption (OBIE)
