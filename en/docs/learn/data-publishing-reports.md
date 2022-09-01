@@ -103,6 +103,11 @@ following reports according to the OBIE templates:
 
 ## Template 7 - PSU Consent Adoption (OBIE)
 
+!!! info
+    The fields `Long-lived consents - Consents Requiring Reauthentication` and `Long-lived consents - Total Refreshed consents` 
+    are only available as a WSO2 Update from **WSO2 Open Banking Business Intelligence UK Toolkit Level 1.0.0.1** onwards. 
+    For more information on updating, see [Getting WSO2 Updates](../install-and-setup/setting-up-servers.md#getting-wso2-updates).
+
 | ID | Field Name | Table to refer | How to capture data |
 | -- | ---------- | -------------- | ------------------- |
 | 1 | ReportMonth | The respective table you get the month from | Get the year-month values from the table |
@@ -120,7 +125,7 @@ following reports according to the OBIE templates:
 | 13 | Long-lived consents - Total Refreshed consents | `REFRSHED_CONSENT` | This is the total number of unique Long-lived consents that have been refreshed (Re-authenticated). <br/> <br/> See the note below this table to learn how to capture data. |
 | 14 | Version | `LONG_LIVED_CONSENT_ADOPTION` | |
 
-!!! note "To capture Long-lived consents - Consents Requiring Re-authentication:"
+!!! note "To capture `Long-lived consents - Consents Requiring Re-authentication`:"
        1. Join `ACCOUNTS_RAW_DATA` and `API_INVOCATION_RAW_DATA` tables.
        2. Get the total count of `CONSENT_ID` as `TOTAL_CONSENT_REQ_REAUTH`. 
        3. Consider the following conditions:
@@ -130,7 +135,7 @@ following reports according to the OBIE templates:
           - `EXPIRATION_DATE_TIME` > `REPORTING_DATE_TIME`
           - `REPORTING_DATE_TIME` - 90 days> `AUTHORIZED_TIME_DATE`
 
-!!! note "To capture Long-lived consents - Total Refreshed consents:"
+!!! note "To capture `Long-lived consents - Total Refreshed consents`:"
        1. Join `ACCOUNTS_RAW_DATA` and `API_INVOCATION_RAW_DATA` tables.
        2. Get the total count of `CONSENT_ID` as `TOTAL_CONSENT_REQ_REAUTH`. 
        3. Consider the following conditions:
@@ -198,4 +203,4 @@ following reports according to the OBIE templates:
 - Additional Metrics - Revocation Notifications from ASPSPs
 - Additional Metrics - AIS Corporate Account Access (OPTIONAL)
 - Additional Metrics - Payment Refunds
-- Additional Metrics - 90 Days Re-authentication_
+- Additional Metrics - 90 Days Re-authentication
