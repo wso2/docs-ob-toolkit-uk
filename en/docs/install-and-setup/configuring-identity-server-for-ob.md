@@ -166,7 +166,7 @@ account retrieval. By default, this is disabled and the configuration is set to 
     Enabled = true
     ```
 
-15. Add the given configuration to renew the access token and refresh token per each token request while revoking  
+15. Add the given configuration to renew the access token and refresh token per each token request while revoking
     the existing active token for a matching combination of `clientid`, `user`, and `scopes`.
 
     !!! note
