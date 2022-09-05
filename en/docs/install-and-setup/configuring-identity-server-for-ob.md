@@ -64,7 +64,7 @@ database server, and the JDBC driver.
     driver = "com.mysql.jdbc.Driver"
     ```
 
-5. 	Configure the authentication endpoints with the hostname of the Identity Server.
+5. Configure the authentication endpoints with the hostname of the Identity Server.
 
     ``` toml
     [authentication.endpoints]	
@@ -166,7 +166,18 @@ account retrieval. By default, this is disabled and the configuration is set to 
     Enabled = true
     ```
 
-15. If you want to use the [Data publishing](../learn/data-publishing.md) feature:
+15. Add the given configuration to renew the access token and refresh token per each token request while revoking
+    the existing active token for a matching combination of `clientid`, `user`, and `scopes`.
+
+    !!! note
+        The token renewal is not applicable when using the Refresh Token grant type and self-contained access tokens.
+
+    ``` toml
+    [oauth.token_renewal]
+    renew_access_token_per_request = true
+    ```
+
+16. If you want to use the [Data publishing](../learn/data-publishing.md) feature:
 
     - Enable the feature and configure the `server_url` and `auth_url` properties with the hostname of WSO2 Streaming 
     Integrator.
