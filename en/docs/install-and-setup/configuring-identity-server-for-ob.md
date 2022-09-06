@@ -177,7 +177,28 @@ account retrieval. By default, this is disabled and the configuration is set to 
     renew_access_token_per_request = true
     ```
 
-16. If you want to use the [Data publishing](../learn/data-publishing.md) feature:
+16. Previously the Open Banking Standard required the re-authentication of refresh tokens issued for Account and
+    Transaction API when the token issue date has passed 90 days. With **Open Banking Standard v3.1.10**, this mandate has
+    been removed. Therefore, according to your requirement, add the following tags:
+
+    !!!note
+        This is only available as a WSO2 Update from **WSO2 Open Banking API Manager Toolkit Level 3.0.0.5** and 
+        **WSO2 Open Banking Identity Server Toolkit Level 3.0.0.5** onwards. For more information on updating, see 
+        [Getting WSO2 Updates](setting-up-servers.md#getting-wso2-updates).
+
+        If you already have a setup, perform a data migration for the exiting active account refresh tokens
+        in the `IDN_OAUTH2_ACCESS_TOKEN` table in the `x` database.
+
+    ``` toml
+    [open_banking.identity.extensions]
+    response_type_handler = "com.wso2.openbanking.uk.identity.auth.extensions.response.handler.impl.UKResponseTypeHandler"
+
+    [open_banking_uk.account.refresh_token]
+    validity_period = 15555200
+    last_authorized_date_limit = 90.
+    ```
+
+17. If you want to use the [Data publishing](../learn/data-publishing.md) feature:
 
     - Enable the feature and configure the `server_url` and `auth_url` properties with the hostname of WSO2 Streaming 
     Integrator.
