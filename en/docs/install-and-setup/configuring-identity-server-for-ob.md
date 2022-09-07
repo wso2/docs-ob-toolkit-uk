@@ -182,8 +182,8 @@ account retrieval. By default, this is disabled and the configuration is set to 
     been removed. Therefore, according to your requirement, add the following tags:
 
     !!!note
-        This is only available as a WSO2 Update from **WSO2 Open Banking API Manager Toolkit Level 3.0.0.5** and 
-        **WSO2 Open Banking Identity Server Toolkit Level 3.0.0.5** onwards. For more information on updating, see 
+        This is only available as a WSO2 Update from **WSO2 Open Banking API Manager UK Toolkit Level 3.0.0.5** and 
+        **WSO2 Open Banking Identity Server UK Toolkit Level 3.0.0.5** onwards. For more information on updating, see 
         [Getting WSO2 Updates](setting-up-servers.md#getting-wso2-updates).
 
         If you already have a setup, perform a data migration for the exiting active account refresh tokens
