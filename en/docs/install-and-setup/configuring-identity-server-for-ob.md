@@ -187,7 +187,7 @@ account retrieval. By default, this is disabled and the configuration is set to 
         [Getting WSO2 Updates](setting-up-servers.md#getting-wso2-updates).
 
         If you already have a setup, perform a data migration for the exiting active account refresh tokens
-        in the `IDN_OAUTH2_ACCESS_TOKEN` table in the `x` database.
+        in the `IDN_OAUTH2_ACCESS_TOKEN` table in the `openbank_apimgtdb` database.
 
     ``` toml
     [open_banking.identity.extensions]
