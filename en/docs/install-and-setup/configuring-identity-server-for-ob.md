@@ -195,7 +195,7 @@ account retrieval. By default, this is disabled and the configuration is set to 
 
     [open_banking_uk.account.refresh_token]
     validity_period = 15555200
-    last_authorized_date_limit = 90.
+    last_authorized_date_limit = 90
     ```
 
 17. If you want to use the [Data publishing](../learn/data-publishing.md) feature:
