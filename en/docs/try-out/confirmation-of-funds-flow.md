@@ -31,13 +31,15 @@ This document provides step by step instructions to deploy, subscribe, and invok
 
 10. Click **Save**.
 
+11. Go to **Runtime** using the left menu pane.
+
 11. Toggle the **Schema Validation** button to enable Schema Validation for all APIs except for the Dynamic Client Registration API. ![schema-validation](../assets/img/get-started/quick-start-guide/schema-validation.png)
 
 12. Click the **Edit** button under **Request > Message Mediation**. ![edit_message_mediation](../assets/img/get-started/quick-start-guide/edit-message-mediation.png)
 
 13. Now, select the **Custom Policy** option.
 
-14. Upload the relevant insequence file from the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/FundsConfirmation` directory. ![accounts_insequence](../assets/img/get-started/quick-start-guide/accounts-insequence.png)
+14. Upload the relevant insequence file from the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/FundsConfirmation` directory. ![cof_insequence](../assets/img/get-started/quick-start-guide/fundsconfirmation-insequence.png)
  
 15. Click **Select**. 
 

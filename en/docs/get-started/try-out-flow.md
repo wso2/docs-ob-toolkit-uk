@@ -29,6 +29,8 @@ This document provides step by step instructions to deploy, subscribe, and invok
 
 10. Click **Save**.
 
+11. Go to **Runtime** using the left menu pane.
+
 11. Toggle the **Schema Validation** button to enable Schema Validation for all APIs except for the Dynamic Client Registration API. ![schema-validation](../assets/img/get-started/quick-start-guide/schema-validation.png)
 
 12. Click the **Edit** button under **Request > Message Mediation**. ![edit_message_mediation](../assets/img/get-started/quick-start-guide/edit-message-mediation.png)
