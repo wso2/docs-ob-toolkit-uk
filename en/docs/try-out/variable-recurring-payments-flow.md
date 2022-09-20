@@ -45,6 +45,8 @@ Follow the steps and create a new shared scope for the Variable Recurring Paymen
 
 11. Click **Save**.
 
+11. Go to **Runtime** using the left menu pane.
+
 12. Toggle the **Schema Validation** button to enable Schema Validation for all APIs except for the Dynamic Client Registration API. ![schema-validation](../assets/img/get-started/quick-start-guide/schema-validation.png)
 
 13. Click the **Edit** button under **Request > Message Mediation**. ![edit_message_mediation](../assets/img/get-started/quick-start-guide/edit-message-mediation.png)
