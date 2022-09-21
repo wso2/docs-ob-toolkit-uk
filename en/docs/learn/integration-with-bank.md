@@ -58,7 +58,99 @@ This header is known as **Account-Request-Information**.
 
 This header is a signed JWT, which needs to be decoded by the core banking system. A sample decoded JSON is given below:
 
-```<decoded JSON for Accounts>```
+```{
+  "clientId": "o99wHc2GH04zw5SyCJHywjNIogca",
+  "currentStatus": "authorised",
+  "createdTimestamp": 1663749378,
+  "recurringIndicator": false,
+  "authorizationResources": [
+    {
+      "updatedTime": 1663749397,
+      "consentId": "aa5c012c-84fd-4d74-be97-503eb072c6e5",
+      "authorizationId": "bb526331-d20d-461c-8c06-fca2789d9e8e",
+      "authorizationType": "authorization",
+      "userId": "admin@wso2.com@carbon.super",
+      "authorizationStatus": "authorised"
+    }
+  ],
+  "updatedTimestamp": 1663749397,
+  "validityPeriod": 0,
+  "consentAttributes": {},
+  "consentId": "aa5c012c-84fd-4d74-be97-503eb072c6e5",
+  "consentMappingResources": [
+    {
+      "mappingId": "5f665fc9-27fb-4ed1-bbc1-cf68ec26ee2c",
+      "mappingStatus": "active",
+      "accountId": "30080012343456",
+      "authorizationId": "bb526331-d20d-461c-8c06-fca2789d9e8e",
+      "permission": "n/a"
+    }
+  ],
+  "additionalConsentInfo": {
+    "AccountIds": [
+      "30080012343456"
+    ],
+    "TransactionToDateTime": "2022-09-24T14:06:13.473+05:30",
+    "Permissions": [
+      "ReadAccountsBasic",
+      "ReadAccountsDetail",
+      "ReadBalances",
+      "ReadBeneficiariesBasic",
+      "ReadBeneficiariesDetail",
+      "ReadDirectDebits",
+      "ReadProducts",
+      "ReadStandingOrdersBasic",
+      "ReadStandingOrdersDetail",
+      "ReadTransactionsBasic",
+      "ReadTransactionsCredits",
+      "ReadTransactionsDebits",
+      "ReadTransactionsDetail",
+      "ReadStatementsBasic",
+      "ReadStatementsDetail",
+      "ReadOffers",
+      "ReadParty",
+      "ReadPartyPSU",
+      "ReadScheduledPaymentsBasic",
+      "ReadScheduledPaymentsDetail",
+      "ReadPAN"
+    ],
+    "ConsentId": "aa5c012c-84fd-4d74-be97-503eb072c6e5",
+    "TransactionFromDateTime": "2022-09-21T14:06:13.473+05:30"
+  },
+  "consentType": "accounts",
+  "receipt": {
+    "Risk": {},
+    "Data": {
+      "TransactionToDateTime": "2022-09-24T14:06:13.473+05:30",
+      "ExpirationDateTime": "2022-09-26T14:06:13.396+05:30",
+      "Permissions": [
+        "ReadAccountsBasic",
+        "ReadAccountsDetail",
+        "ReadBalances",
+        "ReadBeneficiariesBasic",
+        "ReadBeneficiariesDetail",
+        "ReadDirectDebits",
+        "ReadProducts",
+        "ReadStandingOrdersBasic",
+        "ReadStandingOrdersDetail",
+        "ReadTransactionsBasic",
+        "ReadTransactionsCredits",
+        "ReadTransactionsDebits",
+        "ReadTransactionsDetail",
+        "ReadStatementsBasic",
+        "ReadStatementsDetail",
+        "ReadOffers",
+        "ReadParty",
+        "ReadPartyPSU",
+        "ReadScheduledPaymentsBasic",
+        "ReadScheduledPaymentsDetail",
+        "ReadPAN"
+      ],
+      "TransactionFromDateTime": "2022-09-21T14:06:13.473+05:30"
+    }
+  },
+  "consentFrequency": 0
+}```
 
 In the core banking system, the required validations should be performed and then the response will be built according to the 
 requirements of the Open Banking Accounts specification.
@@ -84,7 +176,114 @@ to the core banking system in the form of a header. This header is known as **Ac
 
 This header is a signed JWT, which needs to be decoded by the core banking system. A sample decoded JSON is given below:
 
-```<Decoded json for payments>```
+```{
+  "clientId": "o99wHc2GH04zw5SyCJHywjNIogca",
+  "currentStatus": "authorised",
+  "createdTimestamp": 1663749005,
+  "recurringIndicator": false,
+  "authorizationResources": [
+    {
+      "updatedTime": 1663749029,
+      "consentId": "a7705d75-382b-4c40-8bb5-6d95796f7b10",
+      "authorizationId": "c4fa8a34-684f-41a5-8e7e-98b15bacaac2",
+      "authorizationType": "authorization",
+      "userId": "admin@wso2.com@carbon.super",
+      "authorizationStatus": "authorised"
+    }
+  ],
+  "updatedTimestamp": 1663749029,
+  "validityPeriod": 0,
+  "consentAttributes": {
+    "IdempotencyKey": "253808",
+    "PaymentType": "domestic-payment-consents"
+  },
+  "consentId": "a7705d75-382b-4c40-8bb5-6d95796f7b10",
+  "consentMappingResources": [
+    {
+      "mappingId": "17b7d1b4-57cc-43c2-ba4d-65f692e1a777",
+      "mappingStatus": "active",
+      "accountId": "30080012343456",
+      "authorizationId": "c4fa8a34-684f-41a5-8e7e-98b15bacaac2",
+      "permission": "primary"
+    }
+  ],
+  "additionalConsentInfo": {
+    "AccountIds": "30080012343456",
+    "AccountIdType": "Identification",
+    "Amount": "30.80",
+    "Currency": "GBP",
+    "ConsentId": "a7705d75-382b-4c40-8bb5-6d95796f7b10"
+  },
+  "consentType": "payments",
+  "receipt": {
+    "Risk": {
+      "DeliveryAddress": {
+        "StreetName": "Acacia Avenue",
+        "CountrySubDivision": "Wessex",
+        "AddressLine": [
+          "Flat 7",
+          "Acacia Lodge"
+        ],
+        "TownName": "Sparsholt",
+        "BuildingNumber": "27",
+        "Country": "UK",
+        "PostCode": "GU31 2ZZ"
+      },
+      "PaymentContextCode": "EcommerceGoods",
+      "MerchantCategoryCode": "5967",
+      "MerchantCustomerIdentification": "053598653254"
+    },
+    "Data": {
+      "SCASupportData": {
+        "RequestedSCAExemptionType": "BillPayment",
+        "AppliedAuthenticationApproach": "CA",
+        "ReferencePaymentOrderId": "string"
+      },
+      "Authorisation": {
+        "CompletionDateTime": "2022-09-26T08:29:54.070Z",
+        "AuthorisationType": "Any"
+      },
+      "ReadRefundAccount": "Yes",
+      "Initiation": {
+        "LocalInstrument": "UK.OBIE.BACS",
+        "DebtorAccount": {
+          "SecondaryIdentification": "30080012343456",
+          "SchemeName": "UK.OBIE.SortCodeAccountNumber",
+          "Identification": "30080012343456",
+          "Name": "Andrea Smith"
+        },
+        "RemittanceInformation": {
+          "Unstructured": "Internal ops code 5120101",
+          "Reference": "FRESCO-101"
+        },
+        "EndToEndIdentification": "FRESCO.21302.GFX.20",
+        "InstructionIdentification": "ACME412",
+        "CreditorAccount": {
+          "SecondaryIdentification": "0002",
+          "SchemeName": "UK.OBIE.SortCodeAccountNumber",
+          "Identification": "08080021325698",
+          "Name": "ACME Inc"
+        },
+        "InstructedAmount": {
+          "Amount": "30.80",
+          "Currency": "GBP"
+        },
+        "CreditorPostalAddress": {
+          "StreetName": "Acacia Avenue",
+          "CountrySubDivision": "Wessex",
+          "Department": "department1",
+          "TownName": "Sparsholt",
+          "BuildingNumber": "27",
+          "Country": "UK",
+          "SubDepartment": "sub dept",
+          "PostCode": "GU31 2ZZ",
+          "AddressType": "Correspondence"
+        }
+      }
+    }
+  },
+  "consentFrequency": 0
+}```
 
 The account ID selected by the Payment Service User (PSU), is sent in the Account-Request-Information header as `AccountIds` 
 and the account ID type as `AccountIdType`.
@@ -101,7 +300,144 @@ the request is directed to the core banking system.
 The request header is a signed JWT, which needs to be decoded by the core banking system. A sample decoded JSON is given 
 below:
 
-```<Decoded json for multi auth payments>```
+```{
+  "clientId": "o99wHc2GH04zw5SyCJHywjNIogca",
+  "currentStatus": "authorised",
+  "createdTimestamp": 1663749751,
+  "recurringIndicator": false,
+  "authorizationResources": [
+    {
+      "updatedTime": 1663749774,
+      "consentId": "62cce5b9-9c22-4c3d-8726-1a67896fd763",
+      "authorizationId": "374944b6-df92-4782-8bd8-cfad7ed07eb5",
+      "authorizationType": "multiAuthorization",
+      "userId": "psu2@wso2.com@carbon.super",
+      "authorizationStatus": "authorised"
+    },
+    {
+      "updatedTime": 1663749774,
+      "consentId": "62cce5b9-9c22-4c3d-8726-1a67896fd763",
+      "authorizationId": "767099a3-77b2-4029-ae33-abfd04e0d75b",
+      "authorizationType": "authorization",
+      "userId": "admin@wso2.com@carbon.super",
+      "authorizationStatus": "authorised"
+    },
+    {
+      "updatedTime": 1663749774,
+      "consentId": "62cce5b9-9c22-4c3d-8726-1a67896fd763",
+      "authorizationId": "925b2cc4-9ce0-49c6-a8a0-6452effd82f4",
+      "authorizationType": "multiAuthorization",
+      "userId": "psu1@wso2.com@carbon.super",
+      "authorizationStatus": "authorised"
+    }
+  ],
+  "updatedTimestamp": 1663749774,
+  "validityPeriod": 0,
+  "consentAttributes": {
+    "IdempotencyKey": "686513",
+    "PaymentType": "domestic-payment-consents"
+  },
+  "consentId": "62cce5b9-9c22-4c3d-8726-1a67896fd763",
+  "consentMappingResources": [
+    {
+      "mappingId": "26d72e02-ece9-4d39-b777-48d30cf15354",
+      "mappingStatus": "active",
+      "accountId": "30080098971337",
+      "authorizationId": "374944b6-df92-4782-8bd8-cfad7ed07eb5",
+      "permission": "secondary"
+    },
+    {
+      "mappingId": "2ded6a5f-b983-43c6-a64d-5c31bec14f81",
+      "mappingStatus": "active",
+      "accountId": "30080098971337",
+      "authorizationId": "767099a3-77b2-4029-ae33-abfd04e0d75b",
+      "permission": "primary"
+    },
+    {
+      "mappingId": "fa41aab5-c141-4fd3-9f9b-795c7abdc895",
+      "mappingStatus": "active",
+      "accountId": "30080098971337",
+      "authorizationId": "925b2cc4-9ce0-49c6-a8a0-6452effd82f4",
+      "permission": "secondary"
+    }
+  ],
+  "additionalConsentInfo": {
+    "AccountIds": "30080098971337",
+    "AccountIdType": "Identification",
+    "Amount": "30.80",
+    "Currency": "GBP",
+    "ConsentId": "62cce5b9-9c22-4c3d-8726-1a67896fd763"
+  },
+  "consentType": "payments",
+  "receipt": {
+    "Risk": {
+      "DeliveryAddress": {
+        "StreetName": "Acacia Avenue",
+        "CountrySubDivision": "Wessex",
+        "AddressLine": [
+          "Flat 7",
+          "Acacia Lodge"
+        ],
+        "TownName": "Sparsholt",
+        "BuildingNumber": "27",
+        "Country": "UK",
+        "PostCode": "GU31 2ZZ"
+      },
+      "PaymentContextCode": "EcommerceGoods",
+      "MerchantCategoryCode": "5967",
+      "MerchantCustomerIdentification": "053598653254"
+    },
+    "Data": {
+      "SCASupportData": {
+        "RequestedSCAExemptionType": "BillPayment",
+        "AppliedAuthenticationApproach": "CA",
+        "ReferencePaymentOrderId": "string"
+      },
+      "Authorisation": {
+        "CompletionDateTime": "2022-09-26T08:42:25.296Z",
+        "AuthorisationType": "Any"
+      },
+      "ReadRefundAccount": "Yes",
+      "Initiation": {
+        "LocalInstrument": "UK.OBIE.BACS",
+        "DebtorAccount": {
+          "SecondaryIdentification": "30080012343456",
+          "SchemeName": "UK.OBIE.SortCodeAccountNumber",
+          "Identification": "30080098971337",
+          "Name": "Andrea Smith"
+        },
+        "RemittanceInformation": {
+          "Unstructured": "Internal ops code 5120101",
+          "Reference": "FRESCO-101"
+        },
+        "EndToEndIdentification": "FRESCO.21302.GFX.20",
+        "InstructionIdentification": "ACME412",
+        "CreditorAccount": {
+          "SecondaryIdentification": "0002",
+          "SchemeName": "UK.OBIE.SortCodeAccountNumber",
+          "Identification": "08080021325698",
+          "Name": "ACME Inc"
+        },
+        "InstructedAmount": {
+          "Amount": "30.80",
+          "Currency": "GBP"
+        },
+        "CreditorPostalAddress": {
+          "StreetName": "Acacia Avenue",
+          "CountrySubDivision": "Wessex",
+          "Department": "department1",
+          "TownName": "Sparsholt",
+          "BuildingNumber": "27",
+          "Country": "UK",
+          "SubDepartment": "sub dept",
+          "PostCode": "GU31 2ZZ",
+          "AddressType": "Correspondence"
+        }
+      }
+    }
+  },
+  "consentFrequency": 0
+}```
 
 ### Funds Confirmation
 
@@ -116,7 +452,114 @@ header known as **Account-Request-Information**.
 
 This header is a signed JWT, which needs to be decoded by the core banking system. A sample decoded JSON is given below:
 
-```<decoded json for payment funds confirmation>```
+```{
+  "clientId": "o99wHc2GH04zw5SyCJHywjNIogca",
+  "currentStatus": "authorised",
+  "createdTimestamp": 1663749005,
+  "recurringIndicator": false,
+  "authorizationResources": [
+    {
+      "updatedTime": 1663749029,
+      "consentId": "a7705d75-382b-4c40-8bb5-6d95796f7b10",
+      "authorizationId": "c4fa8a34-684f-41a5-8e7e-98b15bacaac2",
+      "authorizationType": "authorization",
+      "userId": "admin@wso2.com@carbon.super",
+      "authorizationStatus": "authorised"
+    }
+  ],
+  "updatedTimestamp": 1663749029,
+  "validityPeriod": 0,
+  "consentAttributes": {
+    "IdempotencyKey": "253808",
+    "PaymentType": "domestic-payment-consents"
+  },
+  "consentId": "a7705d75-382b-4c40-8bb5-6d95796f7b10",
+  "consentMappingResources": [
+    {
+      "mappingId": "17b7d1b4-57cc-43c2-ba4d-65f692e1a777",
+      "mappingStatus": "active",
+      "accountId": "30080012343456",
+      "authorizationId": "c4fa8a34-684f-41a5-8e7e-98b15bacaac2",
+      "permission": "primary"
+    }
+  ],
+  "additionalConsentInfo": {
+    "AccountIds": "30080012343456",
+    "AccountIdType": "Identification",
+    "Amount": "30.80",
+    "Currency": "GBP",
+    "ConsentId": "a7705d75-382b-4c40-8bb5-6d95796f7b10"
+  },
+  "consentType": "payments",
+  "receipt": {
+    "Risk": {
+      "DeliveryAddress": {
+        "StreetName": "Acacia Avenue",
+        "CountrySubDivision": "Wessex",
+        "AddressLine": [
+          "Flat 7",
+          "Acacia Lodge"
+        ],
+        "TownName": "Sparsholt",
+        "BuildingNumber": "27",
+        "Country": "UK",
+        "PostCode": "GU31 2ZZ"
+      },
+      "PaymentContextCode": "EcommerceGoods",
+      "MerchantCategoryCode": "5967",
+      "MerchantCustomerIdentification": "053598653254"
+    },
+    "Data": {
+      "SCASupportData": {
+        "RequestedSCAExemptionType": "BillPayment",
+        "AppliedAuthenticationApproach": "CA",
+        "ReferencePaymentOrderId": "string"
+      },
+      "Authorisation": {
+        "CompletionDateTime": "2022-09-26T08:29:54.070Z",
+        "AuthorisationType": "Any"
+      },
+      "ReadRefundAccount": "Yes",
+      "Initiation": {
+        "LocalInstrument": "UK.OBIE.BACS",
+        "DebtorAccount": {
+          "SecondaryIdentification": "30080012343456",
+          "SchemeName": "UK.OBIE.SortCodeAccountNumber",
+          "Identification": "30080012343456",
+          "Name": "Andrea Smith"
+        },
+        "RemittanceInformation": {
+          "Unstructured": "Internal ops code 5120101",
+          "Reference": "FRESCO-101"
+        },
+        "EndToEndIdentification": "FRESCO.21302.GFX.20",
+        "InstructionIdentification": "ACME412",
+        "CreditorAccount": {
+          "SecondaryIdentification": "0002",
+          "SchemeName": "UK.OBIE.SortCodeAccountNumber",
+          "Identification": "08080021325698",
+          "Name": "ACME Inc"
+        },
+        "InstructedAmount": {
+          "Amount": "30.80",
+          "Currency": "GBP"
+        },
+        "CreditorPostalAddress": {
+          "StreetName": "Acacia Avenue",
+          "CountrySubDivision": "Wessex",
+          "Department": "department1",
+          "TownName": "Sparsholt",
+          "BuildingNumber": "27",
+          "Country": "UK",
+          "SubDepartment": "sub dept",
+          "PostCode": "GU31 2ZZ",
+          "AddressType": "Correspondence"
+        }
+      }
+    }
+  },
+  "consentFrequency": 0
+}```
 
 ###Idempotency key
 
@@ -146,7 +589,52 @@ validated against consent details and directed to the core banking system in the
 
 This header is a signed JWT, which needs to be decoded by the core banking system. A sample decoded JSON is given below:
 
-```<Decoded json for Confirmation of Funds>```
+```{
+  "clientId": "o99wHc2GH04zw5SyCJHywjNIogca",
+  "currentStatus": "authorised",
+  "createdTimestamp": 1663749298,
+  "recurringIndicator": false,
+  "authorizationResources": [
+    {
+      "updatedTime": 1663749317,
+      "consentId": "d4c772dd-812c-46fd-9dc4-e4d5a42d6dad",
+      "authorizationId": "d2f55131-1fe0-452e-a1f4-6eaaf8b3aa43",
+      "authorizationType": "authorization",
+      "userId": "admin@wso2.com@carbon.super",
+      "authorizationStatus": "authorised"
+    }
+  ],
+  "updatedTimestamp": 1663749317,
+  "validityPeriod": 0,
+  "consentAttributes": {},
+  "consentId": "d4c772dd-812c-46fd-9dc4-e4d5a42d6dad",
+  "consentMappingResources": [
+    {
+      "mappingId": "20725963-8dbf-4ce8-889c-b53cf8d4d1c1",
+      "mappingStatus": "active",
+      "accountId": "1234",
+      "authorizationId": "d2f55131-1fe0-452e-a1f4-6eaaf8b3aa43",
+      "permission": "n/a"
+    }
+  ],
+  "additionalConsentInfo": {
+    "AccountIds": "1234",
+    "ConsentId": "d4c772dd-812c-46fd-9dc4-e4d5a42d6dad"
+  },
+  "consentType": "fundsconfirmations",
+  "receipt": {
+    "Data": {
+      "DebtorAccount": {
+        "SecondaryIdentification": "Account1",
+        "SchemeName": "UK.OBIE.SortCodeAccountNumber",
+        "Identification": "1234",
+        "Name": "Account1"
+      },
+      "ExpirationDateTime": "2022-09-26T14:04:53.549+05:30"
+    }
+  },
+  "consentFrequency": 0
+}```
 
 In the core banking system, the required validations should be performed and then the response will be built according to the 
 requirements of the Open Banking Confirmation of Funds specification.
