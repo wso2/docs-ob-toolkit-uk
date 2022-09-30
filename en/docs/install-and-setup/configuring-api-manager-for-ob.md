@@ -186,7 +186,8 @@ account retrieval. By default, this is disabled and the configuration is set to 
            signature_validation="openbanking.org.uk"
            ```
 
-         5. Configure the API contexts that require signature validation:
+         5. By default, signature validation is enabled for the Payments API. Configure the API contexts of other APIs 
+            that require signature validation. For example:
           ``` toml
           [[open_banking.uk.jws_signature.signature_validation.mandated_apis]]
           api_context="/open-banking/v3.1/event"
@@ -201,13 +202,8 @@ account retrieval. By default, this is disabled and the configuration is set to 
 
     ??? tip "Click here to see JWS Response Signing configurations"
 
-         1. Configure the `UKJwsResponseHandlingExecutor` executor. The priority of `UKJwsResponseHandlingExecutor` 
-            must be lower than `ConsentEnforcementExecutor`. For example:
+         1. Configure the `UKJwsResponseHandlingExecutor` executor and set the priority to `999`:
            ``` toml 
-           [[open_banking.gateway.openbanking_gateway_executors.type.executors]]
-           name = "com.wso2.openbanking.accelerator.gateway.executor.impl.consent.ConsentEnforcementExecutor"
-           priority = 6
-
            [[open_banking.gateway.openbanking_gateway_executors.type.executors]]
            name = "com.wso2.openbanking.uk.gateway.executors.jws.UKJwsResponseHandlingExecutor"
            priority = 999
@@ -229,8 +225,8 @@ account retrieval. By default, this is disabled and the configuration is set to 
            [open_banking.ob_identity_retriever.server]
            signing_cert_alias="wso2carbon"
            sandbox_signing_cert_alias="wso2carbon"
-           signing_cert_kid="w7NFeMODzCMOZen_WECAlG9N8gg"
-           sandbox_signing_cert_kid="w7NFeMODzCMOZen_WECAlG9N8gg"
+           signing_cert_kid="1234"
+           sandbox_signing_cert_kid="5678"
            ```
 
         4. Configure the JWKS size limit and timeout and values:
@@ -248,13 +244,14 @@ account retrieval. By default, this is disabled and the configuration is set to 
            obie.trusted_anchors.signing = "openbanking.org.uk"
            obie.org_id="0015800001HQQrZAAX"
            ```
-        6. Configure the API contexts that require response signing:
+        6. By default, response signing is enabled for the Payments API. Configure the API contexts of other APIs 
+           that require response signing. For example:
           ``` toml
           [[open_banking.uk.signing_config.response_sig_required_apis]]
-          api_context=”/open-banking/v3.1/pisp”
+          api_context=”/open-banking/v3.1/event”
           ```
 
-14. If you want to use the [Data publishing](../learn/data-publishing.md) feature:
+15. If you want to use the [Data publishing](../learn/data-publishing.md) feature:
    
     - Enable the feature and configure the `server_url` property with the hostname of WSO2 Streaming 
     Integrator.
