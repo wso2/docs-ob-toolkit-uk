@@ -131,7 +131,127 @@ account retrieval. By default, this is disabled and the configuration is set to 
     Enabled = true
     ```
     
-12. If you want to use the [Data publishing](../learn/data-publishing.md) feature:
+12. To validate API requests:
+
+    !!! note
+        This is only available as a WSO2 Update from **WSO2 Open Banking API Manager UK Toolkit Level 1.0.0.6** and
+        **WSO2 Open Banking Identity Server UK Toolkit Level 1.0.0.7** onwards. For more information on updating, see
+        [Getting WSO2 Updates](setting-up-servers.md#getting-wso2-updates).
+
+    ??? tip "Click here to see JWS Signature Validation configurations"
+
+         1. Configure the `UKJwsRequestHandlingExecutor` executor. The priority of `UKJwsRequestHandlingExecutor` 
+            must be higher than `ConsentEnforcementExecutor`. For example:
+           ``` toml 
+           [[open_banking.gateway.openbanking_gateway_executors.type.executors]]
+           name = "com.wso2.openbanking.uk.gateway.executors.jws.UKJwsRequestHandlingExecutor"
+           priority = 4
+
+           [[open_banking.gateway.openbanking_gateway_executors.type.executors]]
+           name = "com.wso2.openbanking.uk.gateway.executors.idempotency.UKIdempotencyHandlingExecutor"
+           priority = 5
+
+           [[open_banking.gateway.openbanking_gateway_executors.type.executors]]
+           name = "com.wso2.openbanking.accelerator.gateway.executor.impl.consent.ConsentEnforcementExecutor"
+           priority = 6    
+           ```
+    
+         2. Enable validation and define the valid signing algorithms for the JWS sent in the request header:
+           ``` toml 
+           [open_banking.jws_signature.signature_validation]
+           enabled=true
+        
+           [[open_banking.jws_signature.signature_validation.allowed_algorithms]]
+           algorithm="PS256"
+        
+           [[open_banking.jws_signature.signature_validation.allowed_algorithms]]
+           algorithm="ES256"
+           ```
+ 
+         3. The signing keys used for validation by an application are cached. The default expiration time for cache 
+            modification and access are 60 minutes. To change these values, add and configure the following:
+           ``` toml
+           [open_banking.common.identity.cache]
+           cache_modified_expiry_minuites=30
+           cache_access_expiry_minuites=30
+           ```
+
+         4. The default trust anchor used for the validation is `openbanking.org.uk`. To change this value, 
+            add and configure the following:
+           ``` toml
+           [open_banking.uk.jws_signature.obie]
+           org_id="0015800001HQQrZAAX"
+        
+           [open_banking.uk.jws_signature.obie.trusted_anchors]
+           signature_validation="openbanking.org.uk"
+           ```
+
+         5. By default, signature validation is enabled for the Payments API. Configure the API contexts of other APIs 
+            that require signature validation. For example:
+          ``` toml
+          [[open_banking.uk.jws_signature.signature_validation.mandated_apis]]
+          api_context="/open-banking/v3.1/event"
+          ```
+
+13. To let the TPPs verify that the request wasn't tampered with, sign the responses:
+
+    !!! note
+        This is only available as a WSO2 Update from **WSO2 Open Banking API Manager UK Toolkit Level 3.0.0.x** and
+        **WSO2 Open Banking Identity Server UK Toolkit Level 3.0.0.x** onwards. For more information on updating, see
+        [Getting WSO2 Updates](setting-up-servers.md#getting-wso2-updates).
+
+    ??? tip "Click here to see JWS Response Signing configurations"
+
+         1. Configure the `UKJwsResponseHandlingExecutor` executor and set the priority to `999`:
+           ``` toml 
+           [[open_banking.gateway.openbanking_gateway_executors.type.executors]]
+           name = "com.wso2.openbanking.uk.gateway.executors.jws.UKJwsResponseHandlingExecutor"
+           priority = 999
+           ```
+        
+         2. Enable signing and define the response signing algorithms:
+           ``` toml
+           [open_banking.jws_signature.response_signing]
+           enabled=true
+           allowed_algorithm="PS256"
+           ```
+
+        3. Configure the alias and kid values of the signing certificates:
+            - `signing_cert_alias`: The alias of the signing certificate stored in the keystore. Used to sign responses in a production environment. Default value is `wso2carbon`.
+            - `sandbox_signing_cert_alias`: The alias of the signing certificate stored in the keystore. Used to sign responses in a sandbox environment. Default value is `wso2carbon`.
+            - `signing_cert_kid`: The kid value of the corresponding public key of the private key, which is used for signing in a production environment. Default value is `1234`. Mandatory configuration.
+            - `sandbox_signing_cert_kid`: The kid value of the corresponding public key of the private key, which is used for signing in a sandbox environment. Default value is `5678`. Mandatory configuration.
+           ```toml
+           [open_banking.ob_identity_retriever.server]
+           signing_cert_alias="wso2carbon"
+           sandbox_signing_cert_alias="wso2carbon"
+           signing_cert_kid="1234"
+           sandbox_signing_cert_kid="5678"
+           ```
+
+        4. Configure the JWKS size limit and timeout and values:
+           ```toml
+           [open_banking.ob_identity_retriever.jwks_retriever]
+           size_limit=51200
+           connection_timeout=2000
+           read_timeout=2000
+           ```
+
+        5. The default trust anchor used for the signing is `openbanking.org.uk`. To change this value, 
+           add and configure the following:
+           ``` toml
+           [open_banking.uk.signing_config]
+           obie.trusted_anchors.signing = "openbanking.org.uk"
+           obie.org_id="0015800001HQQrZAAX"
+           ```
+        6. By default, response signing is enabled for the Payments API. Configure the API contexts of other APIs 
+           that require response signing. For example:
+          ``` toml
+          [[open_banking.uk.signing_config.response_sig_required_apis]]
+          api_context=”/open-banking/v3.1/event”
+          ```
+
+15. If you want to use the [Data publishing](../learn/data-publishing.md) feature:
    
     - Enable the feature and configure the `server_url` property with the hostname of WSO2 Streaming 
     Integrator.
