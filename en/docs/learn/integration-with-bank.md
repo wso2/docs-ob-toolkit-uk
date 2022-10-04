@@ -41,7 +41,9 @@ requirements in the Open Banking Standard.
 
 A Swagger definition for the back end is available in the following location:
 
-```<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/Accounts/3.1.6/account-info-swagger-backend-3.1.6.yaml```
+```
+<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/Accounts/3.1.6/account-info-swagger-backend-3.1.6.yaml
+```
 
 ## Account Information Retrieval
 
@@ -58,7 +60,8 @@ This header is known as **Account-Request-Information**.
 
 This header is a signed JWT, which needs to be decoded by the core banking system. A sample decoded JSON is given below:
 
-```{
+```
+{
   "clientId": "o99wHc2GH04zw5SyCJHywjNIogca",
   "currentStatus": "authorised",
   "createdTimestamp": 1663749378,
@@ -150,7 +153,8 @@ This header is a signed JWT, which needs to be decoded by the core banking syste
     }
   },
   "consentFrequency": 0
-}```
+}
+```
 
 In the core banking system, the required validations should be performed and then the response will be built according to the 
 requirements of the Open Banking Accounts specification.
@@ -159,7 +163,9 @@ requirements of the Open Banking Accounts specification.
 
 A Swagger definition for the back end is available in the following location:
 
-```<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/Payments/3.1.6/paymnet-info-swagger-backend-3.1.6.yaml```
+```
+<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/Payments/3.1.6/paymnet-info-swagger-backend-3.1.6.yaml
+```
 
 - The URL of the API endpoints of the core banking system, which corresponds to the payment submission requests, should be 
 configured in the In sequences of the Payments API. For more information, see [Configuring Sequence files](#configuring-sequence-files).
@@ -176,7 +182,8 @@ to the core banking system in the form of a header. This header is known as **Ac
 
 This header is a signed JWT, which needs to be decoded by the core banking system. A sample decoded JSON is given below:
 
-```{
+```
+{
   "clientId": "o99wHc2GH04zw5SyCJHywjNIogca",
   "currentStatus": "authorised",
   "createdTimestamp": 1663749005,
@@ -283,7 +290,8 @@ This header is a signed JWT, which needs to be decoded by the core banking syste
     }
   },
   "consentFrequency": 0
-}```
+}
+```
 
 The account ID selected by the Payment Service User (PSU), is sent in the Account-Request-Information header as `AccountIds` 
 and the account ID type as `AccountIdType`.
@@ -300,7 +308,8 @@ the request is directed to the core banking system.
 The request header is a signed JWT, which needs to be decoded by the core banking system. A sample decoded JSON is given 
 below:
 
-```{
+```
+{
   "clientId": "o99wHc2GH04zw5SyCJHywjNIogca",
   "currentStatus": "authorised",
   "createdTimestamp": 1663749751,
@@ -437,7 +446,8 @@ below:
     }
   },
   "consentFrequency": 0
-}```
+}
+```
 
 ### Funds Confirmation
 
@@ -452,7 +462,8 @@ header known as **Account-Request-Information**.
 
 This header is a signed JWT, which needs to be decoded by the core banking system. A sample decoded JSON is given below:
 
-```{
+```
+{
   "clientId": "o99wHc2GH04zw5SyCJHywjNIogca",
   "currentStatus": "authorised",
   "createdTimestamp": 1663749005,
@@ -559,7 +570,8 @@ This header is a signed JWT, which needs to be decoded by the core banking syste
     }
   },
   "consentFrequency": 0
-}```
+}
+```
 
 ###Idempotency key
 
@@ -575,7 +587,9 @@ the Open Banking Payments specification.
 
 A Swagger definition for the back end is available in the following location:
 
-```<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/FundsConfirmation/3.1.6/funds-confirmation-swagger-3.1.6.yaml```
+```
+<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/FundsConfirmation/3.1.6/funds-confirmation-swagger-3.1.6.yaml
+```
 
 In WSO2 Open Banking, integration of the Confirmation of Funds (CoF) consent flow with the core banking system is used during 
 the confirmation of funds request.
@@ -589,7 +603,8 @@ validated against consent details and directed to the core banking system in the
 
 This header is a signed JWT, which needs to be decoded by the core banking system. A sample decoded JSON is given below:
 
-```{
+```
+{
   "clientId": "o99wHc2GH04zw5SyCJHywjNIogca",
   "currentStatus": "authorised",
   "createdTimestamp": 1663749298,
@@ -634,7 +649,8 @@ This header is a signed JWT, which needs to be decoded by the core banking syste
     }
   },
   "consentFrequency": 0
-}```
+}
+```
 
 In the core banking system, the required validations should be performed and then the response will be built according to the 
 requirements of the Open Banking Confirmation of Funds specification.
