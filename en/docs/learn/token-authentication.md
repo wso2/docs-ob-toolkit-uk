@@ -13,7 +13,7 @@ WSO2 Open Banking supports two types of access tokens for authentication:
    - **User Access Tokens**: Tokens to identify the final user of an application. 
 
 For more information on access tokens, see the 
-[overview of access tokens in WSO2 API Manager documentation](https://apim.docs.wso2.com/en/4.0.0/learn/consume-api/manage-application/generate-keys/obtain-access-token/overview-of-access-tokens/).
+[overview of access tokens in WSO2 API Manager documentation](https://apim.docs.wso2.com/en/latest/consume/manage-application/generate-keys/obtain-access-token/overview-of-access-tokens/).
 
 In order to cater to open banking requirements, WSO2 Open Banking contains the following access token 
 features:
