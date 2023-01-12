@@ -1,4 +1,4 @@
-# Upgrading WSO2 Open Banking from 2.0 to 3.0
+# Upgrading the solution
 
 This document walks you through the process of upgrading your WSO2 Open Banking 2.0 setup to WSO2 Open Banking 3.0 (Accelerator Model).
 
