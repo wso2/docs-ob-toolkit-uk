@@ -68,14 +68,14 @@ nav:
     - 'Configuring API Manager': install-and-setup/configuring-api-manager-for-ob.md
     - 'Configuring Users and Roles': install-and-setup/configuring-users-and-roles.md
     - 'Configuring SMS OTP Authenticator': install-and-setup/configuring-sms-otp-authenticator.md
-    - 'Upgrade':
-       - 'Upgrading the solution':  install-and-setup/upgrading-the-solution/upgrading-the-solution.md
-       - 'Upgrading to API Manager 3.2.0': install-and-setup/upgrading-the-solution/upgrading-wso2-api-manager-320.md
-       - 'Upgrading to Identity Server 5.11.0': install-and-setup/upgrading-the-solution/upgrading-wso2-identity-server.md
-       - 'Upgrading to API Manager 4.0.0': install-and-setup/upgrading-the-solution/upgrading-wso2-api-manager-400.md
-       - 'Open Banking Data Migration': install-and-setup/upgrading-the-solution/open-banking-data-migration.md
-       - 'Reporting Data Migration': install-and-setup/upgrading-the-solution/reporting-data-migration.md
-       - 'Modifications After Migration': install-and-setup/upgrading-the-solution/modifications-after-migration.md
+    - 'Upgrading the solution': install-and-setup/upgrading-the-solution.md
+       #- 'Upgrading the solution':  install-and-setup/upgrading-the-solution/upgrading-the-solution.md
+       #- 'Upgrading to API Manager 3.2.0': install-and-setup/upgrading-the-solution/upgrading-wso2-api-manager-320.md
+       #- 'Upgrading to Identity Server 5.11.0': install-and-setup/upgrading-the-solution/upgrading-wso2-identity-server.md
+       #- 'Upgrading to API Manager 4.0.0': install-and-setup/upgrading-the-solution/upgrading-wso2-api-manager-400.md
+       #- 'Open Banking Data Migration': install-and-setup/upgrading-the-solution/open-banking-data-migration.md
+       #- 'Reporting Data Migration': install-and-setup/upgrading-the-solution/reporting-data-migration.md
+       #- 'Modifications After Migration': install-and-setup/upgrading-the-solution/modifications-after-migration.md
   - 'Learn':
     - 'Consent Management':
        - 'Introduction': learn/consent-management.md
