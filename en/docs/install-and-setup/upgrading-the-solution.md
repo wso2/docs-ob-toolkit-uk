@@ -14,7 +14,7 @@ There are multiple reasons why you would want to upgrade the WSO2 product to the
 
 Over the course of its lifetime, WSO2 Open Banking has changed significantly and some of the features you were using in an older version may not work the same way.
 
-To learn what’s new in the WSO2 Open Banking UK Toolkit 1.0 release, see the [About this Release](https://uk.ob.docs.wso2.com/en/latest/get-started/about-this-release/) page.
+To learn what’s new in the WSO2 Open Banking UK Toolkit 1.0 release, see the [About this Release](../get-started/about-this-release.md) page.
 
 ## Get started
 
