@@ -11,6 +11,7 @@ with additional benefits beyond compliance. This toolkit comprises three modules
 
 For more information on WSO2 Open Banking Toolkit, see the [Get Started](open-banking.md) section.
 
+
 ## What is new in this release
 
 ####WSO2 Open Banking Identity Server UK Toolkit
