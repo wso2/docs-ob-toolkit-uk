@@ -141,6 +141,18 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
+plugins:
+  - search
+  - markdownextradata: {}
+  - redirects:
+      redirect_maps:
+        'install-and-setup/upgrading-the-solution/upgrading-the-solution.md': 'https://uk.ob.docs.wso2.com/en/latest/install-and-setup/upgrading-the-solution/'
+        'install-and-setup/upgrading-the-solution/upgrading-wso2-api-manager-320.md': 'https://uk.ob.docs.wso2.com/en/latest/install-and-setup/upgrading-the-solution/'
+        'install-and-setup/upgrading-the-solution/upgrading-wso2-identity-server.md': 'https://uk.ob.docs.wso2.com/en/latest/install-and-setup/upgrading-the-solution/'
+        'install-and-setup/upgrading-the-solution/upgrading-wso2-api-manager-400.md': 'https://uk.ob.docs.wso2.com/en/latest/install-and-setup/upgrading-the-solution/'
+        'install-and-setup/upgrading-the-solution/open-banking-data-migration.md': 'https://uk.ob.docs.wso2.com/en/latest/install-and-setup/upgrading-the-solution/'
+        'install-and-setup/upgrading-the-solution/reporting-data-migration.md': 'https://uk.ob.docs.wso2.com/en/latest/install-and-setup/upgrading-the-solution/'
+        'install-and-setup/upgrading-the-solution/modifications-after-migration.md': 'https://uk.ob.docs.wso2.com/en/latest/install-and-setup/upgrading-the-solution/'
 
 # Extra
 extra_css:
