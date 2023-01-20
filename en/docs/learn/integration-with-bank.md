@@ -742,10 +742,13 @@ The response from the API should be formatted as follows:
 
 ### Shareable Accounts API
 
-The Shareable Accounts API is used for the following two purposes:
+The Shareable Accounts API is used in the AISP flow to retrieve the account IDs from the bank during authorization.
+The account IDs are then displayed on the consent page.
 
- 1. To validate the debtor account if the PISP sends it in the initiation request
- 2. To populate the payment accounts on the consent page if the initiation request does not contain a debtor account.
+- In a bank offered consent scenario, the Shareable Accounts API retrieves all available accounts for the user and
+  displays them on the consent page for the user to select accounts.
+- In a scenario where account IDs are already provided in the consent, the Shareable Accounts API checks whether the
+  accounts in the consent are available in the bank backend.
 
 When invoking this API, the `consentId` and `userId` (PSU ID) parameters are required to be sent in the URL as query 
 parameters.
