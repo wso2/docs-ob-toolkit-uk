@@ -26,11 +26,6 @@
     ```
     ./merge.sh
     ```
-    
-    6. Run the `configure.sh` script in `<SI_HOME>/<OB_BI_TOOLKIT_HOME>/bin`:
-    ```
-    ./configure.sh
-    ```
 
     7. Exchange the public certificates between servers. 
         
