@@ -37,6 +37,4 @@ application access tokens that are required to invoke the open banking APIs.
    - The registration request is an encoded JSON Web Token (JWT), which is signed by the signing certificate obtained from the regulated directory. The request payload also contains the encoded and signed SSA.
    - After successful validation of the request, the TPP applications receive a client ID, which they can use to obtain application access tokens and access banking APIs. 
 
-For more information, see [TPP Onboarding using Dynamic Client Registration API]((https://uk.ob.docs.wso2.com/en/latest/try-out/dynamic-client-registration-flow/)).
-
-
+For more information, see [TPP Onboarding using Dynamic Client Registration API](../try-out/dynamic-client-registration-flow.md).
