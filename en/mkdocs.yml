@@ -99,6 +99,11 @@ nav:
        - 'Generate Reports': learn/data-publishing-reports.md
        - 'Configuration': learn/data-publishing-configuration.md
     - 'Integration with Bank': learn/integration-with-bank.md
+    - 'API Specifications':
+      - 'API Specifications for UK': learn/api-specifications.md
+      - 'Account and Transaction API': learn/account-and-transaction-api.md
+      - 'Payment Initiation API': learn/payment-initiation-api.md
+      - 'Confirmation of Funds API': learn/confirmation-of-funds-api.md
   - 'Try out':
     - 'TPP Onboarding': try-out/dynamic-client-registration-flow.md
     - 'Account and transaction flow': try-out/account-and-transaction-flow.md
