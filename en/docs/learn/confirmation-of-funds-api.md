@@ -88,14 +88,3 @@ Once you deploy the Confirmation of Funds API, you can access consent and funds 
   </tr>
 </tbody>
 </table>
-
-
-
-
-
-
-
-
-
-
-
