@@ -532,7 +532,7 @@ For testing purposes, you can host the well-known configuration file via [Github
     **a. Account and Transaction API:**
 
     !!!tip
-        A sample endpoint configuration for the Account and Transaction API is available [here]().
+        A sample endpoint configuration for the Account and Transaction API is available [here](../assets/attachments/endpoint_configuration_for_accounts_API.json).
 
        | discoveryItems         |                                                                                                                         |
        |------------------------|-------------------------------------------------------------------------------------------------------------------------|
@@ -543,7 +543,7 @@ For testing purposes, you can host the well-known configuration file via [Github
     **b. Payment Initiation API:**
 
     !!!tip
-        A sample endpoint configuration for the Payment Initiation API is available [here]().
+        A sample endpoint configuration for the Payment Initiation API is available [here](../assets/attachments/endpoint_configuration_for_payments_API.json).
 
        | discoveryItems         |                                                                                                                         |
        |------------------------|-------------------------------------------------------------------------------------------------------------------------|
@@ -554,7 +554,7 @@ For testing purposes, you can host the well-known configuration file via [Github
     **c. Confirmation of Funds API:**
 
     !!!tip
-        A sample endpoint configuration for the Confirmation of Funds API is available [here]().
+        A sample endpoint configuration for the Confirmation of Funds API is available [here](../assets/attachments/endpoint_configuration_for_cof_API.json).
 
        | discoveryItems         |                                                                                                                         |
        |------------------------|-------------------------------------------------------------------------------------------------------------------------|
@@ -566,7 +566,7 @@ For testing purposes, you can host the well-known configuration file via [Github
 11. Add the following mandatory configurations in the form/JSON file.
 
     !!!tip
-        A sample `TestData_Configure.json` is available [here]().
+        A sample `TestData_Configure.json` is available [here](../assets/attachments/TestData_Configuration.json).
 
     | Client                                                     |                                                                                                                                                                                  |
    |------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
