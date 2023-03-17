@@ -379,7 +379,7 @@ For testing purposes, you can host the well-known configuration file via [Github
 
     ```toml
     [[open_banking.uk.signing_config.response_sig_required_apis]]
-    api_context=”/open-banking/v3.1/event”
+    api_context="/open-banking/v3.1/event"
     ```
 
 ## Run the Solution
@@ -403,22 +403,18 @@ For testing purposes, you can host the well-known configuration file via [Github
         Given below are sample modified redirect URL properties in SSA:
         
         ```json
-        …
         "software_client_uri": "https://127.0.0.1:8443/conformancesuite/callback",
         "software_redirect_uris": [
         "https://127.0.0.1:8443/conformancesuite/callback"
         ],
-        …
         ```
 
         Given below are sample modified redirect URL properties in DCR request JWT.  
         
         ```json
-        …
         "redirect_uris": [
         "https://127.0.0.1:8443/conformancesuite/callback"
         ],
-        …
         ```
 
     !!! warning
