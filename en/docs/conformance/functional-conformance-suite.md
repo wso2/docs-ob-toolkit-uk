@@ -1,5 +1,6 @@
-!!!info
-    WSO2 Open Banking 3.0.0 UK Toolkit 1.0.0 supports Functional Conformance Suite  v1.7.1.
+[//]: # (!!!info)
+
+[//]: # (    WSO2 Open Banking 3.0.0 UK Toolkit 1.0.0 supports Functional Conformance Suite  v1.7.1.)
 
 The  Open Banking Implementation Entity (OBIE) [Functional Conformance](https://openbanking.atlassian.net/wiki/spaces/DZ/pages/1061716467/Functional+Conformance) 
 Certificate allows WSO2 Open Banking to demonstrate that the solution has successfully implemented all required functional 
