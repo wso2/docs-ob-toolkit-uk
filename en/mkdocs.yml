@@ -117,6 +117,8 @@ nav:
     - 'Consent REST API': references/consent-rest-api.md
     - 'DCR REST API': references/dcr-rest-api.md
     - 'Application Info API': references/application-info-api.md
+  - 'Conformance':
+    - 'Functional Conformance Suite': conformance/functional-conformance-suite.md
   - '': page-not-found.md
 
 # Extensions
@@ -183,3 +185,4 @@ extra:
     - Install and Setup
     - Learn
     - Try out
+    - Conformance
