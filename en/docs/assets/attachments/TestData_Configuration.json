@@ -10,17 +10,17 @@
   "transaction_to_date": "2025-12-31T10:40:00+02:00",
   "client_id": "vyybyTWbj2yB1Tr6AzmmsUqLdbwa",
   "client_secret": "eUX82GwUfBksYzhvY60roZgh7U4a",
-  "token_endpoint": "https://localhost:9446/oauth2/token",
+  "token_endpoint": "https://<IS_HOST>:9446/oauth2/token",
   "response_type": "code id_token",
   "token_endpoint_auth_method": "client_secret_basic",
   "request_object_signing_alg": "PS256",
-  "authorization_endpoint": "https://localhost:9446/oauth2/authorize",
-  "resource_base_url": "https://localhost:8243",
+  "authorization_endpoint": "https://<IS_HOST>:9446/oauth2/authorize",
+  "resource_base_url": "https://<APIM_HOST>:8243",
   "x_fapi_financial_id": "open-bank",
   "send_x_fapi_customer_ip_address": false,
   "x_fapi_customer_ip_address": "",
-  "issuer": "https://localhost:9446/oauth2/token",
-  "redirect_url": "https://127.0.0.1:8443/conformancesuite/callback",
+  "issuer": "https://<IS_HOST>:9446/oauth2/token",
+  "redirect_url": "https:<CONFORMANCE_SUITE_DOCKER_HOST>:8443/conformancesuite/callback",
   "resource_ids": {
     "account_ids": [
       {
@@ -59,3 +59,4 @@
     "name": "Account1"
   }
 }
+
