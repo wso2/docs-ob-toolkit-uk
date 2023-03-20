@@ -1,0 +1,39 @@
+{
+    "discoveryModel": {
+      "name": "ob-v3.1-generic",
+      "description": "An Open Banking UK discovery template for v3.1 of Accounts and Payments.",
+      "discoveryVersion": "v0.4.0",
+      "tokenAcquisition": "psu",
+      "discoveryItems": [
+        {
+          "apiSpecification": {
+            "name": "Confirmation of Funds API Specification",
+            "url": "https://openbankinguk.github.io/read-write-api-site3/v3.1.6/profiles/confirmation-of-funds-api-profile.html",
+            "version": "v3.1.6",
+            "schemaVersion": "https://raw.githubusercontent.com/OpenBankingUK/read-write-api-specs/v3.1.6/dist/swagger/confirmation-funds-swagger.json",
+            "manifest": "file://manifests/ob_3.1_cbpii_fca.json"
+          },
+          "openidConfigurationUri": "https://<IS_HOST>:9446/oauth2/token/.well-known/openid-configuration",
+          "resourceBaseUri": "https://<APIM_HOST>:8243/open-banking/v3.1/cbpii",
+          "endpoints": [
+            {
+              "method": "POST",
+              "path": "/funds-confirmation-consents"
+            },
+            {
+              "method": "GET",
+              "path": "/funds-confirmation-consents/{ConsentId}"
+            },
+            {
+              "method": "DELETE",
+              "path": "/funds-confirmation-consents/{ConsentId}"
+            },
+            {
+              "method": "POST",
+              "path": "/funds-confirmations"
+            }
+          ]
+        }
+      ]
+    }
+  }
