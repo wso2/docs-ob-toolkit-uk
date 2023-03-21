@@ -1,3 +1,7 @@
+!!!info
+    Some content in this documentation is subject to the [MIT Open Licence](https://www.openbanking.org.uk/open-licence/).
+    For further information, see [Copyright and Licence](copyright-and-licence.md).
+
 ## Introduction
 
 This page explains the flow of the [Payment Initiation API by OBIE](https://openbankinguk.github.io/read-write-api-site3/v3.1.10/profiles/payment-initiation-api-profile.html). 
