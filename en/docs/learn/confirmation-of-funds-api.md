@@ -1,7 +1,11 @@
+!!!info
+    Some content in this documentation is subject to the [MIT Open Licence](https://www.openbanking.org.uk/open-licence/).
+    For further information, see [Copyright and Licence](copyright-and-licence.md).
+
 ## Introduction
 
 This page explains the flow of the [Confirmation of Funds API by OBIE](https://openbankinguk.github.io/read-write-api-site3/v3.1.10/profiles/confirmation-of-funds-api-profile.html) 
-in WSO2 Open Banking. The Confirmation of Funds API allows users to create a funds confirmation consent request, and manage the funds confirmation consents by 
+in WSO2 Open Banking. The Confirmation of Funds API allows users to create a funds confirmation consent request and manage the funds confirmation consents by 
 checking and revoking the status. The Card-Based Payment Instrument Issuer (CBPII) must request to create the resource 
 to create a funds confirmation consent request.
 
