@@ -45,41 +45,71 @@ Follow the steps and create a new shared scope for the Variable Recurring Paymen
 
 11. Click **Save**.
 
-11. Go to **Runtime** using the left menu pane.
+12. Go to **Runtime** using the left menu pane.
 
-12. Toggle the **Schema Validation** button to enable Schema Validation for all APIs except for the Dynamic Client Registration API. ![schema-validation](../assets/img/get-started/quick-start-guide/schema-validation.png)
+13. Toggle the **Schema Validation** button to enable Schema Validation for all APIs except for the Dynamic Client Registration API. ![schema-validation](../assets/img/get-started/quick-start-guide/schema-validation.png)
 
-13. Click the **Edit** button under **Request > Message Mediation**. ![edit_message_mediation](../assets/img/get-started/quick-start-guide/edit-message-mediation.png)
+14. Add a custom policy. Follow the instructions given below according to the API Manager version you are using:
 
-14. Now, select the **Custom Policy** option.
+    ??? note "Click here to see how to add a custom policy if you are using API Manager 4.0.0..."
 
-15. Upload the `<APIM_HOME>/<OB_APIM_ACCELERATOR_HOME>/repository/resources/apis/VRP/vrp-dynamic-endpoint-insequence-3.1.9.xml` insequence file. 
+        1. Click the **Edit** button under **Request > Message Mediation**. ![edit_message_mediation](../assets/img/get-started/quick-start-guide/edit-message-mediation.png)
+        
+        2. Now, select the **Custom Policy** option.
+        
+        3. Upload the `<APIM_HOME>/<OB_APIM_ACCELERATOR_HOME>/repository/resources/apis/VRP/vrp-dynamic-endpoint-insequence-3.1.9.xml` insequence file. ![select_endpoints](../assets/img/try-out/payment-initiation-flow/adding-insequence.png)
+        
+        4. Click **Select**.
+        
+        5. Scroll down and click **SAVE**.
 
-    ![select_endpoints](../assets/img/try-out/payment-initiation-flow/adding-insequence.png)
+    ??? note "Click here to see how to add a custom policy if you are using API Manager 4.1.0..."
 
-16. Click **Select**.
+        1. Go to **Develop -> API Configurations -> Policies** in the left menu pane.<br><br>
+        <div style="width:40%">
+        ![select_policies](../assets/img/get-started/quick-start-guide/select-policies.png)
+        </div>
 
-17. Scroll down and click **SAVE**.
+        2. On the **Policy List** card, click on **Add New Policy**.
 
-18. Use the left menu panel and go to **API Configurations > Endpoints**.
+        3. Fill in the **Create New Policy**.
+
+        4. Upload the `<APIM_HOME>/<OB_APIM_ACCELERATOR_HOME>/repository/resources/apis/VRP/vrp-dynamic-endpoint-insequence-3.1.9.xml` insequence file.
+
+        5. Scroll down and click **Save**. Upon successful creation of the policy, you receive an alert as shown below: <br><br>
+        <div style="width:35%">
+        ![successful](../assets/img/get-started/quick-start-guide/successful.png)
+        </div>
+
+        6. Expand the API endpoint you want from the list of API endpoints. For example: ![expand_api_endpoint](../assets/img/get-started/quick-start-guide/expand-api-endpoint.png)
+
+        7. Expand the HTTP method from the API endpoint you selected. For example: ![expand_http_method](../assets/img/get-started/quick-start-guide/expand-http-method.png)
+
+        8. Drag and drop the previously created policy to the **Request Flow** of the API endpoint. ![request_flow](../assets/img/get-started/quick-start-guide/request-flow.png)
+
+        9. Select **Apply to all resources** and click **Save**.
+
+        10. Scroll down and click **Save**.
+
+15. Use the left menu panel and go to **API Configurations > Endpoints**.
 
     ![select_endpoints](../assets/img/get-started/quick-start-guide/select-endpoints.png)
 
-19. Add a **Dynamic Endpoint**. ![add_dynamic_endpoint](../assets/img/get-started/quick-start-guide/add_dynamic_endpoint.png)
+16. Add a **Dynamic Endpoint**. ![add_dynamic_endpoint](../assets/img/get-started/quick-start-guide/add_dynamic_endpoint.png)
 
-20. Go to **Deployments** using the left menu pane.
+17. Go to **Deployments** using the left menu pane.
 
     ![select_deployments](../assets/img/get-started/quick-start-guide/select-deployments.png)
 
-21. Select the API Gateway type, in this scenario, it is **Default**. ![api_gateway](../assets/img/get-started/quick-start-guide/dcr-api-gateway.png)
+18. Select the API Gateway type, in this scenario, it is **Default**. ![api_gateway](../assets/img/get-started/quick-start-guide/dcr-api-gateway.png)
 
-22. Click **Deploy**.
+19. Click **Deploy**.
 
-23. Go to **Overview** using the left menu pane.
+20. Go to **Overview** using the left menu pane.
 
     ![select_overview](../assets/img/get-started/quick-start-guide/select-overview.png)
 
-24. Click **Publish**. ![publish_api](../assets/img/get-started/quick-start-guide/publish-api.png)
+21. Click **Publish**. ![publish_api](../assets/img/get-started/quick-start-guide/publish-api.png)
 
 ## Subscribing to Variable Recurring Payments
 
