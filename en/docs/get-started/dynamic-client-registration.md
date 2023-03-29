@@ -36,7 +36,7 @@ openbanking.org.uk/DynamicClientRegistration/3.3.0/dynamic-client-registration-s
 
 9. Click **Save**.
 
-10. Once you get the message that the API is successfully updated, Add a custom policy. Follow the instructions given below according to the API Manager version you are using:
+10. Once you get the message that the API is successfully updated, add a custom policy. Follow the instructions given below according to the API Manager version you are using:
 
     ??? note "Click here to see how to add a custom policy if you are using API Manager 4.0.0..."
 
