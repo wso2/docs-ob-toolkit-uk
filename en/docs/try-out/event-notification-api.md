@@ -38,7 +38,7 @@ This document provides step by step instructions to deploy, subscribe, and invok
 
          3. Select the **Custom Policy** option.
         
-         4. Upload the `event-notifications-aggregated-polling-openapi-3.1.10.yaml` file from the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/EventNotifications/3.1.10` directory. ![accounts_insequence](../assets/img/get-started/quick-start-guide/accounts-insequence.png)
+         4. Upload the `event-notifications-aggregated-polling-openapi-3.1.10.yaml` file from the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/EventNotifications/3.1.10` directory. ![accounts_insequence](../assets/img/try-out/event-notification/event-notification-insequence.png)
          
          5. Click **Select**. 
         
