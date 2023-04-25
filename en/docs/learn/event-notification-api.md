@@ -1,17 +1,10 @@
 # Event Notification
 
-The Event Notification API in WSO2 Open Banking Accelerator provides a poll-based service. This API consists of two resources:
+The Event Notification API in WSO2 Open Banking provides a poll-based service. This API consists of Event Polling API.
 
-- Event Creation API
-- Event Polling API
-
-The Event Notification API follows the **IETF Security Event Token (SET)** and the **Poll-Based Security Event Token (SET) Delivery Using HTTP**
-specifications to serve general-purpose event notification creation and polling.
-
-The Event Creation API allows storing event notification information as a JSON, which can be customized according to your
-use case. The Event Polling API facilitates storing and retrieving event notifications according to the above specifications
-without altering the information in the event information JSON.  Both these endpoints are secured with basic authentication
-(admin username and password) and accept base64 encoded JSON.
+The Event Notification API follows the IETF Security Event Token (SET) and the Poll-Based Security Event Token (SET) Delivery 
+Using HTTP specifications to serve general-purpose event notification polling. It facilitates storing and retrieving event 
+notifications according to the above specifications. This endpoint is secured with MA-TLS and accepts JSON.
 
 ## Event Polling
 
@@ -49,7 +42,7 @@ Above request is the initial poll with the request payload as follows:
 }
 ```
 
-Sample Response
+Sample Response:
 
 The `sets` values consist of notification IDs and the JWT-encoded event notification details pairs.
 
@@ -81,7 +74,7 @@ Using the following type of payload you can only set error (negative acknowledge
 }
 ```
 
-Sample Response
+Sample Response:
 
 ```
 {
@@ -100,7 +93,7 @@ IDs that need to be acknowledged:
 }
 ```
 
-Sample Response
+Sample Response:
 
 ```
 {
