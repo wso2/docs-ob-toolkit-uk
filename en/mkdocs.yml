@@ -104,6 +104,9 @@ nav:
       - 'Account and Transaction API': learn/account-and-transaction-api.md
       - 'Payment Initiation API': learn/payment-initiation-api.md
       - 'Confirmation of Funds API': learn/confirmation-of-funds-api.md
+    - 'Event Notification API':
+      - 'Introduction': learn/event-notification-api.md
+      - 'Configuration': learn/event-notification-configuration.md
   - 'Try out':
     - 'TPP Onboarding': try-out/dynamic-client-registration-flow.md
     - 'Account and transaction flow': try-out/account-and-transaction-flow.md
@@ -111,6 +114,7 @@ nav:
     - 'Confirmation of Funds flow': try-out/confirmation-of-funds-flow.md
     - 'Variable Recurring Payments flow': try-out/variable-recurring-payments-flow.md
     - 'Consent Manager': try-out/consent-manager.md
+    - 'Event Notification API': try-out/event-notification-api.md
   - 'References':
     - 'Identity Server Configuration Catalog': references/config-catalog-is.md
     - 'API Manager Configuration Catalog': references/config-catalog-apim.md
