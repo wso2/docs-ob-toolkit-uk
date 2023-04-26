@@ -1,4 +1,4 @@
-There are two APIs under the Event Notification API:
+There are two APIs that WSO2 Open Banking UK Toolkit supports under the Event Notification API:
 
 - Aggregated Polling API
 - Event Subscription API
