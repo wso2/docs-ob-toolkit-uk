@@ -182,7 +182,7 @@ Follow [Configuring users and roles](../install-and-setup/configuring-users-and-
           };
         ```
       
-2. Open the `<IS_HOME>/repository/deployment/server/webapps/consentmgr/WEB-INF/web.xml` file.
+2. Open the `<IS_HOME>/repository/conf/deployment.toml` file.
 
     | Configuration | Description |
     | ----------| ------------|
@@ -193,7 +193,7 @@ Follow [Configuring users and roles](../install-and-setup/configuring-users-and-
     
     For example, 
     
-    ```toml
+    ``` toml
     [open_banking.consent.portal.client_credentials]
     client_id="2zB5s9wGHWVwmlrvHdWa6Mwc4vsa"
     client_secret="cqblprasAniVfi02IXGFvp8VREAa"
