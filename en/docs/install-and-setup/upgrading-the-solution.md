@@ -10,7 +10,7 @@ There are multiple reasons why you would want to upgrade the WSO2 product to the
 - You want to leverage the new features of the latest version of the product.
 - The version of the product you have does not have certain security and bug fixes that you require.
 
-## What has changed
+## What has changed?
 
 Over the course of its lifetime, WSO2 Open Banking has changed significantly and some of the features you were using in an older version may not work the same way.
 
