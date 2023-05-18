@@ -88,9 +88,17 @@ nav:
     - 'Strong Customer Authentication':
        - 'Introduction': learn/strong-customer-authentication.md
        - 'App-to-App Redirection': learn/app-to-app-redirection.md
-    - 'Variable Recurring Payments':
-        - 'Introduction': learn/variable-recurring-payments.md
-        - 'Configuration':  learn/variable-recurring-payments-configuration.md
+    - 'API Specifications':
+       - 'Introduction': learn/api-specifications.md
+       - 'Account and Transaction API': learn/account-and-transaction-api.md
+       - 'Payment Initiation API': learn/payment-initiation-api.md
+       - 'Confirmation of Funds API': learn/confirmation-of-funds-api.md
+       - 'Variable Recurring Payments':
+          - 'Introduction': learn/variable-recurring-payments.md
+          - 'Configuration':  learn/variable-recurring-payments-configuration.md
+       - 'Event Notification API':
+          - 'Introduction': learn/event-notification-api.md
+          - 'Configuration': learn/event-notification-configuration.md
     - 'API Security':
        - 'Introduction': learn/api-security.md
        - 'Configuration': learn/api-security-configuration.md
@@ -99,14 +107,6 @@ nav:
        - 'Generate Reports': learn/data-publishing-reports.md
        - 'Configuration': learn/data-publishing-configuration.md
     - 'Integration with Bank': learn/integration-with-bank.md
-    - 'API Specifications':
-      - 'API Specifications for UK': learn/api-specifications.md
-      - 'Account and Transaction API': learn/account-and-transaction-api.md
-      - 'Payment Initiation API': learn/payment-initiation-api.md
-      - 'Confirmation of Funds API': learn/confirmation-of-funds-api.md
-    - 'Event Notification API':
-      - 'Introduction': learn/event-notification-api.md
-      - 'Configuration': learn/event-notification-configuration.md
   - 'Try out':
     - 'TPP Onboarding': try-out/dynamic-client-registration-flow.md
     - 'Account and transaction flow': try-out/account-and-transaction-flow.md
