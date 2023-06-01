@@ -43,13 +43,23 @@ locate the respective root directory of the base products:
 ./configure.sh
 ```
 
-3.Copy the following files to the given directory paths:
+3. If you are using **WSO2 Identity Server 6.0.0**,
 
- | File to copy | Location to  |
- |---------|---------    |
- |`wso2is-extensions-1.2.10/dropins/wso2is.key.manager.core-1.2.10.jar`|`<IS_HOME>/repository/components/dropins`|
- |`wso2is-extensions-1.2.10/dropins/wso2is.notification.event.handlers-1.2.10.jar`|`<IS_HOME>/repository/components/dropins`|
- |`wso2is-extensions-1.2.10/webapps/keymanager-operations.war`|`<IS_HOME>/repository/deployment/server/webapps`|
+    1. Open the `<IS_HOME>/repository/conf/deployment.toml` file.
+    2. Add below configuration to enable application role validation:
+   
+        ```toml
+        [application_mgt]
+        enable_role_validation = true
+        ```
+       
+4. Copy the following files to the given directory paths:
+
+    | File to copy | Location to  |
+    |---------|---------    |
+    |`wso2is-extensions-1.2.10/dropins/wso2is.key.manager.core-1.2.10.jar`|`<IS_HOME>/repository/components/dropins`|
+    |`wso2is-extensions-1.2.10/dropins/wso2is.notification.event.handlers-1.2.10.jar`|`<IS_HOME>/repository/components/dropins`|
+    |`wso2is-extensions-1.2.10/webapps/keymanager-operations.war`|`<IS_HOME>/repository/deployment/server/webapps`|
 
 ## Set up toolkits
 

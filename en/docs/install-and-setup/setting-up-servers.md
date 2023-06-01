@@ -154,7 +154,17 @@ and run the `merge.sh` script as follows:
     ./merge.sh
     ```
 
-3. Extract the `wso2is-extensions` zip file. Copy the following files to the Identity Server as follows:
+3. If you are using **WSO2 Identity Server 6.0.0**,
+
+    1. Open the `<IS_HOME>/repository/conf/deployment.toml` file.
+    2. Add below configuration to enable application role validation:
+   
+        ```toml
+        [application_mgt]
+        enable_role_validation = true
+        ```
+
+4. Extract the `wso2is-extensions` zip file. Copy the following files to the Identity Server as follows:
 
     | File to copy | Copy to |
     | -------------| ------- |
@@ -162,7 +172,7 @@ and run the `merge.sh` script as follows:
     | `wso2is-extensions-1.2.10/dropins/wso2is.notification.event.handlers-1.2.10.jar` | `<IS_HOME>/repository/components/dropins` |
     | `wso2is-extensions-1.2.10/webapps/keymanager-operations.war` | `<IS_HOME>/repository/deployment/server/webapps` |
       
-4. To copy the accelerator files to the Streaming Integrator, go to the `<SI_HOME>/<OB_BI_ACCELERATOR_HOME>/bin` 
+5. To copy the accelerator files to the Streaming Integrator, go to the `<SI_HOME>/<OB_BI_ACCELERATOR_HOME>/bin` 
 directory and run the `merge.sh` script as follows:
 
     ``` shell 
