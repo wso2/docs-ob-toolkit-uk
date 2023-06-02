@@ -91,7 +91,7 @@ Listed below are the prerequisites for a successful deployment:
          <th>JDK Version</th>
          <td>
             <ul>
-               <li>OpenJDK 11</li>
+               <li>OpenJDK 11 or OpenJDK 17</li><br>See <a href="https://uk.ob.docs.wso2.com/en/latest/install-and-setup/prerequisites/#compatibility">Compatibility</a> for compatible JDK versions based on the base product versions.
             </ul>
          <td>  
       </tr>
@@ -118,6 +118,9 @@ Listed below are the prerequisites for a successful deployment:
 
 WSO2 Open Banking UK Toolkit 1.0.0 is supported on the following platforms:
 
+!!!info
+    If you are using **WSO2 Identity Server 6.0.0** and **WSO2 API Manager 4.2.0** as the base products, it is recommended to use OpenJDK 17. For other base products, use OpenJDK 11.
+
 <table>
    <tbody>
       <tr>
@@ -129,6 +132,9 @@ WSO2 Open Banking UK Toolkit 1.0.0 is supported on the following platforms:
                </li>
                <li>
                   Oracle JDK 11
+               </li>
+               <li>
+                  OpenJDK 17
                </li>
             </ul>
          </td>
