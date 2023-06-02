@@ -2,7 +2,19 @@ This page explains how to onboard TPP applications using the Dynamic Client Regi
 
 !!! tip "Before you begin..."
 
-    1. If you are using **WSO2 API Manager 4.2.0**, change the API Manager REST API version.
+    1. Open the `<IS_HOME>/repository/conf/deployment.toml` file.
+
+    2. Configure the JWKS endpoints as follows. These endpoints are used for validating the SSA signature. 
+
+        ```toml
+        [open_banking.dcr]
+        jwks_url_sandbox = "https://keystore.openbankingtest.org.uk/0015800001HQQrZAAX/0015800001HQQrZAAX.jwks"
+        jwks_url_production = "https://keystore.openbankingtest.org.uk/0015800001HQQrZAAX/0015800001HQQrZAAX.jwks"
+        ```
+
+    3. Restart the Identity Server.
+
+    4. If you are using **WSO2 API Manager 4.2.0**, change the API Manager REST API version.
 
         1. Open the `<APIM_HOME>/repository/conf/deployment.toml` file.
 
@@ -19,19 +31,7 @@ This page explains how to onboard TPP applications using the Dynamic Client Regi
             retrieve_subscribe="api/am/devportal/v3/subscriptions"
             ```
 
-        4. Restart the API Manager.
-
-    2. Open the `<IS_HOME>/repository/conf/deployment.toml` file.
-
-    3. Configure the JWKS endpoints as follows. These endpoints are used for validating the SSA signature. 
-
-        ```toml
-        [open_banking.dcr]
-        jwks_url_sandbox = "https://keystore.openbankingtest.org.uk/0015800001HQQrZAAX/0015800001HQQrZAAX.jwks"
-        jwks_url_production = "https://keystore.openbankingtest.org.uk/0015800001HQQrZAAX/0015800001HQQrZAAX.jwks"
-        ```
-
-    4. Restart the Identity Server.
+    5. Restart the API Manager.
 
 ### Step 1: Deploy the Dynamic Client Registration(DCR) API
 
