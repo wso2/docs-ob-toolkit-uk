@@ -2,10 +2,30 @@ WSO2 Open Banking UK Toolkit is a purpose-built solution for regulatory complian
 building an open banking solution from scratch, you can use WSO2 Open Banking UK Toolkit to meet all open 
 banking requirements with additional benefits beyond compliance. This toolkit runs on top of the following WSO2 products:
 
-- WSO2 Open Banking Accelerator 3.0
-- WSO2 Identity Server 5.11.0
-- WSO2 API Manager 4.1.0 or WSO2 API Manager 4.0.0
-- WSO2 Streaming Integrator 4.0.0
+You can use any of the following combinations and WSO2 Open Banking Accelerator 3.0:
+
+<table>
+  <tr>
+    <th></th>
+    <th>WSO2 Identity Server</th>
+    <th>WSO2 API Manager</th>
+    <th>WSO2 Streaming Integrator</th>
+  </tr>
+<tbody>
+  <tr>
+    <th>Combination 01</th>
+    <td><a href="https://wso2.com/identity-and-access-management/previous-releases/">5.11.0</a></td>
+    <td><a href="https://wso2.com/api-management/previous-releases/">4.1.0</a> or <a href="https://wso2.com/api-management/previous-releases/">4.0.0</a></td>
+    <td><a href="https://wso2.com/streaming-integrator/previous-releases/">4.0.0</a></td>
+  </tr>
+  <tr>
+    <th>Combination 02<br></th>
+    <td><a href="https://wso2.com/identity-and-access-management/previous-releases/">6.0.0</a></td>
+    <td><a href="https://wso2.com/api-manager/">4.2.0</a></td>
+    <td><a href="https://wso2.com/integration/streaming-integrator/#">4.2.0</a></td>
+  </tr>
+</tbody>
+</table>
 
 !!! note
     The WSO2 Open Banking UK Toolkit is built by customizing the WSO2 Open Banking Accelerator and helps you 
@@ -31,11 +51,35 @@ Given below is a product matrix for different versions of WSO2 Open Banking UK T
 
 Given below is the compatible base product matrix for WSO2 Open Banking UK Toolkit 1.0.0:
 
-| Base Product              | Compatible Versions |
-|---------------------------|---------------------|
-| WSO2 Identity Server     | 5.11.0              |
-| WSO2 API Manager         | 4.1.0 <br/> 4.0.0   |
-| WSO2 Streaming Integrator | 4.0.0               |
+<table>
+<thead>
+  <tr>
+    <th rowspan="2" style="text-align: center">Base Product</th>
+    <th colspan="2" style="text-align: center">Compatible Versions</th>
+  </tr>
+  <tr>
+    <th>Combination 01</th>
+    <th>Combination 02</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>WSO2 Identity Server</td>
+    <td>5.11.0</td>
+    <td>6.0.0</td>
+  </tr>
+  <tr>
+    <td>WSO2 API Manager<br></td>
+    <td>4.1.0<br>4.0.0</td>
+    <td>4.2.0</td>
+  </tr>
+  <tr>
+    <td>WSO2 Streaming Integrator</td>
+    <td>4.0.0</td>
+    <td>4.1.0</td>
+  </tr>
+</tbody>
+</table>
 
 ## Prerequisites for a Deployment
 

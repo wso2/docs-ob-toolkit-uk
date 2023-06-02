@@ -30,11 +30,30 @@ can quickly set up and try out a basic flow.
 
 ## Installing base products
 
-1. Download and extract the following base products:
+1. Download and extract the required base products. You can use any of the following combinations:
 
-    - [WSO2 Identity Server 5.11.0](https://wso2.com/identity-server/#)
-    - [WSO2 API Manager 4.1.0](https://wso2.com/api-manager/) or [WSO2 API Manager 4.0.0](https://wso2.com/api-management/previous-releases/)
-    - [WSO2 Streaming Integrator 4.0.0](https://wso2.com/streaming-integrator/previous-releases/)
+    <table>
+      <tr>
+        <th></th>
+        <th>WSO2 Identity Server</th>
+        <th>WSO2 API Manager</th>
+        <th>WSO2 Streaming Integrator</th>
+      </tr>
+    <tbody>
+      <tr>
+        <th>Combination 01</th>
+        <td><a href="https://wso2.com/identity-and-access-management/previous-releases/">5.11.0</a></td>
+        <td><a href="https://wso2.com/api-management/previous-releases/">4.1.0</a> or <a href="https://wso2.com/api-management/previous-releases/">4.0.0</a></td>
+        <td><a href="https://wso2.com/streaming-integrator/previous-releases/">4.0.0</a></td>
+      </tr>
+      <tr>
+        <th>Combination 02<br></th>
+        <td><a href="https://wso2.com/identity-and-access-management/previous-releases/">6.0.0</a></td>
+        <td><a href="https://wso2.com/api-manager/">4.2.0</a></td>
+        <td><a href="https://wso2.com/integration/streaming-integrator/#">4.2.0</a></td>
+      </tr>
+    </tbody>
+    </table>
  
 2. To configure the Identity Server with the API Manager, download the respective WSO2 IS Connector according to the API Manager version you have downloaded.
 
