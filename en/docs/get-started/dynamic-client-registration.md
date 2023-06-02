@@ -23,7 +23,7 @@ This page explains how to onboard TPP applications using the Dynamic Client Regi
 
     2. Open the `<IS_HOME>/repository/conf/deployment.toml` file.
 
-    3. Configure the jwks endpoints as follows. These endpoints are used for validating the SSA signature. 
+    3. Configure the JWKS endpoints as follows. These endpoints are used for validating the SSA signature. 
 
         ```toml
         [open_banking.dcr]
