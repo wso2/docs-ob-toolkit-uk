@@ -5,11 +5,11 @@ This section guides you to set up and prepare the servers to run WSO2 Open Banki
 1. WSO2 Open Banking UK Toolkit runs on top of WSO2 Identity Server, API Manager, and Streaming Integrator, which are 
 referred to as base products. Before setting up the toolkit, download and install the base products. You can use any of the following combinations:
 
-   | Base Product              | Combination 01                                                                                                             | Combination 02                                                              |
-   |---------------------------|----------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------|
-   | WSO2 Identity Server      | [5.11.0](https://wso2.com/identity-and-access-management/previous-releases/)                                               | [6.0.0](https://wso2.com/identity-and-access-management/previous-releases/) |
-   | WSO2 API Manager          | [4.1.0](https://wso2.com/api-management/previous-releases/) or [4.0.0](https://wso2.com/api-management/previous-releases/) | [4.2.0](https://wso2.com/api-manager/)                                      |
-   | WSO2 Streaming Integrator | [4.0.0](https://wso2.com/streaming-integrator/previous-releases/)                                                          | [4.2.0](https://wso2.com/integration/streaming-integrator)
+    | Base Product              | Combination 01                                                                                                             | Combination 02                                                              |
+    |---------------------------|----------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------|
+    | WSO2 Identity Server      | [5.11.0](https://wso2.com/identity-and-access-management/previous-releases/)                                               | [6.0.0](https://wso2.com/identity-and-access-management/previous-releases/) |
+    | WSO2 API Manager          | [4.1.0](https://wso2.com/api-management/previous-releases/) or [4.0.0](https://wso2.com/api-management/previous-releases/) | [4.2.0](https://wso2.com/api-manager/)                                      |
+    | WSO2 Streaming Integrator | [4.0.0](https://wso2.com/streaming-integrator/previous-releases/)                                                          | [4.2.0](https://wso2.com/integration/streaming-integrator)
 
 2. To configure the Identity Server with the API Manager, install the respective WSO2 IS Connector according to the API Manager version you have downloaded. 
 
