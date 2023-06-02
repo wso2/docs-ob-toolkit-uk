@@ -53,13 +53,16 @@ locate the respective root directory of the base products:
         enable_role_validation = true
         ```
        
-4. Copy the following files to the given directory paths:
+4. Extract the `wso2is-extensions` zip file of the relevant API Manager version.
 
-    | File to copy | Location to  |
-    |---------|---------    |
-    |`wso2is-extensions-1.2.10/dropins/wso2is.key.manager.core-1.2.10.jar`|`<IS_HOME>/repository/components/dropins`|
-    |`wso2is-extensions-1.2.10/dropins/wso2is.notification.event.handlers-1.2.10.jar`|`<IS_HOME>/repository/components/dropins`|
-    |`wso2is-extensions-1.2.10/webapps/keymanager-operations.war`|`<IS_HOME>/repository/deployment/server/webapps`|
+5. Follow the given instructions and copy the relevant files to the given directory paths.
+
+    1. Open the `<IS_EXTENSION>/dropins` folder.
+    2. Copy the following JAR files to the `<IS_HOME>/repository/components/dropins` folder.
+        - `wso2is.key.manager.core`
+        - `wso2is.notification.event.handlers`
+    3. Open the `<IS_EXTENSION>/webapps` folder.
+    4. Copy the `keymanager-operations.war` file to the `<IS_HOME>/repository/deployment/server/webapps` folder.
 
 ## Set up toolkits
 
