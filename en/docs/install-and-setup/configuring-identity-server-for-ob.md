@@ -210,6 +210,16 @@ account retrieval. By default, this is disabled and the configuration is set to 
     password="$ref{super_admin.password}"	
     server_url = "{tcp://<SI_HOST>:7612}"	
     ```   
+    
+18. If you are using **WSO2 Identity Server 6.0.0**,
+
+    1. Open the `<IS_HOME>/repository/conf/deployment.toml` file.
+    2. Add below configuration to enable application role validation:
+
+        ```toml
+        [application_mgt]
+        enable_role_validation = true
+        ```
 
 ## Starting servers
 

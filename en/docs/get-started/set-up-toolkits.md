@@ -42,20 +42,10 @@ locate the respective root directory of the base products:
 ```
 ./configure.sh
 ```
-
-3. If you are using **WSO2 Identity Server 6.0.0**,
-
-    1. Open the `<IS_HOME>/repository/conf/deployment.toml` file.
-    2. Add below configuration to enable application role validation:
-   
-        ```toml
-        [application_mgt]
-        enable_role_validation = true
-        ```
        
-4. Extract the `wso2is-extensions` zip file of the relevant API Manager version.
+3. Extract the `wso2is-extensions` zip file of the relevant API Manager version.
 
-5. Follow the given instructions and copy the relevant files to the given directory paths.
+4. Follow the given instructions and copy the relevant files to the given directory paths.
 
     1. Open the `<IS_EXTENSION>/dropins` folder.
     2. Copy the following JAR files to the `<IS_HOME>/repository/components/dropins` folder.
@@ -105,6 +95,17 @@ locate the respective root directory of the base products:
 ```
 ./configure.sh
 ```
+
+3. If you are using **WSO2 Identity Server 6.0.0**,
+
+    1. Open the `<IS_HOME>/repository/conf/deployment.toml` file.
+    2. Add below configuration to enable application role validation:
+    
+        ```toml
+        [application_mgt]
+        enable_role_validation = true
+        ```     
+       
 ## Start servers
 
 ??? warning "If you are using JDK 17 with WSO2 Identity Server 6.0.0, you need to enable adaptive authentication. Click here to see how it is done..."
