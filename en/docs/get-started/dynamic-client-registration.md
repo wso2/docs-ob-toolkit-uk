@@ -14,7 +14,7 @@ This page explains how to onboard TPP applications using the Dynamic Client Regi
 
     3. Restart the Identity Server.
 
-    4. If you are using **WSO2 API Manager 4.2.0**, change the API Manager REST API version.
+    4. If you are using **WSO2 API Manager 4.2.0**, you need to change the API Manager REST API version from V2 to V3.
 
         1. Open the `<APIM_HOME>/repository/conf/deployment.toml` file.
 
