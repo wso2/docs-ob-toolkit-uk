@@ -210,8 +210,35 @@ account retrieval. By default, this is disabled and the configuration is set to 
     password="$ref{super_admin.password}"	
     server_url = "{tcp://<SI_HOST>:7612}"	
     ```   
+    
+18. If you are using **WSO2 Identity Server 6.0.0**,
+
+    1. Open the `<IS_HOME>/repository/conf/deployment.toml` file.
+    2. Add below configuration to enable application role validation:
+
+        ```toml
+        [application_mgt]
+        enable_role_validation = true
+        ```
 
 ## Starting servers
+
+??? warning "If you are using JDK 17 with WSO2 Identity Server 6.0.0, you need to enable adaptive authentication. Click here to see how it is done..."
+
+     For JDK 17 runtime, adaptive authentication is disabled by default and it is required to enable adaptive authentication. To enable adaptive authentication: 
+
+     1. Go to `<IS_HOME>/bin`. 
+     2. Run the following command:
+
+         ```toml tab='On Mac'
+         ./adaptive.sh
+         ```
+
+         ```toml tab='On Windows'
+         ./adaptive.bat
+         ```
+
+     See [Adaptive Authentication - Prerequisites](https://is.docs.wso2.com/en/6.0.0/guides/adaptive-auth/configure-adaptive-auth/#prerequisites) for more information.
 
 1. Go to the `<IS_HOME>/bin` directory using a terminal.
 

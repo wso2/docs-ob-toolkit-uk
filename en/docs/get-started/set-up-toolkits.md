@@ -42,24 +42,17 @@ locate the respective root directory of the base products:
 ```
 ./configure.sh
 ```
-
-3. If you are using **WSO2 Identity Server 6.0.0**,
-
-    1. Open the `<IS_HOME>/repository/conf/deployment.toml` file.
-    2. Add below configuration to enable application role validation:
-   
-        ```toml
-        [application_mgt]
-        enable_role_validation = true
-        ```
        
-4. Copy the following files to the given directory paths:
+3. Extract the `wso2is-extensions` zip file of the relevant API Manager version.
 
-    | File to copy | Location to  |
-    |---------|---------    |
-    |`wso2is-extensions-1.2.10/dropins/wso2is.key.manager.core-1.2.10.jar`|`<IS_HOME>/repository/components/dropins`|
-    |`wso2is-extensions-1.2.10/dropins/wso2is.notification.event.handlers-1.2.10.jar`|`<IS_HOME>/repository/components/dropins`|
-    |`wso2is-extensions-1.2.10/webapps/keymanager-operations.war`|`<IS_HOME>/repository/deployment/server/webapps`|
+4. Follow the given instructions and copy the relevant files to the given directory paths.
+
+    1. Open the `<IS_EXTENSION>/dropins` folder.
+    2. Copy the following JAR files to the `<IS_HOME>/repository/components/dropins` folder.
+        - `wso2is.key.manager.core`
+        - `wso2is.notification.event.handlers`
+    3. Open the `<IS_EXTENSION>/webapps` folder.
+    4. Copy the `keymanager-operations.war` file to the `<IS_HOME>/repository/deployment/server/webapps` folder.
 
 ## Set up toolkits
 
@@ -102,7 +95,35 @@ locate the respective root directory of the base products:
 ```
 ./configure.sh
 ```
+
+3. If you are using **WSO2 Identity Server 6.0.0**,
+
+    1. Open the `<IS_HOME>/repository/conf/deployment.toml` file.
+    2. Add below configuration to enable application role validation:
+    
+        ```toml
+        [application_mgt]
+        enable_role_validation = true
+        ```     
+       
 ## Start servers
+
+??? warning "If you are using JDK 17 with WSO2 Identity Server 6.0.0, you need to enable adaptive authentication. Click here to see how it is done..."
+
+     For JDK 17 runtime, adaptive authentication is disabled by default and it is required to enable adaptive authentication. To enable adaptive authentication: 
+
+     1. Go to `<IS_HOME>/bin`. 
+     2. Run the following command:
+
+         ```toml tab='On Mac'
+         ./adaptive.sh
+         ```
+
+         ```toml tab='On Windows'
+         ./adaptive.bat
+         ```
+
+     See [Adaptive Authentication - Prerequisites](https://is.docs.wso2.com/en/6.0.0/guides/adaptive-auth/configure-adaptive-auth/#prerequisites) for more information.
 
 1. Run the following command in `<IS_HOME>/bin`:
 ```

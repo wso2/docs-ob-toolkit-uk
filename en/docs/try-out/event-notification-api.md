@@ -49,7 +49,7 @@ This page provides step by step instructions to deploy, subscribe, and invoke th
         
          6. Scroll down and click **SAVE**.
 
-    ??? note "Click here to see how to add a custom policy if you are using API Manager 4.1.0..."
+    ??? note "Click here to see how to add a custom policy if you are using API Manager 4.1.0 or 4.2.0..."
 
          1. Go to **Develop -> API Configurations -> Policies** in the left menu pane.<br><br>
          <div style="width:40%">
