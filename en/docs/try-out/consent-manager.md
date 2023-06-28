@@ -18,7 +18,13 @@ requirements and manages consents.
     http_method="GET,DELETE"
     ```
    
-2. Open the `<APIM_HOME>/repository/conf/deployment.toml` file and add the following gateway executor configurations for 
+2. Open the `<IS_HOME>/repository/conf/deployment.toml` file and update Consent Admin Handler configurations as follows: 
+    ```toml
+    [open_banking.consent.admin]
+    handler="com.wso2.openbanking.uk.consent.extensions.admin.UKConsentAdminHandler"
+    ```
+    
+3. Open the `<APIM_HOME>/repository/conf/deployment.toml` file and add the following gateway executor configurations for 
 the Consent flow:
    
     ``` toml
@@ -29,7 +35,7 @@ the Consent flow:
     priority = 1
     ``` 
    
-3. Restart the Identity Server and API Manager servers respectively.
+5. Restart the Identity Server and API Manager servers respectively.
 
 ## Creating users and roles
 
