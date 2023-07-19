@@ -144,7 +144,7 @@ Listed below are the prerequisites for a successful deployment:
          <td>
             <ul>
                <li>MySQL 8.0</li>
-               See <a href="https://ob.docs.wso2.com/en/latest/install-and-setup/prerequisites/#compatibility">Compatibility</a> if you are using MySQL 8.0.
+               See <a href="https://uk.ob.docs.wso2.com/en/latest/install-and-setup/prerequisites/#compatibility">Compatibility</a> if you are using MySQL 8.0.
                <li>Oracle 19c</li>
                <li>Microsoft SQL Server 2017</li>
                <li> PostgreSQL 13</li>
