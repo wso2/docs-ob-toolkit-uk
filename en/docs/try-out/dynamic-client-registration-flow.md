@@ -180,7 +180,7 @@ This section explains the client registration process. A sample request is as fo
 ``` json
 {
       "typ": "JWT",
-      "kid": "h3ZCF0VrzgXgnHCqbHbKXzzfjTg"
+      "kid": "h3ZCF0VrzgXgnHCqbHbKXzzfjTg",
       "alg": "PS256"
 }
 {
