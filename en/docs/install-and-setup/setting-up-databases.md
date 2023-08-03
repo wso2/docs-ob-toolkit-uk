@@ -23,6 +23,7 @@ Once you have successfully prepared the environment for the deployment, you can 
     database as well:
     
     - `openbank_ob_reporting_statsdb`
+    - `openbank_ob_reporting_summarizeddb`
 
 3. According to your DBMS, place the compatible JDBC drivers in the following directories:
  
