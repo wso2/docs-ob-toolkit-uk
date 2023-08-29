@@ -108,7 +108,7 @@ locate the respective root directory of the base products:
        
 ## Start servers
 
-??? warning "If you are using JDK 17 with WSO2 Identity Server 6.0.0, you need to enable adaptive authentication. Click here to see how it is done..."
+??? warning "If you are using JDK 17 with WSO2 Identity Server 6.0.0 or above, you need to enable adaptive authentication. Click here to see how it is done..."
 
      For JDK 17 runtime, adaptive authentication is disabled by default and it is required to enable adaptive authentication. To enable adaptive authentication: 
 
