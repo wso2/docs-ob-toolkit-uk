@@ -580,8 +580,9 @@ The Idempotency key is used as an identifier to verify a replication of an actio
 - Payment initiation request
 - Payment submission request
 
-In the core banking system, the required validations should be performed and then the response will be built according to 
-the Open Banking Payments specification.
+Idempotency validation for payment initiation requests is handled by the WSO2 Open Banking solution.
+
+Idempotency validation for payment submission requests should be handled in the core banking system. The required validations should be performed and then the response will be built according to the Open Banking Payments specification.
 
 ## Confirmation of Funds API
 
