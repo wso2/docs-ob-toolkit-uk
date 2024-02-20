@@ -126,9 +126,6 @@ account retrieval. By default, this is disabled and the configuration is set to 
     ``` toml
     [open_banking_uk.consent.idempotency]
     allowed_time = 24
-    
-    [open_banking_uk.consent.idempotency.submission]
-    Enabled = true
     ```
     
 12. To validate API requests:
