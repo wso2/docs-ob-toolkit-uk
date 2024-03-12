@@ -153,17 +153,15 @@ account retrieval. By default, this is disabled and the configuration is set to 
     Validate_acc_id_on_retrieval_enabled = true
     ```
     
-14. To enable idempotency support for the Payments API:
+14. To enable idempotency support for the Payments Initiation API:
 
     - Configure the allowed time duration for the Idempotency key in hours 
     - Replay and enable payment submission idempotency validation
 
     ``` toml
-    [open_banking_uk.consent.idempotency]
-    allowed_time = 24
-    
-    [open_banking_uk.consent.idempotency.submission]
-    Enabled = true
+    [open_banking.consent.idempotency]
+    enabled=true
+    allowed_time_duration=1440
     ```
 
 15. Add the given configuration to renew the access token and refresh token per each token request while revoking

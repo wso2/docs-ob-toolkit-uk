@@ -274,12 +274,8 @@ For testing purposes, you can host the well-known configuration file via [Github
     priority = 4
     
     [[open_banking.gateway.openbanking_gateway_executors.type.executors]]
-    name = "com.wso2.openbanking.uk.gateway.executors.idempotency.UKIdempotencyHandlingExecutor"
-    priority = 5
-    
-    [[open_banking.gateway.openbanking_gateway_executors.type.executors]]
     name = "com.wso2.openbanking.accelerator.gateway.executor.impl.consent.ConsentEnforcementExecutor"
-    priority = 6
+    priority = 5
     ```
 
 3. Enable validation and define the valid signing algorithms for the JWS sent in the request header:
