@@ -118,17 +118,7 @@ account retrieval. By default, this is disabled and the configuration is set to 
     Validate_acc_id_on_retrieval_enabled = true
     ```
     
-11. To enable idempotency support for the Payments API:
-
-    - Configure the allowed time duration for the Idempotency key in hours
-    - Replay and enable payment submission idempotency validation
-
-    ``` toml
-    [open_banking_uk.consent.idempotency]
-    allowed_time = 24
-    ```
-    
-12. To validate API requests:
+11. To validate API requests:
 
     !!! note
         This is only available as a WSO2 Update from **WSO2 Open Banking API Manager UK Toolkit Level 1.0.0.6** and
@@ -145,12 +135,8 @@ account retrieval. By default, this is disabled and the configuration is set to 
            priority = 4
 
            [[open_banking.gateway.openbanking_gateway_executors.type.executors]]
-           name = "com.wso2.openbanking.uk.gateway.executors.idempotency.UKIdempotencyHandlingExecutor"
-           priority = 5
-
-           [[open_banking.gateway.openbanking_gateway_executors.type.executors]]
            name = "com.wso2.openbanking.accelerator.gateway.executor.impl.consent.ConsentEnforcementExecutor"
-           priority = 6    
+           priority = 5    
            ```
     
          2. Enable validation and define the valid signing algorithms for the JWS sent in the request header:
@@ -190,7 +176,7 @@ account retrieval. By default, this is disabled and the configuration is set to 
           api_context="/open-banking/v3.1/event"
           ```
 
-13. To let the TPPs verify that the request wasn't tampered with, sign the responses:
+12. To let the TPPs verify that the request wasn't tampered with, sign the responses:
 
     !!! note
         This is only available as a WSO2 Update from **WSO2 Open Banking API Manager UK Toolkit Level 3.0.0.x** and
@@ -248,7 +234,7 @@ account retrieval. By default, this is disabled and the configuration is set to 
           api_context=”/open-banking/v3.1/event”
           ```
 
-15. If you want to use the [Data publishing](../learn/data-publishing.md) feature:
+13. If you want to use the [Data publishing](../learn/data-publishing.md) feature:
    
     - Enable the feature and configure the `server_url` property with the hostname of WSO2 Streaming 
     Integrator.
@@ -261,7 +247,7 @@ account retrieval. By default, this is disabled and the configuration is set to 
     server_url = "{tcp://<SI_HOST>:7612}"	
     ```  
 
-16. If you are using WSO2 API Manager 4.2.0, you need to change the API Manager REST API version from V2 to V3.
+14. If you are using WSO2 API Manager 4.2.0, you need to change the API Manager REST API version from V2 to V3.
 
     1. Locate the `[open_banking.dcr.apim_rest_endpoints]` tag. By default, the configuration is commented out.
     2. Uncomment the configuration and update as shown below:
