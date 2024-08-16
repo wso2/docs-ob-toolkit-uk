@@ -59,7 +59,7 @@ Once you deploy the Payment Initiation API, you can access payment information v
 <tbody>
   <tr>
     <td rowspan="5">Domestic Payments</td>
-    <td rowspan="5">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10</td>
+    <td rowspan="5">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10<br>v3.1.11</td>
     <td rowspan="3"><code>domestic-payment-consents</code></td>
     <td><code>POST /domestic-payment-consents</code></td>
     <td>Mandatory</td>
@@ -83,7 +83,7 @@ Once you deploy the Payment Initiation API, you can access payment information v
   </tr>
   <tr>
     <td rowspan="4">Domestic Scheduled Payment</td>
-    <td rowspan="4">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10</td>
+    <td rowspan="4">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10<br>v3.1.11</td>
     <td rowspan="2"><code>domestic-scheduled-payment-consents</code></td>
     <td><code>POST /domestic-scheduled-payment-consents</code></td>
     <td>Conditional</td>
@@ -103,7 +103,7 @@ Once you deploy the Payment Initiation API, you can access payment information v
   </tr>
   <tr>
     <td rowspan="4">Domestic Standing Orders</td>
-    <td rowspan="4">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10</td>
+    <td rowspan="4">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10<br>v3.1.11</td>
     <td rowspan="2"><code>domestic-standing-order-consents</code></td>
     <td><code>POST /domestic-standing-order-consents</code></td>
     <td>Conditional</td>
@@ -123,7 +123,7 @@ Once you deploy the Payment Initiation API, you can access payment information v
   </tr>
   <tr>
     <td rowspan="5">International Payments</td>
-    <td rowspan="5">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10</td>
+    <td rowspan="5">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10<br>v3.1.11</td>
     <td rowspan="3"><code>international-payment-consents</code></td>
     <td><code>POST /international-payment-consents</code></td>
     <td>Conditional</td>
@@ -147,7 +147,7 @@ Once you deploy the Payment Initiation API, you can access payment information v
   </tr>
   <tr>
     <td rowspan="5">International Scheduled Payments</td>
-    <td rowspan="5">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10</td>
+    <td rowspan="5">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10<br>v3.1.11</td>
     <td rowspan="3"><code>international-scheduled-payment-consents</code></td>
     <td><code>POST /international-scheduled-payment-consents</code></td>
     <td>Conditional</td>
@@ -171,7 +171,7 @@ Once you deploy the Payment Initiation API, you can access payment information v
   </tr>
   <tr>
     <td rowspan="4">International Standing Orders</td>
-    <td rowspan="4">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10</td>
+    <td rowspan="4">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10<br>v3.1.11</td>
     <td rowspan="2"><code>international-standing-order-consents</code></td>
     <td><code>POST /international-standing-order-consents</code></td>
     <td>Conditional</td>
@@ -191,7 +191,7 @@ Once you deploy the Payment Initiation API, you can access payment information v
   </tr>
   <tr>
     <td rowspan="7">File Payments</td>
-    <td rowspan="7">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10</td>
+    <td rowspan="7">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10<br>v3.1.11</td>
     <td rowspan="4"><code>file-payment-consents</code></td>
     <td><code>POST /file-payment-consents</code></td>
     <td>Conditional</td>

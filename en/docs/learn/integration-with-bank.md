@@ -42,7 +42,7 @@ requirements in the Open Banking Standard.
 A Swagger definition for the back end is available in the following location:
 
 ```
-<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/Accounts/3.1.6/account-info-swagger-backend-3.1.6.yaml
+<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/Accounts/3.1.11/account-info-openapi-backend-3.1.11.yaml
 ```
 
 ## Account Information Retrieval
@@ -164,7 +164,7 @@ requirements of the Open Banking Accounts specification.
 A Swagger definition for the back end is available in the following location:
 
 ```
-<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/Payments/3.1.6/paymnet-info-swagger-backend-3.1.6.yaml
+<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/Payments/3.1.11/paymnet-info-openapi-backend-3.1.11.yaml
 ```
 
 - The URL of the API endpoints of the core banking system, which corresponds to the payment submission requests, should be 
@@ -589,7 +589,7 @@ Idempotency validation for payment submission requests should be handled in the 
 A Swagger definition for the back end is available in the following location:
 
 ```
-<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/FundsConfirmation/3.1.6/funds-confirmation-swagger-3.1.6.yaml
+<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/FundsConfirmation/3.1.11/funds-confirmation-openapi-backend-3.1.11.yaml
 ```
 
 In WSO2 Open Banking, integration of the Confirmation of Funds (CoF) consent flow with the core banking system is used during 

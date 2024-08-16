@@ -61,7 +61,7 @@ To access account information and transaction data, you can use the following av
 <tbody>
   <tr>
     <td rowspan="3">Account Access Consents</td>
-    <td rowspan="3">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10</td>
+    <td rowspan="3">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10<br>v3.1.11</td>
     <td rowspan="3"><code>account-access-consents</code></td>
     <td><code>POST /account-access-consents</code></td>
     <td>Mandatory</td>
@@ -76,7 +76,7 @@ To access account information and transaction data, you can use the following av
   </tr>
   <tr>
     <td rowspan="2">Accounts</td>
-    <td rowspan="2">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10</td>
+    <td rowspan="2">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10<br>v3.1.11</td>
     <td rowspan="2"><code>accounts</code></td>
     <td><code>GET /accounts</code></td>
     <td>Mandatory</td>
@@ -87,7 +87,7 @@ To access account information and transaction data, you can use the following av
   </tr>
   <tr>
     <td rowspan="2">Balances</td>
-    <td rowspan="2">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10</td>
+    <td rowspan="2">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10<br>v3.1.11</td>
     <td rowspan="2"><code>balances</code></td>
     <td><code>GET /accounts/{AccountId}/balances</code></td>
     <td>Mandatory</td>
@@ -98,7 +98,7 @@ To access account information and transaction data, you can use the following av
   </tr>
   <tr>
     <td rowspan="2">Transactions</td>
-    <td rowspan="2">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10</td>
+    <td rowspan="2">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10<br>v3.1.11</td>
     <td rowspan="2"><code>transactions</code></td>
     <td><code>GET /accounts/{AccountId}/transactions</code></td>
     <td>Mandatory</td>
@@ -109,7 +109,7 @@ To access account information and transaction data, you can use the following av
   </tr>
   <tr>
     <td rowspan="2">Beneficiaries</td>
-    <td rowspan="2">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10</td>
+    <td rowspan="2">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10<br>v3.1.11</td>
     <td rowspan="2"><code>beneficiaries</code></td>
     <td><code>GET /accounts/{AccountId}/beneficiaries</code></td>
     <td>Conditional</td>
@@ -120,7 +120,7 @@ To access account information and transaction data, you can use the following av
   </tr>
   <tr>
     <td rowspan="2">Direct Debits</td>
-    <td rowspan="2">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10</td>
+    <td rowspan="2">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10<br>v3.1.11</td>
     <td rowspan="2"><code>direct-debits</code></td>
     <td><code>GET /accounts/{AccountId}/direct-debits</code></td>
     <td>Conditional</td>
@@ -131,7 +131,7 @@ To access account information and transaction data, you can use the following av
   </tr>
   <tr>
     <td rowspan="2">Standing Orders</td>
-    <td rowspan="2">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10</td>
+    <td rowspan="2">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10<br>v3.1.11</td>
     <td rowspan="2"><code>standing-orders</code></td>
     <td><code>GET /accounts/{AccountId}/standing-orders</code></td>
     <td>Conditional</td>
@@ -142,7 +142,7 @@ To access account information and transaction data, you can use the following av
   </tr>
   <tr>
     <td rowspan="2">Products</td>
-    <td rowspan="2">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10</td>
+    <td rowspan="2">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10<br>v3.1.11</td>
     <td rowspan="2"><code>products</code></td>
     <td><code>GET /accounts/{AccountId}/product</code></td>
     <td>Conditional</td>
@@ -153,7 +153,7 @@ To access account information and transaction data, you can use the following av
   </tr>
   <tr>
     <td rowspan="2">Offers</td>
-    <td rowspan="2">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10</td>
+    <td rowspan="2">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10<br>v3.1.11</td>
     <td rowspan="2"><code>offers</code></td>
     <td><code>GET /accounts/{AccountId}/offers</code></td>
     <td>Conditional</td>
@@ -164,7 +164,7 @@ To access account information and transaction data, you can use the following av
   </tr>
   <tr>
     <td rowspan="3">Party</td>
-    <td rowspan="3">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10</td>
+    <td rowspan="3">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10<br>v3.1.11</td>
     <td rowspan="3"><code>party</code></td>
     <td><code>GET /accounts/{AccountId}/parties<br></code></td>
     <td>Conditional</td>
@@ -179,7 +179,7 @@ To access account information and transaction data, you can use the following av
   </tr>
   <tr>
     <td rowspan="3">Parties</td>
-    <td rowspan="3">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10</td>
+    <td rowspan="3">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10<br>v3.1.11</td>
     <td rowspan="3"><code>parties</code></td>
     <td><code>GET /accounts/{AccountId}/parties</code></td>
     <td>Conditional</td>
@@ -194,7 +194,7 @@ To access account information and transaction data, you can use the following av
   </tr>
   <tr>
     <td rowspan="2">Scheduled Payments</td>
-    <td rowspan="2">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10</td>
+    <td rowspan="2">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10<br>v3.1.11</td>
     <td rowspan="2"><code>scheduled-payments</code></td>
     <td><code>GET /accounts/{AccountId}/scheduled-payments<br></code></td>
     <td>Conditional</td>
@@ -205,7 +205,7 @@ To access account information and transaction data, you can use the following av
   </tr>
   <tr>
     <td rowspan="5">Statements</td>
-    <td rowspan="5">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10</td>
+    <td rowspan="5">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10<br>v3.1.11</td>
     <td rowspan="5"><code>statements</code></td>
     <td><code>GET /accounts/{AccountId}/statements</code></td>
     <td>Conditional</td>
