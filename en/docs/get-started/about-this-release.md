@@ -1,6 +1,9 @@
 WSO2 Open Banking UK Toolkit 1.0 provides the technology requirements that banks need to digitally transform and become 
 regulatory-compliant with Payment Service Directive 2 (PSD2) and Open Banking Standard UK v3.1.6 specification.
 
+!!!note
+        WSO2 Open Banking UK Toolkit 1.0 supports Open Banking Standard UK v3.1.11 specification in the latest version.
+
 This toolkit is based on WSO2 Open Banking 3.0 and contains specific feature customisations to satisfy open banking 
 requirements of Open Banking Standard UK. You can use WSO2 Open Banking UK Toolkit to meet all legislative requirements 
 with additional benefits beyond compliance. This toolkit comprises three modules:

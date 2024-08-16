@@ -70,7 +70,7 @@ Once you deploy the Confirmation of Funds API, you can access consent and funds 
 <tbody>
   <tr>
     <td rowspan="3">Funds Confirmation Consent</td>
-    <td rowspan="3">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10</td>
+    <td rowspan="3">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10<br>v3.1.11</td>
     <td rowspan="3"><code>funds-confirmation-consent</code></td>
     <td><code>POST /funds-confirmation-consents</code></td>
     <td>Mandatory</td>
@@ -85,7 +85,7 @@ Once you deploy the Confirmation of Funds API, you can access consent and funds 
   </tr>
   <tr>
     <td>Funds Confirmation</td>
-    <td>v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10</td>
+    <td>v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10<br>v3.1.11</td>
     <td><code>funds-confirmation</code></td>
     <td><code>POST /funds-confirmations</code></td>
     <td>Mandatory</td>

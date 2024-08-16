@@ -4,9 +4,9 @@ by checking and revoking statuses, and notify TPPs.
 
 | APIs                                                           | Supported Versions                 |
 |------------------------------------------------------------------|------------------------------------|
-| [Account and Transaction API](account-and-transaction-api.md)    | 3.1.5, 3.1.6, 3.1.8, 3.1.9, 3.1.10 |
-| [Confirmation of Funds API](payment-initiation-api.md)           | 3.1.5, 3.1.6, 3.1.8, 3.1.9, 3.1.10 |
-| [Payment Initiation API](confirmation-of-funds-api.md)           | 3.1.5, 3.1.6, 3.1.8, 3.1.9, 3.1.10 |
+| [Account and Transaction API](account-and-transaction-api.md)    | 3.1.5, 3.1.6, 3.1.8, 3.1.9, 3.1.10, 3.1.11 |
+| [Confirmation of Funds API](payment-initiation-api.md)           | 3.1.5, 3.1.6, 3.1.8, 3.1.9, 3.1.10, 3.1.11 |
+| [Payment Initiation API](confirmation-of-funds-api.md)           | 3.1.5, 3.1.6, 3.1.8, 3.1.9, 3.1.10, 3.1.11 |
 | [Variable Recurring Payments API](variable-recurring-payments.md)| 3.1.9                              |
 | [Event Notification API](event-notification-api.md)              | 3.1.10                             |
 
