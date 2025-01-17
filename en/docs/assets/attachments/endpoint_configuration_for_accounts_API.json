@@ -8,12 +8,12 @@
         {
           "apiSpecification": {
             "name": "Account and Transaction API Specification",
-            "url": "https://openbankinguk.github.io/read-write-api-site3/v3.1.6/profiles/account-and-transaction-api-profile.html",
-            "version": "v3.1.6",
-            "schemaVersion": "https://raw.githubusercontent.com/OpenBankingUK/read-write-api-specs/v3.1.6/dist/swagger/account-info-swagger.json",
+            "url": "https://openbankinguk.github.io/read-write-api-site3/v3.1.11/profiles/account-and-transaction-api-profile.html",
+            "version": "v3.1.11",
+            "schemaVersion": "https://raw.githubusercontent.com/OpenBankingUK/read-write-api-specs/v3.1.11/dist/openapi/account-info-openapi.json",
             "manifest": "file://manifests/ob_3.1_accounts_transactions_fca.json"
           },
-          "openidConfigurationUri": "https://gist.githubusercontent.com/shadhini/be2479dc78c66f01451b909f4429f9f7/raw/f9cd42c8673aa81a7eeef7d310bb5b4604d8fc70/openid-configuration",
+          "openidConfigurationUri": "https://<IS_HOST>:9446/oauth2/token/.well-known/openid-configuration",
           "resourceBaseUri": "https://<APIM_HOST>:8243/open-banking/v3.1/aisp",
           "endpoints": [
             {
