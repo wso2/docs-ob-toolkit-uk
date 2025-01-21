@@ -172,6 +172,9 @@ Update the well-known endpoint and JWKS endpoint as instructed below according t
            ],
            
            The ALIAS value is considered as "wso2carbon" in the aboe example.
+           
+           2. Use "private_key_jwt" as the token_endpoint_auth_method in the DCR request JWT when selecting private_key_jwt Client Authentication Type in the test plan.
+           3. Use "tls_client_auth" as the token_endpoint_auth_method in the DCR request JWT when selecting mtls Client Authentication Type in the test plan.
            ```
 
        !!! warning
