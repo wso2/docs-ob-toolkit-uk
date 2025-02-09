@@ -809,3 +809,78 @@ The response from the API should be formatted as follows:
    ]
 }
 ```
+## UK Open Banking API v4 Support
+
+WSO2 Open Banking plans to support the UK Open Banking API v4 implementation. This document provides guidance on how core banking integration should handle API v4 implementation.
+
+### Key Changes in API v4
+
+With the release of API v4, there are payload changes in requests compared to API v3.1.x. For more information, please refer to the official documentation [Open Banking Read-Write API Profile](https://openbankinguk.github.io/read-write-api-site3/v4.0/profiles/read-write-data-api-profile.html) . Given these schema changes, core banking backends must return the appropriate response according to the API version of the request.
+
+Additionally, there are rules for co-existing API v3 with API v4 (release management), which must be considered.
+
+### Core Banking Integration and API Version Identification
+
+WSO2 Open Banking manages the initiation and authorization of consent. However, for account, payment, and CoF submission APIs, WSO2 Open Banking forwards the request to the core banking system. To ensure that the response aligns with the API version of the request, the core banking system must identify the invoked API version.
+
+To facilitate this, a new property `InvokedAPIVersion` has been introduced to `Account-Request-Information` header.
+
+#### Example Payload:
+
+```json
+{
+  "..": "..",
+  "additionalConsentInfo": {
+    "AccountIds": [
+      "30080012343456"
+    ],
+    "TransactionToDateTime": "2022-09-24T14:06:13.473+05:30",
+    "Permissions": [],
+    "ConsentId": "aa5c012c-84fd-4d74-be97-503eb072c6e5",
+    "TransactionFromDateTime": "2022-09-21T14:06:13.473+05:30",
+    "InvokedAPIVersion": "UK400"
+  },
+  "..": ".."
+}
+```
+
+Within the `additionalConsentInfo` attribute, the `InvokedAPIVersion` field contains either `UK400` (for API v4) or `UK300` (for API v3), allowing the core banking system to determine which version was invoked.
+
+### Handling Payment Order Resource Requests
+
+In addition to submission requests, there are two other types of payment requests:
+
+1. **Payment Order Resource GET**
+    - `GET /{Payment-Type}/{Payment-Id}`
+2. **Payment Details GET**
+    - `GET /{Payment-Type}/{Payment-Id}/payment-details`
+
+Handling API release management rules for these requests must be managed within the core banking system. This is because WSO2 Open Banking does not store details related to payment submissions, meaning it cannot determine the API version under which the payment was initially submitted.
+
+Also according to the specification, banks must allow access to payment order resources created in older API versions via newer API versions. To support this, banks need to use the API version used when processing these requests to return the correct response  with updated API v4 schema.
+
+### Identifying API Version in Payment Order Resource Requests
+
+For these two types of payment requests, TPP authentication is required instead of payment user authorization. Because of this, WSO2 Open Banking forwards these requests directly to the core banking system **without** the `Account-Request-Information` header. Instead, the invoked API version is passed via the `x-wso2-endpoint-uri` header.
+
+#### Example Headers:
+
+```text
+x-wso2-endpoint-uri: /open-banking/v3.1/pisp/{Payment-Type}/{Payment-Id}/
+x-wso2-endpoint-uri: /open-banking/v4.0/pisp/{Payment-Type}/{Payment-Id}/payment-details/
+```
+
+The core banking system can extract the API version from this header and respond accordingly.
+
+### API Version and Consent Compatibility Table
+
+| API Version   | Consent Version | Accessing consents / resource  (Account, CoF) | Access consent/resource APIs (Payments) |
+| ------------- | --------------- | --------------------------------------------- | --------------------------------------- |
+| Older version | Older version   | ✓                                             | ✓                                       |
+| Older version | New version     | X                                             | X                                       |
+| New version   | Older version   | ✓                                             | X                                       |
+| New version   | New version     | ✓                                             | ✓                                       |
+
+Note: Above mentioned two types of payment requests behave as the Account and CoF requests when applying the release management rules.
+
+Please note that UK Open Banking API v4 support is not yet released for WSO2 Open Banking. This is planned to release in end of **Q1 2025**.
