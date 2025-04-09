@@ -20,6 +20,8 @@ This document provides step by step instructions to deploy, subscribe, and invok
     ```
     /open-banking/{version}/aisp
     ```
+   
+    And set the version as `v3.1` if you are using API version 3, For API version 4 use `v4.0`
 
 7. Click **Create** to create the API. ![create-accounts](../assets/img/get-started/quick-start-guide/create-accounts.png)
 
@@ -97,24 +99,27 @@ This document provides step by step instructions to deploy, subscribe, and invok
 
 Given below is a summary of configurations to follow when deploying the APIs in the toolkit.
 
-| API | Swagger definition (yaml file) | Endpoint type| Message mediation (sequence file) |
-|-----|--------------------------------|--------------|---------------------------------- |
-| Account and Transaction API v3.1.11 | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/Accounts/3.1.11/account-info-openapi-3.1.11.yaml` | Dynamic Endpoint | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/Accounts/3.1.11/accounts-dynamic-endpoint-insequence-3.1.11.xml` |
-| Payment Initiation API v3.1.11 |`<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/Payments/3.1.11/payment-openapi-3.1.11.yaml` | Dynamic Endpoint | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/Payments/3.1.11/payments-dynamic-endpoint-insequence-3.1.11.xml` |
+| API | Swagger definition (yaml file) | Endpoint type| Message mediation (sequence file)                                                                                                                                    |
+|-----|--------------------------------|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Account and Transaction API v3.1.11 | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/Accounts/3.1.11/account-info-openapi-3.1.11.yaml` | Dynamic Endpoint | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/Accounts/3.1.11/accounts-dynamic-endpoint-insequence-3.1.11.xml`                    |
+| Payment Initiation API v3.1.11 |`<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/Payments/3.1.11/payment-openapi-3.1.11.yaml` | Dynamic Endpoint | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/Payments/3.1.11/payments-dynamic-endpoint-insequence-3.1.11.xml`                    |
 | Confirmation of Funds API v3.1.11 | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/FundsConfirmation/3.1.11/funds-confirmation-openapi-3.1.11.yaml` | Dynamic Endpoint | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/FundsConfirmation/3.1.11/funds-confirmation-dynamic-endpoint-insequence-3.1.11.xml` |
-| Dynamic Client Registration API v3.3.0 | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/DynamicClientRegistration/3.3.0/dynamic-client-registration-swagger.yaml` | Dynamic Endpoint | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/DynamicClientRegistration/3.3.0/dcr-dynamic-endpoint-insequence-3.3.0.xml` |
+| Account and Transaction API v4.0.0     | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/Accounts/4.0.0/account-info-openapi-4.0.0.yaml`                          | Dynamic Endpoint | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/Accounts/4.0.0/accounts-dynamic-endpoint-insequence-4.0.0.xml`                     |
+| Payment Initiation API v4.0.0         | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/Payments/4.0.0/payment-openapi-4.0.0.yaml`                              | Dynamic Endpoint | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/Payments/4.0.0/payments-dynamic-endpoint-insequence-4.0.0.xml`                    |
+| Confirmation of Funds API v4.0.0      | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/FundsConfirmation/4.0.0/funds-confirmation-openapi-4.0.0.yaml`          | Dynamic Endpoint | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/FundsConfirmation/4.0.0/funds-confirmation-dynamic-endpoint-insequence-4.0.0.xml` |
+| Dynamic Client Registration API v3.3.0 | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/DynamicClientRegistration/3.3.0/dynamic-client-registration-swagger.yaml` | Dynamic Endpoint | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/DynamicClientRegistration/3.3.0/dcr-dynamic-endpoint-insequence-3.3.0.xml`          |
 
 ## Subscribing to Account and Transaction API
 
 1. The deployed API is now available in the Developer Portal at <https://localhost:9443/devportal>.
 
-2. Select the **AccountAndTransactionAPI V3.1** API.
+2. Select the **AccountAndTransactionAPI V3.1** or **AccountAndTransactionAPI V4.0** API.
  
 3. Locate **Subscriptions** from the left menu pane. 
 
     ![select_subscriptions](../assets/img/get-started/quick-start-guide/select-subscriptions.png)
     
-4. From the **Application** dropdown, select the application that you want to be subscribed to the Account and Transaction API V3.1. ![select_application](../assets/img/get-started/quick-start-guide/select-application.png)
+4. From the **Application** dropdown, select the application that you want to be subscribed to the Account and Transaction API ![select_application](../assets/img/get-started/quick-start-guide/select-application.png)
 
 5. Click **Subscribe**.
 
@@ -182,7 +187,8 @@ https://localhost:9446/oauth2/token \
 In this step, the AISP generates a request to get the consent of the PSU to access the accounts and banking information. 
 
 1. Create an account consent using the following request format:
-```
+
+``` tab='API v3'
 curl -X POST \
 https://localhost:8243/open-banking/v3.1/aisp/account-access-consents \
 -H 'Authorization: Bearer <APPLICATION_ACCESS_TOKEN>' \
@@ -224,9 +230,52 @@ https://localhost:8243/open-banking/v3.1/aisp/account-access-consents \
 }'
 ```
 
+``` tab='API v4'
+curl -X POST \
+https://localhost:8243/open-banking/v4.0 /aisp/account-access-consents \
+-H 'Authorization: Bearer <APPLICATION_ACCESS_TOKEN>' \
+-H 'Content-Type: application/json' \
+-H 'Accept: application/json' \
+--cert <TRANSPORT_PUBLIC_KEY_FILE_PATH> --key <TRANSPORT_PRIVATE_KEY_FILE_PATH> \
+-d '{
+   "Data":{
+      "Permissions":[
+         "ReadAccountsBasic",
+         "ReadAccountsDetail",
+         "ReadBalances",
+         "ReadBeneficiariesBasic",
+         "ReadBeneficiariesDetail",
+         "ReadDirectDebits",
+         "ReadProducts",
+         "ReadStandingOrdersBasic",
+         "ReadStandingOrdersDetail",
+         "ReadTransactionsBasic",
+         "ReadTransactionsCredits",
+         "ReadTransactionsDebits",
+         "ReadTransactionsDetail",
+         "ReadStatementsBasic",
+         "ReadStatementsDetail",
+         "ReadOffers",
+         "ReadParty",
+         "ReadPartyPSU",
+         "ReadScheduledPaymentsBasic",
+         "ReadScheduledPaymentsDetail",
+         "ReadPAN"
+      ],
+      "ExpirationDateTime":"2022-01-30T10:29:08.814+05:30",
+      "TransactionFromDateTime":"2022-01-25T10:29:08.824+05:30",
+      "TransactionToDateTime":"2022-01-28T10:29:08.824+05:30"
+   },
+   "Risk":{
+      
+   }
+}'
+```
+
+
 2. The response contains a Consent Id. A sample response is as follows:
 
-    ```json
+    ```tab='API v3'
     {
        "Data":{
           "Status":"AwaitingAuthorisation",
@@ -262,6 +311,52 @@ https://localhost:8243/open-banking/v3.1/aisp/account-access-consents \
        },
        "Links":{
           "Self":"https://localhost:8243/open-banking/3.1/aisp/account-access-consents/343eea20-3f9d-4c12-8777-fe446c554210"
+       },
+       "Meta":{
+          
+       },
+       "Risk":{
+          
+       }
+    }
+    ```
+
+    ```tab='API v4'
+    {
+       "Data":{
+          "Status":"AWAU",
+          "StatusUpdateDateTime":"2022-01-25T10:29:23+05:30",
+          "CreationDateTime":"2022-01-25T10:29:23+05:30",
+          "TransactionToDateTime":"2022-01-28T10:29:08.824+05:30",
+          "ExpirationDateTime":"2022-01-30T10:29:08.814+05:30",
+          "Permissions":[
+             "ReadAccountsBasic",
+             "ReadAccountsDetail",
+             "ReadBalances",
+             "ReadBeneficiariesBasic",
+             "ReadBeneficiariesDetail",
+             "ReadDirectDebits",
+             "ReadProducts",
+             "ReadStandingOrdersBasic",
+             "ReadStandingOrdersDetail",
+             "ReadTransactionsBasic",
+             "ReadTransactionsCredits",
+             "ReadTransactionsDebits",
+             "ReadTransactionsDetail",
+             "ReadStatementsBasic",
+             "ReadStatementsDetail",
+             "ReadOffers",
+             "ReadParty",
+             "ReadPartyPSU",
+             "ReadScheduledPaymentsBasic",
+             "ReadScheduledPaymentsDetail",
+             "ReadPAN"
+          ],
+          "ConsentId":"343eea20-3f9d-4c12-8777-fe446c554210",
+          "TransactionFromDateTime":"2022-01-25T10:29:08.824+05:30"
+       },
+       "Links":{
+          "Self":"https://localhost:8243/open-banking/4.0/aisp/account-access-consents/343eea20-3f9d-4c12-8777-fe446c554210"
        },
        "Meta":{
           
@@ -423,7 +518,7 @@ other resources for a specific AccountId.
 
 1. A sample request looks as follows:
     
-    ```
+    ``` tab='API v3'
     curl -X GET \
     https://localhost:8243/open-banking/v3.1/aisp/accounts' \
     -H 'x-fapi-financial-id: open-bank' \
@@ -434,38 +529,83 @@ other resources for a specific AccountId.
     --cert <PUBLIC_KEY_FILE_PATH> --key <PRIVATE_KEY_FILE_PATH> \
     ```
 
-2. The request retrieves the account information for all the accounts related to the PSU. Given below is a sample response:
+    ``` tab='API v4'
+    curl -X GET \
+    https://localhost:8243/open-banking/v4.0/aisp/accounts' \
+    -H 'x-fapi-financial-id: open-bank' \
+    -H 'Authorization: Bearer <USER_ACCESS_TOKEN>' \
+    -H 'Accept: application/json' \
+    -H 'charset: UTF-8' \
+    -H 'Content-Type: application/json; charset=UTF-8'
+    --cert <PUBLIC_KEY_FILE_PATH> --key <PRIVATE_KEY_FILE_PATH> \
+    ```
+
+   2. The request retrieves the account information for all the accounts related to the PSU. Given below is a sample response:
     
-    ```
-    {
-       "Data":{
-          "Account":[
-             {
-                "AccountId":"30080012343456",
-                "Status":"Enabled",
-                "StatusUpdateDateTime":"2020-04-16T06:06:06+00:00",
-                "Currency":"GBP",
-                "AccountType":"Personal",
-                "AccountSubType":"CurrentAccount",
-                "Nickname":"Bills",
-                "OpeningDate":"2020-01-16T06:06:06+00:00",
-                "MaturityDate":"2025-04-16T06:06:06+00:00",
-                "Account":[
-                   {
-                      "SchemeName":"SortCodeAccountNumber",
-                      "Identification":"30080012343456",
-                      "Name":"Alex Karter",
-                      "SecondaryIdentification":"00021"
-                   }
-                ]
-             }
-          ]
-       },
-       "Links":{
-          "Self":"https://api.alphabank.com/open-banking/v3.0/accounts"
-       },
-       "Meta":{
-          "TotalPages":1
+       ``` tab='API v3'
+       {
+          "Data":{
+             "Account":[
+                {
+                   "AccountId":"30080012343456",
+                   "Status":"Enabled",
+                   "StatusUpdateDateTime":"2020-04-16T06:06:06+00:00",
+                   "Currency":"GBP",
+                   "AccountType":"Personal",
+                   "AccountSubType":"CurrentAccount",
+                   "Nickname":"Bills",
+                   "OpeningDate":"2020-01-16T06:06:06+00:00",
+                   "MaturityDate":"2025-04-16T06:06:06+00:00",
+                   "Account":[
+                      {
+                         "SchemeName":"SortCodeAccountNumber",
+                         "Identification":"30080012343456",
+                         "Name":"Alex Karter",
+                         "SecondaryIdentification":"00021"
+                      }
+                   ]
+                }
+             ]
+          },
+          "Links":{
+             "Self":"https://api.alphabank.com/open-banking/v3.0/accounts"
+          },
+          "Meta":{
+             "TotalPages":1
+          }
        }
-    }
-    ```
+       ```
+
+       ``` tab='API v4'
+       {
+          "Data":{
+             "Account":[
+                {
+                   "AccountId": "30080012343456",
+                   "Status": "Enabled",
+                   "StatusUpdateDateTime": "2020-04-16T06:06:06+00:00",
+                   "Currency": "GBP",
+                   "AccountCategory": "Personal",
+                   "AccountTypeCode": "CACC",
+                   "Nickname": "Bills",
+                   "OpeningDate": "2020-01-16T06:06:06+00:00",
+                   "MaturityDate": "2025-04-16T06:06:06+00:00",
+                   "Account": [
+                       {
+                           "SchemeName": "CLAV",
+                           "Identification": "30080012343456",
+                           "Name": "Mr Kevin",
+                           "SecondaryIdentification": "00021"
+                       }
+                   ]
+                }
+             ]
+          },
+          "Links":{
+             "Self":"https://api.alphabank.com/open-banking/v3.0/accounts"
+          },
+          "Meta":{
+             "TotalPages":1
+          }
+       }
+       ```

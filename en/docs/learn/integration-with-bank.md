@@ -883,4 +883,8 @@ The core banking system can extract the API version from this header and respond
 
 Note: Above mentioned two types of payment requests behave as the Account and CoF requests when applying the release management rules.
 
-Please note that UK Open Banking API v4 support is not yet released for WSO2 Open Banking. This is planned to release in end of **Q1 2025**.
+!!! note
+Account, Payments and Confirmation of Funds APIs v4.0 support is released from the following toolkit versions onwards:
+
+        wso2-obam-toolkit-uk-1.0.0.22
+        wso2-obiam-toolkit-uk-1.0.0.29

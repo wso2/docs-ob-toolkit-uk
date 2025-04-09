@@ -1,4 +1,10 @@
-This document provides step by step instructions to deploy, subscribe, and invoke the Account and Transaction API. 
+This document provides step by step instructions to deploy, subscribe, and invoke the Account and Transaction API.
+
+!!! note
+    Account and Transaction API v4.0 is supported from the following toolkit versions onwards:
+
+        wso2-obam-toolkit-uk-1.0.0.22
+        wso2-obiam-toolkit-uk-1.0.0.29
 
 !!! tip
     When the TPP provides an Account Information Service as an online service, the TPP is known as an Account Information Services Provider (AISP).
@@ -107,9 +113,25 @@ This document provides step by step instructions to deploy, subscribe, and invok
 
     ![select_subscriptions](../assets/img/get-started/quick-start-guide/select-subscriptions.png)
     
-4. From the **Application** dropdown, select the application that you want to be subscribed to the Account and Transaction API V3.1. ![select_application](../assets/img/get-started/quick-start-guide/select-application.png)
+4. From the **Application** dropdown, select the application that you want to be subscribed to the Account and Transaction API. ![select_application](../assets/img/get-started/quick-start-guide/select-application.png)
 
 5. Click **Subscribe**.
+
+   ??? note "Click here to see how to deploy API v4.0 If you have already deployed v3.1 APIs..."
+
+        6. Create a new version from the published v3.1 API and name that API as `v4.0`
+        7. Update the `API definition` to API v4.0 swagger contents found under `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/Accounts/4.0.0` directory.
+        8. If you are using API Manager 4.0.0,
+            1. Select the **Custom Policy** option, and remove the existing policy.
+            2. Upload the API v4 insequence file from the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/Accounts/4.0.0/` directory.
+            3. Click **Select**.
+            4. Scroll down and click **SAVE**.
+        9. If you are using API Manager 4.1.0 or 4.2.0,
+            1. Go to `Policies` under `API Configuration` and remove existing policy in each API path and click `Save`.
+            2. Create a new policy and upload `<API>-insequence-4.0.0.xml` file of API found under `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/Accounts/4.0.0` directory. (Please refer to the 14th point in `Deploying Account and Transaction API` section.)
+            3. Add this new policy to all the resource paths.
+            4. Click `Save` and redeploy the API.
+
 
 ## Invoking Account and Transaction API
 
@@ -175,7 +197,7 @@ https://<IS_HOST>:9446/oauth2/token \
 In this step, the AISP generates a request to get the consent of the PSU to access the accounts and banking information. 
 
 1. Create an account consent using the following request format:
-```
+``` tab='API v3'
 curl -X POST \
 https://<APIM_HOST>:8243/open-banking/v3.1/aisp/account-access-consents \
 -H 'Authorization: Bearer <APPLICATION_ACCESS_TOKEN>' \
@@ -217,9 +239,51 @@ https://<APIM_HOST>:8243/open-banking/v3.1/aisp/account-access-consents \
 }'
 ```
 
+``` tab='API v4'
+curl -X POST \
+https://<APIM_HOST>:8243/open-banking/v4.0/aisp/account-access-consents \
+-H 'Authorization: Bearer <APPLICATION_ACCESS_TOKEN>' \
+-H 'Content-Type: application/json' \
+-H 'Accept: application/json' \
+--cert <TRANSPORT_PUBLIC_KEY_FILE_PATH> --key <TRANSPORT_PRIVATE_KEY_FILE_PATH> \
+-d '{
+    "Data": {
+        "Permissions": [
+            "ReadAccountsBasic",
+            "ReadAccountsDetail",
+            "ReadBalances",
+            "ReadBeneficiariesBasic",
+            "ReadBeneficiariesDetail",
+            "ReadDirectDebits",
+            "ReadProducts",
+            "ReadStandingOrdersBasic",
+            "ReadStandingOrdersDetail",
+            "ReadTransactionsBasic",
+            "ReadTransactionsCredits",
+            "ReadTransactionsDebits",
+            "ReadTransactionsDetail",
+            "ReadStatementsBasic",
+            "ReadStatementsDetail",
+            "ReadOffers",
+            "ReadParty",
+            "ReadPartyPSU",
+            "ReadScheduledPaymentsBasic",
+            "ReadScheduledPaymentsDetail",
+            "ReadPAN"
+        ],
+        "ExpirationDateTime": "2021-08-17T10:37:34.607+05:30",
+        "TransactionFromDateTime": "2021-08-12T10:37:34.649+05:30",
+        "TransactionToDateTime": "2021-08-15T10:37:34.649+05:30"
+    },
+    "Risk": {
+        
+    }
+}'
+```
+
 2. The response contains a Consent Id. A sample response is as follows:
 
-    ```
+    ``` tab='API v3'
     {
         "Data": {
             "ConsentId": "dc64e27c-7139-440e-8b4f-cd70c649e096",
@@ -261,6 +325,58 @@ https://<APIM_HOST>:8243/open-banking/v3.1/aisp/account-access-consents \
         },
         "Links": {
             "Self": "https://localhost:8243/open-banking/3.1/aisp/account-access-consents/dc64e27c-7139-440e-8b4f-cd70c649e096"
+        }
+    }
+    ```
+
+    ``` tab='API v4'
+    {
+        "Data": {
+            "ConsentId": "dc64e27c-7139-440e-8b4f-cd70c649e096",
+            "Status": "AWAU",
+            "StatusUpdateDateTime": "2021-08-12T10:37:38+05:30",
+            "CreationDateTime": "2021-08-12T10:37:38+05:30",
+            "TransactionFromDateTime": "2021-08-12T10:37:34.649+05:30",
+            "TransactionToDateTime": "2021-08-15T10:37:34.649+05:30",
+            "ExpirationDateTime": "2021-08-17T10:37:34.607+05:30",
+            "StatusReason": [
+                {
+                    "StatusReasonCode": "U036",
+                    "StatusReasonDescription": "Authorisation not completed"
+                }
+            ],
+            "Permissions": [
+                "ReadAccountsBasic",
+                "ReadAccountsDetail",
+                "ReadBalances",
+                "ReadBeneficiariesBasic",
+                "ReadBeneficiariesDetail",
+                "ReadDirectDebits",
+                "ReadProducts",
+                "ReadStandingOrdersBasic",
+                "ReadStandingOrdersDetail",
+                "ReadTransactionsBasic",
+                "ReadTransactionsCredits",
+                "ReadTransactionsDebits",
+                "ReadTransactionsDetail",
+                "ReadStatementsBasic",
+                "ReadStatementsDetail",
+                "ReadOffers",
+                "ReadParty",
+                "ReadPartyPSU",
+                "ReadScheduledPaymentsBasic",
+                "ReadScheduledPaymentsDetail",
+                "ReadPAN"
+            ]
+        },
+       "Meta": {
+            
+        },
+        "Risk": {
+            
+        },
+        "Links": {
+            "Self": "https://localhost:8243/open-banking/4.0/aisp/account-access-consents/dc64e27c-7139-440e-8b4f-cd70c649e096"
         }
     }
     ```
@@ -440,7 +556,7 @@ other resources for a specific AccountId.
 
 1. A sample request looks as follows:
     
-    ```
+    ``` tab='API v3'
     curl -X GET \
     https://<APIM_HOST>:8243/open-banking/v3.1/aisp/accounts' \
     -H 'x-fapi-financial-id: open-bank' \
@@ -451,9 +567,20 @@ other resources for a specific AccountId.
     --cert <PUBLIC_KEY_FILE_PATH> --key <PRIVATE_KEY_FILE_PATH> \
     ```
 
+    ``` tab='API v4'
+    curl -X GET \
+    https://<APIM_HOST>:8243/open-banking/v4.0/aisp/accounts' \
+    -H 'x-fapi-financial-id: open-bank' \
+    -H 'Authorization: Bearer <USER_ACCESS_TOKEN>' \
+    -H 'Accept: application/json' \
+    -H 'charset: UTF-8' \
+    -H 'Content-Type: application/json; charset=UTF-8'
+    --cert <PUBLIC_KEY_FILE_PATH> --key <PRIVATE_KEY_FILE_PATH> \
+    ```
+
 2. The request retrieves the account information for all the accounts related to the PSU. Given below is a sample response:
 
-    ```
+    ``` tab='API v3'
     {
        "Data":{
           "Account":[
@@ -486,3 +613,37 @@ other resources for a specific AccountId.
        }
     }
     ```
+
+   ``` tab='API v4'
+   {
+      "Data":{
+         "Account":[
+            {
+               "AccountId": "30080012343456",
+               "Status": "Enabled",
+               "StatusUpdateDateTime": "2020-04-16T06:06:06+00:00",
+               "Currency": "GBP",
+               "AccountCategory": "Personal",
+               "AccountTypeCode": "CACC",
+               "Nickname": "Bills",
+               "OpeningDate": "2020-01-16T06:06:06+00:00",
+               "MaturityDate": "2025-04-16T06:06:06+00:00",
+               "Account": [
+                   {
+                       "SchemeName": "CLAV",
+                       "Identification": "30080012343456",
+                       "Name": "Mr Kevin",
+                       "SecondaryIdentification": "00021"
+                   }
+               ]
+            }
+         ]
+      },
+      "Links":{
+         "Self":"https://api.alphabank.com/open-banking/v3.0/accounts"
+      },
+      "Meta":{
+         "TotalPages":1
+      }
+   }
+   ```
