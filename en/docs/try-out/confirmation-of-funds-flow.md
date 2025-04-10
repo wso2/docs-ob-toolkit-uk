@@ -118,7 +118,7 @@ This document provides step by step instructions to deploy, subscribe, and invok
 
 5. Click **Subscribe**.
 
-   ??? note "Click here to see how to deploy API v4.0 If you have already deployed v3.1 APIs..."
+    ??? note "Click here to see how to deploy API v4.0 If you have already deployed v3.1 APIs..."
 
         6. Create a new version from the published v3.1 API and name that API as `v4.0`
         7. Update the `API definition` to API v4.0 swagger contents found under `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/FundsConfirmation/4.0.0` directory.
@@ -197,6 +197,7 @@ https://<IS_HOST>:9446/oauth2/token \
 In this step, the CBPII generates a request to get the consent of the PSU to confirm the funds available in the bank account. 
 
 1. Create a funds-confirmation consent using the following request format:
+    
     ``` tab='API v3'
     curl -X POST \
     https://<APIM_HOST>:8243/open-banking/v3.1/cbpii/funds-confirmation-consents \
@@ -269,6 +270,7 @@ In this step, the CBPII generates a request to get the consent of the PSU to con
        }
     }
     ```
+   
     ``` tab='API v4'
     {
         "Meta": {
