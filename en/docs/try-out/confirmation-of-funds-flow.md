@@ -1,5 +1,12 @@
 This document provides step by step instructions to deploy, subscribe, and invoke the Confirmation of Funds API. 
 
+!!! note
+    Confirmation of Funds API v4.0 is supported from the following toolkit versions onwards:
+
+        wso2-obam-toolkit-uk-1.0.0.22
+        wso2-obiam-toolkit-uk-1.0.0.29
+
+
 !!! tip
     When the TPP provides an online service to confirm that funds are available, the TPP is known as a Card Based Payment Instrument Issuer (CBPII).
 
@@ -107,9 +114,24 @@ This document provides step by step instructions to deploy, subscribe, and invok
 
     ![select_subscriptions](../assets/img/get-started/quick-start-guide/select-subscriptions.png)
     
-4. From the **Application** dropdown, select the application that you want to be subscribed to the Payment Initiation API V3.1. ![select_application](../assets/img/get-started/quick-start-guide/select-application.png)
+4. From the **Application** dropdown, select the application that you want to be subscribed to the Payment Initiation API. ![select_application](../assets/img/get-started/quick-start-guide/select-application.png)
 
 5. Click **Subscribe**.
+
+   ??? note "Click here to see how to deploy API v4.0 If you have already deployed v3.1 APIs..."
+
+        6. Create a new version from the published v3.1 API and name that API as `v4.0`
+        7. Update the `API definition` to API v4.0 swagger contents found under `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/FundsConfirmation/4.0.0` directory.
+        8. If you are using API Manager 4.0.0,
+            1. Select the **Custom Policy** option, and remove the existing policy.
+            2. Upload the API v4 insequence file from the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/FundsConfirmation/4.0.0/` directory.
+            3. Click **Select**.
+            4. Scroll down and click **SAVE**.
+        9. If you are using API Manager 4.1.0 or 4.2.0,
+            1. Go to `Policies` under `API Configuration` and remove existing policy in each API path and click `Save`.
+            2. Create a new policy and upload `<API>-insequence-4.0.0.xml` file of API found under `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/FundsConfirmation/4.0.0` directory. (Please refer to the 14th point in `Deploying Confirmation of Funds API` section.)
+            3. Add this new policy to all the resource paths.
+            4. Click `Save` and redeploy the API.
 
 ## Invoking Confirmation of Funds API
 
@@ -175,7 +197,7 @@ https://<IS_HOST>:9446/oauth2/token \
 In this step, the CBPII generates a request to get the consent of the PSU to confirm the funds available in the bank account. 
 
 1. Create a funds-confirmation consent using the following request format:
-    ```
+    ``` tab='API v3'
     curl -X POST \
     https://<APIM_HOST>:8243/open-banking/v3.1/cbpii/funds-confirmation-consents \
     -H 'Authorization: Bearer <APPLICATION_ACCESS_TOKEN>' \
@@ -196,9 +218,35 @@ In this step, the CBPII generates a request to get the consent of the PSU to con
     }'
     ```
 
+    ``` tab='API v4'
+    curl -X POST \
+    https://<APIM_HOST>:8243/open-banking/v4.0/cbpii/funds-confirmation-consents \
+    -H 'Authorization: Bearer <APPLICATION_ACCESS_TOKEN>' \
+    -H 'Content-Type: application/json' \
+    -H 'Accept: application/json' \
+    --cert <TRANSPORT_PUBLIC_KEY_FILE_PATH> --key <TRANSPORT_PRIVATE_KEY_FILE_PATH> \
+    -d '
+    {
+        "Data": {
+            "ExpirationDateTime": "2025-04-14T16:38:10.923137+05:30",
+            "DebtorAccount": {
+                "SchemeName": "UK.OBIE.SortCodeAccountNumber",
+                "Identification": "1234",
+                "Name": "Account1",
+                "SecondaryIdentification": "Account1"
+            },
+            "Proxy": {
+                "Identification": "string",
+                "Code": "TELE",
+                "Type": "string"
+            }
+        }
+    }'
+    ```
+   
 2. The response contains a Consent Id. A sample response is as follows:
 
-    ```
+    ``` tab='API v3'
     {
        "Data":{
           "Status":"AwaitingAuthorisation",
@@ -221,6 +269,41 @@ In this step, the CBPII generates a request to get the consent of the PSU to con
        }
     }
     ```
+    ``` tab='API v4'
+    {
+        "Meta": {
+    
+        },
+        "Links": {
+            "Self": "https://localhost:8243/open-banking/4.0/cbpii/funds-confirmation-consents/e7ec04a9-e88f-4f5c-94b7-4c12fe5f7436"
+        },
+        "Data": {
+            "Status": "AWAU",
+            "StatusUpdateDateTime": "2025-04-09T16:38:15+05:30",
+            "DebtorAccount": {
+                "SecondaryIdentification": "Account1",
+                "SchemeName": "UK.OBIE.SortCodeAccountNumber",
+                "Identification": "1234",
+                "Name": "Account1"
+            },
+            "Proxy": {
+                "Type": "string",
+                "Identification": "string",
+                "Code": "TELE"
+            },
+            "CreationDateTime": "2025-04-09T16:38:15+05:30",
+            "ExpirationDateTime": "2025-04-14T16:38:10.923137+05:30",
+            "StatusReason": [
+                {
+                    "StatusReasonCode": "U036",
+                    "StatusReasonDescription": "Authorisation not completed"
+                }
+            ],
+            "ConsentId": "e7ec04a9-e88f-4f5c-94b7-4c12fe5f7436"
+        }
+    }
+    ```
+
    
 ### Authorizing a consent
 
@@ -370,7 +453,7 @@ CBPII needs to check the `FundsAvailable` flag in the response.
 
 ``` tab="Request"
 curl -X POST \
-https://<APIM_HOST>:8243/open-banking/v3.1/cbpii/funds-confirmations \
+https://<APIM_HOST>:8243/open-banking/<API_version>/cbpii/funds-confirmations \
 -H 'x-fapi-financial-id: open-bank' \
 -H 'Authorization: Bearer <USER_ACCESS_TOKEN>' \
 -H 'Accept: application/json' \
