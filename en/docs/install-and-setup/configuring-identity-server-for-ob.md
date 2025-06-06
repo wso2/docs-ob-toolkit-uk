@@ -219,6 +219,30 @@ account retrieval. By default, this is disabled and the configuration is set to 
         enable_role_validation = true
         ```
 
+19. Configure a periodical consent expiration job as follows for v4 consents:
+
+    ``` toml
+    [open_banking.consent.periodical_expiration]
+    # This property needs to be true in order to run the consent expiration periodical updater.
+    enabled=true
+    # Cron value for the periodical updater. "0 0 0 * * ?" cron will describe as 00:00:00am every day
+    cron_value="0 0 0 * * ?"
+    # This value to be update for expired consents.
+    expired_consent_status_value="expired"
+    # These consent statuses will only be consider when checking for expired consents. (Comma separated value list)
+    eligible_statuses="authorised,awaitingAuthorisation"
+    ```
+    
+    !!!note
+        Updating consent statuses to expired is only applicable for v4 `accounts` and `CoF` consents.
+
+        This is only available as a WSO2 Update from **WSO2 Open Banking Identity Server UK Toolkit Level 1.0.0.31** onwards. 
+        For more information on updating, see [Getting WSO2 Updates](setting-up-servers.md#getting-wso2-updates).
+    
+        Please refer to the [Accelerator Configuring Identity Server](https://ob.docs.wso2.com/en/latest/install-and-setup/configuring-identity-server-for-ob/) 
+        documentation for more information on consent expiration.
+
+
 ## Starting servers
 
 ??? warning "If you are using JDK 17 with WSO2 Identity Server 6.0.0, you need to enable adaptive authentication. Click here to see how it is done..."
@@ -245,4 +269,3 @@ account retrieval. By default, this is disabled and the configuration is set to 
     ``` bash
     ./wso2server.sh
     ``` 
-    
