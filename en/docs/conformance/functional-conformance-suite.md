@@ -181,7 +181,7 @@ Update the well-known endpoint and JWKS endpoint as instructed below according t
 
     12. Go to the following links and see the changes:
 
-        - [https://<IS_HOST>:9446/token/.well-known/openid-configuration](https://<IS_HOST>:9446/token/.well-known/openid-configuration)
+        - [https://<IS_HOST>:9446/oauth2/token/.well-known/openid-configuration](https://<IS_HOST>:9446/token/.well-known/openid-configuration)
         - [https://<IS_HOST>:9446/oauth2/token/keystore](https://<IS_HOST>:9446/oauth2/token/keystore)
 
 ### Option 2: Configure the default well-known endpoint
