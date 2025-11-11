@@ -8,9 +8,9 @@
         {
           "apiSpecification": {
             "name": "Confirmation of Funds API Specification",
-            "url": "https://openbankinguk.github.io/read-write-api-site3/v3.1.6/profiles/confirmation-of-funds-api-profile.html",
-            "version": "v3.1.6",
-            "schemaVersion": "https://raw.githubusercontent.com/OpenBankingUK/read-write-api-specs/v3.1.6/dist/swagger/confirmation-funds-swagger.json",
+            "url": "https://openbankinguk.github.io/read-write-api-site3/v3.1.11/profiles/confirmation-of-funds-api-profile.html",
+            "version": "v3.1.11",
+            "schemaVersion": "https://raw.githubusercontent.com/OpenBankingUK/read-write-api-specs/v3.1.11/dist/openapi/confirmation-funds-openapi.json",
             "manifest": "file://manifests/ob_3.1_cbpii_fca.json"
           },
           "openidConfigurationUri": "https://<IS_HOST>:9446/oauth2/token/.well-known/openid-configuration",
