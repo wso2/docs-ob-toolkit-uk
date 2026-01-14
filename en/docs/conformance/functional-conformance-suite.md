@@ -222,7 +222,7 @@ For testing purposes, you can host the well-known configuration file via [Github
 
     ```toml
     [open_banking_uk.consent.payment_restrictions]
-    max_instructed_amount = "365"
+    max_future_days = "365"
     ```
 
 4. Locate the `[open_banking_uk.consent]` tag.
