@@ -1,6 +1,6 @@
 [//]: # (!!!info)
 
-[//]: # (    WSO2 Open Banking 3.0.0 UK Toolkit 1.0.0 supports Functional Conformance Suite  v1.7.1.)
+[//]: # (    WSO2 Open Banking 3.0.0 UK Toolkit 1.0.0 supports Functional Conformance Suite  v1.9.1.)
 
 The  Open Banking Implementation Entity (OBIE) [Functional Conformance](https://openbanking.atlassian.net/wiki/spaces/DZ/pages/1061716467/Functional+Conformance) 
 Certificate allows WSO2 Open Banking to demonstrate that the solution has successfully implemented all required functional 
@@ -37,7 +37,7 @@ elements of the OBIE Read/Write API specifications, passing all tests performed 
 5. Generate server certificates using the mkcert tool as follows:
 
     ```
-    mkcert <trusted_domains> <server_hostname> <server_ip> 
+    mkcert <trusted_domains> <server_hostname> <server_ip> ::1
     ```
    
     Given below is a sample configuration:
@@ -139,7 +139,7 @@ Update the well-known endpoint and JWKS endpoint as instructed below according t
     
         a. Replace the  `<IS_HOSTNAME>` placeholder with the Identity Server hostname.
 
-        b. Update the `jwks_uri` value to `https://is-sandbox-openbanking.wso2.com/oauth2/token/keystore`.
+        b. Update the `jwks_uri` value to `https://<IS_HOSTNAME>:9446/oauth2/token/keystore`.
     
     6. Copy the `openid-configuration.json` file  into the `<IS_HOME>/repository/conf/identity` directory.
 
@@ -147,7 +147,8 @@ Update the well-known endpoint and JWKS endpoint as instructed below according t
 
         !!!note
             If you are manually updating the entries in the `keystore.json` file for testing purposes only, follow the guide available 
-            [here](https://support.phenixid.se/sbs/jwks/) to add the entry for your server keys to the `keystore.json` file.
+            [here](https://support.phenixid.se/sbs/jwks/) to add the entry for your server keys to the `keystore.json` file. The keystore.json file should
+            conatin keys of the client application and the keys in the jwks endpoints of Identity Server (https://<IS_HOSTNAME>:9446/oauth2/jwks). 
 
     8. Copy the `keystore.json` file into the `<IS_HOME>/repository/conf/identity` directory.
 
@@ -238,18 +239,11 @@ For testing purposes, you can host the well-known configuration file via [Github
 
 7. Repeat steps 4 and 5.
 
-8. Open the `<WSO2_IS_HOME>/repository/conf/deployment.toml` file.
-
-9. Comment out the TokenFilter configuration as follows:
+8. Disable the certificate bound access token as follows:
 
     ```toml
-    #[[tomcat.filter]]
-    #name = "TokenFilter"
-    #class = "com.wso2.openbanking.accelerator.identity.token.TokenFilter"
-    
-    #[[tomcat.filter_mapping]]
-    #name = "TokenFilter"
-    #url_pattern = "/token"
+    [apim.oauth_config]
+    enable_certificate_bound_access_token = false
     ```
 
 ## Configure JWS Validation
@@ -321,7 +315,7 @@ For testing purposes, you can host the well-known configuration file via [Github
 
 1. Open the `<APIM_HOME>/repository/conf/deployment.toml` file.
 
-2. Configure the `UKJwsResponseHandlingExecutor` executor and set the priority to `999`.
+2. Remove the below `UKJwsResponseHandlingExecutor` executor if it is available.
 
     ```toml
     [[open_banking.gateway.openbanking_gateway_executors.type.executors]]
@@ -341,8 +335,8 @@ For testing purposes, you can host the well-known configuration file via [Github
 
     - `signing_cert_alias`: The alias of the signing certificate stored in the keystore. Used to sign responses in a production environment. Default value is `wso2carbon`.
     - `sandbox_signing_cert_alias`: The alias of the signing certificate stored in the keystore. Used to sign responses in a sandbox environment. Default value is `wso2carbon`.
-    - `signing_cert_kid`: The kid value of the corresponding public key of the private key, which is used for signing in a production environment. Default value is `1234`. This is a mandatory configuration.
-    - `sandbox_signing_cert_kid`: The kid value of the corresponding public key of the private key, which is used for signing in a sandbox environment. Default value is `5678`. This is a mandatory configuration.
+    - `signing_cert_kid`: The kid value of the corresponding public key of the private key, which is used for signing in a production environment. Default value is `1234`. The value should be the kid value of the signing key in jwks endpoints of Identity Server `(https://<IS_HOSTNAME>:9446/oauth2/jwks)`. This is a mandatory configuration.
+    - `sandbox_signing_cert_kid`: The kid value of the corresponding public key of the private key, which is used for signing in a sandbox environment. Default value is `5678`. The value should be the kid value of the signing key in jwks endpoints of Identity Server `(https://<IS_HOSTNAME>:9446/oauth2/jwks)`. This is a mandatory configuration.
 
     ```toml
     [open_banking.ob_identity_retriever.server]
@@ -427,7 +421,7 @@ For testing purposes, you can host the well-known configuration file via [Github
     - Use the following command to run the container by adding `<DOCKER-BRIDGE_SEVER_HOST>`:
     
         ```
-        docker run --add-host=<DOCKER-BRIDGE_SEVER_HOST>:<docker0 ip> -it --name=fsuite -p 8443:8443 -e LOG_LEVEL=debug -e LOG_TRACER=true -e LOG_HTTP_TRACE=true -e DISABLE_JWS=FALSE "openbanking/conformance-suite:[TEST_SUITE_VERSION]"
+        docker run --add-host=<DOCKER-BRIDGE_SEVER_HOST>:<docker0 ip> --add-host=<IS_SERVER_HOSTNAME>:<IS_SERVER_IP> --add-host=<AM_SERVER_HOSTNAME>:<AM_SERVER_IP> -it --name=fsuite -p 8443:8443 -e LOG_LEVEL=debug -e LOG_TRACER=true -e LOG_HTTP_TRACE=true -e DISABLE_JWS=FALSE "openbanking/conformance-suite:[TEST_SUITE_VERSION]"
         ```
     
     - Use the following command to run the container by binding host to it:
@@ -568,7 +562,7 @@ For testing purposes, you can host the well-known configuration file via [Github
     | Private Transport Key (.key): `[transport_private]`        | The Private Transport Key certificate of the client/application created in the [application creation step](#run-the-solution).                                                   |
     | Public Transport Certificate (.pem): `[transport_public]`  | The Public Transport Certificate of the client/application created in the [application creation step](#run-the-solution).                                                        |
     | Client (TPP) Signature KID: `[tpp_signature_kid]`          | The KID value of the signing certificate.                                                                                                                                        |
-    | Client (TPP) Signature Issuer: `[tpp_signature_issuer]`    | Certificate Owner (For example, CN=sgsMuc8ACBgBzinpr8oJ8B, OU=0015800001HQQrZAAX, O=OpenBanking, C=GB)                                                                           |
+    | Client (TPP) Signature Issuer: `[tpp_signature_issuer]`    | Certificate Owner (For example, CN=9ZzFFBxSLGEjPZogRAbvFd, OU=0015800001HQQrZAAX, O=OpenBanking, C=GB)                                                                           |
     | Client (TPP) Signature Trust Anchor: `[tpp_signature_tan]` | Trust Anchor used in signing JOSE (For example, openbanking.org.uk)                                                                                                              |
     | Account IDs: `[account_ids]`                               | The Account IDs of the account resources that the customer (PSU) has consented to provide to the client/application.                                                             |
     | Statement IDs: `[statement_ids]`                           | The Statement IDs of the statement resources that the customer (PSU) has consented to provide to the client/application.                                                         |
