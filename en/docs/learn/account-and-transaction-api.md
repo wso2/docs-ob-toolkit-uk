@@ -1,6 +1,10 @@
-!!!info
-    Some content in this documentation is subject to the [MIT Open Licence](https://www.openbanking.org.uk/open-licence/). 
-    For further information, see [Copyright and Licence](copyright-and-licence.md).
+---
+title: "Account and Transaction API"
+---
+:::info
+Some content in this documentation is subject to the [MIT Open Licence](https://www.openbanking.org.uk/open-licence/). 
+For further information, see [Copyright and Licence](copyright-and-licence.md).
+:::
 
 ## Introduction
 
@@ -8,7 +12,7 @@ This page explains the flow of the [Account Information and Transaction API by O
 The Account Information Service Provider (AISP) can use the API endpoints described here to do the following:
 
 - Register a resource to retrieve account information by creating an account access consent. This registers data that the customer 
-  (PSU) has consented to provide to the AISP such as data permissions, expiration, and historical period allowed for transactions/statements.
+    (PSU) has consented to provide to the AISP such as data permissions, expiration, and historical period allowed for transactions/statements.
 - Subsequently, retrieve account and transaction data.
 
 ## Basic flow
@@ -60,36 +64,36 @@ To access account information and transaction data, you can use the following av
 </thead>
 <tbody>
   <tr>
-    <td rowspan="3">Account Access Consents</td>
-    <td rowspan="3">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10<br>v3.1.11</td>
-    <td rowspan="3"><code>account-access-consents</code></td>
+    <td rowSpan="3">Account Access Consents</td>
+    <td rowSpan="3">v3.1.5<br />v3.1.6<br />v3.1.8<br />v3.1.9<br />v3.1.10<br />v3.1.11</td>
+    <td rowSpan="3"><code>account-access-consents</code></td>
     <td><code>POST /account-access-consents</code></td>
     <td>Mandatory</td>
   </tr>
   <tr>
-    <td><code>GET /account-access-consents/{ConsentId}</code></td>
+    <td><code>{"GET /account-access-consents/{ConsentId}"}</code></td>
     <td>Mandatory</td>
   </tr>
   <tr>
-    <td><code>DELETE /account-access-consents/{ConsentId}</code></td>
+    <td><code>{"DELETE /account-access-consents/{ConsentId}"}</code></td>
     <td>Mandatory</td>
   </tr>
   <tr>
-    <td rowspan="2">Accounts</td>
-    <td rowspan="2">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10<br>v3.1.11</td>
-    <td rowspan="2"><code>accounts</code></td>
+    <td rowSpan="2">Accounts</td>
+    <td rowSpan="2">v3.1.5<br />v3.1.6<br />v3.1.8<br />v3.1.9<br />v3.1.10<br />v3.1.11</td>
+    <td rowSpan="2"><code>accounts</code></td>
     <td><code>GET /accounts</code></td>
     <td>Mandatory</td>
   </tr>
   <tr>
-    <td><code>GET /accounts/{AccountId}</code></td>
+    <td><code>{"GET /accounts/{AccountId}"}</code></td>
     <td>Mandatory</td>
   </tr>
   <tr>
-    <td rowspan="2">Balances</td>
-    <td rowspan="2">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10<br>v3.1.11</td>
-    <td rowspan="2"><code>balances</code></td>
-    <td><code>GET /accounts/{AccountId}/balances</code></td>
+    <td rowSpan="2">Balances</td>
+    <td rowSpan="2">v3.1.5<br />v3.1.6<br />v3.1.8<br />v3.1.9<br />v3.1.10<br />v3.1.11</td>
+    <td rowSpan="2"><code>balances</code></td>
+    <td><code>{"GET /accounts/{AccountId}/balances"}</code></td>
     <td>Mandatory</td>
   </tr>
   <tr>
@@ -97,10 +101,10 @@ To access account information and transaction data, you can use the following av
     <td>Optional</td>
   </tr>
   <tr>
-    <td rowspan="2">Transactions</td>
-    <td rowspan="2">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10<br>v3.1.11</td>
-    <td rowspan="2"><code>transactions</code></td>
-    <td><code>GET /accounts/{AccountId}/transactions</code></td>
+    <td rowSpan="2">Transactions</td>
+    <td rowSpan="2">v3.1.5<br />v3.1.6<br />v3.1.8<br />v3.1.9<br />v3.1.10<br />v3.1.11</td>
+    <td rowSpan="2"><code>transactions</code></td>
+    <td><code>{"GET /accounts/{AccountId}/transactions"}</code></td>
     <td>Mandatory</td>
   </tr>
   <tr>
@@ -108,10 +112,10 @@ To access account information and transaction data, you can use the following av
     <td>Optional</td>
   </tr>
   <tr>
-    <td rowspan="2">Beneficiaries</td>
-    <td rowspan="2">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10<br>v3.1.11</td>
-    <td rowspan="2"><code>beneficiaries</code></td>
-    <td><code>GET /accounts/{AccountId}/beneficiaries</code></td>
+    <td rowSpan="2">Beneficiaries</td>
+    <td rowSpan="2">v3.1.5<br />v3.1.6<br />v3.1.8<br />v3.1.9<br />v3.1.10<br />v3.1.11</td>
+    <td rowSpan="2"><code>beneficiaries</code></td>
+    <td><code>{"GET /accounts/{AccountId}/beneficiaries"}</code></td>
     <td>Conditional</td>
   </tr>
   <tr>
@@ -119,10 +123,10 @@ To access account information and transaction data, you can use the following av
     <td>Optional</td>
   </tr>
   <tr>
-    <td rowspan="2">Direct Debits</td>
-    <td rowspan="2">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10<br>v3.1.11</td>
-    <td rowspan="2"><code>direct-debits</code></td>
-    <td><code>GET /accounts/{AccountId}/direct-debits</code></td>
+    <td rowSpan="2">Direct Debits</td>
+    <td rowSpan="2">v3.1.5<br />v3.1.6<br />v3.1.8<br />v3.1.9<br />v3.1.10<br />v3.1.11</td>
+    <td rowSpan="2"><code>direct-debits</code></td>
+    <td><code>{"GET /accounts/{AccountId}/direct-debits"}</code></td>
     <td>Conditional</td>
   </tr>
   <tr>
@@ -130,10 +134,10 @@ To access account information and transaction data, you can use the following av
     <td>Optional</td>
   </tr>
   <tr>
-    <td rowspan="2">Standing Orders</td>
-    <td rowspan="2">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10<br>v3.1.11</td>
-    <td rowspan="2"><code>standing-orders</code></td>
-    <td><code>GET /accounts/{AccountId}/standing-orders</code></td>
+    <td rowSpan="2">Standing Orders</td>
+    <td rowSpan="2">v3.1.5<br />v3.1.6<br />v3.1.8<br />v3.1.9<br />v3.1.10<br />v3.1.11</td>
+    <td rowSpan="2"><code>standing-orders</code></td>
+    <td><code>{"GET /accounts/{AccountId}/standing-orders"}</code></td>
     <td>Conditional</td>
   </tr>
   <tr>
@@ -141,10 +145,10 @@ To access account information and transaction data, you can use the following av
     <td>Optional</td>
   </tr>
   <tr>
-    <td rowspan="2">Products</td>
-    <td rowspan="2">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10<br>v3.1.11</td>
-    <td rowspan="2"><code>products</code></td>
-    <td><code>GET /accounts/{AccountId}/product</code></td>
+    <td rowSpan="2">Products</td>
+    <td rowSpan="2">v3.1.5<br />v3.1.6<br />v3.1.8<br />v3.1.9<br />v3.1.10<br />v3.1.11</td>
+    <td rowSpan="2"><code>products</code></td>
+    <td><code>{"GET /accounts/{AccountId}/product"}</code></td>
     <td>Conditional</td>
   </tr>
   <tr>
@@ -152,10 +156,10 @@ To access account information and transaction data, you can use the following av
     <td>Optional</td>
   </tr>
   <tr>
-    <td rowspan="2">Offers</td>
-    <td rowspan="2">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10<br>v3.1.11</td>
-    <td rowspan="2"><code>offers</code></td>
-    <td><code>GET /accounts/{AccountId}/offers</code></td>
+    <td rowSpan="2">Offers</td>
+    <td rowSpan="2">v3.1.5<br />v3.1.6<br />v3.1.8<br />v3.1.9<br />v3.1.10<br />v3.1.11</td>
+    <td rowSpan="2"><code>offers</code></td>
+    <td><code>{"GET /accounts/{AccountId}/offers"}</code></td>
     <td>Conditional</td>
   </tr>
   <tr>
@@ -163,29 +167,14 @@ To access account information and transaction data, you can use the following av
     <td>Optional</td>
   </tr>
   <tr>
-    <td rowspan="3">Party</td>
-    <td rowspan="3">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10<br>v3.1.11</td>
-    <td rowspan="3"><code>party</code></td>
-    <td><code>GET /accounts/{AccountId}/parties<br></code></td>
+    <td rowSpan="3">Party</td>
+    <td rowSpan="3">v3.1.5<br />v3.1.6<br />v3.1.8<br />v3.1.9<br />v3.1.10<br />v3.1.11</td>
+    <td rowSpan="3"><code>party</code></td>
+    <td><code>{"GET /accounts/{AccountId}/parties"}<br /></code></td>
     <td>Conditional</td>
   </tr>
   <tr>
-    <td><code>GET /accounts/{AccountId}/party</code></td>
-    <td>Conditional</td>
-  </tr>
-  <tr>
-    <td><code>GET /party</code></td>
-    <td>Conditional</td>
-  </tr>
-  <tr>
-    <td rowspan="3">Parties</td>
-    <td rowspan="3">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10<br>v3.1.11</td>
-    <td rowspan="3"><code>parties</code></td>
-    <td><code>GET /accounts/{AccountId}/parties</code></td>
-    <td>Conditional</td>
-  </tr>
-  <tr>
-    <td><code>GET /accounts/{AccountId}/party</code></td>
+    <td><code>{"GET /accounts/{AccountId}/party"}</code></td>
     <td>Conditional</td>
   </tr>
   <tr>
@@ -193,10 +182,25 @@ To access account information and transaction data, you can use the following av
     <td>Conditional</td>
   </tr>
   <tr>
-    <td rowspan="2">Scheduled Payments</td>
-    <td rowspan="2">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10<br>v3.1.11</td>
-    <td rowspan="2"><code>scheduled-payments</code></td>
-    <td><code>GET /accounts/{AccountId}/scheduled-payments<br></code></td>
+    <td rowSpan="3">Parties</td>
+    <td rowSpan="3">v3.1.5<br />v3.1.6<br />v3.1.8<br />v3.1.9<br />v3.1.10<br />v3.1.11</td>
+    <td rowSpan="3"><code>parties</code></td>
+    <td><code>{"GET /accounts/{AccountId}/parties"}</code></td>
+    <td>Conditional</td>
+  </tr>
+  <tr>
+    <td><code>{"GET /accounts/{AccountId}/party"}</code></td>
+    <td>Conditional</td>
+  </tr>
+  <tr>
+    <td><code>GET /party</code></td>
+    <td>Conditional</td>
+  </tr>
+  <tr>
+    <td rowSpan="2">Scheduled Payments</td>
+    <td rowSpan="2">v3.1.5<br />v3.1.6<br />v3.1.8<br />v3.1.9<br />v3.1.10<br />v3.1.11</td>
+    <td rowSpan="2"><code>scheduled-payments</code></td>
+    <td><code>{"GET /accounts/{AccountId}/scheduled-payments"}<br /></code></td>
     <td>Conditional</td>
   </tr>
   <tr>
@@ -204,22 +208,22 @@ To access account information and transaction data, you can use the following av
     <td>Optional</td>
   </tr>
   <tr>
-    <td rowspan="5">Statements</td>
-    <td rowspan="5">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10<br>v3.1.11</td>
-    <td rowspan="5"><code>statements</code></td>
-    <td><code>GET /accounts/{AccountId}/statements</code></td>
+    <td rowSpan="5">Statements</td>
+    <td rowSpan="5">v3.1.5<br />v3.1.6<br />v3.1.8<br />v3.1.9<br />v3.1.10<br />v3.1.11</td>
+    <td rowSpan="5"><code>statements</code></td>
+    <td><code>{"GET /accounts/{AccountId}/statements"}</code></td>
     <td>Conditional</td>
   </tr>
   <tr>
-    <td><code>GET /accounts/{AccountId}/statements/{StatementId}</code></td>
+    <td><code>{"GET /accounts/{AccountId}/statements/{StatementId}"}</code></td>
     <td>Conditional</td>
   </tr>
   <tr>
-    <td><code>GET /accounts/{AccountId}/statements/{StatementId}/file</code></td>
+    <td><code>{"GET /accounts/{AccountId}/statements/{StatementId}/file"}</code></td>
     <td>Optional</td>
   </tr>
   <tr>
-    <td><code>GET /accounts/{AccountId}/statements/{StatementId}/transactions</code></td>
+    <td><code>{"GET /accounts/{AccountId}/statements/{StatementId}/transactions"}</code></td>
     <td>Conditional</td>
   </tr>
   <tr>

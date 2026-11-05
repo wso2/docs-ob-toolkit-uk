@@ -1,4 +1,7 @@
-#Variable Recurring Payments
+---
+title: "Introduction"
+---
+# Variable Recurring Payments
 
 Variable Recurring Payments (VRP) are a type of payment instruction that can be set up and used to make a series of 
 future payments. VRP will allow bank customers to safely connect authorised Payment Initiation Service Providers (PISPs) 

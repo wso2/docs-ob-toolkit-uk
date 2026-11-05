@@ -1,3 +1,9 @@
+---
+title: "Get Started"
+---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 WSO2 Open Banking UK Toolkit contains the customizations done on top of WSO2  Open Banking Accelerator to comply with 
 the Open Banking UK specification. This toolkit has been developed as an extension of WSO2 Open Banking Accelerator. 
 The accelerators run on top of WSO2 Identity Server, WSO2 API Manager, WSO2 Streaming Integrator and these are referred 
@@ -6,98 +12,104 @@ to as base products.
 This section guides you on how to set up the solution in a local environment. Follow the instructions to find how you 
 can quickly set up and try out a basic flow.
 
-!!! tip "Prerequisites"
-    1. Download Open Java Development Kit (OpenJDK) version 11 or 17 to the local environment based on the base product versions you use.
+::::tip[Prerequisites]
+1. Download Open Java Development Kit (OpenJDK) version 11 or 17 to the local environment based on the base product versions you use.
 
-        !!!info
-            See [Compatibility](../install-and-setup/prerequisites.md#compatibility) for compatible JDK versions.
+    :::info
+    See [Compatibility](../install-and-setup/prerequisites.md#compatibility) for compatible JDK versions.
+    :::
 
-    2. In the environment variables, update the JAVA_HOME and PATH variables. For instance, you can do this on a 
-        Mac/Linux server by adding the following to the `~/.bashrc` file:
-        ```
-        export JAVA_HOME="<JDK_LOCATION>"
-        export PATH=$PATH:$JAVA_HOME/bin
-        ```
-    
-    3. Setup a database server using any of the following:
-         - MySQL 8.0
-         - Oracle 19c
-         - Microsoft SQL Server 2017
-         - PostgreSQL 13
+2. In the environment variables, update the JAVA_HOME and PATH variables. For instance, you can do this on a 
+    Mac/Linux server by adding the following to the `~/.bashrc` file:
+    ```
+    export JAVA_HOME="<JDK_LOCATION>"
+    export PATH=$PATH:$JAVA_HOME/bin
+    ```
 
-        !!!info
-            See [Compatibility](../install-and-setup/prerequisites.md#compatibility) if you are using MySQL 8.0.
+3. Setup a database server using any of the following:
+    - MySQL 8.0
+    - Oracle 19c
+    - Microsoft SQL Server 2017
+    - PostgreSQL 13
 
-        !!!note
-            We do not recommend configuring H2 database in the production environment.
+    :::info
+    See [Compatibility](../install-and-setup/prerequisites.md#compatibility) if you are using MySQL 8.0.
+    :::
+
+    :::note
+    We do not recommend configuring H2 database in the production environment.
+    :::
+::::
 
 ## Installing base products
 
 1. Download and extract the required base products. You can use any of the following combinations:
 
     <table>
-      <tr>
-        <th></th>
-        <th>WSO2 Identity Server</th>
-        <th>WSO2 API Manager</th>
-        <th>WSO2 Streaming Integrator</th>
-      </tr>
+    <tr>
+    <th></th>
+    <th>WSO2 Identity Server</th>
+    <th>WSO2 API Manager</th>
+    <th>WSO2 Streaming Integrator</th>
+    </tr>
     <tbody>
-      <tr>
-        <th>Combination 01</th>
-        <td><a href="https://wso2.com/identity-and-access-management/previous-releases/">5.11.0</a></td>
-        <td><a href="https://wso2.com/api-management/previous-releases/">4.1.0</a> or <a href="https://wso2.com/api-management/previous-releases/">4.0.0</a></td>
-        <td><a href="https://wso2.com/streaming-integrator/">4.0.0</a></td>
-      </tr>
-      <tr>
-        <th>Combination 02<br></th>
-        <td><a href="https://wso2.com/identity-and-access-management/previous-releases/">6.0.0</a></td>
-        <td><a href="https://wso2.com/api-manager/">4.2.0</a></td>
-        <td><a href="https://wso2.com/streaming-integrator/">4.2.0</a></td>
-      </tr>
+    <tr>
+    <th>Combination 01</th>
+    <td><a href="https://wso2.com/identity-and-access-management/previous-releases/">5.11.0</a></td>
+    <td><a href="https://wso2.com/api-management/previous-releases/">4.1.0</a> or <a href="https://wso2.com/api-management/previous-releases/">4.0.0</a></td>
+    <td><a href="https://wso2.com/streaming-integrator/">4.0.0</a></td>
+    </tr>
+    <tr>
+    <th>Combination 02<br /></th>
+    <td><a href="https://wso2.com/identity-and-access-management/previous-releases/">6.0.0</a></td>
+    <td><a href="https://wso2.com/api-manager/">4.2.0</a></td>
+    <td><a href="https://wso2.com/streaming-integrator/">4.2.0</a></td>
+    </tr>
     </tbody>
     </table>
- 
+
 2. To configure the Identity Server with the API Manager, download the respective WSO2 IS Connector according to the API Manager version you have downloaded.
 
     - [WSO2 IS Connector for API Manager 4.2.0](https://apim.docs.wso2.com/en/4.2.0/assets/attachments/administer/wso2is-extensions-1.6.8.zip)
     - [WSO2 IS Connector for API Manager 4.1.0](https://apim.docs.wso2.com/en/4.1.0/assets/attachments/administer/wso2is-extensions-1.4.2.zip)
     - [WSO2 IS Connector for API Manager 4.0.0](https://apim.docs.wso2.com/en/4.0.0/assets/attachments/administer/wso2is-extensions-1.2.10.zip)
-    
+
 ## Installing WSO2 Open Banking Accelerator
 
 1. If you have an active WSO2 Open Banking subscription, contact us via 
-[WSO2 Online Support System](https://support.wso2.com/) to download Open Banking Accelerator 3.0.0.
-       
-    !!! note
-        If you don't have a WSO2 Open Banking subscription, [contact us](https://wso2.com/solutions/financial/open-banking/#contact) 
-        for more information.
-              
+    [WSO2 Online Support System](https://support.wso2.com/) to download Open Banking Accelerator 3.0.0.
+
+    :::note
+    If you don't have a WSO2 Open Banking subscription, [contact us](https://wso2.com/solutions/financial/open-banking/#contact) 
+    for more information.
+    :::
+
 2. Extract the downloaded WSO2 Open Banking Accelerator zip files. WSO2 Open Banking Accelerator contains the following 
-accelerators:
-   
+    accelerators:
+
     - wso2-obiam-accelerator-3.0.0
     - wso2-obam-accelerator-3.0.0
     - wso2-obbi-accelerator-3.0.0
-            
+
 ## Installing WSO2 Open Banking UK Toolkit
 
 1. If you have an active WSO2 Open Banking subscription, contact us via 
-[WSO2 Online Support System](https://support.wso2.com/) to download Open Banking UK Toolkit 1.0.0.
-       
-    !!! note
-        If you don't have a WSO2 Open Banking subscription, [contact us](https://wso2.com/solutions/financial/open-banking/#contact) 
-        for more information.
-              
+    [WSO2 Online Support System](https://support.wso2.com/) to download Open Banking UK Toolkit 1.0.0.
+
+    :::note
+    If you don't have a WSO2 Open Banking subscription, [contact us](https://wso2.com/solutions/financial/open-banking/#contact) 
+    for more information.
+    :::
+
 2. Extract the downloaded WSO2 Open Banking UK Toolkit zip files. WSO2 Open Banking UK Toolkit contains the following 
-accelerators:
-   
+    accelerators:
+
     - wso2-obiam-toolkit-uk-1.0.0
     - wso2-obam-toolkit-uk-1.0.0
     - wso2-obbi-toolkit-uk-1.0.0
 
 3. This document uses the following placeholders to refer to the following products:
-        
+
     | Product | Placeholder |
     |---------|---------    |
     |WSO2 Identity Server|`<IS_HOME>`|
@@ -117,49 +129,85 @@ scripts.
 1. Go to `<PRODUCT_HOME>/bin` and run the WSO2 Update tool:
 
     - Repeat this step for the WSO2 Identity Server, API Manager, and Streaming Integrator products.
-    
-        ```bash tab='On Linux'
+
+        <Tabs>
+        <TabItem value="on-linux" label="On Linux">
+
+        ```bash
         ./wso2update_linux 
         ```
-        
-        ```bash tab='On Mac'
+
+        </TabItem>
+        <TabItem value="on-mac" label="On Mac">
+
+        ```bash
         ./wso2update_darwin
         ```
-        
-        ```bash tab='On Windows'
+
+        </TabItem>
+        <TabItem value="on-windows" label="On Windows">
+
+        ```bash
         ./wso2update_windows.exe
         ```
+
+        </TabItem>
+        </Tabs>
 
 2. Go to `<ACCELERATOR_HOME>/bin` and run the WSO2 Update tool:
 
     - Repeat this step for the WSO2 Open Banking Identity Server, API Manager, and Business Intelligence accelerators.
 
-        ```bash tab='On Linux'
+        <Tabs>
+        <TabItem value="on-linux" label="On Linux">
+
+        ```bash
         ./wso2update_linux 
         ```
-        
-        ```bash tab='On Mac'
+
+        </TabItem>
+        <TabItem value="on-mac" label="On Mac">
+
+        ```bash
         ./wso2update_darwin
         ```
-        
-        ```bash tab='On Windows'
+
+        </TabItem>
+        <TabItem value="on-windows" label="On Windows">
+
+        ```bash
         ./wso2update_windows.exe
         ```
-      
+
+        </TabItem>
+        </Tabs>
+
 3. Go to `<TOOLKIT_HOME>/bin` and run the WSO2 Update tool:
 
     - Repeat this step for the WSO2 Open Banking Identity Server, API Manager, and Business Intelligence toolkits.
 
-        ```bash tab='On Linux'
+        <Tabs>
+        <TabItem value="on-linux" label="On Linux">
+
+        ```bash
         ./wso2update_linux 
         ```
-        
-        ```bash tab='On Mac'
+
+        </TabItem>
+        <TabItem value="on-mac" label="On Mac">
+
+        ```bash
         ./wso2update_darwin
         ```
-        
-        ```bash tab='On Windows'
+
+        </TabItem>
+        <TabItem value="on-windows" label="On Windows">
+
+        ```bash
         ./wso2update_windows.exe
         ```
-      
+
+        </TabItem>
+        </Tabs>
+
 For more information, see the [WSO2 Updates documentation](https://updates.docs.wso2.com/en/latest/updates/overview/).

@@ -1,3 +1,9 @@
+---
+title: "Variable Recurring Payments flow"
+---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 This document provides step by step instructions to deploy, subscribe, and invoke the Variable Recurring Payments (VRP) API.
 
 ## Creating a Shared Scope
@@ -13,7 +19,7 @@ Follow the steps and create a new shared scope for the Variable Recurring Paymen
 4. Click the **Save** button.
 
 5. Now deploy the API. The scope will be automatically added to the resources. For more information, see
-   [WSO2 API Manager - Shared Scopes](https://apim.docs.wso2.com/en/latest/design/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/#creating-a-shared-scope).
+    [WSO2 API Manager - Shared Scopes](https://apim.docs.wso2.com/en/latest/design/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/#creating-a-shared-scope).
 
 ## Deploying Variable Recurring Payments API
 
@@ -34,7 +40,7 @@ Follow the steps and create a new shared scope for the Variable Recurring Paymen
     ```
     /open-banking/{version}/vrp
     ```
-   
+
 7. Set the version value to `v3.1`. ![create-an-api](../assets/img/try-out/payment-initiation-flow/create-api.png)
 
 8. Leave the **Endpoint** field empty as it is and click **Create**.
@@ -51,45 +57,51 @@ Follow the steps and create a new shared scope for the Variable Recurring Paymen
 
 14. Add a custom policy. Follow the instructions given below according to the API Manager version you are using:
 
-    ??? note "Click here to see how to add a custom policy if you are using API Manager 4.0.0..."
+    <details className="ob-details ob-details--note">
+    <summary>Click here to see how to add a custom policy if you are using API Manager 4.0.0...</summary>
 
-        1. Click the **Edit** button under **Request > Message Mediation**. ![edit_message_mediation](../assets/img/get-started/quick-start-guide/edit-message-mediation.png)
-        
-        2. Now, select the **Custom Policy** option.
-        
-        3. Upload the `<APIM_HOME>/<OB_APIM_ACCELERATOR_HOME>/repository/resources/apis/VRP/vrp-dynamic-endpoint-insequence-3.1.9.xml` insequence file. ![select_endpoints](../assets/img/try-out/payment-initiation-flow/adding-insequence.png)
-        
-        4. Click **Select**.
-        
-        5. Scroll down and click **SAVE**.
+    1. Click the **Edit** button under **Request > Message Mediation**. ![edit_message_mediation](../assets/img/get-started/quick-start-guide/edit-message-mediation.png)
 
-    ??? note "Click here to see how to add a custom policy if you are using API Manager 4.1.0 or 4.2.0..."
+    2. Now, select the **Custom Policy** option.
 
-        1. Go to **Develop -> API Configurations -> Policies** in the left menu pane.<br><br>
-        <div style="width:40%">
+    3. Upload the `<APIM_HOME>/<OB_APIM_ACCELERATOR_HOME>/repository/resources/apis/VRP/vrp-dynamic-endpoint-insequence-3.1.9.xml` insequence file. ![select_endpoints](../assets/img/try-out/payment-initiation-flow/adding-insequence.png)
+
+    4. Click **Select**.
+
+    5. Scroll down and click **SAVE**.
+
+    </details>
+
+    <details className="ob-details ob-details--note">
+    <summary>Click here to see how to add a custom policy if you are using API Manager 4.1.0 or 4.2.0...</summary>
+
+    1. Go to **Develop -> API Configurations -> Policies** in the left menu pane.<br /><br />
+        <div style={{width: "40%"}}>
         ![select_policies](../assets/img/get-started/quick-start-guide/select-policies.png)
         </div>
 
-        2. On the **Policy List** card, click on **Add New Policy**.
+    2. On the **Policy List** card, click on **Add New Policy**.
 
-        3. Fill in the **Create New Policy**.
+    3. Fill in the **Create New Policy**.
 
-        4. Upload the `<APIM_HOME>/<OB_APIM_ACCELERATOR_HOME>/repository/resources/apis/VRP/vrp-dynamic-endpoint-insequence-3.1.9.xml` insequence file.
+    4. Upload the `<APIM_HOME>/<OB_APIM_ACCELERATOR_HOME>/repository/resources/apis/VRP/vrp-dynamic-endpoint-insequence-3.1.9.xml` insequence file.
 
-        5. Scroll down and click **Save**. Upon successful creation of the policy, you receive an alert as shown below: <br><br>
-        <div style="width:35%">
+    5. Scroll down and click **Save**. Upon successful creation of the policy, you receive an alert as shown below: <br /><br />
+        <div style={{width: "35%"}}>
         ![successful](../assets/img/get-started/quick-start-guide/successful.png)
         </div>
 
-        6. Expand the API endpoint you want from the list of API endpoints. For example: ![expand_api_endpoint](../assets/img/get-started/quick-start-guide/expand-api-endpoint.png)
+    6. Expand the API endpoint you want from the list of API endpoints. For example: ![expand_api_endpoint](../assets/img/get-started/quick-start-guide/expand-api-endpoint.png)
 
-        7. Expand the HTTP method from the API endpoint you selected. For example: ![expand_http_method](../assets/img/get-started/quick-start-guide/expand-http-method.png)
+    7. Expand the HTTP method from the API endpoint you selected. For example: ![expand_http_method](../assets/img/get-started/quick-start-guide/expand-http-method.png)
 
-        8. Drag and drop the previously created policy to the **Request Flow** of the API endpoint. ![request_flow](../assets/img/get-started/quick-start-guide/request-flow.png)
+    8. Drag and drop the previously created policy to the **Request Flow** of the API endpoint. ![request_flow](../assets/img/get-started/quick-start-guide/request-flow.png)
 
-        9. Select **Apply to all resources** and click **Save**.
+    9. Select **Apply to all resources** and click **Save**.
 
-        10. Scroll down and click **Save**.
+    10. Scroll down and click **Save**.
+
+    </details>
 
 15. Use the left menu panel and go to **API Configurations > Endpoints**.
 
@@ -133,23 +145,27 @@ Once you register the application, generate an application access token.
 
 1. Generate the client assertion by signing the following JSON payload using supported algorithms.
 
-    !!! note
-        If you have configured the [OB certificates](https://openbanking.atlassian.net/wiki/spaces/DZ/pages/252018873/OB+Root+and+Issuing+Certificates+for+Sandbox),
+    :::note
+    If you have configured the [OB certificates](https://openbanking.atlassian.net/wiki/spaces/DZ/pages/252018873/OB+Root+and+Issuing+Certificates+for+Sandbox),
 
-         - Use the [transport private key](../../assets/attachments/transport-certs/obtransport.key) and
-          [transport public certificate](../../assets/attachments/transport-certs/obtransport.pem) for Transport layer security testing purposes.
+    - Use the [transport private key](pathname:///assets/attachments/transport-certs/obtransport.key) and
+        [transport public certificate](pathname:///assets/attachments/transport-certs/obtransport.pem) for Transport layer security testing purposes.
 
-        - Use the [signing certificate](../../assets/attachments/signing-certs/obsigning.pem) and
-          [signing private keys](../../assets/attachments/signing-certs/obsigning.key) for signing purposes.
+    - Use the [signing certificate](pathname:///assets/attachments/signing-certs/obsigning.pem) and
+        [signing private keys](pathname:///assets/attachments/signing-certs/obsigning.key) for signing purposes.
+    :::
 
-    ``` tab='Format'
-    
+    <Tabs>
+    <TabItem value="format" label="Format">
+
+    ```
+
     {
     "alg": "<The algorithm used for signing.>",
     "kid": "<The thumbprint of the certificate.>",
     "typ": "JWT"
     }
-     
+
     {
     "iss": "<This is the issuer of the token. For example, client ID of your application>",
     "sub": "<This is the subject identifier of the issuer. For example, client ID of your application>",
@@ -158,16 +174,22 @@ Once you register the application, generate an application access token.
     "jti": "<This is an incremental unique value>",
     "aud": "<This is the audience that the ID token is intended for. For example, https://<IS_HOST>:9446/oauth2/token>"
     }
-     
+
     <signature: For DCR, the client assertion is signed by the private key of the signing certificate. For other scenarios, use the private signature of the application certificate.>
     ```
-    
-    ``` tab='Sample'
+
+    </TabItem>
+    <TabItem value="sample" label="Sample">
+
+    ```
     eyJraWQiOiIyTUk5WFNLaTZkZHhDYldnMnJoRE50VWx4SmMiLCJhbGciOiJQUzI1NiJ9.eyJzdWIiOiJZRGNHNGY0OUcxM2tXZlZzbnFkaHo4Z2JhMndhIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6OTQ0Ni9vYXV0aDIvdG9rZW4iLCJpc3MiOiJZRGNHNGY0OUcxM2tXZlZzbnFkaHo4Z2JhMndhIiwiZXhwIjoxNjI4Nzc0ODU1LCJpYXQiOjE2Mjg3NDQ4NTUsImp0aSI6IjE2Mjg3NDQ4NTUxOTQifQ.PkKRSDtkCyXabzLgGwAoy5C3jSORVU8X8sGDVrKpetPnjbCNx2wPlH-PzWUU1n05gdC7lDmoU21nsKLF_nE3iC-9hKEy4YsvJ7PFjNBPMOMUYDhRh9PCkPnec6f042zonb_ZifBq8r1aScUDoZ1L0hq7yjfZubwReFCWbESQ8PauuBuHRl7__kWvglthfgruQ7TTiIWiM60LWYct5TQWSF1IDcYGy03l-9OV5l260JBHPT4heLXzUQTarsh0PoWpv09xYLu8uGCexEt-HtRH8qwJGiFi5PiCA09_KyWVqbrcdjBloCmD5Kiqa1X0AnEbf9kKs0fqvcl7NN5-yVQUjg
     ```
 
+    </TabItem>
+    </Tabs>
+
 3. Run the following cURL command in a command prompt to generate the access token. Update the placeholders with relevant values.
-    ``` curl
+    ```curl
     curl -X POST \
     https://<IS_HOST>:9446/oauth2/token \
     --cert <TRANSPORT_PUBLIC_KEY_FILE_PATH> --key <TRANSPORT_PRIVATE_KEY_FILE_PATH> \
@@ -175,7 +197,7 @@ Once you register the application, generate an application access token.
     ```
 
 4. Upon successful token generation, you can obtain a token as follows:
-    ``` json
+    ```json
     {
        "access_token":"eyJ4NXQiOiJOVGRtWmpNNFpEazNOalkwWXpjNU1tWm1PRGd3TVRFM01XWXdOREU1TVdSbFpEZzROemM0WkEiLCJraWQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZ19SUzI1NiIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhZG1pbkB3c28yLmNvbUBjYXJib24uc3VwZXIiLCJhdXQiOiJBUFBMSUNBVElPTiIsImF1ZCI6IllEY0c0ZjQ5RzEza1dmVnNucWRoejhnYmEyd2EiLCJuYmYiOjE2Mjg3NDQ4NTYsImF6cCI6IllEY0c0ZjQ5RzEza1dmVnNucWRoejhnYmEyd2EiLCJzY29wZSI6ImFjY291bnRzIiwiaXNzIjoiaHR0cHM6XC9cL2xvY2FsaG9zdDo5NDQ2XC9vYXV0aDJcL3Rva2VuIiwiY25mIjp7Ing1dCNTMjU2IjoidllvVVlSU1E3Q2dvWXhOTVdXT3pDOHVOZlFyaXM0cFhRWDBabWl0Unh6cyJ9LCJleHAiOjE2Mjg3NDg0NTYsImlhdCI6MTYyODc0NDg1NiwianRpIjoiNzBjZDIzYzItMzYxZS00YTEwLWI4YTQtNzg2MTljZmQ2MWJmIn0.WT9d2ov9kfSe75Q6ia_VNvJ12lNkrkMZNWdHu_Ata_nEpM8AWj4Mtc0e8Yb0oZFif_ypNgBtE2ck29nQLFgQ1IicL_OMIFUuwykro2oOCcFAbz7o_rhGsh39aW-ORlxm11_csmNeaWZNfC7lPp-9hBmNt9Sons_pCm2beTMFreZQyywPrJoQ9vwt1QCmkAlTP33YnPrf0u0RQePQvUq81RiJiokhZvwVufHARZv8KLtS8VLrpfbEoSglON_XkumydVjvRWs17I3Ot9zUj6kndHBsqMPZdq_aNQHntftdSI7TVNj5f66Q_4Uafz_hMXADS46pw87rTgzENHHf-5SRhw",
        "scope":"payments",
@@ -245,74 +267,76 @@ payment-order. This informs the ASPSP that one of its PSUs intends to make a rec
        }
     }'
     ```
-   
-   Add all mandatory headers:
 
-   - **Authorization**: An Authorisation Token as per the [OAuth 2.0 specification](https://tools.ietf.org/html/rfc6750).
-         User the application access token you generated from the above step.
-   - **x-idempotency-key**: Every request will be processed only once per x-idempotency-key. The Idempotency key will be valid for 24 hours.
-   - **x-jws-signature**: A detached JWS signature of the body of the payload.
+Add all mandatory headers:
+
+- **Authorization**: An Authorisation Token as per the [OAuth 2.0 specification](https://tools.ietf.org/html/rfc6750).
+    User the application access token you generated from the above step.
+- **x-idempotency-key**: Every request will be processed only once per x-idempotency-key. The Idempotency key will be valid for 24 hours.
+- **x-jws-signature**: A detached JWS signature of the body of the payload.
+
+{/* */}
 
 3. The response contains a Consent Id. A sample response is as follows:
 
-   ```
-   {
-      "Meta":{
-         
-      },
-      "Risk":{
-         "PaymentContextCode":"PartyToParty"
-      },
-      "Links":{
-         "Self":"https://localhost:8243/open-banking/3.1/vrp/domestic-vrp-consents/480edc52-dacf-4d3d-a272-e8636b0add6b"
-      },
-      "Data":{
-         "Status":"AwaitingAuthorisation",
-         "StatusUpdateDateTime":"2022-06-15T00:24:33+05:30",
-         "CreationDateTime":"2022-06-15T00:24:33+05:30",
-         "ControlParameters":{
-            "PSUAuthenticationMethods":[
-               "UK.OBIE.SCA"
-            ],
-            "ValidToDateTime":"2023-05-12T12:43:07.956Z",
-            "ValidFromDateTime":"2022-05-12T12:43:07.956Z",
-            "VRPType":[
-               "UK.OBIE.VRPType.Sweeping"
-            ],
-            "MaximumIndividualAmount":{
-               "Amount":"180.00",
-               "Currency":"GBP"
-            },
-            "PeriodicLimits":[
-               {
-                  "PeriodAlignment":"Consent",
-                  "PeriodType":"Half-year",
-                  "Amount":"2000.00",
-                  "Currency":"GBP"
-               }
-            ]
+```
+{
+   "Meta":{
+
+   },
+   "Risk":{
+      "PaymentContextCode":"PartyToParty"
+   },
+   "Links":{
+      "Self":"https://localhost:8243/open-banking/3.1/vrp/domestic-vrp-consents/480edc52-dacf-4d3d-a272-e8636b0add6b"
+   },
+   "Data":{
+      "Status":"AwaitingAuthorisation",
+      "StatusUpdateDateTime":"2022-06-15T00:24:33+05:30",
+      "CreationDateTime":"2022-06-15T00:24:33+05:30",
+      "ControlParameters":{
+         "PSUAuthenticationMethods":[
+            "UK.OBIE.SCA"
+         ],
+         "ValidToDateTime":"2023-05-12T12:43:07.956Z",
+         "ValidFromDateTime":"2022-05-12T12:43:07.956Z",
+         "VRPType":[
+            "UK.OBIE.VRPType.Sweeping"
+         ],
+         "MaximumIndividualAmount":{
+            "Amount":"180.00",
+            "Currency":"GBP"
          },
-         "ReadRefundAccount":"true",
-         "ConsentId":"480edc52-dacf-4d3d-a272-e8636b0add6b",
-         "Initiation":{
-            "DebtorAccount":{
-               "SchemeName":"UK.OBIE.IBAN",
-               "Identification":"30080012343456",
-               "Name":"Marcus Sweepimus"
-            },
-            "RemittanceInformation":{
-               "Reference":"Sweepco"
-            },
-            "CreditorAccount":{
-               "SecondaryIdentification":"Roll 90210",
-               "SchemeName":"UK.OBIE.IBAN",
-               "Identification":"30949330000010",
-               "Name":"Marcus Sweepimus"
+         "PeriodicLimits":[
+            {
+               "PeriodAlignment":"Consent",
+               "PeriodType":"Half-year",
+               "Amount":"2000.00",
+               "Currency":"GBP"
             }
+         ]
+      },
+      "ReadRefundAccount":"true",
+      "ConsentId":"480edc52-dacf-4d3d-a272-e8636b0add6b",
+      "Initiation":{
+         "DebtorAccount":{
+            "SchemeName":"UK.OBIE.IBAN",
+            "Identification":"30080012343456",
+            "Name":"Marcus Sweepimus"
+         },
+         "RemittanceInformation":{
+            "Reference":"Sweepco"
+         },
+         "CreditorAccount":{
+            "SecondaryIdentification":"Roll 90210",
+            "SchemeName":"UK.OBIE.IBAN",
+            "Identification":"30949330000010",
+            "Name":"Marcus Sweepimus"
          }
       }
    }
-   ```
+}
+```
 
 ### Authorizing a consent
 
@@ -320,7 +344,10 @@ The PISP application redirects the bank customer to authenticate and approve/den
 
 1. Generate the request object by signing the following JSON payload using supported algorithms.
 
-    ``` tab="Format"
+    <Tabs>
+    <TabItem value="format" label="Format">
+
+    ```
     {
       "kid": "<CERTIFICATE_FINGERPRINT>",
       "alg": "<SUPPORTED_ALGORITHM>",
@@ -361,22 +388,30 @@ The PISP application redirects the bank customer to authenticate and approve/den
     }
     ```
 
-    ``` tab="Sample"
+    </TabItem>
+    <TabItem value="sample" label="Sample">
+
+    ```
     eyJraWQiOiIyTUk5WFNLaTZkZHhDYldnMnJoRE50VWx4SmMiLCJhbGciOiJQUzI1NiIsInR5cCI6IkpXVCJ9.eyJtYXhfYWdlIjo4NjQwMCwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6OTQ0Ni9vYXV0aDIvdG9rZW4iLCJzY29wZSI6ImFjY291bnRzIG9wZW5pZCIsImlzcyI6IllEY0c0ZjQ5RzEza1dmVnNucWRoejhnYmEyd2EiLCJjbGFpbXMiOnsiaWRfdG9rZW4iOnsiYWNyIjp7InZhbHVlcyI6WyJ1cm46b3BlbmJhbmtpbmc6cHNkMjpzY2EiLCJ1cm46b3BlbmJhbmtpbmc6cHNkMjpjYSJdLCJlc3NlbnRpYWwiOnRydWV9LCJvcGVuYmFua2luZ19pbnRlbnRfaWQiOnsidmFsdWUiOiJkYzY0ZTI3Yy03MTM5LTQ0MGUtOGI0Zi1jZDcwYzY0OWUwOTYiLCJlc3NlbnRpYWwiOnRydWV9fSwidXNlcmluZm8iOnsib3BlbmJhbmtpbmdfaW50ZW50X2lkIjp7InZhbHVlIjoiZGM2NGUyN2MtNzEzOS00NDBlLThiNGYtY2Q3MGM2NDllMDk2IiwiZXNzZW50aWFsIjp0cnVlfX19LCJyZXNwb25zZV90eXBlIjoiY29kZSBpZF90b2tlbiIsInJlZGlyZWN0X3VyaSI6Imh0dHBzOi8vd3NvMi5jb20iLCJzdGF0ZSI6IllXbHpjRG96TVRRMiIsImV4cCI6MTYzMzU4NjQwOCwibm9uY2UiOiJuLTBTNl9XekEyTWoiLCJjbGllbnRfaWQiOiJZRGNHNGY0OUcxM2tXZlZzbnFkaHo4Z2JhMndhIn0.OK0G0hxKQwBYEV8G9cDZAMkuLYU0Go3O8DhphzlYXpaTxPTpNUGFuUk6wiDNh0SGt-bBg6lC0mv7FrfBMv9r79yuDME6iqefgVB3PXhqWfGfRvhDY0wW9HvfGsWdrJ3MUxV0RomZeEyoooD3TrRItsc8-CsmAz5_BbCgSwYRGMcAwS89P-twlc3CE7YYru1ktGkoVQ8UvQA8IiXoomq-eS3oebRTD8DmYkjpeKURkO0rrssMuxOcN64GcgEAQeDW_dANSq_YSX9yTGGFWIzVmkafT5qzz0792VIGDtxx5Tr7keuDWIR_2SBdo_49oVLHttLu_kwNhN9u-Ed2Hx1wPQ
     ```
 
+    </TabItem>
+    </Tabs>
+
 2. The ASPSP sends the request to the customer stating the accounts and information that the API consumer wishes to access.
-   This request is in the format of a URL as follows.
+    This request is in the format of a URL as follows.
 
-   Update the placeholders with relevant values and run the following in a browser to prompt the invocation of the authorize API.
+Update the placeholders with relevant values and run the following in a browser to prompt the invocation of the authorize API.
 
-    ```
-    https://<IS_HOST>:9446/oauth2/authorize?response_type=code%20id_token&client_id=<CLIENT_ID>&scope=payments%20op
-    enid&redirect_uri=<APPLICATION_REDIRECT_URI>&state=YWlzcDozMTQ2&request=<REQUEST_OBJECT>&prompt=login&nonce=<REQUEST_OBJECT_NONCE>
-    ```
+````
+```
+https://<IS_HOST>:9446/oauth2/authorize?response_type=code%20id_token&client_id=<CLIENT_ID>&scope=payments%20op
+enid&redirect_uri=<APPLICATION_REDIRECT_URI>&state=YWlzcDozMTQ2&request=<REQUEST_OBJECT>&prompt=login&nonce=<REQUEST_OBJECT_NONCE>
+```
+````
 
 3. Upon successful authentication, the user is redirected to the consent authorize page. Use the login credentials of a
-   user that has a `subscriber` role.
+    user that has a `subscriber` role.
 
 4. The page displays the data requested by the consent such as permissions, transaction period, and expiration date. ![select accounts](../assets/img/get-started/quick-start-guide/consent-page-select-accounts.png)
 
@@ -390,7 +425,7 @@ The PISP application redirects the bank customer to authenticate and approve/den
     https://wso2.com/#code=5591c5a0-14d0-3ca9-bec2-c1efe86e32ce&id_token=eyJ4NXQiOiJOVGRtWmpNNFpEazNOalkwWXpjNU1tWm1PRGd3TVRFM01XWXdOREU1TVdSbFpEZzROemM0WkEiLCJraWQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZ19SUzI1NiIsImFsZyI6IlJTMjU2In0.eyJhdF9oYXNoIjoiWC14OFhwV2I3cGIyYnU2NHVLYktTUSIsInN1YiI6ImFkbWluQHdzbzIuY29tQGNhcmJvbi5zdXBlciIsImFtciI6WyJCYXNpY0F1dGhlbnRpY2F0b3IiXSwiaXNzIjoiaHR0cHM6XC9cL2xvY2FsaG9zdDo5NDQ2XC9vYXV0aDJcL3Rva2VuIiwibm9uY2UiOiJuLTBTNl9XekEyTSIsInNpZCI6ImM5MDViNmFhLTBiNWEtNGM4Ni04NWYzLTk0MTI5YWRlMTVjNiIsImF1ZCI6IllEY0c0ZjQ5RzEza1dmVnNucWRoejhnYmEyd2EiLCJjX2hhc2giOiJ5Y3lhNHBBN2ZfSW9uQzlpaWl1TnZ3Iiwib3BlbmJhbmtpbmdfaW50ZW50X2lkIjoiNjFmOWEzNTctNDE2MC00OGE2LTg0NWMtYzM3ZjEwN2ZlNjQ4Iiwic19oYXNoIjoiMWNIaVdBMVN2NmpKc0t6SDRFbnk1QT09XHJcbiIsImF6cCI6IllEY0c0ZjQ5RzEza1dmVnNucWRoejhnYmEyd2EiLCJleHAiOjE2Mjg3NTMxODIsImlhdCI6MTYyODc0OTU4Mn0.mGgNWc12T8a5pW6QQRF6RXoVci0ToHLCttLiCGY6KraHMzGmRFUm6jz6Clbxk_447DdoKONAqY_2uCQCRkudjMk_7sTCV-DxOIbFYctrTiU01CvjKLbNcr8tjHaaIp8rhft1K0q3h0kVxyRoo3A1WQDBJFpp2jWqqJMyjShzEf6bbojtpBw2kyAazInhnm4XFSYchGPDF7XP-vRwCHNG532dg0kXvUrdA9B7RQGnQlay296rN1pRN-GTnC6_io_anf6a5Q3ovuaxcODnbb540hnjty3scPISj38La21iQTWEBTGlBUPnXs10pXjzCmib5wng37rXV8PDslbMfRqMhg&state=YWlzcDozMTQ2&session_state=507a0e617fe39feae18795b746c09fc44dd7e8658348a6c1ce2e91778224a5a4.IFBUQh0silRELhJocuhouw
     ```
 
-   The authorization code from the below URL is in the code parameter (code=`5591c5a0-14d0-3ca9-bec2-c1efe86e32ce`).
+The authorization code from the below URL is in the code parameter (code=`5591c5a0-14d0-3ca9-bec2-c1efe86e32ce`).
 
 ### Generating user access token
 
@@ -398,23 +433,27 @@ In this section, you will be generating an access token using the authorization 
 
 1. Generate the client assertion by signing the following JSON payload using supported algorithms.
 
-    !!! note
-        If you have configured the [OB certificates](https://openbanking.atlassian.net/wiki/spaces/DZ/pages/252018873/OB+Root+and+Issuing+Certificates+for+Sandbox),
+    :::note
+    If you have configured the [OB certificates](https://openbanking.atlassian.net/wiki/spaces/DZ/pages/252018873/OB+Root+and+Issuing+Certificates+for+Sandbox),
 
-         - Use the [transport private key](../../assets/attachments/transport-certs/obtransport.key) and
-          [transport public certificate](../../assets/attachments/transport-certs/obtransport.pem) for Transport layer security testing purposes.
+    - Use the [transport private key](pathname:///assets/attachments/transport-certs/obtransport.key) and
+        [transport public certificate](pathname:///assets/attachments/transport-certs/obtransport.pem) for Transport layer security testing purposes.
 
-        - Use the [signing certificate](../../assets/attachments/signing-certs/obsigning.pem) and
-          [signing private keys](../../assets/attachments/signing-certs/obsigning.key) for signing purposes.
+    - Use the [signing certificate](pathname:///assets/attachments/signing-certs/obsigning.pem) and
+        [signing private keys](pathname:///assets/attachments/signing-certs/obsigning.key) for signing purposes.
+    :::
 
-    ``` tab="Format"
+    <Tabs>
+    <TabItem value="format" label="Format">
+
+    ```
     Format:
     {
     "alg": "<The algorithm used for signing.>",
     "kid": "<The thumbprint of the certificate.>",
     "typ": "JWT"
     }
-     
+
     {
     "iss": "<This is the issuer of the token. For example, client ID of your application>",
     "sub": "<This is the subject identifier of the issuer. For example, client ID of your application>",
@@ -423,13 +462,19 @@ In this section, you will be generating an access token using the authorization 
     "jti": "<This is an incremental unique value>",
     "aud": "<This is the audience that the ID token is intended for. For example, https://<IS_HOST>:9446/oauth2/token>"
     }
-     
+
     <signature: For DCR, the client assertion is signed by the private key of the signing certificate. Otherwise, the private signature of the application certificate is used.>
     ```
 
-    ``` tab="Sample"
+    </TabItem>
+    <TabItem value="sample" label="Sample">
+
+    ```
     eyJraWQiOiIyTUk5WFNLaTZkZHhDYldnMnJoRE50VWx4SmMiLCJhbGciOiJQUzI1NiJ9.eyJzdWIiOiJZRGNHNGY0OUcxM2tXZlZzbnFkaHo4Z2JhMndhIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6OTQ0Ni9vYXV0aDIvdG9rZW4iLCJpc3MiOiJZRGNHNGY0OUcxM2tXZlZzbnFkaHo4Z2JhMndhIiwiZXhwIjoxNjI4Nzc0ODU1LCJpYXQiOjE2Mjg3NDQ4NTUsImp0aSI6IjE2Mjg3NDQ4NTUxOTQifQ.PkKRSDtkCyXabzLgGwAoy5C3jSORVU8X8sGDVrKpetPnjbCNx2wPlH-PzWUU1n05gdC7lDmoU21nsKLF_nE3iC-9hKEy4YsvJ7PFjNBPMOMUYDhRh9PCkPnec6f042zonb_ZifBq8r1aScUDoZ1L0hq7yjfZubwReFCWbESQ8PauuBuHRl7__kWvglthfgruQ7TTiIWiM60LWYct5TQWSF1IDcYGy03l-9OV5l260JBHPT4heLXzUQTarsh0PoWpv09xYLu8uGCexEt-HtRH8qwJGiFi5PiCA09_KyWVqbrcdjBloCmD5Kiqa1X0AnEbf9kKs0fqvcl7NN5-yVQUjg
     ```
+
+    </TabItem>
+    </Tabs>
 
 4. Run the following cURL command in a command prompt to generate the access token. Update the placeholders with relevant values.
 
@@ -444,7 +489,7 @@ In this section, you will be generating an access token using the authorization 
 
 5. Upon successful token generation, you can obtain a token as follows:
 
-    ``` json
+    ```json
     {
         "access_token": "eyJ4NXQiOiJOVGRtWmpNNFpEazNOalkwWXpjNU1tWm1PRGd3TVRFM01XWXdOREU1TVdSbFpEZzROemM0WkEiLCJraWQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZ19SUzI1NiIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhZG1pbkB3c28yLmNvbUBjYXJib24uc3VwZXIiLCJhdXQiOiJBUFBMSUNBVElPTl9VU0VSIiwiYXVkIjoiWURjRzRmNDlHMTNrV2ZWc25xZGh6OGdiYTJ3YSIsIm5iZiI6MTYyODc0NjU5MiwiYXpwIjoiWURjRzRmNDlHMTNrV2ZWc25xZGh6OGdiYTJ3YSIsInNjb3BlIjoiYWNjb3VudHMgY29uc2VudF9pZGRjNjRlMjdjLTcxMzktNDQwZS04YjRmLWNkNzBjNjQ5ZTA5NiBvcGVuaWQiLCJpc3MiOiJodHRwczpcL1wvbG9jYWxob3N0Ojk0NDZcL29hdXRoMlwvdG9rZW4iLCJjbmYiOnsieDV0I1MyNTYiOiJ2WW9VWVJTUTdDZ29ZeE5NV1dPekM4dU5mUXJpczRwWFFYMFptaXRSeHpzIn0sImV4cCI6MTYyODc1MDE5MiwiaWF0IjoxNjI4NzQ2NTkyLCJqdGkiOiI3NTA4MmEzYS1iNDllLTRjZjEtYjI4Ni1lMWJiYTYwZTViNTYiLCJjb25zZW50X2lkIjoiZGM2NGUyN2MtNzEzOS00NDBlLThiNGYtY2Q3MGM2NDllMDk2In0.MhNpi0C2vASqrigTE1qGjK_7PY722H4PjzOSwMKcmFo7YgIFIBQdtj2BRJN0y7WAOFYGqh5lUFKMJWrXXtOyo0-6pWheluQfmOMiTyqOzA7WcTZAwYUzeoRmgWtR_LCYNwzm1O7CcNeavLGucLkCmpTW9Xvn3dKkk0XFonzrrCH9QqMrA0iQP6vYgH5wH4rDxcK_6Vk1r0X33sHVM-k4ifbcIzZekUdJIgNQfK1Qosslmvm1LZfEZ1vi63cfkc0IexNW6jJYvvZxdYJVz42EKKIqR_Z_HBs8umamqhUqKAkcv7Q76bNNPpM1iBJK-eDVf8yfIr9243fyictuqhP-2Q",
         "refresh_token": "98dfa00b-a2a4-3ba0-9af2-4fac26f317b3",
@@ -455,7 +500,7 @@ In this section, you will be generating an access token using the authorization 
     }
     ```
 
-### Invoking Variable Recurring Payments API
+### Invoking Variable Recurring Payments API \{#invoking-variable-recurring-payments-api_1\}
 
 Once the PSU approves the payment consent, the PISP can proceed to submit the payment order for processing. The
 following request is an instruction to the ASPSP to begin the process of creating a payment resource.
@@ -518,7 +563,7 @@ The response contains `DomesticVRPId` along with the payment submission details.
 ```
 {
    "Meta":{
-      
+
    },
    "Risk":{
       "PaymentContextCode":"PartyToParty"

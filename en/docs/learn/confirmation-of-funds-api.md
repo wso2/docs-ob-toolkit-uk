@@ -1,6 +1,10 @@
-!!!info
-    Some content in this documentation is subject to the [MIT Open Licence](https://www.openbanking.org.uk/open-licence/).
-    For further information, see [Copyright and Licence](copyright-and-licence.md).
+---
+title: "Confirmation of Funds API"
+---
+:::info
+Some content in this documentation is subject to the [MIT Open Licence](https://www.openbanking.org.uk/open-licence/).
+For further information, see [Copyright and Licence](copyright-and-licence.md).
+:::
 
 ## Introduction
 
@@ -12,8 +16,8 @@ to create a funds confirmation consent request.
 Endpoints for the API allows the Card-Based Payment Instrument Issuer (CBPII) to:
 
 - Request fund confirmation by creating a `funds-confirmation-consent` resource with an Account Servicing Payment Service 
-Provider (ASPSP). There must be an agreement between the Customer (PSU) and ASPSP. It consists of an expiration date 
-for the funds consent granted by the PSU to the CBPII.
+    Provider (ASPSP). There must be an agreement between the Customer (PSU) and ASPSP. It consists of an expiration date 
+    for the funds consent granted by the PSU to the CBPII.
 - Confirm the funds that are available from time to time. Funds can only be confirmed against the currency of the account.
 
 ## Basic flow
@@ -46,10 +50,10 @@ The CBPII then requests to create a `funds-confirmation` resource by connecting 
 - The ASPSP responds with a boolean (`YES`/`NO`) to the `funds-confirmation-consent` resource.
 - The step is carried out in a `POST` request to the `funds-confirmation` endpoint with an authorisation code grant.
 - The payload will include these fields, which describe the data that the PSU has consented with the CBPII:
-     - `Amount` - The amount to be confirmed available.
-     - `ConsentId` - An ID that relates the request to a `funds-confirmation-consent`, and specific account with the ASPSP. This ID must match the intent identifier.
+    - `Amount` - The amount to be confirmed available.
+    - `ConsentId` - An ID that relates the request to a `funds-confirmation-consent`, and specific account with the ASPSP. This ID must match the intent identifier.
 - Finally, the CBPII checks the status of `funds-confirmation-consent` resource with the `consentId`. This step is carried 
-  out by a `GET` request to the `funds-confirmation-consents` endpoint with the client credentials grant.
+    out by a `GET` request to the `funds-confirmation-consents` endpoint with the client credentials grant.
 
 For more information, see [Confirmation of Funds API Flow](../try-out/confirmation-of-funds-flow.md).
 
@@ -69,23 +73,23 @@ Once you deploy the Confirmation of Funds API, you can access consent and funds 
 </thead>
 <tbody>
   <tr>
-    <td rowspan="3">Funds Confirmation Consent</td>
-    <td rowspan="3">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10<br>v3.1.11</td>
-    <td rowspan="3"><code>funds-confirmation-consent</code></td>
+    <td rowSpan="3">Funds Confirmation Consent</td>
+    <td rowSpan="3">v3.1.5<br />v3.1.6<br />v3.1.8<br />v3.1.9<br />v3.1.10<br />v3.1.11</td>
+    <td rowSpan="3"><code>funds-confirmation-consent</code></td>
     <td><code>POST /funds-confirmation-consents</code></td>
     <td>Mandatory</td>
   </tr>
   <tr>
-    <td><code>GET /funds-confirmation-consents/{ConsentId}</code></td>
+    <td><code>{"GET /funds-confirmation-consents/{ConsentId}"}</code></td>
     <td>Mandatory</td>
   </tr>
   <tr>
-    <td><code>DELETE /funds-confirmation-consents/{ConsentId}</code></td>
+    <td><code>{"DELETE /funds-confirmation-consents/{ConsentId}"}</code></td>
     <td>Mandatory</td>
   </tr>
   <tr>
     <td>Funds Confirmation</td>
-    <td>v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10<br>v3.1.11</td>
+    <td>v3.1.5<br />v3.1.6<br />v3.1.8<br />v3.1.9<br />v3.1.10<br />v3.1.11</td>
     <td><code>funds-confirmation</code></td>
     <td><code>POST /funds-confirmations</code></td>
     <td>Mandatory</td>

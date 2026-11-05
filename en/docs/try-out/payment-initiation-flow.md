@@ -1,13 +1,23 @@
+---
+title: "Payment Initiation flow"
+---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 This document provides step by step instructions to deploy, subscribe, and invoke the Payment Initiation API. 
 
-!!! note
-    Payment Initiation API v4.0 is supported from the following toolkit versions onwards:
+:::note
+Payment Initiation API v4.0 is supported from the following toolkit versions onwards:
 
-        wso2-obam-toolkit-uk-1.0.0.22
-        wso2-obiam-toolkit-uk-1.0.0.29
+```
+wso2-obam-toolkit-uk-1.0.0.22
+wso2-obiam-toolkit-uk-1.0.0.29
+```
+:::
 
-!!! tip
-    When the TPP provides a Payment Initiation Service as an online service, the TPP is known as a Payment Initiation Services Provider (PISP).
+:::tip
+When the TPP provides a Payment Initiation Service as an online service, the TPP is known as a Payment Initiation Services Provider (PISP).
+:::
 
 ## Creating a Shared Scope
 
@@ -22,7 +32,7 @@ Follow the steps and create a new shared scope for the Payment Initiation API.
 4. Click the **Save** button.
 
 5. Now deploy the API. The scope will be automatically added to the resources. For more information, see 
-[WSO2 API Manager - Shared Scopes](https://apim.docs.wso2.com/en/latest/design/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/#creating-a-shared-scope).
+    [WSO2 API Manager - Shared Scopes](https://apim.docs.wso2.com/en/latest/design/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/#creating-a-shared-scope).
 
 ## Deploying Payment Initiation API
 
@@ -58,45 +68,51 @@ Follow the steps and create a new shared scope for the Payment Initiation API.
 
 13. Add a custom policy. Follow the instructions given below according to the API Manager version you are using:
 
-    ??? note "Click here to see how to add a custom policy if you are using API Manager 4.0.0..."
+    <details className="ob-details ob-details--note">
+    <summary>Click here to see how to add a custom policy if you are using API Manager 4.0.0...</summary>
 
-        1. Click the **Edit** button under **Request > Message Mediation**. ![edit_message_mediation](../assets/img/get-started/quick-start-guide/edit-message-mediation.png)
-        
-        2. Now, select the **Custom Policy** option.
-        
-        3. Upload the relevant insequence file from the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/Payments` directory. ![payment_inseq](../assets/img/get-started/quick-start-guide/payments-insequence.png)
-         
-        4. Click **Select**. 
-        
-        5. Scroll down and click **SAVE**.
+    1. Click the **Edit** button under **Request > Message Mediation**. ![edit_message_mediation](../assets/img/get-started/quick-start-guide/edit-message-mediation.png)
 
-    ??? note "Click here to see how to add a custom policy if you are using API Manager 4.1.0 or 4.2.0..."
+    2. Now, select the **Custom Policy** option.
 
-        1. Go to **Develop -> API Configurations -> Policies** in the left menu pane.<br><br>
-        <div style="width:40%">
+    3. Upload the relevant insequence file from the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/Payments` directory. ![payment_inseq](../assets/img/get-started/quick-start-guide/payments-insequence.png)
+
+    4. Click **Select**. 
+
+    5. Scroll down and click **SAVE**.
+
+    </details>
+
+    <details className="ob-details ob-details--note">
+    <summary>Click here to see how to add a custom policy if you are using API Manager 4.1.0 or 4.2.0...</summary>
+
+    1. Go to **Develop -> API Configurations -> Policies** in the left menu pane.<br /><br />
+        <div style={{width: "40%"}}>
         ![select_policies](../assets/img/get-started/quick-start-guide/select-policies.png)
         </div>
 
-        2. On the **Policy List** card, click on **Add New Policy**.
+    2. On the **Policy List** card, click on **Add New Policy**.
 
-        3. Fill in the **Create New Policy**.
+    3. Fill in the **Create New Policy**.
 
-        4. Upload the relevant insequence file from the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/Payments` directory.
+    4. Upload the relevant insequence file from the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/Payments` directory.
 
-        5. Scroll down and click **Save**. Upon successful creation of the policy, you receive an alert as shown below: <br><br>
-        <div style="width:35%">
+    5. Scroll down and click **Save**. Upon successful creation of the policy, you receive an alert as shown below: <br /><br />
+        <div style={{width: "35%"}}>
         ![successful](../assets/img/get-started/quick-start-guide/successful.png)
         </div>
 
-        6. Expand the API endpoint you want from the list of API endpoints. For example: ![expand_api_endpoint](../assets/img/get-started/quick-start-guide/expand-api-endpoint.png)
+    6. Expand the API endpoint you want from the list of API endpoints. For example: ![expand_api_endpoint](../assets/img/get-started/quick-start-guide/expand-api-endpoint.png)
 
-        7. Expand the HTTP method from the API endpoint you selected. For example: ![expand_http_method](../assets/img/get-started/quick-start-guide/expand-http-method.png)
+    7. Expand the HTTP method from the API endpoint you selected. For example: ![expand_http_method](../assets/img/get-started/quick-start-guide/expand-http-method.png)
 
-        8. Drag and drop the previously created policy to the **Request Flow** of the API endpoint. ![request_flow](../assets/img/get-started/quick-start-guide/request-flow.png)
+    8. Drag and drop the previously created policy to the **Request Flow** of the API endpoint. ![request_flow](../assets/img/get-started/quick-start-guide/request-flow.png)
 
-        9. Select **Apply to all resources** and click **Save**.
+    9. Select **Apply to all resources** and click **Save**.
 
-        10. Scroll down and click **Save**.
+    10. Scroll down and click **Save**.
+
+    </details>
 
 15. Use the left menu panel and go to **API Configurations > Endpoints**. 
 
@@ -107,7 +123,7 @@ Follow the steps and create a new shared scope for the Payment Initiation API.
 17. Go to **Deployments** using the left menu pane. 
 
     ![select_deployments](../assets/img/get-started/quick-start-guide/select-deployments.png)
-    
+
 18. Select the API Gateway type, in this scenario, it is **Default**. ![api_gateway](../assets/img/get-started/quick-start-guide/dcr-api-gateway.png)
 
 19. Click **Deploy**.
@@ -123,29 +139,32 @@ Follow the steps and create a new shared scope for the Payment Initiation API.
 1. The deployed API is now available in the Developer Portal at `https://<APIM_HOST>:9443/devportal`.
 
 2. Select the Payment Initiation API.
- 
+
 3. Locate **Subscriptions** from the left menu pane. 
 
     ![select_subscriptions](../assets/img/get-started/quick-start-guide/select-subscriptions.png)
-    
+
 4. From the **Application** dropdown, select the application that you want to be subscribed to the Payment Initiation API. ![select_application](../assets/img/get-started/quick-start-guide/select-application.png)
 
 5. Click **Subscribe**.
 
-    ??? note "Click here to see how to deploy API v4.0 If you have already deployed v3.1 APIs..."
+    <details className="ob-details ob-details--note">
+    <summary>Click here to see how to deploy API v4.0 If you have already deployed v3.1 APIs...</summary>
 
-        6. Create a new version from the published v3.1 API and name that API as `v4.0`
-        7. Update the `API definition` to API v4.0 swagger contents found under `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/Payments/4.0.0` directory.
-        8. If you are using API Manager 4.0.0,
-            1. Select the **Custom Policy** option, and remove the existing policy.
-            2. Upload the API v4 insequence file from the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/Payments/4.0.0/` directory.
-            3. Click **Select**.
-            4. Scroll down and click **SAVE**.
-        9. If you are using API Manager 4.1.0 or 4.2.0,
-            1. Go to `Policies` under `API Configuration` and remove existing policy in each API path and click `Save`.
-            2. Create a new policy and upload `<API>-insequence-4.0.0.xml` file of API found under `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/Payments/4.0.0` directory. (Please refer to the 14th point in `Deploying Payment Initiation API` section.)
-            3. Add this new policy to all the resource paths.
-            4. Click `Save` and redeploy the API.
+    6. Create a new version from the published v3.1 API and name that API as `v4.0`
+    7. Update the `API definition` to API v4.0 swagger contents found under `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/Payments/4.0.0` directory.
+    8. If you are using API Manager 4.0.0,
+        1. Select the **Custom Policy** option, and remove the existing policy.
+        2. Upload the API v4 insequence file from the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/Payments/4.0.0/` directory.
+        3. Click **Select**.
+        4. Scroll down and click **SAVE**.
+    9. If you are using API Manager 4.1.0 or 4.2.0,
+        1. Go to `Policies` under `API Configuration` and remove existing policy in each API path and click `Save`.
+        2. Create a new policy and upload `<API>-insequence-4.0.0.xml` file of API found under `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/Payments/4.0.0` directory. (Please refer to the 14<sup>th</sup> point in `Deploying Payment Initiation API` section.)
+        3. Add this new policy to all the resource paths.
+        4. Click `Save` and redeploy the API.
+
+    </details>
 
 ## Invoking Payment Initiation API
 
@@ -155,23 +174,27 @@ Once you register the application, generate an application access token.
 
 1. Generate the client assertion by signing the following JSON payload using supported algorithms. 
 
-    !!! note
-        If you have configured the [OB certificates](https://openbanking.atlassian.net/wiki/spaces/DZ/pages/252018873/OB+Root+and+Issuing+Certificates+for+Sandbox), 
-    
-        - Use the [transport private key](../../assets/attachments/transport-certs/obtransport.key) and
-        [transport public certificate](../../assets/attachments/transport-certs/obtransport.pem) for Transport layer security testing purposes.
-    
-        - Use the [signing certificate](../../assets/attachments/signing-certs/obsigning.pem) and 
-        [signing private keys](../../assets/attachments/signing-certs/obsigning.key) for signing purposes. 
+    :::note
+    If you have configured the [OB certificates](https://openbanking.atlassian.net/wiki/spaces/DZ/pages/252018873/OB+Root+and+Issuing+Certificates+for+Sandbox), 
 
-    ``` tab='Format'
-    
+    - Use the [transport private key](pathname:///assets/attachments/transport-certs/obtransport.key) and
+        [transport public certificate](pathname:///assets/attachments/transport-certs/obtransport.pem) for Transport layer security testing purposes.
+
+    - Use the [signing certificate](pathname:///assets/attachments/signing-certs/obsigning.pem) and 
+        [signing private keys](pathname:///assets/attachments/signing-certs/obsigning.key) for signing purposes. 
+    :::
+
+    <Tabs>
+    <TabItem value="format" label="Format">
+
+    ```
+
     {
     "alg": "<The algorithm used for signing.>",
     "kid": "<The thumbprint of the certificate.>",
     "typ": "JWT"
     }
-     
+
     {
     "iss": "<This is the issuer of the token. For example, client ID of your application>",
     "sub": "<This is the subject identifier of the issuer. For example, client ID of your application>",
@@ -180,31 +203,37 @@ Once you register the application, generate an application access token.
     "jti": "<This is an incremental unique value>",
     "aud": "<This is the audience that the ID token is intended for. For example, https://<IS_HOST>:9446/oauth2/token>"
     }
-     
+
     <signature: For DCR, the client assertion is signed by the private key of the signing certificate. For other scenarios, use the private signature of the application certificate.>
     ```
-    
-    ``` tab='Sample'
+
+    </TabItem>
+    <TabItem value="sample" label="Sample">
+
+    ```
     eyJraWQiOiIyTUk5WFNLaTZkZHhDYldnMnJoRE50VWx4SmMiLCJhbGciOiJQUzI1NiJ9.eyJzdWIiOiJZRGNHNGY0OUcxM2tXZlZzbnFkaHo4Z2JhMndhIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6OTQ0Ni9vYXV0aDIvdG9rZW4iLCJpc3MiOiJZRGNHNGY0OUcxM2tXZlZzbnFkaHo4Z2JhMndhIiwiZXhwIjoxNjI4Nzc0ODU1LCJpYXQiOjE2Mjg3NDQ4NTUsImp0aSI6IjE2Mjg3NDQ4NTUxOTQifQ.PkKRSDtkCyXabzLgGwAoy5C3jSORVU8X8sGDVrKpetPnjbCNx2wPlH-PzWUU1n05gdC7lDmoU21nsKLF_nE3iC-9hKEy4YsvJ7PFjNBPMOMUYDhRh9PCkPnec6f042zonb_ZifBq8r1aScUDoZ1L0hq7yjfZubwReFCWbESQ8PauuBuHRl7__kWvglthfgruQ7TTiIWiM60LWYct5TQWSF1IDcYGy03l-9OV5l260JBHPT4heLXzUQTarsh0PoWpv09xYLu8uGCexEt-HtRH8qwJGiFi5PiCA09_KyWVqbrcdjBloCmD5Kiqa1X0AnEbf9kKs0fqvcl7NN5-yVQUjg
     ```
 
+    </TabItem>
+    </Tabs>
+
 2. Run the following cURL command in a command prompt to generate the access token. Update the placeholders with relevant values.
-``` curl
-curl -X POST \
-https://<IS_HOST>:9446/oauth2/token \
---cert <TRANSPORT_PUBLIC_KEY_FILE_PATH> --key <TRANSPORT_PRIVATE_KEY_FILE_PATH> \
--d 'grant_type=client_credentials&scope=payments%20openid&client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer&client_assertion=<CLIENT_ASSERTION_JWT>&redirect_uri=<REDIRECT_URI>&client_id=<CLIENT_ID>'
-```
+    ```curl
+    curl -X POST \
+    https://<IS_HOST>:9446/oauth2/token \
+    --cert <TRANSPORT_PUBLIC_KEY_FILE_PATH> --key <TRANSPORT_PRIVATE_KEY_FILE_PATH> \
+    -d 'grant_type=client_credentials&scope=payments%20openid&client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer&client_assertion=<CLIENT_ASSERTION_JWT>&redirect_uri=<REDIRECT_URI>&client_id=<CLIENT_ID>'
+    ```
 
 3. Upon successful token generation, you can obtain a token as follows:
-``` json
-{
-   "access_token":"eyJ4NXQiOiJOVGRtWmpNNFpEazNOalkwWXpjNU1tWm1PRGd3TVRFM01XWXdOREU1TVdSbFpEZzROemM0WkEiLCJraWQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZ19SUzI1NiIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhZG1pbkB3c28yLmNvbUBjYXJib24uc3VwZXIiLCJhdXQiOiJBUFBMSUNBVElPTiIsImF1ZCI6IllEY0c0ZjQ5RzEza1dmVnNucWRoejhnYmEyd2EiLCJuYmYiOjE2Mjg3NDQ4NTYsImF6cCI6IllEY0c0ZjQ5RzEza1dmVnNucWRoejhnYmEyd2EiLCJzY29wZSI6ImFjY291bnRzIiwiaXNzIjoiaHR0cHM6XC9cL2xvY2FsaG9zdDo5NDQ2XC9vYXV0aDJcL3Rva2VuIiwiY25mIjp7Ing1dCNTMjU2IjoidllvVVlSU1E3Q2dvWXhOTVdXT3pDOHVOZlFyaXM0cFhRWDBabWl0Unh6cyJ9LCJleHAiOjE2Mjg3NDg0NTYsImlhdCI6MTYyODc0NDg1NiwianRpIjoiNzBjZDIzYzItMzYxZS00YTEwLWI4YTQtNzg2MTljZmQ2MWJmIn0.WT9d2ov9kfSe75Q6ia_VNvJ12lNkrkMZNWdHu_Ata_nEpM8AWj4Mtc0e8Yb0oZFif_ypNgBtE2ck29nQLFgQ1IicL_OMIFUuwykro2oOCcFAbz7o_rhGsh39aW-ORlxm11_csmNeaWZNfC7lPp-9hBmNt9Sons_pCm2beTMFreZQyywPrJoQ9vwt1QCmkAlTP33YnPrf0u0RQePQvUq81RiJiokhZvwVufHARZv8KLtS8VLrpfbEoSglON_XkumydVjvRWs17I3Ot9zUj6kndHBsqMPZdq_aNQHntftdSI7TVNj5f66Q_4Uafz_hMXADS46pw87rTgzENHHf-5SRhw",
-   "scope":"payments",
-   "token_type":"Bearer",
-   "expires_in":3600
-}
-```
+    ```json
+    {
+       "access_token":"eyJ4NXQiOiJOVGRtWmpNNFpEazNOalkwWXpjNU1tWm1PRGd3TVRFM01XWXdOREU1TVdSbFpEZzROemM0WkEiLCJraWQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZ19SUzI1NiIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhZG1pbkB3c28yLmNvbUBjYXJib24uc3VwZXIiLCJhdXQiOiJBUFBMSUNBVElPTiIsImF1ZCI6IllEY0c0ZjQ5RzEza1dmVnNucWRoejhnYmEyd2EiLCJuYmYiOjE2Mjg3NDQ4NTYsImF6cCI6IllEY0c0ZjQ5RzEza1dmVnNucWRoejhnYmEyd2EiLCJzY29wZSI6ImFjY291bnRzIiwiaXNzIjoiaHR0cHM6XC9cL2xvY2FsaG9zdDo5NDQ2XC9vYXV0aDJcL3Rva2VuIiwiY25mIjp7Ing1dCNTMjU2IjoidllvVVlSU1E3Q2dvWXhOTVdXT3pDOHVOZlFyaXM0cFhRWDBabWl0Unh6cyJ9LCJleHAiOjE2Mjg3NDg0NTYsImlhdCI6MTYyODc0NDg1NiwianRpIjoiNzBjZDIzYzItMzYxZS00YTEwLWI4YTQtNzg2MTljZmQ2MWJmIn0.WT9d2ov9kfSe75Q6ia_VNvJ12lNkrkMZNWdHu_Ata_nEpM8AWj4Mtc0e8Yb0oZFif_ypNgBtE2ck29nQLFgQ1IicL_OMIFUuwykro2oOCcFAbz7o_rhGsh39aW-ORlxm11_csmNeaWZNfC7lPp-9hBmNt9Sons_pCm2beTMFreZQyywPrJoQ9vwt1QCmkAlTP33YnPrf0u0RQePQvUq81RiJiokhZvwVufHARZv8KLtS8VLrpfbEoSglON_XkumydVjvRWs17I3Ot9zUj6kndHBsqMPZdq_aNQHntftdSI7TVNj5f66Q_4Uafz_hMXADS46pw87rTgzENHHf-5SRhw",
+       "scope":"payments",
+       "token_type":"Bearer",
+       "expires_in":3600
+    }
+    ```
 
 ### Initiating a payment consent
 
@@ -213,7 +242,10 @@ payment-order. This informs the ASPSP that one of its PSUs intends to make a pay
 
 1. Create a payment consent using the following request format:
 
-    ``` tab='API v3'
+    <Tabs>
+    <TabItem value="api-v3" label="API v3">
+
+    ```
     curl -X POST \
     https://<APIM_HOST>:8243/open-banking/v3.1/pisp/international-standing-order-consents
     -H 'x-fapi-financial-id: open-bank' \
@@ -303,7 +335,10 @@ payment-order. This informs the ASPSP that one of its PSUs intends to make a pay
     }`
     ```
 
-    ``` tab='API v4'
+    </TabItem>
+    <TabItem value="api-v4" label="API v4">
+
+    ```
     curl -X POST \
     https://<APIM_HOST>:8243/open-banking/v4.0/pisp/international-standing-order-consents
     -H 'x-fapi-financial-id: open-bank' \
@@ -491,16 +526,22 @@ payment-order. This informs the ASPSP that one of its PSUs intends to make a pay
     }`
     ```
 
+    </TabItem>
+    </Tabs>
+
     Add all mandatory headers:
-    
+
     - **Authorization**: An Authorisation Token as per the [OAuth 2.0 specification](https://tools.ietf.org/html/rfc6750). 
-    User the application access token you generated from the above step.
+        User the application access token you generated from the above step.
     - **x-idempotency-key**: Every request will be processed only once per x-idempotency-key. The Idempotency key will be valid for 24 hours.
     - **x-jws-signature**: A detached JWS signature of the body of the payload.
 
 2. The response contains a Consent Id. A sample response is as follows:
 
-    ``` tab='API v3'
+    <Tabs>
+    <TabItem value="api-v3" label="API v3">
+
+    ```
     {
        "Data":{
           "SCASupportData":{
@@ -584,15 +625,18 @@ payment-order. This informs the ASPSP that one of its PSUs intends to make a pay
           "Self":"https://localhost:8243/open-banking/3.1/pisp/international-standing-order-consents/f6780a27-f3a4-4a58-82e6-2179eba67d06"
        },
        "Meta":{
-          
+
        }
     }
     ```
 
-    ``` tab='API v4'
+    </TabItem>
+    <TabItem value="api-v4" label="API v4">
+
+    ```
     {
         "Meta": {
-   
+
         },
         "Risk": {
             "PaymentContextCode": "BillingGoodsAndServicesInAdvance",
@@ -781,14 +825,20 @@ payment-order. This informs the ASPSP that one of its PSUs intends to make a pay
         }
     }
     ```
-   
+
+    </TabItem>
+    </Tabs>
+
 ### Authorizing a consent
 
 The PISP application redirects the bank customer to authenticate and approve/deny application-provided consents.
 
 1. Generate the request object by signing the following JSON payload using supported algorithms.
 
-    ``` tab="Format"
+    <Tabs>
+    <TabItem value="format" label="Format">
+
+    ```
     {
       "kid": "<CERTIFICATE_FINGERPRINT>",
       "alg": "<SUPPORTED_ALGORITHM>",
@@ -828,23 +878,29 @@ The PISP application redirects the bank customer to authenticate and approve/den
       "client_id": "<APPLICATION_ID>"
     }
     ```
-    
-    ``` tab="Sample"
+
+    </TabItem>
+    <TabItem value="sample" label="Sample">
+
+    ```
     eyJraWQiOiIyTUk5WFNLaTZkZHhDYldnMnJoRE50VWx4SmMiLCJhbGciOiJQUzI1NiIsInR5cCI6IkpXVCJ9.eyJtYXhfYWdlIjo4NjQwMCwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6OTQ0Ni9vYXV0aDIvdG9rZW4iLCJzY29wZSI6ImFjY291bnRzIG9wZW5pZCIsImlzcyI6IllEY0c0ZjQ5RzEza1dmVnNucWRoejhnYmEyd2EiLCJjbGFpbXMiOnsiaWRfdG9rZW4iOnsiYWNyIjp7InZhbHVlcyI6WyJ1cm46b3BlbmJhbmtpbmc6cHNkMjpzY2EiLCJ1cm46b3BlbmJhbmtpbmc6cHNkMjpjYSJdLCJlc3NlbnRpYWwiOnRydWV9LCJvcGVuYmFua2luZ19pbnRlbnRfaWQiOnsidmFsdWUiOiJkYzY0ZTI3Yy03MTM5LTQ0MGUtOGI0Zi1jZDcwYzY0OWUwOTYiLCJlc3NlbnRpYWwiOnRydWV9fSwidXNlcmluZm8iOnsib3BlbmJhbmtpbmdfaW50ZW50X2lkIjp7InZhbHVlIjoiZGM2NGUyN2MtNzEzOS00NDBlLThiNGYtY2Q3MGM2NDllMDk2IiwiZXNzZW50aWFsIjp0cnVlfX19LCJyZXNwb25zZV90eXBlIjoiY29kZSBpZF90b2tlbiIsInJlZGlyZWN0X3VyaSI6Imh0dHBzOi8vd3NvMi5jb20iLCJzdGF0ZSI6IllXbHpjRG96TVRRMiIsImV4cCI6MTYzMzU4NjQwOCwibm9uY2UiOiJuLTBTNl9XekEyTWoiLCJjbGllbnRfaWQiOiJZRGNHNGY0OUcxM2tXZlZzbnFkaHo4Z2JhMndhIn0.OK0G0hxKQwBYEV8G9cDZAMkuLYU0Go3O8DhphzlYXpaTxPTpNUGFuUk6wiDNh0SGt-bBg6lC0mv7FrfBMv9r79yuDME6iqefgVB3PXhqWfGfRvhDY0wW9HvfGsWdrJ3MUxV0RomZeEyoooD3TrRItsc8-CsmAz5_BbCgSwYRGMcAwS89P-twlc3CE7YYru1ktGkoVQ8UvQA8IiXoomq-eS3oebRTD8DmYkjpeKURkO0rrssMuxOcN64GcgEAQeDW_dANSq_YSX9yTGGFWIzVmkafT5qzz0792VIGDtxx5Tr7keuDWIR_2SBdo_49oVLHttLu_kwNhN9u-Ed2Hx1wPQ
     ```
 
+    </TabItem>
+    </Tabs>
+
 2. The ASPSP sends the request to the customer stating the accounts and information that the API consumer wishes to access. 
-This request is in the format of a URL as follows. 
+    This request is in the format of a URL as follows. 
 
     Update the placeholders with relevant values and run the following in a browser to prompt the invocation of the authorize API. 
-    
+
     ```
     https://<IS_HOST>:9446/oauth2/authorize?response_type=code%20id_token&client_id=<CLIENT_ID>&scope=payments%20op
     enid&redirect_uri=<APPLICATION_REDIRECT_URI>&state=YWlzcDozMTQ2&request=<REQUEST_OBJECT>&prompt=login&nonce=<REQUEST_OBJECT_NONCE>
     ```
 
 3. Upon successful authentication, the user is redirected to the consent authorize page. Use the login credentials of a 
-user that has a `subscriber` role. 
+    user that has a `subscriber` role. 
 
 4. The page displays the data requested by the consent such as permissions, transaction period, and expiration date. ![select accounts](../assets/img/get-started/quick-start-guide/consent-page-select-accounts.png)  
 
@@ -858,7 +914,7 @@ user that has a `subscriber` role.
     https://wso2.com/#code=5591c5a0-14d0-3ca9-bec2-c1efe86e32ce&id_token=eyJ4NXQiOiJOVGRtWmpNNFpEazNOalkwWXpjNU1tWm1PRGd3TVRFM01XWXdOREU1TVdSbFpEZzROemM0WkEiLCJraWQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZ19SUzI1NiIsImFsZyI6IlJTMjU2In0.eyJhdF9oYXNoIjoiWC14OFhwV2I3cGIyYnU2NHVLYktTUSIsInN1YiI6ImFkbWluQHdzbzIuY29tQGNhcmJvbi5zdXBlciIsImFtciI6WyJCYXNpY0F1dGhlbnRpY2F0b3IiXSwiaXNzIjoiaHR0cHM6XC9cL2xvY2FsaG9zdDo5NDQ2XC9vYXV0aDJcL3Rva2VuIiwibm9uY2UiOiJuLTBTNl9XekEyTSIsInNpZCI6ImM5MDViNmFhLTBiNWEtNGM4Ni04NWYzLTk0MTI5YWRlMTVjNiIsImF1ZCI6IllEY0c0ZjQ5RzEza1dmVnNucWRoejhnYmEyd2EiLCJjX2hhc2giOiJ5Y3lhNHBBN2ZfSW9uQzlpaWl1TnZ3Iiwib3BlbmJhbmtpbmdfaW50ZW50X2lkIjoiNjFmOWEzNTctNDE2MC00OGE2LTg0NWMtYzM3ZjEwN2ZlNjQ4Iiwic19oYXNoIjoiMWNIaVdBMVN2NmpKc0t6SDRFbnk1QT09XHJcbiIsImF6cCI6IllEY0c0ZjQ5RzEza1dmVnNucWRoejhnYmEyd2EiLCJleHAiOjE2Mjg3NTMxODIsImlhdCI6MTYyODc0OTU4Mn0.mGgNWc12T8a5pW6QQRF6RXoVci0ToHLCttLiCGY6KraHMzGmRFUm6jz6Clbxk_447DdoKONAqY_2uCQCRkudjMk_7sTCV-DxOIbFYctrTiU01CvjKLbNcr8tjHaaIp8rhft1K0q3h0kVxyRoo3A1WQDBJFpp2jWqqJMyjShzEf6bbojtpBw2kyAazInhnm4XFSYchGPDF7XP-vRwCHNG532dg0kXvUrdA9B7RQGnQlay296rN1pRN-GTnC6_io_anf6a5Q3ovuaxcODnbb540hnjty3scPISj38La21iQTWEBTGlBUPnXs10pXjzCmib5wng37rXV8PDslbMfRqMhg&state=YWlzcDozMTQ2&session_state=507a0e617fe39feae18795b746c09fc44dd7e8658348a6c1ce2e91778224a5a4.IFBUQh0silRELhJocuhouw
     ```
 
-   The authorization code from the below URL is in the code parameter (code=`5591c5a0-14d0-3ca9-bec2-c1efe86e32ce`).
+The authorization code from the below URL is in the code parameter (code=`5591c5a0-14d0-3ca9-bec2-c1efe86e32ce`).
 
 #### Multi-Authorisation for payment consents
 
@@ -870,30 +926,34 @@ through the open banking solution and other PSUs have to authorize through the b
 
 For an ASPSP to check the authorisation type, the payment initiation request should define the Authorisation object, 
 which is optional as per the [Open Data API specification of OBIE](https://openbanking.atlassian.net/wiki/spaces/DZ/pages/999426309/Payment+Initiation+API+Specification+-+v3.1.1#PaymentInitiationAPISpecification-v3.1.1-MultipleAuthorisation).
-   
-### Generating user access token   
+
+### Generating user access token
 
 In this section, you will be generating an access token using the authorization code generated in the section [above](#authorizing-a-consent).
 
 1. Generate the client assertion by signing the following JSON payload using supported algorithms. 
 
-    !!! note
-        If you have configured the [OB certificates](https://openbanking.atlassian.net/wiki/spaces/DZ/pages/252018873/OB+Root+and+Issuing+Certificates+for+Sandbox), 
+    :::note
+    If you have configured the [OB certificates](https://openbanking.atlassian.net/wiki/spaces/DZ/pages/252018873/OB+Root+and+Issuing+Certificates+for+Sandbox), 
 
-        - Use the [transport private key](../../assets/attachments/transport-certs/obtransport.key) and
-        [transport public certificate](../../assets/attachments/transport-certs/obtransport.pem) for Transport layer security testing purposes.
+    - Use the [transport private key](pathname:///assets/attachments/transport-certs/obtransport.key) and
+        [transport public certificate](pathname:///assets/attachments/transport-certs/obtransport.pem) for Transport layer security testing purposes.
 
-        - Use the [signing certificate](../../assets/attachments/signing-certs/obsigning.pem) and
-        [signing private keys](../../assets/attachments/signing-certs/obsigning.key) for signing purposes.
+    - Use the [signing certificate](pathname:///assets/attachments/signing-certs/obsigning.pem) and
+        [signing private keys](pathname:///assets/attachments/signing-certs/obsigning.key) for signing purposes.
+    :::
 
-    ``` tab="Format"
+    <Tabs>
+    <TabItem value="format" label="Format">
+
+    ```
     Format:
     {
     "alg": "<The algorithm used for signing.>",
     "kid": "<The thumbprint of the certificate.>",
     "typ": "JWT"
     }
-     
+
     {
     "iss": "<This is the issuer of the token. For example, client ID of your application>",
     "sub": "<This is the subject identifier of the issuer. For example, client ID of your application>",
@@ -902,16 +962,22 @@ In this section, you will be generating an access token using the authorization 
     "jti": "<This is an incremental unique value>",
     "aud": "<This is the audience that the ID token is intended for. For example, https://<IS_HOST>:9446/oauth2/token>"
     }
-     
+
     <signature: For DCR, the client assertion is signed by the private key of the signing certificate. Otherwise, the private signature of the application certificate is used.>
     ```
-    
-    ``` tab="Sample"
+
+    </TabItem>
+    <TabItem value="sample" label="Sample">
+
+    ```
     eyJraWQiOiIyTUk5WFNLaTZkZHhDYldnMnJoRE50VWx4SmMiLCJhbGciOiJQUzI1NiJ9.eyJzdWIiOiJZRGNHNGY0OUcxM2tXZlZzbnFkaHo4Z2JhMndhIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6OTQ0Ni9vYXV0aDIvdG9rZW4iLCJpc3MiOiJZRGNHNGY0OUcxM2tXZlZzbnFkaHo4Z2JhMndhIiwiZXhwIjoxNjI4Nzc0ODU1LCJpYXQiOjE2Mjg3NDQ4NTUsImp0aSI6IjE2Mjg3NDQ4NTUxOTQifQ.PkKRSDtkCyXabzLgGwAoy5C3jSORVU8X8sGDVrKpetPnjbCNx2wPlH-PzWUU1n05gdC7lDmoU21nsKLF_nE3iC-9hKEy4YsvJ7PFjNBPMOMUYDhRh9PCkPnec6f042zonb_ZifBq8r1aScUDoZ1L0hq7yjfZubwReFCWbESQ8PauuBuHRl7__kWvglthfgruQ7TTiIWiM60LWYct5TQWSF1IDcYGy03l-9OV5l260JBHPT4heLXzUQTarsh0PoWpv09xYLu8uGCexEt-HtRH8qwJGiFi5PiCA09_KyWVqbrcdjBloCmD5Kiqa1X0AnEbf9kKs0fqvcl7NN5-yVQUjg
     ```
 
+    </TabItem>
+    </Tabs>
+
 2. Run the following cURL command in a command prompt to generate the access token. Update the placeholders with relevant values.
-    
+
     ```
     curl -X POST \
     https://<IS_HOST>:9446/oauth2/token \
@@ -923,7 +989,7 @@ In this section, you will be generating an access token using the authorization 
 
 3. Upon successful token generation, you can obtain a token as follows:
 
-    ``` json
+    ```json
     {
         "access_token": "eyJ4NXQiOiJOVGRtWmpNNFpEazNOalkwWXpjNU1tWm1PRGd3TVRFM01XWXdOREU1TVdSbFpEZzROemM0WkEiLCJraWQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZ19SUzI1NiIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhZG1pbkB3c28yLmNvbUBjYXJib24uc3VwZXIiLCJhdXQiOiJBUFBMSUNBVElPTl9VU0VSIiwiYXVkIjoiWURjRzRmNDlHMTNrV2ZWc25xZGh6OGdiYTJ3YSIsIm5iZiI6MTYyODc0NjU5MiwiYXpwIjoiWURjRzRmNDlHMTNrV2ZWc25xZGh6OGdiYTJ3YSIsInNjb3BlIjoiYWNjb3VudHMgY29uc2VudF9pZGRjNjRlMjdjLTcxMzktNDQwZS04YjRmLWNkNzBjNjQ5ZTA5NiBvcGVuaWQiLCJpc3MiOiJodHRwczpcL1wvbG9jYWxob3N0Ojk0NDZcL29hdXRoMlwvdG9rZW4iLCJjbmYiOnsieDV0I1MyNTYiOiJ2WW9VWVJTUTdDZ29ZeE5NV1dPekM4dU5mUXJpczRwWFFYMFptaXRSeHpzIn0sImV4cCI6MTYyODc1MDE5MiwiaWF0IjoxNjI4NzQ2NTkyLCJqdGkiOiI3NTA4MmEzYS1iNDllLTRjZjEtYjI4Ni1lMWJiYTYwZTViNTYiLCJjb25zZW50X2lkIjoiZGM2NGUyN2MtNzEzOS00NDBlLThiNGYtY2Q3MGM2NDllMDk2In0.MhNpi0C2vASqrigTE1qGjK_7PY722H4PjzOSwMKcmFo7YgIFIBQdtj2BRJN0y7WAOFYGqh5lUFKMJWrXXtOyo0-6pWheluQfmOMiTyqOzA7WcTZAwYUzeoRmgWtR_LCYNwzm1O7CcNeavLGucLkCmpTW9Xvn3dKkk0XFonzrrCH9QqMrA0iQP6vYgH5wH4rDxcK_6Vk1r0X33sHVM-k4ifbcIzZekUdJIgNQfK1Qosslmvm1LZfEZ1vi63cfkc0IexNW6jJYvvZxdYJVz42EKKIqR_Z_HBs8umamqhUqKAkcv7Q76bNNPpM1iBJK-eDVf8yfIr9243fyictuqhP-2Q",
         "refresh_token": "98dfa00b-a2a4-3ba0-9af2-4fac26f317b3",
@@ -933,8 +999,8 @@ In this section, you will be generating an access token using the authorization 
         "expires_in": 3600
     }
     ```
-   
-### Invoking Payment Initiation API
+
+### Invoking Payment Initiation API \{#invoking-payment-initiation-api_1\}
 
 Once the PSU approves the payment consent, the PISP can proceed to submit the payment order for processing. The 
 following request is an instruction to the ASPSP to begin the process of creating a payment resource.
@@ -942,7 +1008,10 @@ following request is an instruction to the ASPSP to begin the process of creatin
 The PISP must ensure that the **Initiation and Risk** sections of payment match the corresponding Initiation and Risk 
 sections of the payment-consent resource. If the two do not match, the ASPSP must not process.
 
-``` tab='API v3'
+<Tabs>
+<TabItem value="api-v3" label="API v3">
+
+```
 curl POST \
 https://<APIM_HOST>:8243/open-banking/v3.1/pisp/international-standing-orders \
 -H 'x-fapi-financial-id: open-bank' \
@@ -1022,7 +1091,10 @@ https://<APIM_HOST>:8243/open-banking/v3.1/pisp/international-standing-orders \
 }`
 ```
 
-``` tab='API v4'
+</TabItem>
+<TabItem value="api-v4" label="API v4">
+
+```
 curl POST \
 https://<APIM_HOST>:8243/open-banking/v4.0/pisp/international-standing-orders \
 -H 'x-fapi-financial-id: open-bank' \
@@ -1200,10 +1272,16 @@ https://<APIM_HOST>:8243/open-banking/v4.0/pisp/international-standing-orders \
 }`
 ```
 
-   
+</TabItem>
+</Tabs>
+
+
 The response contains `PaymentId` along with the payment submission details. 
-    
-``` tab='API v3'
+
+<Tabs>
+<TabItem value="api-v3" label="API v3">
+
+```
 {
    "Data":{
       "Status":"InitiationCompleted",
@@ -1257,7 +1335,7 @@ The response contains `PaymentId` along with the payment submission details.
       }
    },
    "Meta":{
-      
+
    },
    "Links":{
       "Self":"/international-standing-orders/f6780a27-f3a4-4a58-82e6-2179eba67d06-55"
@@ -1265,10 +1343,13 @@ The response contains `PaymentId` along with the payment submission details.
 }
 ```
 
-``` tab='API v4'
+</TabItem>
+<TabItem value="api-v4" label="API v4">
+
+```
 {
     "Meta": {
-        
+
     },
     "Links": {
         "Self": "/international-standing-orders/c3dcaf77-d430-48d0-8fa6-701e0c4a2b3f-76"
@@ -1431,3 +1512,6 @@ The response contains `PaymentId` along with the payment submission details.
     }
 }
 ```
+
+</TabItem>
+</Tabs>

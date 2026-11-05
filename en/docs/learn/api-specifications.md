@@ -1,3 +1,6 @@
+---
+title: "Introduction"
+---
 The following API specifications are part of the Open Banking Implementation Entity (OBIE) standard and are used to retrieve 
 information pertaining to customer accounts from banks, process bank's customer payments, manage the funds confirmation consents 
 by checking and revoking statuses, and notify TPPs.

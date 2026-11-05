@@ -1,19 +1,25 @@
+---
+title: "Configure SMS OTP Authenticator"
+---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 This document provides step by step instructions to set up SMS OTP configurations.
 
 ## Configuring deployment.toml
 
 1. Open `<IS_HOME>/repository/conf/deployment.toml` file and configure the authenticator configurations as follows.
 
-     ``` toml
-     [open_banking.sca.idp]
-     name = "SMSAuthentication"
-     ```
+    ```toml
+    [open_banking.sca.idp]
+    name = "SMSAuthentication"
+    ```
 
 2. Open `<IS_HOME>/repository/conf/common.auth.script.js` file and update the configurations as follows.
 
     ```
     var psuChannel = 'Online Banking';
-   
+
     var onLoginRequest = function(context) {
         publishAuthData(context, "AuthenticationAttempted", {
             'psuChannel': psuChannel
@@ -34,7 +40,7 @@ This document provides step by step instructions to set up SMS OTP configuration
             }
         });
     };
-   
+
     var OTPFlow = function(context) {
         executeStep(2, {
             //OTP-authentication
@@ -56,9 +62,9 @@ This document provides step by step instructions to set up SMS OTP configuration
 
 3. Run the following command in `<IS_HOME>/bin` and restart the server.
 
-     ``` bash
-     ./wso2server.sh 
-     ```
+    ```bash
+    ./wso2server.sh 
+    ```
 
 ## Sign in to the Identity Server
 
@@ -68,9 +74,10 @@ This document provides step by step instructions to set up SMS OTP configuration
     - Username: admin@wso2.com
     - Password: wso2123
 
-    !!!note
-        The above login credentials are for testing purposes only. It is recommended to change the login credentials in
-        a production environment.
+    :::note
+    The above login credentials are for testing purposes only. It is recommended to change the login credentials in
+    a production environment.
+    :::
 
 ### Step 1: Adding SMS OTP Identity Provider
 
@@ -95,25 +102,34 @@ This document provides step by step instructions to set up SMS OTP configuration
     - If Twilio is used as the SMS provider, go to [https://www.twilio.com/try-twilio](https://www.twilio.com/try-twilio) and create an account.
 
     - While registering the account, verify your mobile number and click on console home [https://www.twilio.com/console](https://www.twilio.com/console)
-      to get free credits (Account SID and Auth Token).
+        to get free credits (Account SID and Auth Token).
 
     - Twilio uses a POST method with headers and the text message and phone number are sent as the payload.
 
 6. Add the following sample configurations and click **Register**.
 
-     ``` tab="Format"
-     SMS URL : https://api.twilio.com/2010-04-01/Accounts/%7BAccountSID%7D/SMS/Messages.json
-     HTTP Headers : Authorization: Basic base64{AccountSID:AuthToken}
-     HTTP Payloads : Body=$ctx.msg&To=$ctx.num&From=urlencode{TrialNumber}
-     HTTP Method : POST
-     ```
+    <Tabs>
+    <TabItem value="format" label="Format">
 
-     ``` tab="Sample"
-     SMS URL : https://api.twilio.com/2010-04-01/Accounts/AC34f40df03e20fb6498b3fcee256ebd3b/SMS/Messages.json
-     HTTP Headers : Authorization: Basic QUMzNGY0MGRmMDNlMjBmYjY0OThiM2ZjZWUyNTZlYmQzYjo1ZmFkM2VkYzg4YWM1NTNiMmFiZjc4 NWI1MmM4MWFkYg==
-     HTTP Payloads : Body=$ctx.msg&To=$ctx.num&From=+1 210-880-1806
-     HTTP Method : POST
-     ```
+    ```
+    SMS URL : https://api.twilio.com/2010-04-01/Accounts/%7BAccountSID%7D/SMS/Messages.json
+    HTTP Headers : Authorization: Basic base64{AccountSID:AuthToken}
+    HTTP Payloads : Body=$ctx.msg&To=$ctx.num&From=urlencode{TrialNumber}
+    HTTP Method : POST
+    ```
+
+    </TabItem>
+    <TabItem value="sample" label="Sample">
+
+    ```
+    SMS URL : https://api.twilio.com/2010-04-01/Accounts/AC34f40df03e20fb6498b3fcee256ebd3b/SMS/Messages.json
+    HTTP Headers : Authorization: Basic QUMzNGY0MGRmMDNlMjBmYjY0OThiM2ZjZWUyNTZlYmQzYjo1ZmFkM2VkYzg4YWM1NTNiMmFiZjc4 NWI1MmM4MWFkYg==
+    HTTP Payloads : Body=$ctx.msg&To=$ctx.num&From=+1 210-880-1806
+    HTTP Method : POST
+    ```
+
+    </TabItem>
+    </Tabs>
 
 ### Step 2: Configuring Account Lock
 
@@ -149,10 +165,12 @@ This document provides step by step instructions to set up SMS OTP configuration
 
     ![update_claim_details](../assets/img/get-started/quick-start-guide/update-local-claim-details.png)
 
-    !!! tip "More on Login Information..."
-        In the authentication flow, if you log in as an admin user, it will prompt for the mobile number in the first
-        attempt to log in. The Mobile number should be given in the format of the following example - 94714564567.
+    :::tip[More on Login Information...]
+    In the authentication flow, if you log in as an admin user, it will prompt for the mobile number in the first
+    attempt to log in. The Mobile number should be given in the format of the following example - 94714564567.
+    :::
 
-    !!!note
-        Test  scenarios can include attempting to log in using invalid usernames more than the allowed number of times, attempting
-        invalid OTPs more than the allowed number of times, etc.
+    :::note
+    Test  scenarios can include attempting to log in using invalid usernames more than the allowed number of times, attempting
+    invalid OTPs more than the allowed number of times, etc.
+    :::

@@ -1,6 +1,10 @@
-!!!info
-    Some content in this documentation is subject to the [MIT Open Licence](https://www.openbanking.org.uk/open-licence/).
-    For further information, see [Copyright and Licence](copyright-and-licence.md).
+---
+title: "Payment Initiation API"
+---
+:::info
+Some content in this documentation is subject to the [MIT Open Licence](https://www.openbanking.org.uk/open-licence/).
+For further information, see [Copyright and Licence](copyright-and-licence.md).
+:::
 
 ## Introduction
 
@@ -36,9 +40,10 @@ Then the PSU approves the consent. The PISP may optionally invoke the following 
 - Confirm available funds for a payment-order - Using an access token of the Client Credentials grant type.
 - Retrieve the status of a payment-order consent or payment-order resource - Using an access token of the Authorization Code grant type.
 
-!!!note
-    The payment-order consent and payment-order resource is generalised for the different payment-order types. For example, for a 
-    domestic payment, the payment-order consent resource is `domestic-payment-consents`, and the payment-order resource is `domestic-payments`. 
+:::note
+The payment-order consent and payment-order resource is generalised for the different payment-order types. For example, for a 
+domestic payment, the payment-order consent resource is `domestic-payment-consents`, and the payment-order resource is `domestic-payments`. 
+:::
 
 For more information, see [Payment Initiation API Flow](../try-out/payment-initiation-flow.md).
 
@@ -58,167 +63,167 @@ Once you deploy the Payment Initiation API, you can access payment information v
 </thead>
 <tbody>
   <tr>
-    <td rowspan="5">Domestic Payments</td>
-    <td rowspan="5">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10<br>v3.1.11</td>
-    <td rowspan="3"><code>domestic-payment-consents</code></td>
+    <td rowSpan="5">Domestic Payments</td>
+    <td rowSpan="5">v3.1.5<br />v3.1.6<br />v3.1.8<br />v3.1.9<br />v3.1.10<br />v3.1.11</td>
+    <td rowSpan="3"><code>domestic-payment-consents</code></td>
     <td><code>POST /domestic-payment-consents</code></td>
     <td>Mandatory</td>
   </tr>
   <tr>
-    <td><code>GET /domestic-payment-consents/{ConsentId}</code></td>
+    <td><code>{"GET /domestic-payment-consents/{ConsentId}"}</code></td>
     <td>Mandatory</td>
   </tr>
   <tr>
-    <td><code>GET /domestic-payment-consents/{ConsentId}/funds-confirmation</code></td>
+    <td><code>{"GET /domestic-payment-consents/{ConsentId}/funds-confirmation"}</code></td>
     <td>Mandatory</td>
   </tr>
   <tr>
-    <td rowspan="2"><code>domestic-payments</code></td>
+    <td rowSpan="2"><code>domestic-payments</code></td>
     <td><code>POST /domestic-payments</code></td>
     <td>Mandatory</td>
   </tr>
   <tr>
-    <td><code>GET /domestic-payments/{DomesticPaymentId}</code></td>
+    <td><code>{"GET /domestic-payments/{DomesticPaymentId}"}</code></td>
     <td>Mandatory</td>
   </tr>
   <tr>
-    <td rowspan="4">Domestic Scheduled Payment</td>
-    <td rowspan="4">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10<br>v3.1.11</td>
-    <td rowspan="2"><code>domestic-scheduled-payment-consents</code></td>
+    <td rowSpan="4">Domestic Scheduled Payment</td>
+    <td rowSpan="4">v3.1.5<br />v3.1.6<br />v3.1.8<br />v3.1.9<br />v3.1.10<br />v3.1.11</td>
+    <td rowSpan="2"><code>domestic-scheduled-payment-consents</code></td>
     <td><code>POST /domestic-scheduled-payment-consents</code></td>
     <td>Conditional</td>
   </tr>
   <tr>
-    <td><code>GET /domestic-scheduled-payment-consents/{ConsentId}</code></td>
+    <td><code>{"GET /domestic-scheduled-payment-consents/{ConsentId}"}</code></td>
     <td>Mandatory (if resource POST implemented)</td>
   </tr>
   <tr>
-    <td rowspan="2"><code>domestic-scheduled-payments</code></td>
+    <td rowSpan="2"><code>domestic-scheduled-payments</code></td>
     <td><code>POST /domestic-scheduled-payments</code></td>
     <td>Conditional</td>
   </tr>
   <tr>
-    <td><code>GET /domestic-scheduled-payments/{DomesticScheduledPaymentId}</code></td>
+    <td><code>{"GET /domestic-scheduled-payments/{DomesticScheduledPaymentId}"}</code></td>
     <td>Mandatory (if resource POST implemented)</td>
   </tr>
   <tr>
-    <td rowspan="4">Domestic Standing Orders</td>
-    <td rowspan="4">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10<br>v3.1.11</td>
-    <td rowspan="2"><code>domestic-standing-order-consents</code></td>
+    <td rowSpan="4">Domestic Standing Orders</td>
+    <td rowSpan="4">v3.1.5<br />v3.1.6<br />v3.1.8<br />v3.1.9<br />v3.1.10<br />v3.1.11</td>
+    <td rowSpan="2"><code>domestic-standing-order-consents</code></td>
     <td><code>POST /domestic-standing-order-consents</code></td>
     <td>Conditional</td>
   </tr>
   <tr>
-    <td><code>GET /domestic-standing-order-consents/{ConsentId}</code></td>
+    <td><code>{"GET /domestic-standing-order-consents/{ConsentId}"}</code></td>
     <td>Mandatory (if resource POST implemented)</td>
   </tr>
   <tr>
-    <td rowspan="2"><code>domestic-standing-orders</code></td>
+    <td rowSpan="2"><code>domestic-standing-orders</code></td>
     <td><code>POST /domestic-standing-orders</code></td>
     <td>Conditional</td>
   </tr>
   <tr>
-    <td><code>GET /domestic-standing-orders/{DomesticStandingOrderId}</code></td>
+    <td><code>{"GET /domestic-standing-orders/{DomesticStandingOrderId}"}</code></td>
     <td>Mandatory (if resource POST implemented)</td>
   </tr>
   <tr>
-    <td rowspan="5">International Payments</td>
-    <td rowspan="5">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10<br>v3.1.11</td>
-    <td rowspan="3"><code>international-payment-consents</code></td>
+    <td rowSpan="5">International Payments</td>
+    <td rowSpan="5">v3.1.5<br />v3.1.6<br />v3.1.8<br />v3.1.9<br />v3.1.10<br />v3.1.11</td>
+    <td rowSpan="3"><code>international-payment-consents</code></td>
     <td><code>POST /international-payment-consents</code></td>
     <td>Conditional</td>
   </tr>
   <tr>
-    <td><code>GET /international-payment-consents/{ConsentId}</code></td>
+    <td><code>{"GET /international-payment-consents/{ConsentId}"}</code></td>
     <td>Mandatory (if resource POST implemented)</td>
   </tr>
   <tr>
-    <td><code>GET /international-payment-consents/{ConsentId}/funds-confirmation</td>
+    <td><code>{"GET /international-payment-consents/{ConsentId}/funds-confirmation"}</code></td>
     <td>Mandatory (if resource POST implemented)</td>
   </tr>
   <tr>
-    <td rowspan="2"><code>international-payments</code></td>
+    <td rowSpan="2"><code>international-payments</code></td>
     <td><code>POST /international-payments</code></td>
     <td>Conditional</td>
   </tr>
   <tr>
-    <td><code>GET /international-payments/{InternationalPaymentId}</code></td>
+    <td><code>{"GET /international-payments/{InternationalPaymentId}"}</code></td>
     <td>Mandatory (if resource POST implemented)</td>
   </tr>
   <tr>
-    <td rowspan="5">International Scheduled Payments</td>
-    <td rowspan="5">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10<br>v3.1.11</td>
-    <td rowspan="3"><code>international-scheduled-payment-consents</code></td>
+    <td rowSpan="5">International Scheduled Payments</td>
+    <td rowSpan="5">v3.1.5<br />v3.1.6<br />v3.1.8<br />v3.1.9<br />v3.1.10<br />v3.1.11</td>
+    <td rowSpan="3"><code>international-scheduled-payment-consents</code></td>
     <td><code>POST /international-scheduled-payment-consents</code></td>
     <td>Conditional</td>
   </tr>
   <tr>
-    <td><code>GET /international-scheduled-payment-consents/{ConsentId}</code></td>
+    <td><code>{"GET /international-scheduled-payment-consents/{ConsentId}"}</code></td>
     <td>Mandatory (if resource POST implemented)</td>
   </tr>
   <tr>
-    <td><code>GET /international-scheduled-payment-consents/{ConsentId}/funds-confirmation</code></td>
+    <td><code>{"GET /international-scheduled-payment-consents/{ConsentId}/funds-confirmation"}</code></td>
     <td>Mandatory (if immediate debit supported)</td>
   </tr>
   <tr>
-    <td rowspan="2"><code>international-scheduled-payments</code></td>
+    <td rowSpan="2"><code>international-scheduled-payments</code></td>
     <td><code>POST /international-scheduled-payments</code></td>
     <td>Conditional</td>
   </tr>
   <tr>
-    <td><code>GET /international-scheduled-payments/{InternationalScheduledPaymentId}</code></td>
+    <td><code>{"GET /international-scheduled-payments/{InternationalScheduledPaymentId}"}</code></td>
     <td>Mandatory (if resource POST implemented)</td>
   </tr>
   <tr>
-    <td rowspan="4">International Standing Orders</td>
-    <td rowspan="4">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10<br>v3.1.11</td>
-    <td rowspan="2"><code>international-standing-order-consents</code></td>
+    <td rowSpan="4">International Standing Orders</td>
+    <td rowSpan="4">v3.1.5<br />v3.1.6<br />v3.1.8<br />v3.1.9<br />v3.1.10<br />v3.1.11</td>
+    <td rowSpan="2"><code>international-standing-order-consents</code></td>
     <td><code>POST /international-standing-order-consents</code></td>
     <td>Conditional</td>
   </tr>
   <tr>
-    <td><code>GET /international-standing-order-consents/{ConsentId}</code></td>
+    <td><code>{"GET /international-standing-order-consents/{ConsentId}"}</code></td>
     <td>Mandatory (if resource POST implemented)</td>
   </tr>
   <tr>
-    <td rowspan="2"><code>international-standing-orders</code></td>
+    <td rowSpan="2"><code>international-standing-orders</code></td>
     <td><code>POST /international-standing-orders</code></td>
     <td>Conditional</td>
   </tr>
   <tr>
-    <td><code>GET /international-standing-orders/{InternationalStandingOrderPaymentId}</code></td>
+    <td><code>{"GET /international-standing-orders/{InternationalStandingOrderPaymentId}"}</code></td>
     <td>Mandatory (if resource POST implemented)</td>
   </tr>
   <tr>
-    <td rowspan="7">File Payments</td>
-    <td rowspan="7">v3.1.5<br>v3.1.6<br>v3.1.8<br>v3.1.9<br>v3.1.10<br>v3.1.11</td>
-    <td rowspan="4"><code>file-payment-consents</code></td>
+    <td rowSpan="7">File Payments</td>
+    <td rowSpan="7">v3.1.5<br />v3.1.6<br />v3.1.8<br />v3.1.9<br />v3.1.10<br />v3.1.11</td>
+    <td rowSpan="4"><code>file-payment-consents</code></td>
     <td><code>POST /file-payment-consents</code></td>
     <td>Conditional</td>
   </tr>
   <tr>
-    <td><code>GET /file-payment-consents/{ConsentId}</code></td>
+    <td><code>{"GET /file-payment-consents/{ConsentId}"}</code></td>
     <td>Conditional</td>
   </tr>
   <tr>
-    <td><code>POST /file-payment-consents/{ConsentId}/file</code></td>
+    <td><code>{"POST /file-payment-consents/{ConsentId}/file"}</code></td>
     <td>Mandatory (if resource POST implemented)</td>
   </tr>
   <tr>
-    <td><code>GET /file-payment-consents/{ConsentId}/file</code></td>
+    <td><code>{"GET /file-payment-consents/{ConsentId}/file"}</code></td>
     <td>Conditional</td>
   </tr>
   <tr>
-    <td rowspan="3"><code>file-payments</code></td>
+    <td rowSpan="3"><code>file-payments</code></td>
     <td><code>POST /file-payments</code></td>
     <td>Conditional</td>
   </tr>
   <tr>
-    <td><code>GET /file-payments/{FilePaymentId}</code></td>
+    <td><code>{"GET /file-payments/{FilePaymentId}"}</code></td>
     <td>Mandatory (if resource POST implemented)</td>
   </tr>
   <tr>
-    <td><code>GET /file-payments/{FilePaymentId}/report-file</code></td>
+    <td><code>{"GET /file-payments/{FilePaymentId}/report-file"}</code></td>
     <td>Conditional</td>
   </tr>
 </tbody>

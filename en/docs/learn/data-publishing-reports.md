@@ -1,14 +1,17 @@
+---
+title: "Generate Reports"
+---
 # Generating reports using summarized data
 
 Using the `OB_REPORTING_SUMMARIZED_DB` datasource (`openbank_ob_reporting_summarizeddb` database) you can generate the 
 following reports according to the OBIE templates:
 
-## Template 1 - Performance and Availability (P&A) (OBIE)
+## Template 1 - Performance and Availability (P&A) (OBIE) \{#template-1-performance-and-availability-pa-obie\}
 
 | ID | Field Name | Table to refer | How to capture data |
 | -- | ---------- | -------------- | ------------------- |
 | 1 | Report Date | The respective table you retrieve the date from | Get the year-month-date values from the table |
-| 2 | ASPSP Brand ID | N/A | A fixed value for a bank | 
+| 2 | ASPSP Brand ID | N/A | A fixed value for a bank |
 | 3 | Endpoint ID | `ENDPOINT_DETAILS` | Download the SQL script from [here](https://docs.wso2.com/download/attachments/126577679/ENDPOINT_DETAILS.sql?api=v2) to create the `ENDPOINT_DETAILS` in your MSSQL database. A fixed value. Get the resource from the respective table and map that with the `ENDPOINT_ID` table. |
 | 4 | Core/Non Core Hours | Either Core or Non-Core | This column should be either CORE or NON-CORE |
 | 5 | Up Time | N/A| Need to get from an external tool |
@@ -26,7 +29,7 @@ following reports according to the OBIE templates:
 | 17 | Total ResponsePayload Size | `PA_CORE` or `PA_NON_CORE` | Get the `TOTAL_RESPONSE_PAYLOAD_SIZE` value from the relevant table per day per time per endpoint |
 | 18 | Version | `PA_CORE` or `PA_NON_CORE` | Get the `API_SPEC_VERSION` value from the relevant table per day per time per endpoint |
 
-## Template 2 - PSU Authentication & Interaction
+## Template 2 - PSU Authentication & Interaction \{#template-2-psu-authentication-interaction\}
 
 | ID | Field Name | Table to refer | How to capture data |
 | -- | ---------- | -------------- | ------------------- |
@@ -37,7 +40,7 @@ following reports according to the OBIE templates:
 | 5 | PSU Authentications & Interactions Volumes (OPTIONAL) | `PSU_AUTHENTICATION_INTERACTION` | Get the `FLOW_COUNT` value |
 | 6 | Version | `PSU_AUTHENTICATION_INTERACTION` | Get the `API_SPEC_VERSION` value |
 
-## Template 3 - Response Outliers (OBIE)
+## Template 3 - Response Outliers (OBIE) \{#template-3-response-outliers-obie\}
 
 | ID | Field Name | Table to refer | How to capture data |
 | -- | ---------- | -------------- | ------------------- |
@@ -51,7 +54,7 @@ following reports according to the OBIE templates:
 | 8 | Response Payload Size | `RESPONSE_OUTLIER` | Get `RESPONSE_PAYLOAD_SIZE` value per day per time per endpoint |
 | 9 | Version | `RESPONSE_OUTLIER` | Get `API_SPEC_VERSION` value per day per time per endpoint |
 
-## Template 4 - Auth Efficacy (OBIE) (WIP)
+## Template 4 - Auth Efficacy (OBIE) (WIP) \{#template-4-auth-efficacy-obie-wip\}
 
 | ID | Field Name | Table to refer | How to capture data |
 | -- | ---------- | -------------- | ------------------- |
@@ -70,7 +73,7 @@ following reports according to the OBIE templates:
 | 13 | Confirmations Accepted by PSUs | `CONFIRMATION_DETAILS` | Get the Authorised count per month |
 | 14 | Confirmations Rejected by PSUs | `CONFIRMATION_DETAILS` | Get the Rejected count per month |
 
-## Template 5 - PSU Adoption (OBIE)
+## Template 5 - PSU Adoption (OBIE) \{#template-5-psu-adoption-obie\}
 
 | ID | Field Name | Table to refer | How to capture data |
 | -- | ---------- | -------------- | ------------------- |
@@ -89,7 +92,7 @@ following reports according to the OBIE templates:
 | 13 | Total number of PSUs used Mobile Banking | `PSU_DETAILS` | The retail and business PSU details are available in the core banking system. The provided raw data tables include the `PSU_ID`s that used Mobile Banking. You can use the `PSU_ID` and get the total PSU count that used the Mobile Banking in a particular month |
 | 14 | Version | `PSU_DETAILS` | Get `API_SPEC_VERSION` value |
 
-## Template 6 - Enhanced PSU Adoption (OBIE)
+## Template 6 - Enhanced PSU Adoption (OBIE) \{#template-6-enhanced-psu-adoption-obie\}
 
 | ID | Field Name | Table to refer | How to capture data |
 | -- | ---------- | -------------- | ------------------- |
@@ -101,12 +104,13 @@ following reports according to the OBIE templates:
 | 6 | Active SME Businesses | | |
 | 7 | Version | | |
 
-## Template 7 - PSU Consent Adoption (OBIE)
+## Template 7 - PSU Consent Adoption (OBIE) \{#template-7-psu-consent-adoption-obie\}
 
-!!! info
-    The fields `Long-lived consents - Consents Requiring Reauthentication` and `Long-lived consents - Total Refreshed consents` 
-    are only available as a WSO2 Update from **WSO2 Open Banking Business Intelligence UK Toolkit Level 1.0.0.1** onwards. 
-    For more information on updating, see [Getting WSO2 Updates](../install-and-setup/setting-up-servers.md#getting-wso2-updates).
+:::info
+The fields `Long-lived consents - Consents Requiring Reauthentication` and `Long-lived consents - Total Refreshed consents` 
+are only available as a WSO2 Update from **WSO2 Open Banking Business Intelligence UK Toolkit Level 1.0.0.1** onwards. 
+For more information on updating, see [Getting WSO2 Updates](../install-and-setup/setting-up-servers.md#getting-wso2-updates).
+:::
 
 | ID | Field Name | Table to refer | How to capture data |
 | -- | ---------- | -------------- | ------------------- |
@@ -118,40 +122,42 @@ following reports according to the OBIE templates:
 | 6 | Long-lived consents - Outstanding consents BoP | `LONG_LIVED_CONSENT_ADOPTION` | |
 | 7 | Long-lived consents - Revoked consents | `LONG_LIVED_CONSENT_ADOPTION` | |
 | 8 | Long-lived consents - Expired consents | `LONG_LIVED_CONSENT_ADOPTION` | |
-| 9 | Long-lived consents - Consents Requiring Reauthentication | `CONSENT_REQ_REAUTHENTICATION` | This is the total number of unique Long-lived consents, which required 90 days PSU re-authentication. <br/> <br/> See the note below this table to learn how to capture data. |
+| 9 | Long-lived consents - Consents Requiring Reauthentication | `CONSENT_REQ_REAUTHENTICATION` | This is the total number of unique Long-lived consents, which required 90 days PSU re-authentication. <br /> <br /> See the note below this table to learn how to capture data. |
 | 10 | Long-lived consents - Renewed consents | `LONG_LIVED_CONSENT_ADOPTION` | |
 | 11 | Long-lived consents - New consents | `LONG_LIVED_CONSENT_ADOPTION` | |
 | 12 | Long-lived consents - Outstanding consents EoP | `LONG_LIVED_CONSENT_ADOPTION` | |
-| 13 | Long-lived consents - Total Refreshed consents | `REFRSHED_CONSENT` | This is the total number of unique Long-lived consents that have been refreshed (Re-authenticated). <br/> <br/> See the note below this table to learn how to capture data. |
+| 13 | Long-lived consents - Total Refreshed consents | `REFRSHED_CONSENT` | This is the total number of unique Long-lived consents that have been refreshed (Re-authenticated). <br /> <br /> See the note below this table to learn how to capture data. |
 | 14 | Version | `LONG_LIVED_CONSENT_ADOPTION` | |
 
-!!! note "To capture `Long-lived consents - Consents Requiring Re-authentication`:"
-       1. Join `ACCOUNTS_RAW_DATA` and `API_INVOCATION_RAW_DATA` tables.
-       2. Get the total count of `CONSENT_ID` as `TOTAL_CONSENT_REQ_REAUTH`. 
-       3. Consider the following conditions:
-          - `CONSENT_TYPE` = `'long-lived'`
-          - `AUTHORISATION_STATUS` = `'Authorised'`
-          - `RE_AUTHORISATION` == `false`
-          - `EXPIRATION_DATE_TIME` > `REPORTING_DATE_TIME`
-          - `REPORTING_DATE_TIME` - 90 days> `AUTHORIZED_TIME_DATE`
+:::note[To capture `Long-lived consents - Consents Requiring Re-authentication`:]
+1. Join `ACCOUNTS_RAW_DATA` and `API_INVOCATION_RAW_DATA` tables.
+2. Get the total count of `CONSENT_ID` as `TOTAL_CONSENT_REQ_REAUTH`. 
+3. Consider the following conditions:
+    - `CONSENT_TYPE` = `'long-lived'`
+    - `AUTHORISATION_STATUS` = `'Authorised'`
+    - `RE_AUTHORISATION` == `false`
+    - `EXPIRATION_DATE_TIME` > `REPORTING_DATE_TIME`
+    - `REPORTING_DATE_TIME` - 90 days> `AUTHORIZED_TIME_DATE`
+:::
 
-!!! note "To capture `Long-lived consents - Total Refreshed consents`:"
-       1. Join `ACCOUNTS_RAW_DATA` and `API_INVOCATION_RAW_DATA` tables.
-       2. Get the total count of `CONSENT_ID` as `TOTAL_CONSENT_REQ_REAUTH`. 
-       3. Consider the following conditions:
-          - `CONSENT_TYPE` = `'long-lived'`
-          - `AUTHORISATION_STATUS` = `'Authorised'`
-          - `RE_AUTHORISATION` == `true`
-          - `EXPIRATION_DATE_TIME` > `REPORTING_DATE_TIME`
-          - `REAUTHORIZED_DATE_TIME` > `AUTHORIZED_TIME_DATE` + 90 days
+:::note[To capture `Long-lived consents - Total Refreshed consents`:]
+1. Join `ACCOUNTS_RAW_DATA` and `API_INVOCATION_RAW_DATA` tables.
+2. Get the total count of `CONSENT_ID` as `TOTAL_CONSENT_REQ_REAUTH`. 
+3. Consider the following conditions:
+    - `CONSENT_TYPE` = `'long-lived'`
+    - `AUTHORISATION_STATUS` = `'Authorised'`
+    - `RE_AUTHORISATION` == `true`
+    - `EXPIRATION_DATE_TIME` > `REPORTING_DATE_TIME`
+    - `REAUTHORIZED_DATE_TIME` > `AUTHORIZED_TIME_DATE` + 90 days
+:::
 
-## Template 8 - Payments Adoption (OBIE)
+## Template 8 - Payments Adoption (OBIE) \{#template-8-payments-adoption-obie\}
 
 | ID | Field Name | Table to refer | How to capture data |
 | -- | ---------- | -------------- | ------------------- |
 | 1 | ReportMonth | The respective table you get the month from | Get the year-month values from the table |
 | 2 | ASPSP Brand ID | N/A | A fixed value for a bank |
-| 3 | Total AISPs Registered (at 1st of month) | Zero for the starting month and for the following months the cumulative monthly number of AISPs registered of the last month |
+| 3 | Total AISPs Registered (at 1<sup>st</sup> of month) | Zero for the starting month and for the following months the cumulative monthly number of AISPs registered of the last month |
 | 4 | AISP Additions | `AISP_VOLUMES` | Get data from the `AISP_COUNT` column where `STATUS`=`'CREATED'` |
 | 5 | Successful single Domestic Payments | `BACS_REQUEST_STATUS` or `CHAPS_REQUEST_STATUS` | Select the `REQUEST_COUNT` from the relevant payment type table where `PAYMENT_TYPE` = `/domestic-payment` and (`AUTHORISATION_STATUS` = `AcceptedSettlementInProgress` or `AUTHORISATION_STATUS` = `AcceptedSettlementCompleted`) |
 | 6 | Single Domestic Payments failed for Business Reasons | `FAILED_BACS_REQUESTS` or `FAILED_CHAPS_REQUESTS` | Get the sum of `REQUEST_COUNT` from the relevant payment type table where `STATUS_CODE LIKE '%4%'` |
@@ -161,22 +167,22 @@ following reports according to the OBIE templates:
 | 10 | Successful International payments involving currency conversion | `BACS_INTERNATIONAL` or `CHAPSS_INTERNATIONAL` | The currency conversion details are available in the core banking system. The given tables provide all the successful international-payment details with the consent id for each payment type |
 | 11 | Version | |Get `API_SPEC_VERSION` value |
 
-## Template 9 - TPP Volumes (OBIE)
+## Template 9 - TPP Volumes (OBIE) \{#template-9-tpp-volumes-obie\}
 
 | ID | Field Name | Table to refer | How to capture data |
 | -- | ---------- | -------------- | ------------------- |
 | 1 | ReportMonth | The respective table you get the month from | Get the year-month values from the table |
 | 2 | ASPSP Brand ID | N/A | A fixed value for a bank |
-| 3 | Total AISPs Registered (at 1st of month) | | Zero for the starting month and for the following months the cumulative monthly number of AISPs registered of the last month |
+| 3 | Total AISPs Registered (at 1<sup>st</sup> of month) | | Zero for the starting month and for the following months the cumulative monthly number of AISPs registered of the last month |
 | 4 | AISP Additions | `AISP_VOLUMES` | Get data from the `AISP_COUNT` column where `STATUS`=`CREATED` |
 | 5 | AISP Deregistrations | `AISP_VOLUMES` | Get data from the `AISP_COUNT` column where `STATUS`=`DELETED` |
-| 6 | Cumulative Monthly number of AISPs | | Use the following formula: (Total no of AISPs registered (at 1st of the month) + AISP Additions - AISP deregistrations)
-| 7 | Total PISPs Registered (at 1st of month) | | Zero for the starting month and for the following months the cumulative monthly number of PISPs registered of last month.
+| 6 | Cumulative Monthly number of AISPs | | Use the following formula: (Total no of AISPs registered (at 1<sup>st</sup> of the month) + AISP Additions - AISP deregistrations)
+| 7 | Total PISPs Registered (at 1<sup>st</sup> of month) | | Zero for the starting month and for the following months the cumulative monthly number of PISPs registered of last month.
 | 8 | PISP Additions | `PISP_VOLUMES` |Get data from the `PISP_COUNT` column where `STATUS`=`CREATED`.
 | 9 | PISP Deregistrations | `PISP_VOLUMES` | Get data from the `PISP_COUNT` column where `STATUS`=`DELETED`.
-| 10 | Cumulative Monthly number of PISPs | | Use the following formula: <br/> <br/> (Total no of PISPs registered (at 1st of month) + PISP Additions - PISP reregistrations)
+| 10 | Cumulative Monthly number of PISPs | | Use the following formula: <br /> <br /> (Total no of PISPs registered (at 1<sup>st</sup> of month) + PISP Additions - PISP reregistrations)
 
-## Template 10 - Daily Volumes (OBIE)
+## Template 10 - Daily Volumes (OBIE) \{#template-10-daily-volumes-obie\}
 
 | ID | Field Name | Table to refer | How to capture data |
 | -- | ---------- | -------------- | ------------------- |
@@ -194,9 +200,9 @@ following reports according to the OBIE templates:
 | 12 | API Calls Authorised but Not Consumed | `AUTHORISATION_SUMMERY` | Get the count of Authorised status per endpoint per day and deduct the count of AcceptedStatementInProcess status per endpoint per day.
 | 13 | Multi Auth API Calls Successful | `MULTI_AUTH_DETAILS` | Get the count of Authorised statuses against /domestic-payment-consent per day |
 | 14 | Multi Auth API Calls Failed  | `MULTI_AUTH_DETAILS`  |Get the count of Rejected statuses against /domestic-payment-consent per day |
-| 15 | Version | Get `API_SPEC_VERSION` value | 
+| 15 | Version | Get `API_SPEC_VERSION` value |
 
-## Template 11 - Additional Metrics (OBIE)
+## Template 11 - Additional Metrics (OBIE) \{#template-11-additional-metrics-obie\}
 
 - Additional Metrics - Payment Status
 - Additional Metrics - Payment SCA Exemptions

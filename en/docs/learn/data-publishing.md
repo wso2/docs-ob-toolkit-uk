@@ -1,4 +1,7 @@
-#Data Publishing
+---
+title: "Introduction"
+---
+# Data Publishing
 
 The Data Publishing feature gathers and monitors data in regard to the APIs invoked through WSO2 Open Banking. 
 WSO2 Open Banking Business Intelligence Toolkit captures the data through Identity Server and API Manager servers and
@@ -30,11 +33,11 @@ The Data Reporting feature captures data in the following flows:
 All the data are stored in two databases. Database and datasource details are given below:
 
 - **`OB_REPORTING_DB`**: Stores all raw data related to API invocation, authentication, authorization, and application 
-registrations. The data stored in the database is not processed by any means, therefore the ASPSPs can use this database and summarize 
-data according to the requirements. The default database name is `openbank_ob_reporting_statsdb`. 
+    registrations. The data stored in the database is not processed by any means, therefore the ASPSPs can use this database and summarize 
+    data according to the requirements. The default database name is `openbank_ob_reporting_statsdb`. 
 
 - **`OB_REPORTING_SUMMARIZED_DB`**: Stores summarized data of the `OB_REPORTING_DB` datasource. The summarization contains 
-information related to API invocation, consents, single and batch payment information, payment submission, etc. The default 
-database name is `openbank_ob_reporting_summarizeddb`.
+    information related to API invocation, consents, single and batch payment information, payment submission, etc. The default 
+    database name is `openbank_ob_reporting_summarizeddb`.
 
 For more information on the report templates that can be generated, see [Generating reports using summarized data](data-publishing-reports.md).
