@@ -10,10 +10,10 @@ const sidebars: SidebarsConfig = {
       className: 'sidebar-section-icon-get-started',
       collapsed: true,
       items: [
+        {type: 'doc', id: 'get-started/wso2-open-banking-uk-toolkit', label: 'WSO2 Open Banking UK Toolkit'},
         {type: 'doc', id: 'get-started/open-banking', label: 'Open Banking'},
         {type: 'doc', id: 'get-started/open-banking-requirements', label: 'Open Banking Requirements'},
         {type: 'doc', id: 'get-started/regulations-and-standards', label: 'Regulations and Standards'},
-        {type: 'doc', id: 'get-started/wso2-open-banking-uk-toolkit', label: 'WSO2 Open Banking UK Toolkit'},
         {type: 'doc', id: 'get-started/about-this-release', label: 'About this Release'},
         {
           type: 'category',
