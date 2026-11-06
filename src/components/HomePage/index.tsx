@@ -91,8 +91,8 @@ function Icon({name}: {name: string}) {
 }
 
 /** A row of feature tiles; each tile links to a page. */
-export function FeatureTiles({children}: {children: React.ReactNode}) {
-  return <div className="ob-home__tiles">{children}</div>;
+export function FeatureTiles({children, columns}: {children: React.ReactNode; columns?: number}) {
+  return <div className={columns ? `ob-home__tiles ob-home__tiles--cols-${columns}` : 'ob-home__tiles'}>{children}</div>;
 }
 
 export function FeatureTile(props: {to: string; icon: string; title: string; hint: string}) {
@@ -137,6 +137,8 @@ export function SectionSummary(props: {
   );
 }
 
-export function SectionSummaries({children}: {children: React.ReactNode}) {
-  return <div className="ob-home__sections">{children}</div>;
+export function SectionSummaries({children, columns}: {children: React.ReactNode; columns?: number}) {
+  return (
+    <div className={columns ? `ob-home__sections ob-home__sections--cols-${columns}` : 'ob-home__sections'}>{children}</div>
+  );
 }

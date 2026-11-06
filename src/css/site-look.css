@@ -708,8 +708,72 @@ html[data-theme='light'] .theme-doc-markdown a:not([class*='button']):not([class
   color: var(--ifm-link-hover-color);
 }
 
-/* Home page of a toolkit: the model diagram sits where the video is on the accelerator Home page. */
+/*
+ * Wide pages (front matter `wide: true`, the Home page) use the whole content area; without this the 820px
+ * reading width of `.markdown` squeezes them into the left of the page.
+ */
+.ob-wide-doc .theme-doc-markdown.markdown {
+  max-width: none;
+}
+
+/*
+ * Home page of a toolkit: the model diagram is a very wide image (about 2.6:1), so it goes under the intro text
+ * and spans the full content width instead of sharing a column with it.
+ */
+@media (min-width: 1100px) {
+  .ob-home__top.ob-home__top--stacked {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ob-home__top--stacked .ob-home__hero p {
+  max-width: 920px;
+}
+
 .ob-home__top img {
+  border-radius: var(--ifm-card-border-radius);
+  display: block;
   height: auto;
-  max-width: 100%;
+  width: 100%;
+}
+
+/*
+ * Tiles of a toolkit Home page fill every row: six tiles are 3 + 3; five tiles are three over two, the two
+ * stretched to share the row. Below 1000px the tiles flow in as many columns as fit.
+ */
+@media (min-width: 1000px) {
+  .ob-home__tiles--cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .ob-home__tiles--cols-5 {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .ob-home__tiles--cols-5 > :nth-child(-n + 3) {
+    grid-column: span 2;
+  }
+
+  .ob-home__tiles--cols-5 > :nth-child(n + 4) {
+    grid-column: span 3;
+  }
+}
+
+/* Section summaries of a toolkit Home page fill every row: four across, or five as three over two. */
+@media (min-width: 1000px) {
+  .ob-home__sections--cols-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .ob-home__sections--cols-5 {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .ob-home__sections--cols-5 > :nth-child(-n + 3) {
+    grid-column: span 2;
+  }
+
+  .ob-home__sections--cols-5 > :nth-child(n + 4) {
+    grid-column: span 3;
+  }
 }
