@@ -1,6 +1,12 @@
+---
+title: "Set up Toolkits"
+---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 This section guides you to set up and prepare your servers to run WSO2 Open Banking UK Toolkit.
 
-## Set up accelerators 
+## Set up accelerators
 Copy the extracted accelerator directories into the root directories of the respective base products. Use the table to 
 locate the respective root directory of the base products:
 
@@ -11,16 +17,17 @@ locate the respective root directory of the base products:
 
 ### Configure database scripts for accelerators
 
-!!! note 
-    WSO2 Open Banking Accelerator is [compatible](../install-and-setup/prerequisites.md#compatibility) with the following DBMSs:
-    
-     - MySQL 8.0
-     - Oracle 19c
-     - Microsoft SQL Server 2017
-     - PostgreSQL 13
-     
-       This section explains how to set up the solution with a MySQL 8.0 database server. For other DBMS, see 
-       [Setting up databases](../install-and-setup/setting-up-databases.md).
+:::note
+WSO2 Open Banking Accelerator is [compatible](../install-and-setup/prerequisites.md#compatibility) with the following DBMSs:
+
+- MySQL 8.0
+- Oracle 19c
+- Microsoft SQL Server 2017
+- PostgreSQL 13
+
+This section explains how to set up the solution with a MySQL 8.0 database server. For other DBMS, see 
+[Setting up databases](../install-and-setup/setting-up-databases.md).
+:::
 
 1. Open the `<APIM_HOME>/<OB_APIM_ACCELERATOR_HOME>/repository/conf/configure.properties` file.
 
@@ -29,20 +36,20 @@ locate the respective root directory of the base products:
 3. Configure databases related properties and database names.
 
 4. Open the `<IS_HOME>/<OB_IS_ACCELERATOR_HOME>/repository/conf/configure.properties` file and repeat step 2 and 3.
-     
-### Set up servers 
+
+### Set up servers
 1. Run the `merge.sh` script in `<APIM_HOME>/<OB_APIM_ACCELERATOR_HOME>/bin` and 
-`<IS_HOME>/<OB_IS_ACCELERATOR_HOME>/bin` respectively:
-```
-./merge.sh
-```
+    `<IS_HOME>/<OB_IS_ACCELERATOR_HOME>/bin` respectively:
+    ```
+    ./merge.sh
+    ```
 
 2. Run the configure.sh files in `<APIM_HOME>/<OB_APIM_ACCELERATOR_HOME>/bin` and 
-`<IS_HOME>/<OB_IS_ACCELERATOR_HOME>/bin` respectively:
-```
-./configure.sh
-```
-       
+    `<IS_HOME>/<OB_IS_ACCELERATOR_HOME>/bin` respectively:
+    ```
+    ./configure.sh
+    ```
+
 3. Extract the `wso2is-extensions` zip file of the relevant API Manager version.
 
 4. Follow the given instructions and copy the relevant files to the given directory paths.
@@ -54,8 +61,9 @@ locate the respective root directory of the base products:
     3. Open the `<IS_EXTENSION>/webapps` folder.
     4. Copy the `keymanager-operations.war` file to the `<IS_HOME>/repository/deployment/server/webapps` folder.
 
-!!! note
-    Even if you're only updating the Accelerator, you'll still need to run the Toolkit merge process since the Toolkit includes additional changes on top of the Accelerator. After completing the toolkit setup, remember to re-apply any custom modifications you may have made previously.
+:::note
+Even if you're only updating the Accelerator, you'll still need to run the Toolkit merge process since the Toolkit includes additional changes on top of the Accelerator. After completing the toolkit setup, remember to re-apply any custom modifications you may have made previously.
+:::
 
 ## Set up toolkits
 
@@ -69,70 +77,83 @@ locate the respective root directory of the base products:
 
 ### Configure database scripts for toolkits
 
-!!! note 
-    WSO2 Open Banking UK Toolkit is [compatible](../install-and-setup/prerequisites.md#compatibility) with the following DBMSs:
-    
-     - MySQL 8.0
-     - Oracle 19c
-     - Microsoft SQL Server 2017
-     - PostgreSQL 13
-     
-       This section explains how to set up the solution with a MySQL 8.0 database server. For other DBMS, see 
-       [Setting up databases](../install-and-setup/setting-up-databases.md).
+:::note
+WSO2 Open Banking UK Toolkit is [compatible](../install-and-setup/prerequisites.md#compatibility) with the following DBMSs:
+
+- MySQL 8.0
+- Oracle 19c
+- Microsoft SQL Server 2017
+- PostgreSQL 13
+
+This section explains how to set up the solution with a MySQL 8.0 database server. For other DBMS, see 
+[Setting up databases](../install-and-setup/setting-up-databases.md).
+:::
 
 1. Open the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/conf/configure.properties` file.
 2. Configure the hostnames of the API Manager and Identity Server.
 3. Configure databases related properties and database names.
-4. Open the <`IS_HOME>/<OB_IS_TOOLKIT_HOME>/repository/conf/configure.properties` file and repeat step 2 and 3.
+4. Open the \<`IS_HOME>/<OB_IS_TOOLKIT_HOME>/repository/conf/configure.properties` file and repeat step 2 and 3.
 
-### Set up servers 
+### Set up servers \{#set-up-servers_1\}
 
 1. Run the `merge.sh` script in `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/bin` and 
-`<IS_HOME>/<OB_IS_TOOLKIT_HOME>/bin` respectively:
-```
-./merge.sh
-```
+    `<IS_HOME>/<OB_IS_TOOLKIT_HOME>/bin` respectively:
+    ```
+    ./merge.sh
+    ```
 
 2. Run the configure.sh files in `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/bin` and 
-`<IS_HOME>/<OB_IS_TOOLKIT_HOME>/bin` respectively:
-```
-./configure.sh
-```
+    `<IS_HOME>/<OB_IS_TOOLKIT_HOME>/bin` respectively:
+    ```
+    ./configure.sh
+    ```
 
 3. If you are using **WSO2 Identity Server 6.0.0**,
 
     1. Open the `<IS_HOME>/repository/conf/deployment.toml` file.
     2. Add below configuration to enable application role validation:
-    
+
         ```toml
         [application_mgt]
         enable_role_validation = true
-        ```     
-       
+        ```
+
 ## Start servers
 
-??? warning "If you are using JDK 17 with WSO2 Identity Server 6.0.0 or above, you need to enable adaptive authentication. Click here to see how it is done..."
+<details className="ob-details ob-details--warning">
+<summary>If you are using JDK 17 with WSO2 Identity Server 6.0.0 or above, you need to enable adaptive authentication. Click here to see how it is done...</summary>
 
-     For JDK 17 runtime, adaptive authentication is disabled by default and it is required to enable adaptive authentication. To enable adaptive authentication: 
+For JDK 17 runtime, adaptive authentication is disabled by default and it is required to enable adaptive authentication. To enable adaptive authentication: 
 
-     1. Go to `<IS_HOME>/bin`. 
-     2. Run the following command:
+1. Go to `<IS_HOME>/bin`. 
+2. Run the following command:
 
-         ```toml tab='On Mac'
-         ./adaptive.sh
-         ```
+    <Tabs>
+    <TabItem value="on-mac" label="On Mac">
 
-         ```toml tab='On Windows'
-         ./adaptive.bat
-         ```
+    ```toml
+    ./adaptive.sh
+    ```
 
-     See [Adaptive Authentication - Prerequisites](https://is.docs.wso2.com/en/6.0.0/guides/adaptive-auth/configure-adaptive-auth/#prerequisites) for more information.
+    </TabItem>
+    <TabItem value="on-windows" label="On Windows">
+
+    ```toml
+    ./adaptive.bat
+    ```
+
+    </TabItem>
+    </Tabs>
+
+See [Adaptive Authentication - Prerequisites](https://is.docs.wso2.com/en/6.0.0/guides/adaptive-auth/configure-adaptive-auth/#prerequisites) for more information.
+
+</details>
 
 1. Run the following command in `<IS_HOME>/bin`:
-```
-./wso2server.sh
-```
+    ```
+    ./wso2server.sh
+    ```
 2. Run the following command in `<APIM_HOME>/bin`:
-```
-./api-manager.sh
-```
+    ```
+    ./api-manager.sh
+    ```

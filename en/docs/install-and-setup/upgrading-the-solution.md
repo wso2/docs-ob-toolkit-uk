@@ -1,3 +1,6 @@
+---
+title: "Upgrading the solution"
+---
 # Upgrading the solution
 
 This document walks you through the process of upgrading your WSO2 Open Banking 2.0 setup to WSO2 Open Banking 3.0 (Accelerator Model).
@@ -24,8 +27,8 @@ If you are ready to start the upgrading process, follow the instructions given b
 
 - If you already have a WSO2 subscription, create a support ticket with your migration requirements and one of our support engineers will get in touch with you.
 
-     [Create a ticket](https://support.wso2.com/support)
+    [Create a ticket](https://support.wso2.com/support)
 
 - If you are not a WSO2 customer and still need migration assistance and resources, please contact us through the following link. One of our Account Managers will get in touch with you to help.
 
-     [Contact us](https://wso2.com/contact/)
+    [Contact us](https://wso2.com/contact/)

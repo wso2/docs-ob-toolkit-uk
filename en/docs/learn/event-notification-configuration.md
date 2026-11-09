@@ -1,3 +1,6 @@
+---
+title: "Configuration"
+---
 # Configuring Event Notification
 
 Follow the steps to set up the Event Notifications Aggregated Polling API for Open Banking for UK:
@@ -7,14 +10,15 @@ Follow the steps to set up the Event Notifications Aggregated Polling API for Op
     1. Go to the `<IS_HOME>/dbscripts/open-banking/event-notifications` directory.
     2. According to your database, execute the relevant script against the `openbank_openbankingdb` database.
 
-        !!!note
-            For MySQL and PostgreSQL, remove the first line before executing the script.
-        
+        :::note
+        For MySQL and PostgreSQL, remove the first line before executing the script.
+        :::
+
 2. Open the `<IS_HOME>/repository/conf/deployment.toml` file.
 
 3. Find the `resource.access_control` configurations and add the following tags to secure the Event Notification endpoints:
 
-    ``` toml
+    ```toml
     [[resource.access_control]]
     context = "(.*)/api/openbanking/event-notifications/(.*)"
     secure="true"

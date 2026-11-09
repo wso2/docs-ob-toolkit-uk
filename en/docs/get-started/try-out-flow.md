@@ -1,7 +1,14 @@
+---
+title: "Tryout Flow"
+---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 This document provides step by step instructions to deploy, subscribe, and invoke the Account and Transaction API. 
 
-!!! tip
-    When the TPP provides an Account Information Service as an online service, the TPP is known as an Account Information Services Provider (AISP).
+:::tip
+When the TPP provides an Account Information Service as an online service, the TPP is known as an Account Information Services Provider (AISP).
+:::
 
 ## Deploying Account and Transaction API
 
@@ -20,7 +27,7 @@ This document provides step by step instructions to deploy, subscribe, and invok
     ```
     /open-banking/{version}/aisp
     ```
-   
+
     And set the version as `v3.1` if you are using API version 3, For API version 4 use `v4.0`
 
 7. Click **Create** to create the API. ![create-accounts](../assets/img/get-started/quick-start-guide/create-accounts.png)
@@ -37,54 +44,60 @@ This document provides step by step instructions to deploy, subscribe, and invok
 
 13. Add a custom policy. Follow the instructions given below according to the API Manager version you are using:
 
-    ??? note "Click here to see how to add a custom policy if you are using API Manager 4.0.0..."
+    <details className="ob-details ob-details--note">
+    <summary>Click here to see how to add a custom policy if you are using API Manager 4.0.0...</summary>
 
-        1. Click the **Edit** button under **Request > Message Mediation**. ![edit_message_mediation](../assets/img/get-started/quick-start-guide/edit-message-mediation.png)
-        
-        2. Select the **Custom Policy** option.
-        
-        3. Upload the relevant insequence file from the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/Accounts` directory. ![accounts_insequence](../assets/img/get-started/quick-start-guide/accounts-insequence.png)
-         
-        4. Click **Select**. 
-        
-        5. Scroll down and click **SAVE**.
+    1. Click the **Edit** button under **Request > Message Mediation**. ![edit_message_mediation](../assets/img/get-started/quick-start-guide/edit-message-mediation.png)
 
-    ??? note "Click here to see how to add a custom policy if you are using API Manager 4.1.0 or 4.2.0..."
+    2. Select the **Custom Policy** option.
 
-        1. Go to **Develop -> API Configurations -> Policies** in the left menu pane.<br><br>
-        <div style="width:40%">
+    3. Upload the relevant insequence file from the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/Accounts` directory. ![accounts_insequence](../assets/img/get-started/quick-start-guide/accounts-insequence.png)
+
+    4. Click **Select**. 
+
+    5. Scroll down and click **SAVE**.
+
+    </details>
+
+    <details className="ob-details ob-details--note">
+    <summary>Click here to see how to add a custom policy if you are using API Manager 4.1.0 or 4.2.0...</summary>
+
+    1. Go to **Develop -> API Configurations -> Policies** in the left menu pane.<br /><br />
+        <div style={{width: "40%"}}>
         ![select_policies](../assets/img/get-started/quick-start-guide/select-policies.png)
         </div>
 
-        2. On the **Policy List** card, click on **Add New Policy**.
+    2. On the **Policy List** card, click on **Add New Policy**.
 
-        3. Fill in the **Create New Policy**.
+    3. Fill in the **Create New Policy**.
 
-        4. Upload the relevant insequence file from the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/Accounts` directory.
+    4. Upload the relevant insequence file from the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/Accounts` directory.
 
-        5. Scroll down and click **Save**. Upon successful creation of the policy, you receive an alert as shown below: <br><br>
-        <div style="width:35%">
+    5. Scroll down and click **Save**. Upon successful creation of the policy, you receive an alert as shown below: <br /><br />
+        <div style={{width: "35%"}}>
         ![successful](../assets/img/get-started/quick-start-guide/successful.png)
         </div>
 
-        6. Expand the API endpoint you want from the list of API endpoints. For example: ![expand_api_endpoint](../assets/img/get-started/quick-start-guide/expand-api-endpoint.png)
+    6. Expand the API endpoint you want from the list of API endpoints. For example: ![expand_api_endpoint](../assets/img/get-started/quick-start-guide/expand-api-endpoint.png)
 
-        7. Expand the HTTP method from the API endpoint you selected. For example: ![expand_http_method](../assets/img/get-started/quick-start-guide/expand-http-method.png)
+    7. Expand the HTTP method from the API endpoint you selected. For example: ![expand_http_method](../assets/img/get-started/quick-start-guide/expand-http-method.png)
 
-        8. Drag and drop the previously created policy to the **Request Flow** of the API endpoint. ![request_flow](../assets/img/get-started/quick-start-guide/request-flow.png)
+    8. Drag and drop the previously created policy to the **Request Flow** of the API endpoint. ![request_flow](../assets/img/get-started/quick-start-guide/request-flow.png)
 
-        9. Select **Apply to all resources** and click **Save**.
+    9. Select **Apply to all resources** and click **Save**.
 
-        10. Scroll down and click **Save**.
+    10. Scroll down and click **Save**.
 
-14. Use the left menu panel and go to **API Configurations > Endpoints**. <br>![select_endpoints](../assets/img/get-started/quick-start-guide/select-endpoints.png)
+    </details>
+
+14. Use the left menu panel and go to **API Configurations > Endpoints**. <br />![select_endpoints](../assets/img/get-started/quick-start-guide/select-endpoints.png)
 
 15. Add a **Dynamic Endpoint**. ![add_dynamic_endpoint](../assets/img/get-started/quick-start-guide/add_dynamic_endpoint.png)
 
 16. Go to **Deployments** using the left menu pane. 
 
     ![select_deployments](../assets/img/get-started/quick-start-guide/select-deployments.png)
-    
+
 17. Select the API Gateway type, in this scenario, it is **Default**. ![api_gateway](../assets/img/get-started/quick-start-guide/dcr-api-gateway.png)
 
 18. Click **Deploy**.
@@ -111,14 +124,14 @@ Given below is a summary of configurations to follow when deploying the APIs in 
 
 ## Subscribing to Account and Transaction API
 
-1. The deployed API is now available in the Developer Portal at <https://localhost:9443/devportal>.
+1. The deployed API is now available in the Developer Portal at [https://localhost:9443/devportal](https://localhost:9443/devportal).
 
 2. Select the **AccountAndTransactionAPI V3.1** or **AccountAndTransactionAPI V4.0** API.
- 
+
 3. Locate **Subscriptions** from the left menu pane. 
 
     ![select_subscriptions](../assets/img/get-started/quick-start-guide/select-subscriptions.png)
-    
+
 4. From the **Application** dropdown, select the application that you want to be subscribed to the Account and Transaction API ![select_application](../assets/img/get-started/quick-start-guide/select-application.png)
 
 5. Click **Subscribe**.
@@ -131,23 +144,27 @@ Once you register the application, generate an application access token.
 
 1. Generate the client assertion by signing the following JSON payload using supported algorithms. 
 
-!!! note
-    If you have configured the [OB certificates](https://openbanking.atlassian.net/wiki/spaces/DZ/pages/252018873/OB+Root+and+Issuing+Certificates+for+Sandbox), 
+:::note
+If you have configured the [OB certificates](https://openbanking.atlassian.net/wiki/spaces/DZ/pages/252018873/OB+Root+and+Issuing+Certificates+for+Sandbox), 
 
-    - Use the [transport private key](../../assets/attachments/transport-certs/obtransport.key) and
-    [transport public certificate](../../assets/attachments/transport-certs/obtransport.pem) for Transport layer security testing purposes.
+- Use the [transport private key](pathname:///assets/attachments/transport-certs/obtransport.key) and
+    [transport public certificate](pathname:///assets/attachments/transport-certs/obtransport.pem) for Transport layer security testing purposes.
 
-    - Use the [signing certificate](../../assets/attachments/signing-certs/obsigning.pem) and 
-    [signing private keys](../../assets/attachments/signing-certs/obsigning.key) for signing purposes. 
+- Use the [signing certificate](pathname:///assets/attachments/signing-certs/obsigning.pem) and 
+    [signing private keys](pathname:///assets/attachments/signing-certs/obsigning.key) for signing purposes. 
+:::
 
-``` tab='Format'
+<Tabs>
+<TabItem value="format" label="Format">
+
+```
 
 {
 "alg": "<The algorithm used for signing.>",
 "kid": "<The thumbprint of the certificate.>",
 "typ": "JWT"
 }
- 
+
 {
 "iss": "<This is the issuer of the token. For example, client ID of your application>",
 "sub": "<This is the subject identifier of the issuer. For example, client ID of your application>",
@@ -156,31 +173,37 @@ Once you register the application, generate an application access token.
 "jti": "<This is an incremental unique value>",
 "aud": "<This is the audience that the ID token is intended for. For example, https://<IS_HOST>:9446/oauth2/token>"
 }
- 
+
 <signature: For DCR, the client assertion is signed by the private key of the signing certificate. For other scenarios, use the private signature of the application certificate.>
 ```
 
-``` tab='Sample'
+</TabItem>
+<TabItem value="sample" label="Sample">
+
+```
 eyJraWQiOiIyTUk5WFNLaTZkZHhDYldnMnJoRE50VWx4SmMiLCJhbGciOiJQUzI1NiJ9.eyJzdWIiOiJZRGNHNGY0OUcxM2tXZlZzbnFkaHo4Z2JhMndhIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6OTQ0Ni9vYXV0aDIvdG9rZW4iLCJpc3MiOiJZRGNHNGY0OUcxM2tXZlZzbnFkaHo4Z2JhMndhIiwiZXhwIjoxNjI4Nzc0ODU1LCJpYXQiOjE2Mjg3NDQ4NTUsImp0aSI6IjE2Mjg3NDQ4NTUxOTQifQ.PkKRSDtkCyXabzLgGwAoy5C3jSORVU8X8sGDVrKpetPnjbCNx2wPlH-PzWUU1n05gdC7lDmoU21nsKLF_nE3iC-9hKEy4YsvJ7PFjNBPMOMUYDhRh9PCkPnec6f042zonb_ZifBq8r1aScUDoZ1L0hq7yjfZubwReFCWbESQ8PauuBuHRl7__kWvglthfgruQ7TTiIWiM60LWYct5TQWSF1IDcYGy03l-9OV5l260JBHPT4heLXzUQTarsh0PoWpv09xYLu8uGCexEt-HtRH8qwJGiFi5PiCA09_KyWVqbrcdjBloCmD5Kiqa1X0AnEbf9kKs0fqvcl7NN5-yVQUjg
 ```
 
+</TabItem>
+</Tabs>
+
 2. Run the following cURL command in a command prompt to generate the access token. Update the placeholders with relevant values.
-``` curl
-curl -X POST \
-https://localhost:9446/oauth2/token \
---cert <TRANSPORT_PUBLIC_KEY_FILE_PATH> --key <TRANSPORT_PRIVATE_KEY_FILE_PATH> \
--d 'grant_type=client_credentials&scope=accounts%20openid&client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer&client_assertion=<CLIENT_ASSERTION_JWT>&redirect_uri=<REDIRECT_URI>&client_id=<CLIENT_ID>'
-```
+    ```curl
+    curl -X POST \
+    https://localhost:9446/oauth2/token \
+    --cert <TRANSPORT_PUBLIC_KEY_FILE_PATH> --key <TRANSPORT_PRIVATE_KEY_FILE_PATH> \
+    -d 'grant_type=client_credentials&scope=accounts%20openid&client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer&client_assertion=<CLIENT_ASSERTION_JWT>&redirect_uri=<REDIRECT_URI>&client_id=<CLIENT_ID>'
+    ```
 
 3. Upon successful token generation, you can obtain a token as follows:
-``` json
-{
-   "access_token":"eyJ4NXQiOiJOVGRtWmpNNFpEazNOalkwWXpjNU1tWm1PRGd3TVRFM01XWXdOREU1TVdSbFpEZzROemM0WkEiLCJraWQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZ19SUzI1NiIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhZG1pbkB3c28yLmNvbUBjYXJib24uc3VwZXIiLCJhdXQiOiJBUFBMSUNBVElPTiIsImF1ZCI6IllEY0c0ZjQ5RzEza1dmVnNucWRoejhnYmEyd2EiLCJuYmYiOjE2Mjg3NDQ4NTYsImF6cCI6IllEY0c0ZjQ5RzEza1dmVnNucWRoejhnYmEyd2EiLCJzY29wZSI6ImFjY291bnRzIiwiaXNzIjoiaHR0cHM6XC9cL2xvY2FsaG9zdDo5NDQ2XC9vYXV0aDJcL3Rva2VuIiwiY25mIjp7Ing1dCNTMjU2IjoidllvVVlSU1E3Q2dvWXhOTVdXT3pDOHVOZlFyaXM0cFhRWDBabWl0Unh6cyJ9LCJleHAiOjE2Mjg3NDg0NTYsImlhdCI6MTYyODc0NDg1NiwianRpIjoiNzBjZDIzYzItMzYxZS00YTEwLWI4YTQtNzg2MTljZmQ2MWJmIn0.WT9d2ov9kfSe75Q6ia_VNvJ12lNkrkMZNWdHu_Ata_nEpM8AWj4Mtc0e8Yb0oZFif_ypNgBtE2ck29nQLFgQ1IicL_OMIFUuwykro2oOCcFAbz7o_rhGsh39aW-ORlxm11_csmNeaWZNfC7lPp-9hBmNt9Sons_pCm2beTMFreZQyywPrJoQ9vwt1QCmkAlTP33YnPrf0u0RQePQvUq81RiJiokhZvwVufHARZv8KLtS8VLrpfbEoSglON_XkumydVjvRWs17I3Ot9zUj6kndHBsqMPZdq_aNQHntftdSI7TVNj5f66Q_4Uafz_hMXADS46pw87rTgzENHHf-5SRhw",
-   "scope":"accounts",
-   "token_type":"Bearer",
-   "expires_in":3600
-}
-```
+    ```json
+    {
+       "access_token":"eyJ4NXQiOiJOVGRtWmpNNFpEazNOalkwWXpjNU1tWm1PRGd3TVRFM01XWXdOREU1TVdSbFpEZzROemM0WkEiLCJraWQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZ19SUzI1NiIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhZG1pbkB3c28yLmNvbUBjYXJib24uc3VwZXIiLCJhdXQiOiJBUFBMSUNBVElPTiIsImF1ZCI6IllEY0c0ZjQ5RzEza1dmVnNucWRoejhnYmEyd2EiLCJuYmYiOjE2Mjg3NDQ4NTYsImF6cCI6IllEY0c0ZjQ5RzEza1dmVnNucWRoejhnYmEyd2EiLCJzY29wZSI6ImFjY291bnRzIiwiaXNzIjoiaHR0cHM6XC9cL2xvY2FsaG9zdDo5NDQ2XC9vYXV0aDJcL3Rva2VuIiwiY25mIjp7Ing1dCNTMjU2IjoidllvVVlSU1E3Q2dvWXhOTVdXT3pDOHVOZlFyaXM0cFhRWDBabWl0Unh6cyJ9LCJleHAiOjE2Mjg3NDg0NTYsImlhdCI6MTYyODc0NDg1NiwianRpIjoiNzBjZDIzYzItMzYxZS00YTEwLWI4YTQtNzg2MTljZmQ2MWJmIn0.WT9d2ov9kfSe75Q6ia_VNvJ12lNkrkMZNWdHu_Ata_nEpM8AWj4Mtc0e8Yb0oZFif_ypNgBtE2ck29nQLFgQ1IicL_OMIFUuwykro2oOCcFAbz7o_rhGsh39aW-ORlxm11_csmNeaWZNfC7lPp-9hBmNt9Sons_pCm2beTMFreZQyywPrJoQ9vwt1QCmkAlTP33YnPrf0u0RQePQvUq81RiJiokhZvwVufHARZv8KLtS8VLrpfbEoSglON_XkumydVjvRWs17I3Ot9zUj6kndHBsqMPZdq_aNQHntftdSI7TVNj5f66Q_4Uafz_hMXADS46pw87rTgzENHHf-5SRhw",
+       "scope":"accounts",
+       "token_type":"Bearer",
+       "expires_in":3600
+    }
+    ```
 
 ### Initiating an account consent
 
@@ -188,7 +211,10 @@ In this step, the AISP generates a request to get the consent of the PSU to acce
 
 1. Create an account consent using the following request format:
 
-``` tab='API v3'
+<Tabs>
+<TabItem value="api-v3" label="API v3">
+
+```
 curl -X POST \
 https://localhost:8243/open-banking/v3.1/aisp/account-access-consents \
 -H 'Authorization: Bearer <APPLICATION_ACCESS_TOKEN>' \
@@ -225,12 +251,15 @@ https://localhost:8243/open-banking/v3.1/aisp/account-access-consents \
       "TransactionToDateTime":"2022-01-28T10:29:08.824+05:30"
    },
    "Risk":{
-      
+
    }
 }'
 ```
 
-``` tab='API v4'
+</TabItem>
+<TabItem value="api-v4" label="API v4">
+
+```
 curl -X POST \
 https://localhost:8243/open-banking/v4.0 /aisp/account-access-consents \
 -H 'Authorization: Bearer <APPLICATION_ACCESS_TOKEN>' \
@@ -267,15 +296,21 @@ https://localhost:8243/open-banking/v4.0 /aisp/account-access-consents \
       "TransactionToDateTime":"2022-01-28T10:29:08.824+05:30"
    },
    "Risk":{
-      
+
    }
 }'
 ```
 
+</TabItem>
+</Tabs>
+
 
 2. The response contains a Consent Id. A sample response is as follows:
 
-    ```tab='API v3'
+    <Tabs>
+    <TabItem value="api-v3" label="API v3">
+
+    ```
     {
        "Data":{
           "Status":"AwaitingAuthorisation",
@@ -313,15 +348,18 @@ https://localhost:8243/open-banking/v4.0 /aisp/account-access-consents \
           "Self":"https://localhost:8243/open-banking/3.1/aisp/account-access-consents/343eea20-3f9d-4c12-8777-fe446c554210"
        },
        "Meta":{
-          
+
        },
        "Risk":{
-          
+
        }
     }
     ```
 
-    ```tab='API v4'
+    </TabItem>
+    <TabItem value="api-v4" label="API v4">
+
+    ```
     {
        "Data":{
           "Status":"AWAU",
@@ -359,21 +397,27 @@ https://localhost:8243/open-banking/v4.0 /aisp/account-access-consents \
           "Self":"https://localhost:8243/open-banking/4.0/aisp/account-access-consents/343eea20-3f9d-4c12-8777-fe446c554210"
        },
        "Meta":{
-          
+
        },
        "Risk":{
-          
+
        }
     }
     ```
-   
+
+    </TabItem>
+    </Tabs>
+
 ### Authorizing a consent
 
 The AISP application redirects the bank customer to authenticate and approve/deny application-provided consents.
 
 1. Generate the request object by signing the following JSON payload using supported algorithms.
 
-    ``` tab="Format"
+    <Tabs>
+    <TabItem value="format" label="Format">
+
+    ```
     {
       "kid": "<CERTIFICATE_FINGERPRINT>",
       "alg": "<SUPPORTED_ALGORITHM>",
@@ -413,23 +457,29 @@ The AISP application redirects the bank customer to authenticate and approve/den
       "client_id": "<APPLICATION_ID>"
     }
     ```
-    
-    ``` tab="Sample"
+
+    </TabItem>
+    <TabItem value="sample" label="Sample">
+
+    ```
     eyJraWQiOiIyTUk5WFNLaTZkZHhDYldnMnJoRE50VWx4SmMiLCJhbGciOiJQUzI1NiIsInR5cCI6IkpXVCJ9.eyJtYXhfYWdlIjo4NjQwMCwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6OTQ0Ni9vYXV0aDIvdG9rZW4iLCJzY29wZSI6ImFjY291bnRzIG9wZW5pZCIsImlzcyI6IllEY0c0ZjQ5RzEza1dmVnNucWRoejhnYmEyd2EiLCJjbGFpbXMiOnsiaWRfdG9rZW4iOnsiYWNyIjp7InZhbHVlcyI6WyJ1cm46b3BlbmJhbmtpbmc6cHNkMjpzY2EiLCJ1cm46b3BlbmJhbmtpbmc6cHNkMjpjYSJdLCJlc3NlbnRpYWwiOnRydWV9LCJvcGVuYmFua2luZ19pbnRlbnRfaWQiOnsidmFsdWUiOiJkYzY0ZTI3Yy03MTM5LTQ0MGUtOGI0Zi1jZDcwYzY0OWUwOTYiLCJlc3NlbnRpYWwiOnRydWV9fSwidXNlcmluZm8iOnsib3BlbmJhbmtpbmdfaW50ZW50X2lkIjp7InZhbHVlIjoiZGM2NGUyN2MtNzEzOS00NDBlLThiNGYtY2Q3MGM2NDllMDk2IiwiZXNzZW50aWFsIjp0cnVlfX19LCJyZXNwb25zZV90eXBlIjoiY29kZSBpZF90b2tlbiIsInJlZGlyZWN0X3VyaSI6Imh0dHBzOi8vd3NvMi5jb20iLCJzdGF0ZSI6IllXbHpjRG96TVRRMiIsImV4cCI6MTYzMzU4NjQwOCwibm9uY2UiOiJuLTBTNl9XekEyTWoiLCJjbGllbnRfaWQiOiJZRGNHNGY0OUcxM2tXZlZzbnFkaHo4Z2JhMndhIn0.OK0G0hxKQwBYEV8G9cDZAMkuLYU0Go3O8DhphzlYXpaTxPTpNUGFuUk6wiDNh0SGt-bBg6lC0mv7FrfBMv9r79yuDME6iqefgVB3PXhqWfGfRvhDY0wW9HvfGsWdrJ3MUxV0RomZeEyoooD3TrRItsc8-CsmAz5_BbCgSwYRGMcAwS89P-twlc3CE7YYru1ktGkoVQ8UvQA8IiXoomq-eS3oebRTD8DmYkjpeKURkO0rrssMuxOcN64GcgEAQeDW_dANSq_YSX9yTGGFWIzVmkafT5qzz0792VIGDtxx5Tr7keuDWIR_2SBdo_49oVLHttLu_kwNhN9u-Ed2Hx1wPQ
     ```
 
+    </TabItem>
+    </Tabs>
+
 2. The ASPSP sends the request to the customer stating the accounts and information that the API consumer wishes to access. 
-This request is in the format of a URL as follows. 
+    This request is in the format of a URL as follows. 
 
     Update the placeholders with relevant values and run the following in a browser to prompt the invocation of the authorize API. 
-    
+
     ```
     https://<IS_HOST>:9446/oauth2/authorize?response_type=code%20id_token&client_id=<CLIENT_ID>&scope=accounts%20op
     enid&redirect_uri=<APPLICATION_REDIRECT_URI>&state=YWlzcDozMTQ2&request=<REQUEST_OBJECT>&prompt=login&nonce=<REQUEST_OBJECT_NONCE>
     ```
 
 3. Upon successful authentication, the user is redirected to the consent authorize page. Use the login credentials of a 
-user that has a `subscriber` role. 
+    user that has a `subscriber` role. 
 
 4. The page displays the data requested by the consent such as permissions, transaction period, and expiration date. ![select accounts](../assets/img/get-started/quick-start-guide/consent-page-select-accounts.png)  
 
@@ -443,31 +493,35 @@ user that has a `subscriber` role.
     https://wso2.com/#code=5591c5a0-14d0-3ca9-bec2-c1efe86e32ce&id_token=eyJ4NXQiOiJOVGRtWmpNNFpEazNOalkwWXpjNU1tWm1PRGd3TVRFM01XWXdOREU1TVdSbFpEZzROemM0WkEiLCJraWQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZ19SUzI1NiIsImFsZyI6IlJTMjU2In0.eyJhdF9oYXNoIjoiWC14OFhwV2I3cGIyYnU2NHVLYktTUSIsInN1YiI6ImFkbWluQHdzbzIuY29tQGNhcmJvbi5zdXBlciIsImFtciI6WyJCYXNpY0F1dGhlbnRpY2F0b3IiXSwiaXNzIjoiaHR0cHM6XC9cL2xvY2FsaG9zdDo5NDQ2XC9vYXV0aDJcL3Rva2VuIiwibm9uY2UiOiJuLTBTNl9XekEyTSIsInNpZCI6ImM5MDViNmFhLTBiNWEtNGM4Ni04NWYzLTk0MTI5YWRlMTVjNiIsImF1ZCI6IllEY0c0ZjQ5RzEza1dmVnNucWRoejhnYmEyd2EiLCJjX2hhc2giOiJ5Y3lhNHBBN2ZfSW9uQzlpaWl1TnZ3Iiwib3BlbmJhbmtpbmdfaW50ZW50X2lkIjoiNjFmOWEzNTctNDE2MC00OGE2LTg0NWMtYzM3ZjEwN2ZlNjQ4Iiwic19oYXNoIjoiMWNIaVdBMVN2NmpKc0t6SDRFbnk1QT09XHJcbiIsImF6cCI6IllEY0c0ZjQ5RzEza1dmVnNucWRoejhnYmEyd2EiLCJleHAiOjE2Mjg3NTMxODIsImlhdCI6MTYyODc0OTU4Mn0.mGgNWc12T8a5pW6QQRF6RXoVci0ToHLCttLiCGY6KraHMzGmRFUm6jz6Clbxk_447DdoKONAqY_2uCQCRkudjMk_7sTCV-DxOIbFYctrTiU01CvjKLbNcr8tjHaaIp8rhft1K0q3h0kVxyRoo3A1WQDBJFpp2jWqqJMyjShzEf6bbojtpBw2kyAazInhnm4XFSYchGPDF7XP-vRwCHNG532dg0kXvUrdA9B7RQGnQlay296rN1pRN-GTnC6_io_anf6a5Q3ovuaxcODnbb540hnjty3scPISj38La21iQTWEBTGlBUPnXs10pXjzCmib5wng37rXV8PDslbMfRqMhg&state=YWlzcDozMTQ2&session_state=507a0e617fe39feae18795b746c09fc44dd7e8658348a6c1ce2e91778224a5a4.IFBUQh0silRELhJocuhouw
     ```
 
-   The authorization code from the below URL is in the code parameter (code=`5591c5a0-14d0-3ca9-bec2-c1efe86e32ce`).
-   
-### Generating user access token   
+The authorization code from the below URL is in the code parameter (code=`5591c5a0-14d0-3ca9-bec2-c1efe86e32ce`).
+
+### Generating user access token
 
 In this section, you will be generating an access token using the authorization code generated in the section [above](#authorizing-a-consent).
 
 1. Generate the client assertion by signing the following JSON payload using supported algorithms. 
 
-    !!! note
-        If you have configured the [OB certificates](https://openbanking.atlassian.net/wiki/spaces/DZ/pages/252018873/OB+Root+and+Issuing+Certificates+for+Sandbox),
-     
-        - Use the [transport private key](../../assets/attachments/transport-certs/obtransport.key) and
-          [transport public certificate](../../assets/attachments/transport-certs/obtransport.pem) for Transport layer security testing purposes.
+    :::note
+    If you have configured the [OB certificates](https://openbanking.atlassian.net/wiki/spaces/DZ/pages/252018873/OB+Root+and+Issuing+Certificates+for+Sandbox),
 
-        - Use the [signing certificate](../../assets/attachments/signing-certs/obsigning.pem) and
-          [signing private keys](../../assets/attachments/signing-certs/obsigning.key) for signing purposes.
+    - Use the [transport private key](pathname:///assets/attachments/transport-certs/obtransport.key) and
+        [transport public certificate](pathname:///assets/attachments/transport-certs/obtransport.pem) for Transport layer security testing purposes.
 
-    ``` tab="Format"
+    - Use the [signing certificate](pathname:///assets/attachments/signing-certs/obsigning.pem) and
+        [signing private keys](pathname:///assets/attachments/signing-certs/obsigning.key) for signing purposes.
+    :::
+
+    <Tabs>
+    <TabItem value="format" label="Format">
+
+    ```
     Format:
     {
     "alg": "<The algorithm used for signing.>",
     "kid": "<The thumbprint of the certificate.>",
     "typ": "JWT"
     }
-     
+
     {
     "iss": "<This is the issuer of the token. For example, client ID of your application>",
     "sub": "<This is the subject identifier of the issuer. For example, client ID of your application>",
@@ -476,16 +530,22 @@ In this section, you will be generating an access token using the authorization 
     "jti": "<This is an incremental unique value>",
     "aud": "<This is the audience that the ID token is intended for. For example, https://<IS_HOST>:9446/oauth2/token>"
     }
-     
+
     <signature: For DCR, the client assertion is signed by the private key of the signing certificate. Otherwise, the private signature of the application certificate is used.>
     ```
-    
-    ``` tab="Sample"
+
+    </TabItem>
+    <TabItem value="sample" label="Sample">
+
+    ```
     eyJraWQiOiIyTUk5WFNLaTZkZHhDYldnMnJoRE50VWx4SmMiLCJhbGciOiJQUzI1NiJ9.eyJzdWIiOiJZRGNHNGY0OUcxM2tXZlZzbnFkaHo4Z2JhMndhIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6OTQ0Ni9vYXV0aDIvdG9rZW4iLCJpc3MiOiJZRGNHNGY0OUcxM2tXZlZzbnFkaHo4Z2JhMndhIiwiZXhwIjoxNjI4Nzc0ODU1LCJpYXQiOjE2Mjg3NDQ4NTUsImp0aSI6IjE2Mjg3NDQ4NTUxOTQifQ.PkKRSDtkCyXabzLgGwAoy5C3jSORVU8X8sGDVrKpetPnjbCNx2wPlH-PzWUU1n05gdC7lDmoU21nsKLF_nE3iC-9hKEy4YsvJ7PFjNBPMOMUYDhRh9PCkPnec6f042zonb_ZifBq8r1aScUDoZ1L0hq7yjfZubwReFCWbESQ8PauuBuHRl7__kWvglthfgruQ7TTiIWiM60LWYct5TQWSF1IDcYGy03l-9OV5l260JBHPT4heLXzUQTarsh0PoWpv09xYLu8uGCexEt-HtRH8qwJGiFi5PiCA09_KyWVqbrcdjBloCmD5Kiqa1X0AnEbf9kKs0fqvcl7NN5-yVQUjg
     ```
 
+    </TabItem>
+    </Tabs>
+
 2. Run the following cURL command in a command prompt to generate the access token. Update the placeholders with relevant values.
-    
+
     ```
     curl -X POST \
     https://localhost:9446/oauth2/token \
@@ -497,7 +557,7 @@ In this section, you will be generating an access token using the authorization 
 
 3. Upon successful token generation, you can obtain a token as follows:
 
-    ``` json
+    ```json
     {
         "access_token": "eyJ4NXQiOiJOVGRtWmpNNFpEazNOalkwWXpjNU1tWm1PRGd3TVRFM01XWXdOREU1TVdSbFpEZzROemM0WkEiLCJraWQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZ19SUzI1NiIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhZG1pbkB3c28yLmNvbUBjYXJib24uc3VwZXIiLCJhdXQiOiJBUFBMSUNBVElPTl9VU0VSIiwiYXVkIjoiWURjRzRmNDlHMTNrV2ZWc25xZGh6OGdiYTJ3YSIsIm5iZiI6MTYyODc0NjU5MiwiYXpwIjoiWURjRzRmNDlHMTNrV2ZWc25xZGh6OGdiYTJ3YSIsInNjb3BlIjoiYWNjb3VudHMgY29uc2VudF9pZGRjNjRlMjdjLTcxMzktNDQwZS04YjRmLWNkNzBjNjQ5ZTA5NiBvcGVuaWQiLCJpc3MiOiJodHRwczpcL1wvbG9jYWxob3N0Ojk0NDZcL29hdXRoMlwvdG9rZW4iLCJjbmYiOnsieDV0I1MyNTYiOiJ2WW9VWVJTUTdDZ29ZeE5NV1dPekM4dU5mUXJpczRwWFFYMFptaXRSeHpzIn0sImV4cCI6MTYyODc1MDE5MiwiaWF0IjoxNjI4NzQ2NTkyLCJqdGkiOiI3NTA4MmEzYS1iNDllLTRjZjEtYjI4Ni1lMWJiYTYwZTViNTYiLCJjb25zZW50X2lkIjoiZGM2NGUyN2MtNzEzOS00NDBlLThiNGYtY2Q3MGM2NDllMDk2In0.MhNpi0C2vASqrigTE1qGjK_7PY722H4PjzOSwMKcmFo7YgIFIBQdtj2BRJN0y7WAOFYGqh5lUFKMJWrXXtOyo0-6pWheluQfmOMiTyqOzA7WcTZAwYUzeoRmgWtR_LCYNwzm1O7CcNeavLGucLkCmpTW9Xvn3dKkk0XFonzrrCH9QqMrA0iQP6vYgH5wH4rDxcK_6Vk1r0X33sHVM-k4ifbcIzZekUdJIgNQfK1Qosslmvm1LZfEZ1vi63cfkc0IexNW6jJYvvZxdYJVz42EKKIqR_Z_HBs8umamqhUqKAkcv7Q76bNNPpM1iBJK-eDVf8yfIr9243fyictuqhP-2Q",
         "refresh_token": "98dfa00b-a2a4-3ba0-9af2-4fac26f317b3",
@@ -507,7 +567,7 @@ In this section, you will be generating an access token using the authorization 
         "expires_in": 3600
     }
     ```
-   
+
 ### Invoking Accounts and Transaction API
 
 Once the PSU approves the account consent, the AISP is eligible to access the account details of the PSU.
@@ -517,8 +577,11 @@ full list of accounts that the PSU has authorised the AISP to access. The Accoun
 other resources for a specific AccountId.
 
 1. A sample request looks as follows:
-    
-    ``` tab='API v3'
+
+    <Tabs>
+    <TabItem value="api-v3" label="API v3">
+
+    ```
     curl -X GET \
     https://localhost:8243/open-banking/v3.1/aisp/accounts' \
     -H 'x-fapi-financial-id: open-bank' \
@@ -529,7 +592,10 @@ other resources for a specific AccountId.
     --cert <PUBLIC_KEY_FILE_PATH> --key <PRIVATE_KEY_FILE_PATH> \
     ```
 
-    ``` tab='API v4'
+    </TabItem>
+    <TabItem value="api-v4" label="API v4">
+
+    ```
     curl -X GET \
     https://localhost:8243/open-banking/v4.0/aisp/accounts' \
     -H 'x-fapi-financial-id: open-bank' \
@@ -540,72 +606,84 @@ other resources for a specific AccountId.
     --cert <PUBLIC_KEY_FILE_PATH> --key <PRIVATE_KEY_FILE_PATH> \
     ```
 
-   2. The request retrieves the account information for all the accounts related to the PSU. Given below is a sample response:
-    
-       ``` tab='API v3'
-       {
-          "Data":{
-             "Account":[
-                {
-                   "AccountId":"30080012343456",
-                   "Status":"Enabled",
-                   "StatusUpdateDateTime":"2020-04-16T06:06:06+00:00",
-                   "Currency":"GBP",
-                   "AccountType":"Personal",
-                   "AccountSubType":"CurrentAccount",
-                   "Nickname":"Bills",
-                   "OpeningDate":"2020-01-16T06:06:06+00:00",
-                   "MaturityDate":"2025-04-16T06:06:06+00:00",
-                   "Account":[
-                      {
-                         "SchemeName":"SortCodeAccountNumber",
-                         "Identification":"30080012343456",
-                         "Name":"Alex Karter",
-                         "SecondaryIdentification":"00021"
-                      }
-                   ]
-                }
-             ]
-          },
-          "Links":{
-             "Self":"https://api.alphabank.com/open-banking/v3.0/accounts"
-          },
-          "Meta":{
-             "TotalPages":1
-          }
-       }
-       ```
+    </TabItem>
+    </Tabs>
 
-       ``` tab='API v4'
-       {
-          "Data":{
-             "Account":[
-                {
-                   "AccountId": "30080012343456",
-                   "Status": "Enabled",
-                   "StatusUpdateDateTime": "2020-04-16T06:06:06+00:00",
-                   "Currency": "GBP",
-                   "AccountCategory": "Personal",
-                   "AccountTypeCode": "CACC",
-                   "Nickname": "Bills",
-                   "OpeningDate": "2020-01-16T06:06:06+00:00",
-                   "MaturityDate": "2025-04-16T06:06:06+00:00",
-                   "Account": [
-                       {
-                           "SchemeName": "CLAV",
-                           "Identification": "30080012343456",
-                           "Name": "Mr Kevin",
-                           "SecondaryIdentification": "00021"
-                       }
-                   ]
-                }
-             ]
-          },
-          "Links":{
-             "Self":"https://api.alphabank.com/open-banking/v3.0/accounts"
-          },
-          "Meta":{
-             "TotalPages":1
-          }
+    2. The request retrieves the account information for all the accounts related to the PSU. Given below is a sample response:
+
+    <Tabs>
+    <TabItem value="api-v3" label="API v3">
+
+    ```
+    {
+       "Data":{
+          "Account":[
+             {
+                "AccountId":"30080012343456",
+                "Status":"Enabled",
+                "StatusUpdateDateTime":"2020-04-16T06:06:06+00:00",
+                "Currency":"GBP",
+                "AccountType":"Personal",
+                "AccountSubType":"CurrentAccount",
+                "Nickname":"Bills",
+                "OpeningDate":"2020-01-16T06:06:06+00:00",
+                "MaturityDate":"2025-04-16T06:06:06+00:00",
+                "Account":[
+                   {
+                      "SchemeName":"SortCodeAccountNumber",
+                      "Identification":"30080012343456",
+                      "Name":"Alex Karter",
+                      "SecondaryIdentification":"00021"
+                   }
+                ]
+             }
+          ]
+       },
+       "Links":{
+          "Self":"https://api.alphabank.com/open-banking/v3.0/accounts"
+       },
+       "Meta":{
+          "TotalPages":1
        }
-       ```
+    }
+    ```
+
+    </TabItem>
+    <TabItem value="api-v4" label="API v4">
+
+    ```
+    {
+       "Data":{
+          "Account":[
+             {
+                "AccountId": "30080012343456",
+                "Status": "Enabled",
+                "StatusUpdateDateTime": "2020-04-16T06:06:06+00:00",
+                "Currency": "GBP",
+                "AccountCategory": "Personal",
+                "AccountTypeCode": "CACC",
+                "Nickname": "Bills",
+                "OpeningDate": "2020-01-16T06:06:06+00:00",
+                "MaturityDate": "2025-04-16T06:06:06+00:00",
+                "Account": [
+                    {
+                        "SchemeName": "CLAV",
+                        "Identification": "30080012343456",
+                        "Name": "Mr Kevin",
+                        "SecondaryIdentification": "00021"
+                    }
+                ]
+             }
+          ]
+       },
+       "Links":{
+          "Self":"https://api.alphabank.com/open-banking/v3.0/accounts"
+       },
+       "Meta":{
+          "TotalPages":1
+       }
+    }
+    ```
+
+    </TabItem>
+    </Tabs>

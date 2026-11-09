@@ -1,3 +1,6 @@
+---
+title: "Open Banking"
+---
 ## What is Open Banking?
 
 Open banking is a concept that enables banks, customers, and third parties to use and benefit more from the vast silos 
@@ -42,31 +45,31 @@ of them.
 ![before and after open banking](../assets/img/get-started/open-banking/before-after-ob.png)
 
 ## Stakeholders in Open Banking
-   
+
 The open banking ecosystem comprises 4 main stakeholders.
-   
-   * **Payment Services User (PSU)** - A natural or legal person making use of a payment service as a payee, payer or 
-   both. A PSU grants access to the Third Party Provider applications to retrieve account information or initiate 
-   payments on their behalf. With open banking in the picture, the owner can use a single application to manage the 
-   accounts and initiate a payment on behalf of them. The PSUs have more control over their data as they can 
-   manage and revoke the TPP applications’ access to the financial information.
-   
-   * **Third Party Provider (TPP)** - TPPs are organisations or natural persons that use APIs developed 
-   to Standards to access PSU’s accounts, in order to provide account information services and/or to initiate 
-   payments. Third Party Providers are either/both Payment Initiation Service Providers (PISPs) and/or Account 
-   Information Service Providers (AISPs).
-   
-   * **Account Servicing Payment Service Provider (ASPSP)** -  Provide and maintain a payment account for a payer. This 
-   is an entity such as a bank that provides and maintains a payment account for a PSU. With the PSU's consent, 
-   they share account and transaction data via API endpoints and let TPP applications make payments on behalf of the 
-   PSU. 
-   
-   * **Merchant** - A vendor who accepts online payments in exchange for their products or services. A merchant can 
-   use a single TPP application to accept payments easily from multiple banks. Unless the PSU wants to 
-   make a payment from their bank account, the role of a merchant is not available in all open banking use cases.
-   
- There are other stakeholders such as the government, technology providers, and consultancy service providers that 
- are involved in open banking.
+
+* **Payment Services User (PSU)** - A natural or legal person making use of a payment service as a payee, payer or 
+    both. A PSU grants access to the Third Party Provider applications to retrieve account information or initiate 
+    payments on their behalf. With open banking in the picture, the owner can use a single application to manage the 
+    accounts and initiate a payment on behalf of them. The PSUs have more control over their data as they can 
+    manage and revoke the TPP applications’ access to the financial information.
+
+* **Third Party Provider (TPP)** - TPPs are organisations or natural persons that use APIs developed 
+    to Standards to access PSU’s accounts, in order to provide account information services and/or to initiate 
+    payments. Third Party Providers are either/both Payment Initiation Service Providers (PISPs) and/or Account 
+    Information Service Providers (AISPs).
+
+* **Account Servicing Payment Service Provider (ASPSP)** -  Provide and maintain a payment account for a payer. This 
+    is an entity such as a bank that provides and maintains a payment account for a PSU. With the PSU's consent, 
+    they share account and transaction data via API endpoints and let TPP applications make payments on behalf of the 
+    PSU. 
+
+* **Merchant** - A vendor who accepts online payments in exchange for their products or services. A merchant can 
+    use a single TPP application to accept payments easily from multiple banks. Unless the PSU wants to 
+    make a payment from their bank account, the role of a merchant is not available in all open banking use cases.
+
+There are other stakeholders such as the government, technology providers, and consultancy service providers that 
+are involved in open banking.
 
 ## Customer Stories and Use Cases
 WSO2 Open Banking delivers comprehensive technology and strategic consultancy to help you execute 

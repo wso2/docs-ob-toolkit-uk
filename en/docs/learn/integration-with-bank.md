@@ -1,4 +1,7 @@
-#Integration With Core Banking System
+---
+title: "Integration with Bank"
+---
+# Integration With Core Banking System
 
 WSO2 Open Banking can be easily integrated into your current banking system.
 
@@ -17,22 +20,26 @@ known as **Account-Request-Information**.
 
 The Account-Request-Information header is a signed JWT, which needs to be decoded by the core banking system.
 
-??? tip "Click here to see the fields in the header..."
-    | Field | Description |
-    |-------|-------------|
-    | clientId | The unique ID of the TPP application |
-    | currentStatus | The current status of the consent |
-    | createdTimestamp| The date and time when the consent was created |
-    | recurringIndicator | Specifies if this is a recurring transaction |
-    | authorizationResources | Contains details regarding the consent authorization |
-    | updatedTimestamp | The last date and time the consent was updated | 
-    | validityPeriod | The validity period of the consent in seconds |
-    | consentAttributes| Additional attributes related to the consent |
-    | consentId | The unique ID of the consent that is being authorized |
-    | consentMappingResources | The details of the accounts that the consent is bound to
-    | consentType | The type of the consent. For example, accounts, payments |
-    | receipt | Details of the consent, such as expiration time, permissions |
-    | consentFrequency | The maximum number of times per day that access can be granted without the involvement of a consumer |
+<details className="ob-details ob-details--tip">
+<summary>Click here to see the fields in the header...</summary>
+
+| Field | Description |
+|-------|-------------|
+| clientId | The unique ID of the TPP application |
+| currentStatus | The current status of the consent |
+| createdTimestamp| The date and time when the consent was created |
+| recurringIndicator | Specifies if this is a recurring transaction |
+| authorizationResources | Contains details regarding the consent authorization |
+| updatedTimestamp | The last date and time the consent was updated |
+| validityPeriod | The validity period of the consent in seconds |
+| consentAttributes| Additional attributes related to the consent |
+| consentId | The unique ID of the consent that is being authorized |
+| consentMappingResources | The details of the accounts that the consent is bound to
+| consentType | The type of the consent. For example, accounts, payments |
+| receipt | Details of the consent, such as expiration time, permissions |
+| consentFrequency | The maximum number of times per day that access can be granted without the involvement of a consumer |
+
+</details>
 
 The core banking system will perform all required validations and build a response. This response needs to adhere to the 
 requirements in the Open Banking Standard.
@@ -51,7 +58,7 @@ In WSO2 Open Banking, integration of accounts flow with the core banking system 
 retrieval requests. 
 
 - The URL of the API endpoints of the core banking system, which corresponds to the account's information retrieval 
-requests, should be configured in the In sequences of the Accounts API. For more information, see [Configuring Sequence files](#configuring-sequence-files).
+    requests, should be configured in the In sequences of the Accounts API. For more information, see [Configuring Sequence files](#configuring-sequence-files).
 
 In the Open Banking Accounts flow, WSO2 Open Banking manages the consent initiation and authorisation. When the TPP 
 makes account information retrieval requests, the WSO2 Open Banking toolkit validates the consent request, and upon 
@@ -168,7 +175,7 @@ A Swagger definition for the back end is available in the following location:
 ```
 
 - The URL of the API endpoints of the core banking system, which corresponds to the payment submission requests, should be 
-configured in the In sequences of the Payments API. For more information, see [Configuring Sequence files](#configuring-sequence-files).
+    configured in the In sequences of the Payments API. For more information, see [Configuring Sequence files](#configuring-sequence-files).
 
 ### Payments Submission
 
@@ -296,7 +303,7 @@ This header is a signed JWT, which needs to be decoded by the core banking syste
 The account ID selected by the Payment Service User (PSU), is sent in the Account-Request-Information header as `AccountIds` 
 and the account ID type as `AccountIdType`.
 
-#### Multiple- Authorisation
+#### Multiple- Authorisation \{#multiple-authorisation\}
 
 An account can have one or more owners. When there are multiple owners, each and every owner has to authorise the 
 account (multiple-authorisation) while if it's a single owner it requires single-authorisation. Let's look at a multiple 
@@ -573,7 +580,7 @@ This header is a signed JWT, which needs to be decoded by the core banking syste
 }
 ```
 
-###Idempotency key
+### Idempotency key
 
 The Idempotency key is used as an identifier to verify a replication of an action. The use cases of the idempotency key are:
 
@@ -596,7 +603,7 @@ In WSO2 Open Banking, integration of the Confirmation of Funds (CoF) consent flo
 the confirmation of funds request.
 
 - The URL of the API endpoints of the core banking system, which corresponds to the funds confirmation requests, should 
-be configured in the In sequences of the Funds Confirmation API. For more information, see [Configuring Sequence files](#configuring-sequence-files).
+    be configured in the In sequences of the Funds Confirmation API. For more information, see [Configuring Sequence files](#configuring-sequence-files).
 
 In the Open Banking funds confirmation consent flow, the WSO2 Open Banking toolkit manages the funds confirmation 
 consent requests and authorisation. When the TPP makes a funds confirmation request (`POST /funds-confirmations`), it is 
@@ -686,10 +693,10 @@ select one of the payable accounts when providing the consent to the payment. If
 the initiation request, this API is used to validate the provided account against actual payable accounts. When invoking this
 API, the `consentId` and `userId` (PSU ID) must be sent in the URL as query parameters.
 
-The back end endpoints for payable and sharable accounts retrieval can be configured in the ` <APIM_HOME>/repository/conf/deployment.toml` file as follows.
+The back end endpoints for payable and sharable accounts retrieval can be configured in the `<APIM_HOME>/repository/conf/deployment.toml` file as follows.
 By default, the mock back end that is deployed in the API Manager is configured in this file.
 
-``` xml
+```xml
 [open_banking_uk.consent]
 payable_account_retrieval_endpoint = "http://<APIM_HOST>:9763/api/openbanking/uk/backend/services/bankaccounts/bankaccountservice/payable-accounts”
 ```
@@ -697,14 +704,14 @@ payable_account_retrieval_endpoint = "http://<APIM_HOST>:9763/api/openbanking/uk
 Required parameters can be passed as query parameters to those endpoints. Given below is an example of configuring the 
 endpoint to retrieve payable accounts:
 
-``` xml
+```xml
 [open_banking_uk.consent]
 sharable_account_retrieval_endpoint = "http://<APIM_HOST>:9763/api/openbanking/uk/backend/services/bankaccounts/bankaccountservice/payable-accounts/{userId}"
 ```
 
 The response from the API should be formatted as follows:
 
-``` json
+```json
 {
    "data":[
       {
@@ -747,18 +754,18 @@ The Shareable Accounts API is used in the AISP flow to retrieve the account IDs 
 The account IDs are then displayed on the consent page.
 
 - In a bank offered consent scenario, the Shareable Accounts API retrieves all available accounts for the user and
-  displays them on the consent page for the user to select accounts.
+    displays them on the consent page for the user to select accounts.
 - In a scenario where account IDs are already provided in the consent, the Shareable Accounts API checks whether the
-  accounts in the consent are available in the bank backend.
+    accounts in the consent are available in the bank backend.
 
 When invoking this API, the `consentId` and `userId` (PSU ID) parameters are required to be sent in the URL as query 
 parameters.
 
 The back-end endpoint for shareable accounts retrieval can be configured in 
-the ` <APIM_HOME>/repository/conf/deployment.toml` file as follows.
+the `<APIM_HOME>/repository/conf/deployment.toml` file as follows.
 By default, this is connected to the mock back end in the API Manager server.
 
-``` xml
+```xml
 [open_banking_uk.consent]
 sharable_account_retrieval_endpoint = "http://<APIM_HOST>:9763/api/openbanking/uk/backend/services/bankaccounts/bankaccountservice/sharable-accounts"
 ```
@@ -766,14 +773,14 @@ sharable_account_retrieval_endpoint = "http://<APIM_HOST>:9763/api/openbanking/u
 Required parameters can be passed as query parameters to those endpoints. Given below is an example of configuring the 
 endpoint to retrieve sharable accounts: 
 
-``` xml
+```xml
 [open_banking_uk.consent]
 sharable_account_retrieval_endpoint = "http://<APIM_HOST>:9763/api/openbanking/uk/backend/services/bankaccounts/bankaccountservice/sharable-accounts/{userId}"
 ```
 
 The response from the API should be formatted as follows:
 
-``` json
+```json
 {
    "data":[
       {
@@ -883,8 +890,12 @@ The core banking system can extract the API version from this header and respond
 
 Note: Above mentioned two types of payment requests behave as the Account and CoF requests when applying the release management rules.
 
-!!! note
+:::note
+:::
+
 Account, Payments and Confirmation of Funds APIs v4.0 support is released from the following toolkit versions onwards:
 
-        wso2-obam-toolkit-uk-1.0.0.22
-        wso2-obiam-toolkit-uk-1.0.0.29
+```
+    wso2-obam-toolkit-uk-1.0.0.22
+    wso2-obiam-toolkit-uk-1.0.0.29
+```
