@@ -1,0 +1,135 @@
+{
+    "discoveryModel": {
+      "name": "ob-v3.1-generic",
+      "description": "An Open Banking UK discovery template for v3.1 of Accounts and Payments.",
+      "discoveryVersion": "v0.4.0",
+      "tokenAcquisition": "psu",
+      "discoveryItems": [
+        {
+          "apiSpecification": {
+            "name": "Account and Transaction API Specification",
+            "url": "https://openbankinguk.github.io/read-write-api-site3/v3.1.6/profiles/account-and-transaction-api-profile.html",
+            "version": "v3.1.6",
+            "schemaVersion": "https://raw.githubusercontent.com/OpenBankingUK/read-write-api-specs/v3.1.6/dist/swagger/account-info-swagger.json",
+            "manifest": "file://manifests/ob_3.1_accounts_transactions_fca.json"
+          },
+          "openidConfigurationUri": "https://gist.githubusercontent.com/shadhini/be2479dc78c66f01451b909f4429f9f7/raw/f9cd42c8673aa81a7eeef7d310bb5b4604d8fc70/openid-configuration",
+          "resourceBaseUri": "https://<APIM_HOST>:8243/open-banking/v3.1/aisp",
+          "endpoints": [
+            {
+              "method": "POST",
+              "path": "/account-access-consents"
+            },
+            {
+              "method": "GET",
+              "path": "/account-access-consents/{ConsentId}"
+            },
+            {
+              "method": "DELETE",
+              "path": "/account-access-consents/{ConsentId}"
+            },
+            {
+              "method": "GET",
+              "path": "/accounts"
+            },
+            {
+              "method": "GET",
+              "path": "/accounts/{AccountId}"
+            },
+            {
+              "method": "GET",
+              "path": "/accounts/{AccountId}/balances"
+            },
+            {
+              "method": "GET",
+              "path": "/accounts/{AccountId}/beneficiaries"
+            },
+            {
+              "method": "GET",
+              "path": "/accounts/{AccountId}/direct-debits"
+            },
+            {
+              "method": "GET",
+              "path": "/accounts/{AccountId}/offers"
+            },
+            {
+              "method": "GET",
+              "path": "/accounts/{AccountId}/party"
+            },
+            {
+              "method": "GET",
+              "path": "/accounts/{AccountId}/product"
+            },
+            {
+              "method": "GET",
+              "path": "/accounts/{AccountId}/scheduled-payments"
+            },
+            {
+              "method": "GET",
+              "path": "/accounts/{AccountId}/standing-orders"
+            },
+            {
+              "method": "GET",
+              "path": "/accounts/{AccountId}/statements"
+            },
+            {
+              "method": "GET",
+              "path": "/accounts/{AccountId}/statements/{StatementId}"
+            },
+            {
+              "method": "GET",
+              "path": "/accounts/{AccountId}/statements/{StatementId}/file"
+            },
+            {
+              "method": "GET",
+              "path": "/accounts/{AccountId}/statements/{StatementId}/transactions"
+            },
+            {
+              "method": "GET",
+              "path": "/accounts/{AccountId}/transactions"
+            },
+            {
+              "method": "GET",
+              "path": "/balances"
+            },
+            {
+              "method": "GET",
+              "path": "/beneficiaries"
+            },
+            {
+              "method": "GET",
+              "path": "/direct-debits"
+            },
+            {
+              "method": "GET",
+              "path": "/offers"
+            },
+            {
+              "method": "GET",
+              "path": "/party"
+            },
+            {
+              "method": "GET",
+              "path": "/products"
+            },
+            {
+              "method": "GET",
+              "path": "/scheduled-payments"
+            },
+            {
+              "method": "GET",
+              "path": "/standing-orders"
+            },
+            {
+              "method": "GET",
+              "path": "/statements"
+            },
+            {
+              "method": "GET",
+              "path": "/transactions"
+            }
+          ]
+        }
+      ]
+    }
+  }
