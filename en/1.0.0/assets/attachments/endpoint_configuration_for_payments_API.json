@@ -1,0 +1,159 @@
+{
+    "discoveryModel": {
+      "name": "ob-v3.1-generic",
+      "description": "An Open Banking UK discovery template for v3.1 of Accounts and Payments.",
+      "discoveryVersion": "v0.4.0",
+      "tokenAcquisition": "psu",
+      "discoveryItems": [
+        {
+          "apiSpecification": {
+            "name": "Payment Initiation API",
+            "url": "https://openbankinguk.github.io/read-write-api-site3/v3.1.6/profiles/payment-initiation-api-profile.html",
+            "version": "v3.1.6",
+            "schemaVersion": "https://raw.githubusercontent.com/OpenBankingUK/read-write-api-specs/v3.1.6/dist/swagger/payment-initiation-swagger.json",
+            "manifest": "file://manifests/ob_3.1_payment_fca.json"
+          },
+          "openidConfigurationUri": "https://<IS_HOST>:9446/oauth2/token/.well-known/openid-configuration",
+          "resourceBaseUri": "https://<APIM_HOST>:8243/open-banking/v3.1/pisp",
+          "endpoints": [
+            {
+              "method": "POST",
+              "path": "/domestic-payment-consents"
+            },
+            {
+              "method": "GET",
+              "path": "/domestic-payment-consents/{ConsentId}"
+            },
+            {
+              "method": "GET",
+              "path": "/domestic-payment-consents/{ConsentId}/funds-confirmation"
+            },
+            {
+              "method": "POST",
+              "path": "/domestic-payments"
+            },
+            {
+              "method": "GET",
+              "path": "/domestic-payments/{DomesticPaymentId}"
+            },
+            {
+              "method": "POST",
+              "path": "/domestic-scheduled-payment-consents"
+            },
+            {
+              "method": "GET",
+              "path": "/domestic-scheduled-payment-consents/{ConsentId}"
+            },
+            {
+              "method": "POST",
+              "path": "/domestic-scheduled-payments"
+            },
+            {
+              "method": "GET",
+              "path": "/domestic-scheduled-payments/{DomesticScheduledPaymentId}"
+            },
+            {
+              "method": "POST",
+              "path": "/domestic-standing-order-consents"
+            },
+            {
+              "method": "GET",
+              "path": "/domestic-standing-order-consents/{ConsentId}"
+            },
+            {
+              "method": "POST",
+              "path": "/domestic-standing-orders"
+            },
+            {
+              "method": "GET",
+              "path": "/domestic-standing-orders/{DomesticStandingOrderId}"
+            },
+            {
+              "method": "POST",
+              "path": "/international-payment-consents"
+            },
+            {
+              "method": "GET",
+              "path": "/international-payment-consents/{ConsentId}"
+            },
+            {
+              "method": "GET",
+              "path": "/international-payment-consents/{ConsentId}/funds-confirmation"
+            },
+            {
+              "method": "POST",
+              "path": "/international-payments"
+            },
+            {
+              "method": "GET",
+              "path": "/international-payments/{InternationalPaymentId}"
+            },
+            {
+              "method": "POST",
+              "path": "/international-scheduled-payment-consents"
+            },
+            {
+              "method": "GET",
+              "path": "/international-scheduled-payment-consents/{ConsentId}"
+            },
+            {
+              "method": "GET",
+              "path": "/international-scheduled-payment-consents/{ConsentId}/funds-confirmation"
+            },
+            {
+              "method": "POST",
+              "path": "/international-scheduled-payments"
+            },
+            {
+              "method": "GET",
+              "path": "/international-scheduled-payments/{InternationalScheduledPaymentId}"
+            },
+            {
+              "method": "POST",
+              "path": "/international-standing-order-consents"
+            },
+            {
+              "method": "GET",
+              "path": "/international-standing-order-consents/{ConsentId}"
+            },
+            {
+              "method": "POST",
+              "path": "/international-standing-orders"
+            },
+            {
+              "method": "GET",
+              "path": "/international-standing-orders/{InternationalStandingOrderPaymentId}"
+            },
+            {
+              "method": "POST",
+              "path": "/file-payment-consents"
+            },
+            {
+              "method": "GET",
+              "path": "/file-payment-consents/{ConsentId}"
+            },
+            {
+              "method": "POST",
+              "path": "/file-payment-consents/{ConsentId}/file"
+            },
+            {
+              "method": "GET",
+              "path": "/file-payment-consents/{ConsentId}/file"
+            },
+            {
+              "method": "POST",
+              "path": "/file-payments"
+            },
+            {
+              "method": "GET",
+              "path": "/file-payments/{FilePaymentId}"
+            },
+            {
+              "method": "GET",
+              "path": "/file-payments/{FilePaymentId}/report-file"
+            }
+          ]
+        }
+      ]
+    }
+  }

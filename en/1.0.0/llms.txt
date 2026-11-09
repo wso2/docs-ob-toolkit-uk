@@ -1,0 +1,60 @@
+# WSO2 Open Banking UK Toolkit Documentation
+
+
+## en
+
+- [Search the documentation](/search.md): Documentation for WSO2 Open Banking UK Toolkit
+- [Functional Conformance Suite](/conformance/functional-conformance-suite.md): {/ [comment]:  (!!!info) /}
+- [Security conformance suite](/conformance/security-conformance-suite.md): {/ [comment]:  (!!!info) /}
+- [About this Release](/get-started/about-this-release.md): WSO2 Open Banking UK Toolkit 1.0 provides the technology requirements that banks need to digitally transform and become
+- [Configure SMS OTP Authenticator](/get-started/configure-sms-otp-authenticator.md): This document provides step by step instructions to set up SMS OTP configurations.
+- [Configure Users and Roles](/get-started/configure-users-and-roles.md): Now you have started the servers, let’s create the users and define their permissions and  roles.
+- [Data Publishing](/get-started/data-publishing-try-out.md): Set up WSO2 Open Banking Business Intelligence Accelerator and WSO2 Open Banking Business Intelligence UK Toolkit
+- [Dynamic Client Registration](/get-started/dynamic-client-registration.md): This page explains how to onboard TPP applications using the Dynamic Client Registration API.
+- [Open Banking Requirements](/get-started/open-banking-requirements.md): When you implement an open banking architecture, it is not entirely about securely exposing banking APIs to
+- [Open Banking](/get-started/open-banking.md): What is Open Banking?
+- [Get Started](/get-started/quick-start-guide.md): WSO2 Open Banking UK Toolkit contains the customizations done on top of WSO2  Open Banking Accelerator to comply with
+- [Regulations and Standards](/get-started/regulations-and-standards.md): Regulations and specifications are enforced by the authorities to standardise the open banking requirements and
+- [Set up Toolkits](/get-started/set-up-toolkits.md): This section guides you to set up and prepare your servers to run WSO2 Open Banking UK Toolkit.
+- [Tryout Flow](/get-started/try-out-flow.md): This document provides step by step instructions to deploy, subscribe, and invoke the Account and Transaction API.
+- [WSO2 Open Banking UK Toolkit](/get-started/wso2-open-banking-uk-toolkit.md): WSO2 Open Banking UK Toolkit is based on the WSO2 Open Banking Accelerator. The toolkit is a purpose-built solution for
+- [Configuring API Manager](/install-and-setup/configuring-api-manager-for-ob.md): WSO2 Open Banking UK Toolkit contains TOML-based configurations. All the server-level configurations of the
+- [Configuring Identity Server](/install-and-setup/configuring-identity-server-for-ob.md): WSO2 Open Banking UK Toolkit contains TOML-based configurations. All the server-level configurations of the Identity
+- [Configuring SMS OTP Authenticator](/install-and-setup/configuring-sms-otp-authenticator.md): This document provides step by step instructions to set up SMS OTP configurations.
+- [Configuring Users and Roles](/install-and-setup/configuring-users-and-roles.md): Now you have started the servers, let’s create the users and define their permissions and  roles.
+- [Prerequisites](/install-and-setup/prerequisites.md): WSO2 Open Banking UK Toolkit is a purpose-built solution for regulatory compliance that supports PSD2. Instead of
+- [Setting up databases](/install-and-setup/setting-up-databases.md): Once you have successfully prepared the environment for the deployment, you can configure the databases.
+- [Setting up servers](/install-and-setup/setting-up-servers.md): This section guides you to set up and prepare the servers to run WSO2 Open Banking UK Toolkit.
+- [Upgrading the solution](/install-and-setup/upgrading-the-solution.md): This document walks you through the process of upgrading your WSO2 Open Banking 2.0 setup to WSO2 Open Banking 3.0 (Accelerator Model).
+- [Account and Transaction API](/learn/account-and-transaction-api.md): Some content in this documentation is subject to the MIT Open Licence.
+- [Configuration](/learn/api-security-configuration.md): Configuring MTLS Enforcement Executor
+- [API Security](/learn/api-security.md): Open Banking allows TPPs to access financial data through open APIs, which requires greater API security. Therefore,
+- [Introduction](/learn/api-specifications.md): The following API specifications are part of the Open Banking Implementation Entity (OBIE) standard and are used to retrieve
+- [App-to-App Redirection](/learn/app-to-app-redirection.md): Based on user redirection, Strong Customer Authentication (SCA) can happen in two different
+- [Confirmation of Funds API](/learn/confirmation-of-funds-api.md): Some content in this documentation is subject to the MIT Open Licence.
+- [Consent Authorization](/learn/consent-authorization-intro.md): During the consent authorization process, the banks redirect customers to provide consent for TPPs to access
+- [Consent Management](/learn/consent-management.md): Open banking is a concept that lets third-party financial service providers access customer’s financial data and
+- [Consent Manager](/learn/consent-manager.md): After a certain period, bank customers may need to view, update, or revoke consents they have granted to API consumer
+- [Copyright and Licence](/learn/copyright-and-licence.md): Some content in this documentation (particularly the pages listed below) may overlap with, or be a modification of content
+- [Configuration](/learn/data-publishing-configuration.md): Follow the steps below to enable Data Reporting:
+- [Generating reports using summarized data](/learn/data-publishing-reports.md): Using the OBREPORTINGSUMMARIZEDDB datasource (openbankobreportingsummarizeddb database) you can generate the
+- [Data Publishing](/learn/data-publishing.md): The Data Publishing feature gathers and monitors data in regard to the APIs invoked through WSO2 Open Banking.
+- [Configuration](/learn/dynamic-client-registration-configuration.md): Configuring DCR in WSO2 Identity Server
+- [Dynamic Client Registration](/learn/dynamic-client-registration.md): The Dynamic Client Registration (DCR) API provides a mechanism to dynamically register OAuth 2.0 clients with
+- [Event Notification](/learn/event-notification-api.md): The Event Notification API Profile describes the flows and common functionality to allow a TPP to receive event notifications.
+- [Configuring Event Notification](/learn/event-notification-configuration.md): Follow the steps to set up the Event Notifications Aggregated Polling API for Open Banking for UK:
+- [Integration With Core Banking System](/learn/integration-with-bank.md): WSO2 Open Banking can be easily integrated into your current banking system.
+- [Payment Initiation API](/learn/payment-initiation-api.md): Some content in this documentation is subject to the MIT Open Licence.
+- [Strong Customer Authentication](/learn/strong-customer-authentication.md): Strong Customer Authentication is a mechanism used to authenticate a user that initiates a payment or accesses banking
+- [Token Authentication](/learn/token-authentication.md): When a TPP registers an application, a consumer-key and a consumer-secret is given for that application.
+- [Configuration](/learn/variable-recurring-payments-configuration.md): Configuring VRP in WSO2 API Manager
+- [Variable Recurring Payments](/learn/variable-recurring-payments.md): Variable Recurring Payments (VRP) are a type of payment instruction that can be set up and used to make a series of
+- [WSO2 Open Banking UK Toolkit Documentation](/page-not-found.md): {/*
+- [Account and transaction flow](/try-out/account-and-transaction-flow.md): This document provides step by step instructions to deploy, subscribe, and invoke the Account and Transaction API.
+- [Confirmation of Funds flow](/try-out/confirmation-of-funds-flow.md): This document provides step by step instructions to deploy, subscribe, and invoke the Confirmation of Funds API.
+- [Consent Manager](/try-out/consent-manager.md): After a certain period, bank customers/PSUs may need to view, update, or revoke consents they have granted to TPP
+- [TPP Onboarding](/try-out/dynamic-client-registration-flow.md): This page explains how to onboard TPP applications using the Dynamic Client Registration API.
+- [Event Notification API](/try-out/event-notification-api.md): There are two APIs that WSO2 Open Banking UK Toolkit supports under the Event Notification API:
+- [Payment Initiation flow](/try-out/payment-initiation-flow.md): This document provides step by step instructions to deploy, subscribe, and invoke the Payment Initiation API.
+- [Variable Recurring Payments flow](/try-out/variable-recurring-payments-flow.md): This document provides step by step instructions to deploy, subscribe, and invoke the Variable Recurring Payments (VRP) API.
+- [Welcome to the WSO2 Open Banking UK Toolkit Documentation!](/index.md): Welcome to the WSO2 Open Banking UK Toolkit Documentation!
